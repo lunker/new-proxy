@@ -7,6 +7,8 @@ import gov.nist.javax.sip.message.SIPRequest;
  */
 public interface AbstractSIPHandler {
     void handleRegister(SIPRequest registerRequest);
-    void handleInvite(SIPRequest request);
+    void handleInvite(SIPRequest inviteRequest);
     void handleCancel(SIPRequest request);
+    void handleAck(SIPRequest ackRequest);
+    void handleBye(SIPRequest byeRequest);
 }

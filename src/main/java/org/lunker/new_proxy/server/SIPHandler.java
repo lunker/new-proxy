@@ -7,12 +7,15 @@ import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
 import org.lunker.new_proxy.stub.AbstractSIPHandler;
 import org.lunker.new_proxy.util.AuthUtil;
+import org.lunker.new_proxy.util.Registrar;
+import org.lunker.new_proxy.util.Registration;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import javax.sip.header.Header;
 import javax.sip.header.HeaderFactory;
 import javax.sip.header.WWWAuthenticateHeader;
+import javax.sip.message.MessageFactory;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
@@ -25,6 +28,8 @@ public class SIPHandler extends ChannelInboundHandlerAdapter implements Abstract
     private ChannelHandlerContext ctx=null;
     private javax.sip.SipFactory sipFactory=null;
     private HeaderFactory headerFactory=null;
+    private MessageFactory messageFactory=null;
+    private Registrar registrar=null;
 
     public SIPHandler() {
 
@@ -37,6 +42,8 @@ public class SIPHandler extends ChannelInboundHandlerAdapter implements Abstract
         try{
             this.sipFactory=javax.sip.SipFactory.getInstance();
             this.headerFactory=sipFactory.createHeaderFactory();
+            this.registrar=Registrar.getInstance();
+            this.messageFactory=sipFactory.createMessageFactory();
         }
         catch (Exception e){
             e.printStackTrace();
@@ -54,23 +61,27 @@ public class SIPHandler extends ChannelInboundHandlerAdapter implements Abstract
             String method=((SIPRequest) sipMessage).getMethod();
             if(method.equals(SIPRequest.REGISTER))
                 this.handleRegister((SIPRequest) sipMessage);
+            else if (method.equals(SIPRequest.INVITE))
+                this.handleInvite((SIPRequest) sipMessage);
+            else if(method.equals(SIPRequest.ACK))
+                this.handleAck((SIPRequest) sipMessage);
+            else if(method.equals(SIPRequest.BYE))
+                this.handleBye((SIPRequest) sipMessage);
         }
         else if(sipMessage instanceof SIPResponse){
-
+            handleResponse((SIPResponse) sipMessage);
         }
     }
 
     public void handleResponse(SIPResponse response){
-
         int statusCode=response.getStatusCode();
-
 
         if(statusCode==SIPResponse.UNAUTHORIZED){
             // handle register
 //            String authorization	= request.getHeader(Constants.SH_AUTHORIZATION);
         }
-
     }
+
     public  String getNonce()
     {
         Calendar cal = Calendar.getInstance();
@@ -80,6 +91,7 @@ public class SIPHandler extends ChannelInboundHandlerAdapter implements Abstract
         String nonce = encryptString(formatter.format(currentTime));
         return nonce;
     }
+
     public  String encryptString(String param)
     {
         StringBuffer md5 = new StringBuffer();
@@ -125,7 +137,6 @@ public class SIPHandler extends ChannelInboundHandlerAdapter implements Abstract
             catch (Exception e) {
                 e.printStackTrace();
             }
-
         }
         else{
             // do auth
@@ -137,6 +148,18 @@ public class SIPHandler extends ChannelInboundHandlerAdapter implements Abstract
                 // Auth success
                 logger.warn("REGISTER Success");
                 sipResponse=registerRequest.createResponse(SIPResponse.OK);
+
+                String aor="";
+                String account="";
+                String domain="";
+
+                aor=registerRequest.getFrom().getAddress().getURI().toString().split(":")[1];
+                account=aor.split("@")[0];
+                domain=aor.split("@")[1];
+
+                // store registration info
+                Registration registration=new Registration(this.ctx, aor,"","");
+                registrar.register(aor, registration);
             }
             else{
                 logger.warn("REGISTER Fail");
@@ -148,12 +171,31 @@ public class SIPHandler extends ChannelInboundHandlerAdapter implements Abstract
     }
 
     @Override
-    public void handleInvite(SIPRequest request) {
+    public void handleInvite(SIPRequest inviteRequest) {
+        logger.info("handleInvite");
+        SIPResponse sipResponse=inviteRequest.createResponse(SIPResponse.OK);
+        String toAor="";
 
+        toAor=sipResponse.getTo().getAddress().getURI().toString().split(":")[1];
+
+        Registration registration=registrar.get(toAor);
+
+        this.ctx.fireChannelRead(sipResponse.toString());
+        registration.getCtx().fireChannelRead(inviteRequest.toString());
     }
 
     @Override
     public void handleCancel(SIPRequest request) {
+
+    }
+
+    @Override
+    public void handleAck(SIPRequest ackRequest) {
+
+    }
+
+    @Override
+    public void handleBye(SIPRequest byeRequest) {
 
     }
 }

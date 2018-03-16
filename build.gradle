@@ -39,7 +39,7 @@ dependencies {
     // https://mvnrepository.com/artifact/org.mobicents.servlet.sip/sip-servlets-impl
 //    provided group: 'org.mobicents.servlet.sip', name: 'sip-servlets-impl', version: '4.0.128'
     // https://mvnrepository.com/artifact/org.mobicents.servlet.sip/sip-servlets-spec
-    compile group: 'org.mobicents.servlet.sip', name: 'sip-servlets-spec', version: '4.0.128'
+//    compile group: 'org.mobicents.servlet.sip', name: 'sip-servlets-spec', version: '4.0.128'
 //    compileOnly ('org.mobicents.servlet.sip:sip-servlets-impl:4.0.128'){
 //        exclude group: 'org.restcomm.commons', module :'restcomm-statistics'
 //    }
