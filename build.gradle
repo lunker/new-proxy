@@ -1,0 +1,46 @@
+group 'org.lunker'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'java'
+apply plugin: 'idea'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+ext{
+    akkaVersion="2.5.5"
+    slf4jVersion = '1.7.21'
+    log4j2Version = '2.5'
+    commonsLogging = '1.2'
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+    // https://mvnrepository.com/artifact/io.netty/netty-all
+    compile group: 'io.netty', name: 'netty-all', version: '4.1.22.Final'
+
+    // SLF4J-Log4j2
+    compile("commons-logging:commons-logging:${commonsLogging}")
+    compile("org.slf4j:slf4j-api:${slf4jVersion}")
+    compile("org.apache.logging.log4j:log4j-api:${log4j2Version}")
+    compile("org.apache.logging.log4j:log4j-core:${log4j2Version}")
+    compile("org.apache.logging.log4j:log4j-slf4j-impl:${log4j2Version}")
+
+
+
+    // https://mvnrepository.com/artifact/javax.servlet/javax.servlet-api
+    compile group: 'javax.servlet', name: 'javax.servlet-api', version: '4.0.0'
+    // https://mvnrepository.com/artifact/javax.sip/jain-sip-ri
+    compile group: 'javax.sip', name: 'jain-sip-ri', version: '1.3.0-32'
+
+    // https://mvnrepository.com/artifact/org.mobicents.servlet.sip/sip-servlets-impl
+//    provided group: 'org.mobicents.servlet.sip', name: 'sip-servlets-impl', version: '4.0.128'
+    // https://mvnrepository.com/artifact/org.mobicents.servlet.sip/sip-servlets-spec
+    compile group: 'org.mobicents.servlet.sip', name: 'sip-servlets-spec', version: '4.0.128'
+//    compileOnly ('org.mobicents.servlet.sip:sip-servlets-impl:4.0.128'){
+//        exclude group: 'org.restcomm.commons', module :'restcomm-statistics'
+//    }
+}

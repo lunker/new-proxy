@@ -1,0 +1,1544 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="f60861d7-cb54-45b9-a59e-c7cf232f4985" name="Default" comment="" />
+    <ignored path="$PROJECT_DIR$/out/" />
+    <ignored path="$PROJECT_DIR$/.gradle/" />
+    <ignored path="$PROJECT_DIR$/build/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <projects_view>
+          <tree_state>
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="new-proxy" type="f1a62948:ProjectNode" />
+              </path>
+            </expand>
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
+      <file leaf-file-name="ProxyChannelInitializer.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/org/lunker/new_proxy/jetty/ProxyChannelInitializer.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="360">
+              <caret line="20" column="54" lean-forward="true" selection-start-line="20" selection-start-column="54" selection-end-line="20" selection-end-column="54" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SIPHandler.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/org/lunker/new_proxy/server/SIPHandler.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="273">
+              <caret line="128" column="9" lean-forward="true" selection-start-line="128" selection-start-column="9" selection-end-line="128" selection-end-column="9" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AbstractChannelHandlerContext.java" pinned="false" current-in-tab="false">
+        <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.netty/netty-all/4.1.22.Final/72fef948d3371bb536c22cac960d94036109f799/netty-all-4.1.22.Final-sources.jar!/io/netty/channel/AbstractChannelHandlerContext.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="136">
+              <caret line="359" column="0" lean-forward="false" selection-start-line="359" selection-start-column="0" selection-end-line="359" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SIPMessage.java" pinned="false" current-in-tab="false">
+        <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/javax.sip/jain-sip-ri/1.3.0-32/a6fc09ddb3556befa22bb8886dcf965fd36da5f9/jain-sip-ri-1.3.0-32-sources.jar!/gov/nist/javax/sip/message/SIPMessage.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="213">
+              <caret line="987" column="7" lean-forward="true" selection-start-line="987" selection-start-column="7" selection-end-line="987" selection-end-column="7" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AuthUtil.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/org/lunker/new_proxy/util/AuthUtil.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="3834">
+              <caret line="222" column="39" lean-forward="false" selection-start-line="222" selection-start-column="39" selection-end-line="222" selection-end-column="39" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TCPHandler.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/org/lunker/new_proxy/server/TCPHandler.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="252">
+              <caret line="14" column="60" lean-forward="false" selection-start-line="14" selection-start-column="32" selection-end-line="14" selection-end-column="60" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Authorization.java" pinned="false" current-in-tab="false">
+        <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/javax.sip/jain-sip-ri/1.3.0-32/a6fc09ddb3556befa22bb8886dcf965fd36da5f9/jain-sip-ri-1.3.0-32-sources.jar!/gov/nist/javax/sip/header/Authorization.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="126">
+              <caret line="36" column="2" lean-forward="true" selection-start-line="36" selection-start-column="2" selection-end-line="36" selection-end-column="2" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AuthenticationHeader.java" pinned="false" current-in-tab="false">
+        <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/javax.sip/jain-sip-ri/1.3.0-32/a6fc09ddb3556befa22bb8886dcf965fd36da5f9/jain-sip-ri-1.3.0-32-sources.jar!/gov/nist/javax/sip/header/AuthenticationHeader.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="228">
+              <caret line="88" column="19" lean-forward="false" selection-start-line="88" selection-start-column="19" selection-end-line="88" selection-end-column="19" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SIPMessageParser.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/org/lunker/new_proxy/server/SIPMessageParser.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="882">
+              <caret line="49" column="0" lean-forward="true" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="LoggingHandler.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/org/lunker/new_proxy/server/LoggingHandler.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="108">
+              <caret line="6" column="33" lean-forward="true" selection-start-line="6" selection-start-column="33" selection-end-line="6" selection-end-column="33" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>sipapplicationsession</find>
+      <find>addlast</find>
+      <find>get</find>
+      <find>firechannelread</find>
+      <find>header</find>
+      <find>scheme</find>
+      <find>setscheme</find>
+      <find>this.scheme</find>
+    </findStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GradleLocalSettings">
+    <option name="myGradleHomes">
+      <map>
+        <entry key="$PROJECT_DIR$" value="$USER_HOME$/.gradle/wrapper/dists/gradle-4.0-bin/3p92xsbhik5vmig8i90n16yxc/gradle-4.0" />
+      </map>
+    </option>
+    <option name="myGradleVersions">
+      <map>
+        <entry key="$PROJECT_DIR$" value="4.0" />
+      </map>
+    </option>
+    <option name="availableProjects">
+      <map>
+        <entry>
+          <key>
+            <ExternalProjectPojo>
+              <option name="name" value="new-proxy" />
+              <option name="path" value="$PROJECT_DIR$" />
+            </ExternalProjectPojo>
+          </key>
+          <value>
+            <list>
+              <ExternalProjectPojo>
+                <option name="name" value="new-proxy" />
+                <option name="path" value="$PROJECT_DIR$" />
+              </ExternalProjectPojo>
+            </list>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="availableTasks">
+      <map>
+        <entry key="$PROJECT_DIR$">
+          <value>
+            <list>
+              <ExternalTaskPojo>
+                <option name="description" value="Displays the components produced by root project 'new-proxy'. [incubating]" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="components" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Assembles and tests this project and all projects that depend on it." />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="buildDependents" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Displays the sub-projects of root project 'new-proxy'." />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="projects" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Assembles main classes." />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="classes" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Displays the dependent components of components in root project 'new-proxy'. [incubating]" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="dependentComponents" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Displays all buildscript dependencies declared in root project 'new-proxy'." />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="buildEnvironment" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Generates Gradle wrapper files." />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="wrapper" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Assembles test classes." />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="testClasses" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Generates Javadoc API documentation for the main source code." />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="javadoc" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Assembles a jar archive containing the main classes." />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="jar" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Displays the configuration model of root project 'new-proxy'. [incubating]" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="model" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Processes main resources." />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="processResources" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Displays the tasks runnable from root project 'new-proxy'." />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="tasks" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Initializes a new Gradle build." />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="init" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Runs the unit tests." />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="test" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Compiles main Java source." />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="compileJava" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Displays the insight into a specific dependency in root project 'new-proxy'." />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="dependencyInsight" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Runs all checks." />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="check" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Assembles the outputs of this project." />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="assemble" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Deletes the build directory." />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="clean" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Compiles test Java source." />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="compileTestJava" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Displays all dependencies declared in root project 'new-proxy'." />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="dependencies" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Processes test resources." />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="processTestResources" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Displays a help message." />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="help" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Assembles and tests this project." />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="build" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Assembles and tests this project and all projects it depends on." />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="buildNeeded" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Displays the properties of root project 'new-proxy'." />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="properties" />
+              </ExternalTaskPojo>
+            </list>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="modificationStamps">
+      <map>
+        <entry key="$PROJECT_DIR$/../ims_proxy_library" value="3038222592000" />
+        <entry key="$PROJECT_DIR$" value="4563396790000" />
+        <entry key="$PROJECT_DIR$/build.gradle" value="3457553780" />
+        <entry key="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" value="975608090" />
+        <entry key="$PROJECT_DIR$/settings.gradle" value="2557979874" />
+        <entry key="$PROJECT_DIR$/../typhone-biz-web" value="1512115253000" />
+        <entry key="$PROJECT_DIR$/../typhone-loadbalancer" value="3029898394000" />
+        <entry key="$PROJECT_DIR$/../../ims_gradle" value="2988191357000" />
+        <entry key="$PROJECT_DIR$/../../kmm" value="1494385933000" />
+        <entry key="$PROJECT_DIR$/../../matcher" value="3035125683000" />
+        <entry key="$PROJECT_DIR$/../../matcher-backend" value="3035123039000" />
+        <entry key="$PROJECT_DIR$/../../proxy-kurento-client" value="2989165120000" />
+        <entry key="$PROJECT_DIR$/../../proxy/ims_gradle" value="3025165330000" />
+        <entry key="$PROJECT_DIR$/../../typhone-biz-web" value="1490073961000" />
+      </map>
+    </option>
+    <option name="projectBuildClasspath">
+      <map>
+        <entry key="$PROJECT_DIR$">
+          <value>
+            <ExternalProjectBuildClasspathPojo>
+              <option name="modulesBuildClasspath">
+                <map>
+                  <entry key="$PROJECT_DIR$">
+                    <value>
+                      <ExternalModuleBuildClasspathPojo>
+                        <option name="path" value="$PROJECT_DIR$" />
+                      </ExternalModuleBuildClasspathPojo>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+              <option name="name" value="new-proxy" />
+              <option name="projectBuildClasspath">
+                <list>
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-4.0-bin/3p92xsbhik5vmig8i90n16yxc/gradle-4.0/lib/ant-1.9.6.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-4.0-bin/3p92xsbhik5vmig8i90n16yxc/gradle-4.0/lib/ant-launcher-1.9.6.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-4.0-bin/3p92xsbhik5vmig8i90n16yxc/gradle-4.0/lib/gradle-base-services-4.0.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-4.0-bin/3p92xsbhik5vmig8i90n16yxc/gradle-4.0/lib/gradle-base-services-groovy-4.0.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-4.0-bin/3p92xsbhik5vmig8i90n16yxc/gradle-4.0/lib/gradle-cli-4.0.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-4.0-bin/3p92xsbhik5vmig8i90n16yxc/gradle-4.0/lib/gradle-core-4.0.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-4.0-bin/3p92xsbhik5vmig8i90n16yxc/gradle-4.0/lib/gradle-docs-4.0.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-4.0-bin/3p92xsbhik5vmig8i90n16yxc/gradle-4.0/lib/gradle-installation-beacon-4.0.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-4.0-bin/3p92xsbhik5vmig8i90n16yxc/gradle-4.0/lib/gradle-jvm-services-4.0.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-4.0-bin/3p92xsbhik5vmig8i90n16yxc/gradle-4.0/lib/gradle-launcher-4.0.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-4.0-bin/3p92xsbhik5vmig8i90n16yxc/gradle-4.0/lib/gradle-logging-4.0.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-4.0-bin/3p92xsbhik5vmig8i90n16yxc/gradle-4.0/lib/gradle-messaging-4.0.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-4.0-bin/3p92xsbhik5vmig8i90n16yxc/gradle-4.0/lib/gradle-model-core-4.0.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-4.0-bin/3p92xsbhik5vmig8i90n16yxc/gradle-4.0/lib/gradle-model-groovy-4.0.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-4.0-bin/3p92xsbhik5vmig8i90n16yxc/gradle-4.0/lib/gradle-native-4.0.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-4.0-bin/3p92xsbhik5vmig8i90n16yxc/gradle-4.0/lib/gradle-process-services-4.0.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-4.0-bin/3p92xsbhik5vmig8i90n16yxc/gradle-4.0/lib/gradle-resources-4.0.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-4.0-bin/3p92xsbhik5vmig8i90n16yxc/gradle-4.0/lib/gradle-runtime-api-info-4.0.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-4.0-bin/3p92xsbhik5vmig8i90n16yxc/gradle-4.0/lib/gradle-script-kotlin-0.9.0.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-4.0-bin/3p92xsbhik5vmig8i90n16yxc/gradle-4.0/lib/gradle-script-kotlin-compiler-plugin-0.9.0.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-4.0-bin/3p92xsbhik5vmig8i90n16yxc/gradle-4.0/lib/gradle-script-kotlin-tooling-builders-0.9.0.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-4.0-bin/3p92xsbhik5vmig8i90n16yxc/gradle-4.0/lib/gradle-script-kotlin-tooling-models-0.9.0.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-4.0-bin/3p92xsbhik5vmig8i90n16yxc/gradle-4.0/lib/gradle-tooling-api-4.0.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-4.0-bin/3p92xsbhik5vmig8i90n16yxc/gradle-4.0/lib/gradle-wrapper-4.0.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-4.0-bin/3p92xsbhik5vmig8i90n16yxc/gradle-4.0/lib/groovy-all-2.4.11.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-4.0-bin/3p92xsbhik5vmig8i90n16yxc/gradle-4.0/lib/plugins/gradle-announce-4.0.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-4.0-bin/3p92xsbhik5vmig8i90n16yxc/gradle-4.0/lib/plugins/gradle-antlr-4.0.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-4.0-bin/3p92xsbhik5vmig8i90n16yxc/gradle-4.0/lib/plugins/gradle-build-cache-http-4.0.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-4.0-bin/3p92xsbhik5vmig8i90n16yxc/gradle-4.0/lib/plugins/gradle-build-comparison-4.0.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-4.0-bin/3p92xsbhik5vmig8i90n16yxc/gradle-4.0/lib/plugins/gradle-build-init-4.0.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-4.0-bin/3p92xsbhik5vmig8i90n16yxc/gradle-4.0/lib/plugins/gradle-code-quality-4.0.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-4.0-bin/3p92xsbhik5vmig8i90n16yxc/gradle-4.0/lib/plugins/gradle-composite-builds-4.0.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-4.0-bin/3p92xsbhik5vmig8i90n16yxc/gradle-4.0/lib/plugins/gradle-dependency-management-4.0.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-4.0-bin/3p92xsbhik5vmig8i90n16yxc/gradle-4.0/lib/plugins/gradle-diagnostics-4.0.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-4.0-bin/3p92xsbhik5vmig8i90n16yxc/gradle-4.0/lib/plugins/gradle-ear-4.0.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-4.0-bin/3p92xsbhik5vmig8i90n16yxc/gradle-4.0/lib/plugins/gradle-ide-4.0.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-4.0-bin/3p92xsbhik5vmig8i90n16yxc/gradle-4.0/lib/plugins/gradle-ide-native-4.0.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-4.0-bin/3p92xsbhik5vmig8i90n16yxc/gradle-4.0/lib/plugins/gradle-ide-play-4.0.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-4.0-bin/3p92xsbhik5vmig8i90n16yxc/gradle-4.0/lib/plugins/gradle-ivy-4.0.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-4.0-bin/3p92xsbhik5vmig8i90n16yxc/gradle-4.0/lib/plugins/gradle-jacoco-4.0.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-4.0-bin/3p92xsbhik5vmig8i90n16yxc/gradle-4.0/lib/plugins/gradle-javascript-4.0.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-4.0-bin/3p92xsbhik5vmig8i90n16yxc/gradle-4.0/lib/plugins/gradle-language-groovy-4.0.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-4.0-bin/3p92xsbhik5vmig8i90n16yxc/gradle-4.0/lib/plugins/gradle-language-java-4.0.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-4.0-bin/3p92xsbhik5vmig8i90n16yxc/gradle-4.0/lib/plugins/gradle-language-jvm-4.0.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-4.0-bin/3p92xsbhik5vmig8i90n16yxc/gradle-4.0/lib/plugins/gradle-language-native-4.0.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-4.0-bin/3p92xsbhik5vmig8i90n16yxc/gradle-4.0/lib/plugins/gradle-language-scala-4.0.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-4.0-bin/3p92xsbhik5vmig8i90n16yxc/gradle-4.0/lib/plugins/gradle-maven-4.0.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-4.0-bin/3p92xsbhik5vmig8i90n16yxc/gradle-4.0/lib/plugins/gradle-osgi-4.0.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-4.0-bin/3p92xsbhik5vmig8i90n16yxc/gradle-4.0/lib/plugins/gradle-platform-base-4.0.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-4.0-bin/3p92xsbhik5vmig8i90n16yxc/gradle-4.0/lib/plugins/gradle-platform-jvm-4.0.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-4.0-bin/3p92xsbhik5vmig8i90n16yxc/gradle-4.0/lib/plugins/gradle-platform-native-4.0.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-4.0-bin/3p92xsbhik5vmig8i90n16yxc/gradle-4.0/lib/plugins/gradle-platform-play-4.0.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-4.0-bin/3p92xsbhik5vmig8i90n16yxc/gradle-4.0/lib/plugins/gradle-plugin-development-4.0.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-4.0-bin/3p92xsbhik5vmig8i90n16yxc/gradle-4.0/lib/plugins/gradle-plugin-use-4.0.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-4.0-bin/3p92xsbhik5vmig8i90n16yxc/gradle-4.0/lib/plugins/gradle-plugins-4.0.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-4.0-bin/3p92xsbhik5vmig8i90n16yxc/gradle-4.0/lib/plugins/gradle-publish-4.0.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-4.0-bin/3p92xsbhik5vmig8i90n16yxc/gradle-4.0/lib/plugins/gradle-reporting-4.0.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-4.0-bin/3p92xsbhik5vmig8i90n16yxc/gradle-4.0/lib/plugins/gradle-resources-http-4.0.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-4.0-bin/3p92xsbhik5vmig8i90n16yxc/gradle-4.0/lib/plugins/gradle-resources-s3-4.0.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-4.0-bin/3p92xsbhik5vmig8i90n16yxc/gradle-4.0/lib/plugins/gradle-resources-sftp-4.0.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-4.0-bin/3p92xsbhik5vmig8i90n16yxc/gradle-4.0/lib/plugins/gradle-scala-4.0.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-4.0-bin/3p92xsbhik5vmig8i90n16yxc/gradle-4.0/lib/plugins/gradle-signing-4.0.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-4.0-bin/3p92xsbhik5vmig8i90n16yxc/gradle-4.0/lib/plugins/gradle-test-kit-4.0.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-4.0-bin/3p92xsbhik5vmig8i90n16yxc/gradle-4.0/lib/plugins/gradle-testing-base-4.0.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-4.0-bin/3p92xsbhik5vmig8i90n16yxc/gradle-4.0/lib/plugins/gradle-testing-jvm-4.0.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-4.0-bin/3p92xsbhik5vmig8i90n16yxc/gradle-4.0/lib/plugins/gradle-testing-native-4.0.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-4.0-bin/3p92xsbhik5vmig8i90n16yxc/gradle-4.0/lib/plugins/gradle-tooling-api-builders-4.0.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-4.0-bin/3p92xsbhik5vmig8i90n16yxc/gradle-4.0/lib/plugins/gradle-workers-4.0.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-4.0-bin/3p92xsbhik5vmig8i90n16yxc/gradle-4.0/lib/plugins/ivy-2.2.0.jar" />
+                  <option value="$PROJECT_DIR$/buildSrc/src/main/java" />
+                  <option value="$PROJECT_DIR$/buildSrc/src/main/groovy" />
+                </list>
+              </option>
+            </ExternalProjectBuildClasspathPojo>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="externalProjectsViewState">
+      <projects_view />
+    </option>
+    <option name="projectSyncType">
+      <map>
+        <entry key="$PROJECT_DIR$" value="RE_IMPORT" />
+      </map>
+    </option>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/src/main/java/org/lunker/new_proxy/Application.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/log4j2.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/org/lunker/new_proxy/sip/SipServletRequestImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/lunker/new_proxy/sip/SipSession.java" />
+        <option value="$PROJECT_DIR$/build.gradle" />
+        <option value="$PROJECT_DIR$/src/main/java/org/lunker/new_proxy/stub/SIPApplicationSession.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/lunker/new_proxy/stub/SIPSession.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/lunker/new_proxy/sip/session/SIPSessionKey.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/application.json" />
+        <option value="$PROJECT_DIR$/src/main/java/org/lunker/new_proxy/config/Configuration.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/lunker/new_proxy/sip/SIPSessionImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/lunker/new_proxy/stub/session/SIPSessionKey.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/lunker/new_proxy/AbstractServer.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/lunker/new_proxy/stub/AbstractServer.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/lunker/new_proxy/stub/SIPHandler.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/lunker/new_proxy/sip/session/SIPSessionImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/lunker/new_proxy/stub/session/SIPSession.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/lunker/new_proxy/server/TCPServer.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/lunker/new_proxy/server/TCPHandler.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/lunker/new_proxy/server/SIPMessageHandler.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/lunker/new_proxy/jetty/ProxyChannelInitializer.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/lunker/new_proxy/server/LoggingHandler.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/lunker/new_proxy/stub/AbstractSIPHandler.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/lunker/new_proxy/server/SIPMessageParser.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/lunker/new_proxy/util/AuthUtil.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/lunker/new_proxy/server/SIPHandler.java" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="y" value="22" />
+    <option name="width" value="1440" />
+    <option name="height" value="837" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+      <manualOrder />
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="new-proxy" type="b2602c69:ProjectViewProjectNode" />
+              <item name="new-proxy" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+            </path>
+            <path>
+              <item name="new-proxy" type="b2602c69:ProjectViewProjectNode" />
+              <item name="new-proxy" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="new-proxy" type="b2602c69:ProjectViewProjectNode" />
+              <item name="new-proxy" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+            </path>
+            <path>
+              <item name="new-proxy" type="b2602c69:ProjectViewProjectNode" />
+              <item name="new-proxy" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="new-proxy" type="b2602c69:ProjectViewProjectNode" />
+              <item name="new-proxy" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="new_proxy" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="new-proxy" type="b2602c69:ProjectViewProjectNode" />
+              <item name="new-proxy" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="new_proxy" type="462c0819:PsiDirectoryNode" />
+              <item name="jetty" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="new-proxy" type="b2602c69:ProjectViewProjectNode" />
+              <item name="new-proxy" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="new_proxy" type="462c0819:PsiDirectoryNode" />
+              <item name="server" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="new-proxy" type="b2602c69:ProjectViewProjectNode" />
+              <item name="new-proxy" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="new_proxy" type="462c0819:PsiDirectoryNode" />
+              <item name="sip" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="new-proxy" type="b2602c69:ProjectViewProjectNode" />
+              <item name="new-proxy" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="new_proxy" type="462c0819:PsiDirectoryNode" />
+              <item name="sip" type="462c0819:PsiDirectoryNode" />
+              <item name="session" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="new-proxy" type="b2602c69:ProjectViewProjectNode" />
+              <item name="new-proxy" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="new_proxy" type="462c0819:PsiDirectoryNode" />
+              <item name="stub" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="new-proxy" type="b2602c69:ProjectViewProjectNode" />
+              <item name="new-proxy" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="new_proxy" type="462c0819:PsiDirectoryNode" />
+              <item name="stub" type="462c0819:PsiDirectoryNode" />
+              <item name="session" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="new-proxy" type="b2602c69:ProjectViewProjectNode" />
+              <item name="new-proxy" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="PackagesPane" />
+      <pane id="AndroidView" />
+      <pane id="Scope" />
+      <pane id="Scratches" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.javacompiler" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="SearchEverywhereHistoryKey" value="Authorizationheader&#9;PSI&#9;JAVA://javax.sip.header.AuthorizationHeader&#10;proxy&#9;FILE&#9;file:///Users/voiceloco/work/ims/new-proxy/src/main/java/org/lunker/new_proxy/jetty/ProxyChannelInitializer.java&#10;message&#9;FILE&#9;jar:///Users/voiceloco/.gradle/caches/modules-2/files-2.1/javax.sip/jain-sip-ri/1.3.0-32/a6fc09ddb3556befa22bb8886dcf965fd36da5f9/jain-sip-ri-1.3.0-32-sources.jar!/gov/nist/javax/sip/message/MessageFactoryImpl.java&#10;ChannelHandlerContext&#9;PSI&#9;JAVA://io.netty.channel.DefaultChannelHandlerContext&#10;DefaultChannelPip&#9;PSI&#9;JAVA://io.netty.channel.DefaultChannelPipeline&#10;MessageFacto&#9;FILE&#9;jar:///Users/voiceloco/.gradle/caches/modules-2/files-2.1/javax.sip/jain-sip-ri/1.3.0-32/a6fc09ddb3556befa22bb8886dcf965fd36da5f9/jain-sip-ri-1.3.0-32-sources.jar!/gov/nist/javax/sip/message/MessageFactoryImpl.java&#10;ServletContext&#9;FILE&#9;jar:///Users/voiceloco/.gradle/caches/modules-2/files-2.1/javax.servlet/javax.servlet-api/4.0.0/60200affc2fe0165136ed3690faf00b66aed581a/javax.servlet-api-4.0.0.jar!/javax/servlet/ServletContext.class&#10;SipSession&#9;FILE&#9;jar:///Users/voiceloco/.gradle/caches/modules-2/files-2.1/org.mobicents.servlet.sip/sip-servlets-spec/4.0.128/ced584703dd8d64c871fb6486a6b7549942c154e/sip-servlets-spec-4.0.128-sources.jar!/javax/servlet/sip/SipSession.java&#10;sipapplicationsession&#9;FILE&#9;jar:///Users/voiceloco/.gradle/caches/modules-2/files-2.1/org.mobicents.servlet.sip/sip-servlets-spec/4.0.128/3176b649a09a7d7b2d8b22087d3ef111866748b8/sip-servlets-spec-4.0.128.jar!/javax/servlet/sip/SipApplicationSession.class&#10;TCPHand&#9;FILE&#9;file:///Users/voiceloco/work/ims/new-proxy/src/main/java/org/lunker/new_proxy/server/TCPHandler.java&#10;MessageFactoryIm&#9;PSI&#9;JAVA://gov.nist.javax.sip.message.MessageFactoryImpl&#10;B2BUA&#9;FILE&#9;jar:///Users/voiceloco/.gradle/caches/modules-2/files-2.1/javax.sip/jain-sip-ri/1.3.0-32/a6fc09ddb3556befa22bb8886dcf965fd36da5f9/jain-sip-ri-1.3.0-32-sources.jar!/examples/websocket/B2BUA.java" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <module />
+    </configuration>
+    <configuration name="Application" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="org.lunker.new_proxy.stub.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="MAIN_CLASS_NAME" value="org.lunker.new_proxy.Application" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="new-proxy_main" />
+      <envs />
+    </configuration>
+    <configuration default="true" type="Application" factoryName="Application">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="" />
+      <envs />
+    </configuration>
+    <configuration default="true" type="JUnit" factoryName="JUnit">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+    </configuration>
+    <configuration default="true" type="Remote" factoryName="Remote">
+      <option name="USE_SOCKET_TRANSPORT" value="true" />
+      <option name="SERVER_MODE" value="false" />
+      <option name="SHMEM_ADDRESS" value="javadebug" />
+      <option name="HOST" value="localhost" />
+      <option name="PORT" value="5005" />
+    </configuration>
+    <configuration default="true" type="TestNG" factoryName="TestNG">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="SUITE_NAME" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="GROUP_NAME" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="OUTPUT_DIRECTORY" />
+      <option name="ANNOTATION_TYPE" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <option name="USE_DEFAULT_REPORTERS" value="false" />
+      <option name="PROPERTIES_FILE" />
+      <envs />
+      <properties />
+      <listeners />
+    </configuration>
+    <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
+      <module name="" />
+      <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
+      <option name="PROGRAM_PARAMETERS" />
+      <predefined_log_file id="idea.log" enabled="true" />
+    </configuration>
+    <recent_temporary>
+      <list size="1">
+        <item index="0" class="java.lang.String" itemvalue="Application.Application" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false">
+    <option name="remove_strategy" value="false" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="f60861d7-cb54-45b9-a59e-c7cf232f4985" name="Default" comment="" />
+      <created>1521105807020</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1521105807020</updated>
+      <workItem from="1521105808490" duration="12540000" />
+      <workItem from="1521171856224" duration="1676000" />
+      <workItem from="1521185017285" duration="10840000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="25056000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="0" y="22" width="1440" height="837" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32871014" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.67128986" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.28097984" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Build" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32973805" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3298217" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32974482" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.6699029" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/lunker/new_proxy/server/TCPHandler.java</url>
+          <line>47</line>
+          <properties />
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.netty/netty-all/4.1.22.Final/72fef948d3371bb536c22cac960d94036109f799/netty-all-4.1.22.Final-sources.jar!/io/netty/channel/AbstractChannelHandlerContext.java</url>
+          <line>359</line>
+          <properties />
+          <option name="timeStamp" value="11" />
+        </line-breakpoint>
+      </breakpoints>
+      <breakpoints-dialog>
+        <breakpoints-dialog />
+      </breakpoints-dialog>
+      <option name="time" value="12" />
+    </breakpoint-manager>
+    <watches-manager>
+      <configuration name="Application">
+        <watch expression="sipRequest.getMethod()" language="JAVA" />
+        <watch expression="((SIPRequest) sipRequest).createResponse(SipServletResponse.SC_OK)" language="JAVA" custom="gov.nist.javax.sip.message.SIPRequest,javax.servlet.sip.SipServletResponse" />
+        <watch expression="ctx.write(&quot;asfasfasdasdds&quot;).isDone()" language="JAVA" />
+        <watch expression="sipRequest.getCallId()" language="JAVA" />
+      </configuration>
+    </watches-manager>
+  </component>
+  <component name="debuggerHistoryManager">
+    <expressions id="watch">
+      <expression>
+        <expression-string>sipRequest.getCallId()</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>ctx.write(&quot;asfasfasdasdds&quot;).isDone()</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>ctx.write(&quot;asfasfasdasdds&quot;).sync()</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>ctx.write(&quot;asfasfasdasdds&quot;)</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>((SIPRequest) sipRequest).createResponse(SipServletResponse.SC_OK)</expression-string>
+        <language-id>JAVA</language-id>
+        <custom-info>gov.nist.javax.sip.message.SIPRequest,javax.servlet.sip.SipServletResponse</custom-info>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>sipRequest.getMethod()</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+    </expressions>
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.mobicents.servlet.sip/sip-servlets-core-api/4.0.128/a95e467ea39629f5bb1a9fe779529fbb0a032eb6/sip-servlets-core-api-4.0.128-sources.jar!/org/mobicents/servlet/sip/core/SipApplicationDispatcher.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-381">
+          <caret line="55" column="17" lean-forward="false" selection-start-line="55" selection-start-column="17" selection-end-line="55" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.mobicents.servlet.sip/sip-servlets-impl/4.0.128/2de522f3cfc4e027242ef8f733e42e150d3f9ab5/sip-servlets-impl-4.0.128-sources.jar!/org/mobicents/servlet/sip/core/SipApplicationDispatcherImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-11">
+          <caret line="1651" column="24" lean-forward="true" selection-start-line="1651" selection-start-column="24" selection-end-line="1651" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.mobicents.servlet.sip/sip-servlets-impl/4.0.128/2de522f3cfc4e027242ef8f733e42e150d3f9ab5/sip-servlets-impl-4.0.128-sources.jar!/org/mobicents/servlet/sip/message/MobicentsSipApplicationSessionFacade.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="810">
+          <caret line="126" column="46" lean-forward="true" selection-start-line="126" selection-start-column="46" selection-end-line="126" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.mobicents.servlet.sip/sip-servlets-impl/4.0.128/2de522f3cfc4e027242ef8f733e42e150d3f9ab5/sip-servlets-impl-4.0.128-sources.jar!/org/mobicents/servlet/sip/GenericUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="76" column="62" lean-forward="false" selection-start-line="76" selection-start-column="62" selection-end-line="76" selection-end-column="62" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.mobicents.servlet.sip/sip-servlets-impl/4.0.128/2de522f3cfc4e027242ef8f733e42e150d3f9ab5/sip-servlets-impl-4.0.128-sources.jar!/org/mobicents/servlet/sip/JainSipUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="256">
+          <caret line="520" column="7" lean-forward="true" selection-start-line="520" selection-start-column="7" selection-end-line="520" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.mobicents.servlet.sip/sip-servlets-spec/4.0.128/ced584703dd8d64c871fb6486a6b7549942c154e/sip-servlets-spec-4.0.128-sources.jar!/javax/servlet/sip/SipServletRequest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="234">
+          <caret line="13" column="65" lean-forward="false" selection-start-line="13" selection-start-column="65" selection-end-line="13" selection-end-column="65" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.mobicents.servlet.sip/sip-servlets-spec/4.0.128/3176b649a09a7d7b2d8b22087d3ef111866748b8/sip-servlets-spec-4.0.128.jar!/javax/servlet/sip/SipApplicationSession.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1008">
+          <caret line="65" column="5" lean-forward="true" selection-start-line="12" selection-start-column="4" selection-end-line="65" selection-end-column="5" />
+          <folding>
+            <element signature="e#0#1245#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="16" column="26" lean-forward="true" selection-start-line="16" selection-start-column="26" selection-end-line="16" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/javax.servlet/javax.servlet-api/4.0.0/60200affc2fe0165136ed3690faf00b66aed581a/javax.servlet-api-4.0.0.jar!/javax/servlet/ServletContext.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="19" column="62" lean-forward="true" selection-start-line="19" selection-start-column="62" selection-end-line="19" selection-end-column="62" />
+          <folding>
+            <element signature="e#0#3779#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.mobicents.servlet.sip/sip-servlets-spec/4.0.128/ced584703dd8d64c871fb6486a6b7549942c154e/sip-servlets-spec-4.0.128-sources.jar!/javax/servlet/sip/SipSession.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="19" column="59" lean-forward="true" selection-start-line="19" selection-start-column="59" selection-end-line="19" selection-end-column="59" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/lunker/new_proxy/sip/SipSession.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="17" column="0" lean-forward="true" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/lunker/new_proxy/rest/HttpService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="34" lean-forward="true" selection-start-line="0" selection-start-column="34" selection-end-line="0" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/lunker/new_proxy/Application.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="7" column="13" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/application.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="36">
+          <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/lunker/new_proxy/config/Configuration.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/lunker/new_proxy/stub/session/SIPApplicationSession.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="234">
+          <caret line="13" column="17" lean-forward="false" selection-start-line="13" selection-start-column="17" selection-end-line="13" selection-end-column="17" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/lunker/new_proxy/stub/session/SIPSessionKey.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="5" column="17" lean-forward="false" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/lunker/new_proxy/stub/AbstractServer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="5" column="17" lean-forward="false" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/lunker/new_proxy/sip/session/SIPSessionImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="9" column="28" lean-forward="false" selection-start-line="9" selection-start-column="28" selection-end-line="9" selection-end-column="28" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/lunker/new_proxy/stub/session/SIPSession.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="18">
+          <caret line="9" column="1" lean-forward="false" selection-start-line="9" selection-start-column="1" selection-end-line="9" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.netty/netty-all/4.1.22.Final/72fef948d3371bb536c22cac960d94036109f799/netty-all-4.1.22.Final-sources.jar!/io/netty/channel/Channel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="394">
+          <caret line="182" column="16" lean-forward="false" selection-start-line="182" selection-start-column="16" selection-end-line="182" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.netty/netty-all/4.1.22.Final/72fef948d3371bb536c22cac960d94036109f799/netty-all-4.1.22.Final-sources.jar!/io/netty/channel/DefaultChannelPipeline.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-367">
+          <caret line="259" column="21" lean-forward="false" selection-start-line="259" selection-start-column="18" selection-end-line="259" selection-end-column="21" />
+          <folding>
+            <element signature="docComment;class#DefaultChannelPipeline#0" expanded="false" />
+            <element signature="docComment;field#pendingHandlerCallbackHead#0;class#DefaultChannelPipeline#0" expanded="false" />
+            <element signature="docComment;field#registered#0;class#DefaultChannelPipeline#0" expanded="false" />
+            <element signature="method#DefaultChannelPipeline#0;class#DefaultChannelPipeline#0" expanded="false" />
+            <element signature="method#estimatorHandle#0;class#DefaultChannelPipeline#0" expanded="false" />
+            <element signature="method#touch#0;class#DefaultChannelPipeline#0" expanded="false" />
+            <element signature="method#newContext#0;class#DefaultChannelPipeline#0" expanded="false" />
+            <element signature="method#childExecutor#0;class#DefaultChannelPipeline#0" expanded="false" />
+            <element signature="e#5646#5732#0" expanded="false" />
+            <element signature="method#addFirst#1;class#DefaultChannelPipeline#0" expanded="false" />
+            <element signature="e#6653#6748#0" expanded="false" />
+            <element signature="method#addFirst0#0;class#DefaultChannelPipeline#0" expanded="false" />
+            <element signature="method#addLast#1;class#DefaultChannelPipeline#0" expanded="false" />
+            <element signature="e#8321#8416#0" expanded="false" />
+            <element signature="method#addLast0#0;class#DefaultChannelPipeline#0" expanded="false" />
+            <element signature="method#addBefore#0;class#DefaultChannelPipeline#0" expanded="false" />
+            <element signature="e#10168#10263#0" expanded="false" />
+            <element signature="method#addBefore0#0;class#DefaultChannelPipeline#0" expanded="false" />
+            <element signature="method#filterName#0;class#DefaultChannelPipeline#0" expanded="false" />
+            <element signature="method#addAfter#0;class#DefaultChannelPipeline#0" expanded="false" />
+            <element signature="method#addAfter#1;class#DefaultChannelPipeline#0" expanded="false" />
+            <element signature="e#12217#12312#0" expanded="false" />
+            <element signature="method#addAfter0#0;class#DefaultChannelPipeline#0" expanded="false" />
+            <element signature="method#addFirst#4;class#DefaultChannelPipeline#0" expanded="false" />
+            <element signature="method#addLast#4;class#DefaultChannelPipeline#0" expanded="false" />
+            <element signature="method#generateName#0;class#DefaultChannelPipeline#0" expanded="false" />
+            <element signature="e#15252#15356#0" expanded="false" />
+            <element signature="method#remove#0;class#DefaultChannelPipeline#0" expanded="false" />
+            <element signature="e#16258#16288#0" expanded="false" />
+            <element signature="e#16258#16288#0" expanded="false" />
+            <element signature="method#remove#2;class#DefaultChannelPipeline#0" expanded="false" />
+            <element signature="method#remove#3;class#DefaultChannelPipeline#0" expanded="false" />
+            <element signature="e#16659#16754#0" expanded="false" />
+            <element signature="method#remove0#0;class#DefaultChannelPipeline#0" expanded="false" />
+            <element signature="method#removeFirst#0;class#DefaultChannelPipeline#0" expanded="false" />
+            <element signature="method#removeLast#0;class#DefaultChannelPipeline#0" expanded="false" />
+            <element signature="method#replace#0;class#DefaultChannelPipeline#0" expanded="false" />
+            <element signature="method#replace#1;class#DefaultChannelPipeline#0" expanded="false" />
+            <element signature="e#18548#18557#0" expanded="false" />
+            <element signature="method#replace#2;class#DefaultChannelPipeline#0" expanded="false" />
+            <element signature="method#replace#3;class#DefaultChannelPipeline#0" expanded="false" />
+            <element signature="e#19525#19620#0" expanded="false" />
+            <element signature="e#20285#20379#0" expanded="false" />
+            <element signature="e#20790#20884#0" expanded="false" />
+            <element signature="method#replace0#0;class#DefaultChannelPipeline#0" expanded="false" />
+            <element signature="e#21448#21515#0" expanded="false" />
+            <element signature="method#checkMultiplicity#0;class#DefaultChannelPipeline#0" expanded="false" />
+            <element signature="method#callHandlerAdded0#0;class#DefaultChannelPipeline#0" expanded="false" />
+            <element signature="e#22615#22721#0" expanded="false" />
+            <element signature="method#callHandlerRemoved0#0;class#DefaultChannelPipeline#0" expanded="false" />
+            <element signature="method#invokeHandlerAddedIfNeeded#0;class#DefaultChannelPipeline#0" expanded="false" />
+            <element signature="e#24595#24694#0" expanded="false" />
+            <element signature="method#first#0;class#DefaultChannelPipeline#0" expanded="false" />
+            <element signature="method#firstContext#0;class#DefaultChannelPipeline#0" expanded="false" />
+            <element signature="method#last#0;class#DefaultChannelPipeline#0" expanded="false" />
+            <element signature="method#lastContext#0;class#DefaultChannelPipeline#0" expanded="false" />
+            <element signature="method#get#0;class#DefaultChannelPipeline#0" expanded="false" />
+            <element signature="e#25928#25958#0" expanded="false" />
+            <element signature="e#25928#25958#0" expanded="false" />
+            <element signature="method#get#1;class#DefaultChannelPipeline#0" expanded="false" />
+            <element signature="method#context#0;class#DefaultChannelPipeline#0" expanded="false" />
+            <element signature="method#context#1;class#DefaultChannelPipeline#0" expanded="false" />
+            <element signature="method#context#2;class#DefaultChannelPipeline#0" expanded="false" />
+            <element signature="method#names#0;class#DefaultChannelPipeline#0" expanded="false" />
+            <element signature="method#toMap#0;class#DefaultChannelPipeline#0" expanded="false" />
+            <element signature="docComment;method#toString#0;class#DefaultChannelPipeline#0" expanded="false" />
+            <element signature="method#toString#0;class#DefaultChannelPipeline#0" expanded="false" />
+            <element signature="method#fireChannelRegistered#0;class#DefaultChannelPipeline#0" expanded="false" />
+            <element signature="method#fireChannelUnregistered#0;class#DefaultChannelPipeline#0" expanded="false" />
+            <element signature="docComment;method#destroy#0;class#DefaultChannelPipeline#0" expanded="false" />
+            <element signature="method#destroyUp#0;class#DefaultChannelPipeline#0" expanded="false" />
+            <element signature="method#destroyDown#0;class#DefaultChannelPipeline#0" expanded="false" />
+            <element signature="method#fireChannelActive#0;class#DefaultChannelPipeline#0" expanded="false" />
+            <element signature="method#fireChannelInactive#0;class#DefaultChannelPipeline#0" expanded="false" />
+            <element signature="method#fireExceptionCaught#0;class#DefaultChannelPipeline#0" expanded="false" />
+            <element signature="method#fireUserEventTriggered#0;class#DefaultChannelPipeline#0" expanded="false" />
+            <element signature="method#fireChannelRead#0;class#DefaultChannelPipeline#0" expanded="false" />
+            <element signature="method#fireChannelReadComplete#0;class#DefaultChannelPipeline#0" expanded="false" />
+            <element signature="method#fireChannelWritabilityChanged#0;class#DefaultChannelPipeline#0" expanded="false" />
+            <element signature="method#connect#1;class#DefaultChannelPipeline#0" expanded="false" />
+            <element signature="method#flush#0;class#DefaultChannelPipeline#0" expanded="false" />
+            <element signature="method#bind#1;class#DefaultChannelPipeline#0" expanded="false" />
+            <element signature="method#connect#2;class#DefaultChannelPipeline#0" expanded="false" />
+            <element signature="method#connect#3;class#DefaultChannelPipeline#0" expanded="false" />
+            <element signature="method#read#0;class#DefaultChannelPipeline#0" expanded="false" />
+            <element signature="method#writeAndFlush#0;class#DefaultChannelPipeline#0" expanded="false" />
+            <element signature="method#newProgressivePromise#0;class#DefaultChannelPipeline#0" expanded="false" />
+            <element signature="method#newFailedFuture#0;class#DefaultChannelPipeline#0" expanded="false" />
+            <element signature="method#checkDuplicateName#0;class#DefaultChannelPipeline#0" expanded="false" />
+            <element signature="method#context0#0;class#DefaultChannelPipeline#0" expanded="false" />
+            <element signature="method#getContextOrDie#0;class#DefaultChannelPipeline#0" expanded="false" />
+            <element signature="method#getContextOrDie#1;class#DefaultChannelPipeline#0" expanded="false" />
+            <element signature="method#getContextOrDie#2;class#DefaultChannelPipeline#0" expanded="false" />
+            <element signature="method#callHandlerAddedForAllHandlers#0;class#DefaultChannelPipeline#0" expanded="false" />
+            <element signature="e#38146#38255#0" expanded="false" />
+            <element signature="method#callHandlerCallbackLater#0;class#DefaultChannelPipeline#0" expanded="false" />
+            <element signature="docComment;method#onUnhandledInboundException#0;class#DefaultChannelPipeline#0" expanded="false" />
+            <element signature="method#onUnhandledInboundException#0;class#DefaultChannelPipeline#0" expanded="false" />
+            <element signature="docComment;method#onUnhandledInboundChannelActive#0;class#DefaultChannelPipeline#0" expanded="false" />
+            <element signature="method#onUnhandledInboundChannelActive#0;class#DefaultChannelPipeline#0" expanded="false" />
+            <element signature="docComment;method#onUnhandledInboundChannelInactive#0;class#DefaultChannelPipeline#0" expanded="false" />
+            <element signature="method#onUnhandledInboundChannelInactive#0;class#DefaultChannelPipeline#0" expanded="false" />
+            <element signature="docComment;method#onUnhandledInboundMessage#0;class#DefaultChannelPipeline#0" expanded="false" />
+            <element signature="method#onUnhandledInboundMessage#0;class#DefaultChannelPipeline#0" expanded="false" />
+            <element signature="docComment;method#onUnhandledInboundChannelReadComplete#0;class#DefaultChannelPipeline#0" expanded="false" />
+            <element signature="method#onUnhandledInboundChannelReadComplete#0;class#DefaultChannelPipeline#0" expanded="false" />
+            <element signature="docComment;method#onUnhandledInboundUserEventTriggered#0;class#DefaultChannelPipeline#0" expanded="false" />
+            <element signature="method#onUnhandledInboundUserEventTriggered#0;class#DefaultChannelPipeline#0" expanded="false" />
+            <element signature="e#41605#41672#0" expanded="false" />
+            <element signature="docComment;method#onUnhandledChannelWritabilityChanged#0;class#DefaultChannelPipeline#0" expanded="false" />
+            <element signature="method#onUnhandledChannelWritabilityChanged#0;class#DefaultChannelPipeline#0" expanded="false" />
+            <element signature="method#incrementPendingOutboundBytes#0;class#DefaultChannelPipeline#0" expanded="false" />
+            <element signature="method#decrementPendingOutboundBytes#0;class#DefaultChannelPipeline#0" expanded="false" />
+            <element signature="class#TailContext#0;class#DefaultChannelPipeline#0" expanded="false" />
+            <element signature="method#TailContext#0;class#TailContext#0;class#DefaultChannelPipeline#0" expanded="false" />
+            <element signature="method#channelRegistered#0;class#TailContext#0;class#DefaultChannelPipeline#0" expanded="false" />
+            <element signature="method#channelUnregistered#0;class#TailContext#0;class#DefaultChannelPipeline#0" expanded="false" />
+            <element signature="method#channelActive#0;class#TailContext#0;class#DefaultChannelPipeline#0" expanded="false" />
+            <element signature="method#channelInactive#0;class#TailContext#0;class#DefaultChannelPipeline#0" expanded="false" />
+            <element signature="method#channelWritabilityChanged#0;class#TailContext#0;class#DefaultChannelPipeline#0" expanded="false" />
+            <element signature="method#handlerAdded#0;class#TailContext#0;class#DefaultChannelPipeline#0" expanded="false" />
+            <element signature="method#handlerRemoved#0;class#TailContext#0;class#DefaultChannelPipeline#0" expanded="false" />
+            <element signature="method#userEventTriggered#0;class#TailContext#0;class#DefaultChannelPipeline#0" expanded="false" />
+            <element signature="method#exceptionCaught#0;class#TailContext#0;class#DefaultChannelPipeline#0" expanded="false" />
+            <element signature="method#channelRead#0;class#TailContext#0;class#DefaultChannelPipeline#0" expanded="false" />
+            <element signature="method#channelReadComplete#0;class#TailContext#0;class#DefaultChannelPipeline#0" expanded="false" />
+            <element signature="class#HeadContext#0;class#DefaultChannelPipeline#0" expanded="false" />
+            <element signature="method#HeadContext#0;class#HeadContext#0;class#DefaultChannelPipeline#0" expanded="false" />
+            <element signature="method#handlerAdded#0;class#HeadContext#0;class#DefaultChannelPipeline#0" expanded="false" />
+            <element signature="method#handlerRemoved#0;class#HeadContext#0;class#DefaultChannelPipeline#0" expanded="false" />
+            <element signature="method#bind#0;class#HeadContext#0;class#DefaultChannelPipeline#0" expanded="false" />
+            <element signature="method#connect#0;class#HeadContext#0;class#DefaultChannelPipeline#0" expanded="false" />
+            <element signature="method#disconnect#0;class#HeadContext#0;class#DefaultChannelPipeline#0" expanded="false" />
+            <element signature="method#close#0;class#HeadContext#0;class#DefaultChannelPipeline#0" expanded="false" />
+            <element signature="method#deregister#0;class#HeadContext#0;class#DefaultChannelPipeline#0" expanded="false" />
+            <element signature="method#write#0;class#HeadContext#0;class#DefaultChannelPipeline#0" expanded="false" />
+            <element signature="method#flush#0;class#HeadContext#0;class#DefaultChannelPipeline#0" expanded="false" />
+            <element signature="method#exceptionCaught#0;class#HeadContext#0;class#DefaultChannelPipeline#0" expanded="false" />
+            <element signature="method#channelRegistered#0;class#HeadContext#0;class#DefaultChannelPipeline#0" expanded="false" />
+            <element signature="method#channelUnregistered#0;class#HeadContext#0;class#DefaultChannelPipeline#0" expanded="false" />
+            <element signature="method#channelActive#0;class#HeadContext#0;class#DefaultChannelPipeline#0" expanded="false" />
+            <element signature="method#channelInactive#0;class#HeadContext#0;class#DefaultChannelPipeline#0" expanded="false" />
+            <element signature="method#channelRead#0;class#HeadContext#0;class#DefaultChannelPipeline#0" expanded="false" />
+            <element signature="method#channelReadComplete#0;class#HeadContext#0;class#DefaultChannelPipeline#0" expanded="false" />
+            <element signature="method#readIfIsAutoRead#0;class#HeadContext#0;class#DefaultChannelPipeline#0" expanded="false" />
+            <element signature="method#userEventTriggered#0;class#HeadContext#0;class#DefaultChannelPipeline#0" expanded="false" />
+            <element signature="method#channelWritabilityChanged#0;class#HeadContext#0;class#DefaultChannelPipeline#0" expanded="false" />
+            <element signature="class#PendingHandlerCallback#0;class#DefaultChannelPipeline#0" expanded="false" />
+            <element signature="class#PendingHandlerAddedTask#0;class#DefaultChannelPipeline#0" expanded="false" />
+            <element signature="method#execute#0;class#PendingHandlerAddedTask#0;class#DefaultChannelPipeline#0" expanded="false" />
+            <element signature="class#PendingHandlerRemovedTask#0;class#DefaultChannelPipeline#0" expanded="false" />
+            <element signature="method#execute#0;class#PendingHandlerRemovedTask#0;class#DefaultChannelPipeline#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.netty/netty-all/4.1.22.Final/72fef948d3371bb536c22cac960d94036109f799/netty-all-4.1.22.Final-sources.jar!/io/netty/channel/ChannelHandlerAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="25" column="22" lean-forward="false" selection-start-line="25" selection-start-column="22" selection-end-line="25" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.netty/netty-all/4.1.22.Final/72fef948d3371bb536c22cac960d94036109f799/netty-all-4.1.22.Final-sources.jar!/io/netty/channel/ChannelInboundHandlerAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="31" column="58" lean-forward="true" selection-start-line="31" selection-start-column="58" selection-end-line="31" selection-end-column="58" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.netty/netty-all/4.1.22.Final/72fef948d3371bb536c22cac960d94036109f799/netty-all-4.1.22.Final-sources.jar!/io/netty/channel/ChannelInitializer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="52" column="82" lean-forward="false" selection-start-line="52" selection-start-column="82" selection-end-line="52" selection-end-column="82" />
+          <folding>
+            <element signature="docComment;class#ChannelInitializer#0" expanded="false" />
+            <element signature="docComment;method#initChannel#0;class#ChannelInitializer#0" expanded="false" />
+            <element signature="e#3103#3112#0" expanded="false" />
+            <element signature="method#channelRegistered#0;class#ChannelInitializer#0" expanded="false" />
+            <element signature="e#3242#3347#0" expanded="false" />
+            <element signature="e#3416#3518#0" expanded="false" />
+            <element signature="docComment;method#exceptionCaught#0;class#ChannelInitializer#0" expanded="false" />
+            <element signature="method#exceptionCaught#0;class#ChannelInitializer#0" expanded="false" />
+            <element signature="docComment;method#handlerAdded#0;class#ChannelInitializer#0" expanded="false" />
+            <element signature="method#handlerAdded#0;class#ChannelInitializer#0" expanded="false" />
+            <element signature="e#4363#4448#0" expanded="false" />
+            <element signature="method#initChannel#1;class#ChannelInitializer#0" expanded="false" />
+            <element signature="e#5101#5199#0" expanded="false" />
+            <element signature="method#remove#0;class#ChannelInitializer#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.netty/netty-all/4.1.22.Final/72fef948d3371bb536c22cac960d94036109f799/netty-all-4.1.22.Final-sources.jar!/io/netty/channel/ChannelHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="438">
+          <caret line="181" column="7" lean-forward="true" selection-start-line="181" selection-start-column="7" selection-end-line="181" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.netty/netty-all/4.1.22.Final/72fef948d3371bb536c22cac960d94036109f799/netty-all-4.1.22.Final-sources.jar!/io/netty/channel/ChannelPipeline.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="394">
+          <caret line="540" column="11" lean-forward="true" selection-start-line="540" selection-start-column="11" selection-end-line="540" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.netty/netty-all/4.1.22.Final/72fef948d3371bb536c22cac960d94036109f799/netty-all-4.1.22.Final-sources.jar!/io/netty/channel/DefaultChannelHandlerContext.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="19" column="61" lean-forward="false" selection-start-line="19" selection-start-column="61" selection-end-line="19" selection-end-column="61" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.netty/netty-all/4.1.22.Final/72fef948d3371bb536c22cac960d94036109f799/netty-all-4.1.22.Final-sources.jar!/io/netty/channel/ChannelHandlerContext.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="402">
+          <caret line="124" column="38" lean-forward="false" selection-start-line="124" selection-start-column="38" selection-end-line="124" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/javax.sip/jain-sip-ri/1.3.0-32/a6fc09ddb3556befa22bb8886dcf965fd36da5f9/jain-sip-ri-1.3.0-32-sources.jar!/gov/nist/javax/sip/message/MessageFactoryImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="706">
+          <caret line="761" column="55" lean-forward="false" selection-start-line="761" selection-start-column="55" selection-end-line="761" selection-end-column="55" />
+          <folding>
+            <element signature="docComment;class#MessageFactoryImpl#0" expanded="false" />
+            <element signature="docComment;method#setTest#0;class#MessageFactoryImpl#0" expanded="false" />
+            <element signature="docComment;method#MessageFactoryImpl#0;class#MessageFactoryImpl#0" expanded="false" />
+            <element signature="method#MessageFactoryImpl#0;class#MessageFactoryImpl#0" expanded="false" />
+            <element signature="docComment;method#createRequest#0;class#MessageFactoryImpl#0" expanded="false" />
+            <element signature="method#createRequest#0;class#MessageFactoryImpl#0" expanded="false" />
+            <element signature="docComment;method#createRequest#1;class#MessageFactoryImpl#0" expanded="false" />
+            <element signature="method#createRequest#1;class#MessageFactoryImpl#0" expanded="false" />
+            <element signature="docComment;method#createRequest#2;class#MessageFactoryImpl#0" expanded="false" />
+            <element signature="method#createRequest#2;class#MessageFactoryImpl#0" expanded="false" />
+            <element signature="docComment;method#createResponse#0;class#MessageFactoryImpl#0" expanded="false" />
+            <element signature="method#createResponse#0;class#MessageFactoryImpl#0" expanded="false" />
+            <element signature="e#12041#12068#0" expanded="false" />
+            <element signature="docComment;method#createResponse#1;class#MessageFactoryImpl#0" expanded="false" />
+            <element signature="method#createResponse#1;class#MessageFactoryImpl#0" expanded="false" />
+            <element signature="docComment;method#createResponse#2;class#MessageFactoryImpl#0" expanded="false" />
+            <element signature="method#createResponse#2;class#MessageFactoryImpl#0" expanded="false" />
+            <element signature="docComment;method#createResponse#3;class#MessageFactoryImpl#0" expanded="false" />
+            <element signature="method#createResponse#3;class#MessageFactoryImpl#0" expanded="false" />
+            <element signature="docComment;method#createResponse#4;class#MessageFactoryImpl#0" expanded="false" />
+            <element signature="method#createResponse#4;class#MessageFactoryImpl#0" expanded="false" />
+            <element signature="docComment;method#createResponse#5;class#MessageFactoryImpl#0" expanded="false" />
+            <element signature="method#createResponse#5;class#MessageFactoryImpl#0" expanded="false" />
+            <element signature="e#20641#20671#0" expanded="false" />
+            <element signature="e#20870#20925#0" expanded="false" />
+            <element signature="docComment;method#createRequest#3;class#MessageFactoryImpl#0" expanded="false" />
+            <element signature="method#createRequest#3;class#MessageFactoryImpl#0" expanded="false" />
+            <element signature="docComment;method#createResponse#6;class#MessageFactoryImpl#0" expanded="false" />
+            <element signature="method#createResponse#6;class#MessageFactoryImpl#0" expanded="false" />
+            <element signature="docComment;method#createResponse#7;class#MessageFactoryImpl#0" expanded="false" />
+            <element signature="method#createResponse#7;class#MessageFactoryImpl#0" expanded="false" />
+            <element signature="docComment;method#createRequest#4;class#MessageFactoryImpl#0" expanded="false" />
+            <element signature="method#createRequest#4;class#MessageFactoryImpl#0" expanded="false" />
+            <element signature="e#29971#30032#0" expanded="false" />
+            <element signature="docComment;method#createResponse#8;class#MessageFactoryImpl#0" expanded="false" />
+            <element signature="docComment;method#setDefaultUserAgentHeader#0;class#MessageFactoryImpl#0" expanded="false" />
+            <element signature="docComment;method#setDefaultServerHeader#0;class#MessageFactoryImpl#0" expanded="false" />
+            <element signature="docComment;method#getDefaultUserAgentHeader#0;class#MessageFactoryImpl#0" expanded="false" />
+            <element signature="docComment;method#getDefaultServerHeader#0;class#MessageFactoryImpl#0" expanded="false" />
+            <element signature="docComment;method#setDefaultContentEncodingCharset#0;class#MessageFactoryImpl#0" expanded="false" />
+            <element signature="method#setDefaultContentEncodingCharset#0;class#MessageFactoryImpl#0" expanded="false" />
+            <element signature="method#createMultipartMimeContent#0;class#MessageFactoryImpl#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/lunker/new_proxy/server/TCPServer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="16" column="59" lean-forward="false" selection-start-line="16" selection-start-column="31" selection-end-line="16" selection-end-column="59" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/lunker/new_proxy/stub/AbstractSIPHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="8" column="50" lean-forward="false" selection-start-line="8" selection-start-column="35" selection-end-line="8" selection-end-column="50" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/javax.sip/jain-sip-ri/1.3.0-32/a6fc09ddb3556befa22bb8886dcf965fd36da5f9/jain-sip-ri-1.3.0-32-sources.jar!/javax/sip/header/Header.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1350">
+          <caret line="95" column="17" lean-forward="false" selection-start-line="95" selection-start-column="17" selection-end-line="95" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/javax.sip/jain-sip-ri/1.3.0-32/a6fc09ddb3556befa22bb8886dcf965fd36da5f9/jain-sip-ri-1.3.0-32-sources.jar!/javax/sip/message/Message.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1188">
+          <caret line="93" column="30" lean-forward="true" selection-start-line="93" selection-start-column="30" selection-end-line="93" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/javax.sip/jain-sip-ri/1.3.0-32/a6fc09ddb3556befa22bb8886dcf965fd36da5f9/jain-sip-ri-1.3.0-32-sources.jar!/gov/nist/javax/sip/message/SIPResponse.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="468">
+          <caret line="53" column="13" lean-forward="false" selection-start-line="53" selection-start-column="13" selection-end-line="53" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/javax.sip/jain-sip-ri/1.3.0-32/a6fc09ddb3556befa22bb8886dcf965fd36da5f9/jain-sip-ri-1.3.0-32-sources.jar!/javax/sip/header/AuthorizationHeader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2947">
+          <caret line="52" column="17" lean-forward="false" selection-start-line="52" selection-start-column="17" selection-end-line="52" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/javax.sip/jain-sip-ri/1.3.0-32/a6fc09ddb3556befa22bb8886dcf965fd36da5f9/jain-sip-ri-1.3.0-32-sources.jar!/javax/sip/header/HeaderFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="41" column="17" lean-forward="false" selection-start-line="41" selection-start-column="17" selection-end-line="41" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/javax.sip/jain-sip-ri/1.3.0-32/a6fc09ddb3556befa22bb8886dcf965fd36da5f9/jain-sip-ri-1.3.0-32-sources.jar!/javax/sip/SipFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="212">
+          <caret line="194" column="20" lean-forward="false" selection-start-line="194" selection-start-column="20" selection-end-line="194" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/javax.sip/jain-sip-ri/1.3.0-32/a6fc09ddb3556befa22bb8886dcf965fd36da5f9/jain-sip-ri-1.3.0-32-sources.jar!/gov/nist/javax/sip/header/Authorization.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="36" column="2" lean-forward="true" selection-start-line="36" selection-start-column="2" selection-end-line="36" selection-end-column="2" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/javax.sip/jain-sip-ri/1.3.0-32/a6fc09ddb3556befa22bb8886dcf965fd36da5f9/jain-sip-ri-1.3.0-32-sources.jar!/gov/nist/javax/sip/header/AuthenticationHeader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="88" column="19" lean-forward="false" selection-start-line="88" selection-start-column="19" selection-end-line="88" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/javax.sip/jain-sip-ri/1.3.0-32/a6fc09ddb3556befa22bb8886dcf965fd36da5f9/jain-sip-ri-1.3.0-32-sources.jar!/gov/nist/javax/sip/header/HeaderFactoryImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="1109" column="23" lean-forward="true" selection-start-line="1109" selection-start-column="23" selection-end-line="1109" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/lunker/new_proxy/server/LoggingHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="6" column="33" lean-forward="true" selection-start-line="6" selection-start-column="33" selection-end-line="6" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/lunker/new_proxy/jetty/ProxyChannelInitializer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="20" column="54" lean-forward="true" selection-start-line="20" selection-start-column="54" selection-end-line="20" selection-end-column="54" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/lunker/new_proxy/server/TCPHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="14" column="60" lean-forward="false" selection-start-line="14" selection-start-column="32" selection-end-line="14" selection-end-column="60" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/lunker/new_proxy/server/SIPMessageParser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="882">
+          <caret line="49" column="0" lean-forward="true" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/javax.sip/jain-sip-ri/1.3.0-32/a6fc09ddb3556befa22bb8886dcf965fd36da5f9/jain-sip-ri-1.3.0-32-sources.jar!/javax/sip/header/WWWAuthenticateHeader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="18">
+          <caret line="49" column="17" lean-forward="false" selection-start-line="49" selection-start-column="17" selection-end-line="49" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/javax.sip/jain-sip-ri/1.3.0-32/a6fc09ddb3556befa22bb8886dcf965fd36da5f9/jain-sip-ri-1.3.0-32-sources.jar!/javax/sip/message/Request.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="231">
+          <caret line="208" column="31" lean-forward="false" selection-start-line="208" selection-start-column="31" selection-end-line="208" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/lunker/new_proxy/util/AuthUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3834">
+          <caret line="222" column="39" lean-forward="false" selection-start-line="222" selection-start-column="39" selection-end-line="222" selection-end-column="39" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/javax.sip/jain-sip-ri/1.3.0-32/a6fc09ddb3556befa22bb8886dcf965fd36da5f9/jain-sip-ri-1.3.0-32-sources.jar!/gov/nist/javax/sip/message/SIPMessage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="213">
+          <caret line="987" column="7" lean-forward="true" selection-start-line="987" selection-start-column="7" selection-end-line="987" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.netty/netty-all/4.1.22.Final/72fef948d3371bb536c22cac960d94036109f799/netty-all-4.1.22.Final-sources.jar!/io/netty/channel/AbstractChannelHandlerContext.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="359" column="0" lean-forward="false" selection-start-line="359" selection-start-column="0" selection-end-line="359" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/lunker/new_proxy/server/SIPHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="273">
+          <caret line="128" column="9" lean-forward="true" selection-start-line="128" selection-start-column="9" selection-end-line="128" selection-end-column="9" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ProjectJDKs.UI">
+        <settings>
+          <last-edited>1.7</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>
