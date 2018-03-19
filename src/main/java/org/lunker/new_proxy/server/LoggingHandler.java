@@ -29,6 +29,6 @@ public class LoggingHandler extends ChannelInboundHandlerAdapter {
             logger.warn("Send failed: " + cf.cause());
         }
 
-        logger.info("Send SIP Message:\n" + (String) msg);
+        logger.info("[SENT]:\n" + (String) msg);
     }
 }

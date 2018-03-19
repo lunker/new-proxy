@@ -1,10 +1,12 @@
 package org.lunker.new_proxy.server;
 
+import com.google.gson.JsonObject;
 import gov.nist.javax.sip.message.SIPMessage;
 import gov.nist.javax.sip.message.SIPRequest;
 import gov.nist.javax.sip.message.SIPResponse;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
+import org.lunker.new_proxy.rest.HttpService;
 import org.lunker.new_proxy.stub.AbstractSIPHandler;
 import org.lunker.new_proxy.util.AuthUtil;
 import org.lunker.new_proxy.util.Registrar;
@@ -16,8 +18,7 @@ import javax.sip.header.Header;
 import javax.sip.header.HeaderFactory;
 import javax.sip.header.WWWAuthenticateHeader;
 import javax.sip.message.MessageFactory;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
+
 
 /**
  * Created by dongqlee on 2018. 3. 16..
@@ -53,7 +54,7 @@ public class SIPHandler extends ChannelInboundHandlerAdapter implements Abstract
     @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
         logger.info("In SIPHandler");
-        logger.info("[RECEIVED]\n" + ((SIPRequest) msg).toString());
+        logger.info("[RECEIVED]:\n" + ((SIPMessage) msg).toString());
 
         SIPMessage sipMessage=(SIPMessage) msg;
 
@@ -75,41 +76,6 @@ public class SIPHandler extends ChannelInboundHandlerAdapter implements Abstract
 
     public void handleResponse(SIPResponse response){
         int statusCode=response.getStatusCode();
-
-        if(statusCode==SIPResponse.UNAUTHORIZED){
-            // handle register
-//            String authorization	= request.getHeader(Constants.SH_AUTHORIZATION);
-        }
-    }
-
-    public  String getNonce()
-    {
-        Calendar cal = Calendar.getInstance();
-        java.util.Date currentTime = cal.getTime();
-        SimpleDateFormat formatter = new SimpleDateFormat("yyyyMMddHHmmss");
-
-        String nonce = encryptString(formatter.format(currentTime));
-        return nonce;
-    }
-
-    public  String encryptString(String param)
-    {
-        StringBuffer md5 = new StringBuffer();
-
-        try
-        {
-            byte[] digest = java.security.MessageDigest.getInstance("MD5").digest(param.getBytes());
-            for (int i = 0; i < digest.length; i++)
-            {
-                md5.append(Integer.toString((digest[i] & 0xf0) >> 4, 16));
-                md5.append(Integer.toString(digest[i] & 0x0f, 16));
-            }
-        }
-        catch(java.security.NoSuchAlgorithmException ne)
-        {
-            ne.printStackTrace();
-        }
-        return md5.toString();
     }
 
     @Override
@@ -120,7 +86,6 @@ public class SIPHandler extends ChannelInboundHandlerAdapter implements Abstract
         SIPResponse sipResponse=null;
 
         if(authHeader==null){
-
             // non-auth
             sipResponse=registerRequest.createResponse(SIPResponse.UNAUTHORIZED);
             String domain=registerRequest.getFrom().getAddress().getURI().toString().split("@")[1];
@@ -129,7 +94,7 @@ public class SIPHandler extends ChannelInboundHandlerAdapter implements Abstract
                 WWWAuthenticateHeader wwwAuthenticateHeader=this.headerFactory.createWWWAuthenticateHeader("Digest");
                 wwwAuthenticateHeader.setAlgorithm("MD5");
                 wwwAuthenticateHeader.setQop("auth");
-                wwwAuthenticateHeader.setNonce(getNonce());
+                wwwAuthenticateHeader.setNonce(AuthUtil.getNonce());
                 wwwAuthenticateHeader.setRealm(domain);
 
                 sipResponse.addHeader(wwwAuthenticateHeader);
@@ -140,22 +105,40 @@ public class SIPHandler extends ChannelInboundHandlerAdapter implements Abstract
         }
         else{
             // do auth
+            String aor="";
+            String account="";
+            String domain="";
+            String password="";
+            String ipPhonePassword="";
+
+            aor=registerRequest.getFrom().getAddress().getURI().toString().split(":")[1];
+            account=aor.split("@")[0];
+            domain=aor.split("@")[1];
+
             authorization=authHeader.toString();
+
+            // TODO(lunker): get password from rest
+            HttpService httpService=new HttpService();
+            try{
+                JsonObject response=httpService.get("/ims/users/"+aor+"/password", JsonObject.class);
+                String status=response.getAsJsonObject("header").get("status").getAsString();
+                if (!status.equals("error")) {
+                    password = response.get("body").getAsJsonObject().get("password").getAsString();
+                    ipPhonePassword = response.get("body").getAsJsonObject().get("telNoPassword").getAsString();
+                }
+            }
+            catch (Exception e){
+                e.printStackTrace();
+                // return
+            }
+
             AuthUtil authUtil=new AuthUtil(authorization);
-            authUtil.setPassword("aaaaaa");
+            authUtil.setPassword(ipPhonePassword);
 
             if(authUtil.isEqualHA()){
                 // Auth success
                 logger.warn("REGISTER Success");
                 sipResponse=registerRequest.createResponse(SIPResponse.OK);
-
-                String aor="";
-                String account="";
-                String domain="";
-
-                aor=registerRequest.getFrom().getAddress().getURI().toString().split(":")[1];
-                account=aor.split("@")[0];
-                domain=aor.split("@")[1];
 
                 // store registration info
                 Registration registration=new Registration(this.ctx, aor,"","");
@@ -173,15 +156,24 @@ public class SIPHandler extends ChannelInboundHandlerAdapter implements Abstract
     @Override
     public void handleInvite(SIPRequest inviteRequest) {
         logger.info("handleInvite");
-        SIPResponse sipResponse=inviteRequest.createResponse(SIPResponse.OK);
+        SIPResponse sipResponse=null;
         String toAor="";
 
-        toAor=sipResponse.getTo().getAddress().getURI().toString().split(":")[1];
+        toAor=inviteRequest.getTo().getAddress().getURI().toString().split(":")[1];
 
         Registration registration=registrar.get(toAor);
 
-        this.ctx.fireChannelRead(sipResponse.toString());
-        registration.getCtx().fireChannelRead(inviteRequest.toString());
+        if(registration==null){
+            // error
+
+            sipResponse=inviteRequest.createResponse(SIPResponse.TEMPORARILY_UNAVAILABLE, "User is not registered");
+            this.ctx.fireChannelRead(sipResponse.toString());
+        }
+        else{
+//            sipResponse=inviteRequest.createResponse(SIPResponse.OK);
+//            this.ctx.fireChannelRead(sipResponse.toString());
+            registration.getCtx().fireChannelRead(inviteRequest.toString());
+        }
     }
 
     @Override
@@ -191,11 +183,49 @@ public class SIPHandler extends ChannelInboundHandlerAdapter implements Abstract
 
     @Override
     public void handleAck(SIPRequest ackRequest) {
+        logger.info("handleAck");
 
+        String targetAor="";
+        Registration registration=null;
+
+        targetAor=ackRequest.getTo().getAddress().getURI().toString().split(":")[1];
+        registration=registrar.get(targetAor);
+
+        if(registration==null){
+            // TODO: error
+            // ?
+        }
+        else{
+            // forward ack
+            registration.getCtx().fireChannelRead(ackRequest.toString());
+        }
     }
 
     @Override
     public void handleBye(SIPRequest byeRequest) {
+        logger.info("handleBye");
 
+        String targetAor="";
+        Registration registration=null;
+
+        targetAor=byeRequest.getTo().getAddress().getURI().toString().split(":")[1];
+        registration=registrar.get(targetAor);
+
+        if(registration==null){
+            // TODO: error
+        }
+        else{
+            SIPResponse sipResponse=byeRequest.createResponse(SIPResponse.OK);
+
+            registration.getCtx().fireChannelRead(byeRequest.toString());
+            this.ctx.fireChannelRead(sipResponse.toString());
+        }
+    }
+
+    @Override
+    public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) throws Exception {
+        logger.error("ExceptionCaught!: " + cause.getMessage());
+        cause.printStackTrace();
+//        super.exceptionCaught(ctx, cause);
     }
 }

@@ -17,11 +17,7 @@ public class TCPHandler extends ChannelInboundHandlerAdapter {
     private org.slf4j.Logger logger= LoggerFactory.getLogger(TCPHandler.class);
     private AtomicInteger count=new AtomicInteger(0);
 
-
-
-    public TCPHandler() {
-
-    }
+    public TCPHandler() { }
 
     /**
      * asfsadasdf
@@ -43,10 +39,6 @@ public class TCPHandler extends ChannelInboundHandlerAdapter {
             }
 
             ctx.fireChannelRead(message);
-            /*
-            SIPRequest sipRequest=(SIPRequest) messageFactory.createRequest(request);
-            SIPResponse sipResponse=(SIPResponse) messageFactory.createResponse(Response.OK, sipRequest);
-            */
         }
         finally {
             ReferenceCountUtil.release(msg); // (2)
@@ -55,7 +47,7 @@ public class TCPHandler extends ChannelInboundHandlerAdapter {
 
     @Override
     public void channelActive(ChannelHandlerContext ctx) throws Exception {
-        logger.info("Hi!");
+        logger.info("Client connected:: " + ctx.channel().remoteAddress().toString());
     }
 
     @Override
@@ -65,10 +57,8 @@ public class TCPHandler extends ChannelInboundHandlerAdapter {
 
     @Override
     public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) throws Exception {
+        logger.error("ExceptionCaught:: " + cause.getMessage());
         cause.printStackTrace();
-        ctx.close();
+//        ctx.close();
     }
-
-
-
 }

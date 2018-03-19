@@ -1,0 +1,5 @@
+Manifest-Version: 1.0
+Title: NewProxy
+Version: 1.0
+Main-Class: org.lunker.new_proxy.Application
+
