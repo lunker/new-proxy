@@ -1,5 +1,6 @@
 package org.lunker.new_proxy.server;
 
+import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import gov.nist.javax.sip.message.SIPMessage;
 import gov.nist.javax.sip.message.SIPRequest;
@@ -9,6 +10,7 @@ import io.netty.channel.ChannelInboundHandlerAdapter;
 import org.lunker.new_proxy.rest.HttpService;
 import org.lunker.new_proxy.stub.AbstractSIPHandler;
 import org.lunker.new_proxy.util.AuthUtil;
+import org.lunker.new_proxy.util.JedisConnection;
 import org.lunker.new_proxy.util.Registrar;
 import org.lunker.new_proxy.util.Registration;
 import org.slf4j.Logger;
@@ -31,9 +33,12 @@ public class SIPHandler extends ChannelInboundHandlerAdapter implements Abstract
     private HeaderFactory headerFactory=null;
     private MessageFactory messageFactory=null;
     private Registrar registrar=null;
+    private JedisConnection jedisConnection=null;
+    private Gson gson=null;
 
     public SIPHandler() {
-
+        jedisConnection=JedisConnection.getInstance();
+        gson=new Gson();
     }
 
     @Override
@@ -140,9 +145,11 @@ public class SIPHandler extends ChannelInboundHandlerAdapter implements Abstract
                 logger.warn("REGISTER Success");
                 sipResponse=registerRequest.createResponse(SIPResponse.OK);
 
-                // store registration info
-                Registration registration=new Registration(this.ctx, aor,"","");
-                registrar.register(aor, registration);
+                // store to redis
+                // store registration info in cache
+                Registration registration=new Registration(this.ctx.name(), aor,"","");
+                registrar.register(aor, registration, this.ctx);
+                jedisConnection.set(aor, gson.toJson(registration));
             }
             else{
                 logger.warn("REGISTER Fail");
@@ -161,9 +168,10 @@ public class SIPHandler extends ChannelInboundHandlerAdapter implements Abstract
 
         toAor=inviteRequest.getTo().getAddress().getURI().toString().split(":")[1];
 
-        Registration registration=registrar.get(toAor);
+//        Registration registration=registrar.get(toAor);
+        ChannelHandlerContext targetCtx=registrar.getCtx(toAor);
 
-        if(registration==null){
+        if(targetCtx==null){
             // error
 
             sipResponse=inviteRequest.createResponse(SIPResponse.TEMPORARILY_UNAVAILABLE, "User is not registered");
@@ -172,7 +180,10 @@ public class SIPHandler extends ChannelInboundHandlerAdapter implements Abstract
         else{
 //            sipResponse=inviteRequest.createResponse(SIPResponse.OK);
 //            this.ctx.fireChannelRead(sipResponse.toString());
-            registration.getCtx().fireChannelRead(inviteRequest.toString());
+            targetCtx.fireChannelRead(inviteRequest.toString());
+
+            // store request for testing sip-session
+
         }
     }
 
@@ -187,17 +198,20 @@ public class SIPHandler extends ChannelInboundHandlerAdapter implements Abstract
 
         String targetAor="";
         Registration registration=null;
+        ChannelHandlerContext targetCtx=null;
+
 
         targetAor=ackRequest.getTo().getAddress().getURI().toString().split(":")[1];
-        registration=registrar.get(targetAor);
+//        registration=registrar.get(targetAor);
+        targetCtx=registrar.getCtx(targetAor);
 
-        if(registration==null){
+        if(targetCtx==null){
             // TODO: error
             // ?
         }
         else{
             // forward ack
-            registration.getCtx().fireChannelRead(ackRequest.toString());
+            targetCtx.fireChannelRead(ackRequest.toString());
         }
     }
 
@@ -207,9 +221,10 @@ public class SIPHandler extends ChannelInboundHandlerAdapter implements Abstract
 
         String targetAor="";
         Registration registration=null;
+        ChannelHandlerContext targetCtx=null;
 
         targetAor=byeRequest.getTo().getAddress().getURI().toString().split(":")[1];
-        registration=registrar.get(targetAor);
+        targetCtx=registrar.getCtx(targetAor);
 
         if(registration==null){
             // TODO: error
@@ -217,7 +232,7 @@ public class SIPHandler extends ChannelInboundHandlerAdapter implements Abstract
         else{
             SIPResponse sipResponse=byeRequest.createResponse(SIPResponse.OK);
 
-            registration.getCtx().fireChannelRead(byeRequest.toString());
+            targetCtx.fireChannelRead(byeRequest.toString());
             this.ctx.fireChannelRead(sipResponse.toString());
         }
     }

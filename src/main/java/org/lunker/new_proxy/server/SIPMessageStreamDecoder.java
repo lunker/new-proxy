@@ -41,7 +41,7 @@ public class SIPMessageStreamDecoder extends LineBasedFrameDecoder {
             return null;
         }
         else{
-            logger.info("Received raw buffer : " + buf.toString(CharsetUtil.UTF_8));
+//            logger.info("Received raw buffer : " + buf.toString(CharsetUtil.UTF_8));
         }
 
         /*

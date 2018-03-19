@@ -27,7 +27,7 @@ public class ProxyChannelInitializer extends ChannelInitializer {
 //        ch.pipeline().addLast("parser", new SIPMessageParser());
 
 
-        ch.pipeline().addLast("decoder", new SIPMessageStreamDecoder(10000));
+        ch.pipeline().addLast("decoder", new SIPMessageStreamDecoder(1024));
         ch.pipeline().addLast("encoder", new SIPMessageEncoder());
         ch.pipeline().addLast("handler", new SIPHandler());
         ch.pipeline().addLast("logging", new LoggingHandler());
@@ -37,6 +37,5 @@ public class ProxyChannelInitializer extends ChannelInitializer {
     @Override
     public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) throws Exception {
         logger.error("ExceptionCaught:: " + cause.getMessage());
-//        super.exceptionCaught(ctx, cause);
     }
 }
