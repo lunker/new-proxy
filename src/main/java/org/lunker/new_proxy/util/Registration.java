@@ -5,7 +5,7 @@ package org.lunker.new_proxy.util;
  */
 public class Registration {
 
-    private String ctxName;
+    private String userKey;
     private String aor;
     private String account;
     private String domain;
@@ -13,19 +13,19 @@ public class Registration {
     private Registration() {
     }
 
-    public Registration(String ctxName, String aor, String account, String domain) {
-        this.ctxName = ctxName;
+    public Registration(String userKey, String aor, String account, String domain) {
+        this.userKey = userKey;
         this.aor = aor;
         this.account = account;
         this.domain = domain;
     }
 
-    public String getCtxName() {
-        return ctxName;
+    public String getUserKey() {
+        return userKey;
     }
 
-    public void setCtxName(String ctxName) {
-        this.ctxName = ctxName;
+    public void setUserKey(String userKey) {
+        this.userKey = userKey;
     }
 
     public String getAor() {
@@ -51,9 +51,4 @@ public class Registration {
     public void setDomain(String domain) {
         this.domain = domain;
     }
-
-
-
-
-
 }

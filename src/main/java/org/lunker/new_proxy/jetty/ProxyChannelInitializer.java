@@ -4,9 +4,9 @@ import io.netty.channel.Channel;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInitializer;
 import org.lunker.new_proxy.server.LoggingHandler;
-import org.lunker.new_proxy.server.SIPHandler;
-import org.lunker.new_proxy.server.SIPMessageEncoder;
-import org.lunker.new_proxy.server.SIPMessageStreamDecoder;
+import org.lunker.new_proxy.sip.handler.SIPMessageStreamDecoder;
+import org.lunker.new_proxy.sip.handler.SIPPreProcessor;
+import org.lunker.new_proxy.sip.handler.SIPProcessor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -17,6 +17,20 @@ public class ProxyChannelInitializer extends ChannelInitializer {
 
     private Logger logger= LoggerFactory.getLogger(ProxyChannelInitializer.class);
 
+//    private SIPMessageStreamDecoder sipMessageStreamDecoder=null;
+//    private ChannelHandler sipPreProcessor=null;
+//    private SIPProcessor sipProcessor=null;
+//    private SIPPostProcessor sipPostProcessor=null;
+
+    public ProxyChannelInitializer() {
+        logger.info("create!!!!!!!!!!!!!!!!!!!!!!!!");
+
+//        sipMessageStreamDecoder=new SIPMessageStreamDecoder(1024);
+//        sipPreProcessor=new SIPPreProcessor();
+//        sipProcessor=new SIPProcessor();
+//        sipPostProcessor=new SIPPostProcessor();
+    }
+
     @Override
     protected void initChannel(Channel ch) throws Exception {
 //        ch.pipeline().addLast("tcp", new TCPHandler());
@@ -26,13 +40,11 @@ public class ProxyChannelInitializer extends ChannelInitializer {
 //        ch.pipeline().addLast("tcp", new TCPHandler());
 //        ch.pipeline().addLast("parser", new SIPMessageParser());
 
-
         ch.pipeline().addLast("decoder", new SIPMessageStreamDecoder(1024));
-        ch.pipeline().addLast("encoder", new SIPMessageEncoder());
-        ch.pipeline().addLast("handler", new SIPHandler());
+        ch.pipeline().addLast("encoder", new SIPPreProcessor());
+        ch.pipeline().addLast("handler", new SIPProcessor());
         ch.pipeline().addLast("logging", new LoggingHandler());
     }
-
 
     @Override
     public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) throws Exception {

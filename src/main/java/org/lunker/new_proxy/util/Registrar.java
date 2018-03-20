@@ -10,7 +10,6 @@ import java.util.Map;
  */
 public class Registrar {
 
-
     public static Registrar instance=null;
 
     private int REGISTRAR_CAPACITY=1000;
@@ -30,10 +29,10 @@ public class Registrar {
         return instance;
     }
 
-    public void register(String aor, Registration registration, ChannelHandlerContext ctx){
+    public void register(String userKey, Registration registration, ChannelHandlerContext ctx){
         synchronized (registrationMap){
-            registrationMap.put(aor, registration);
-            ctxMap.put(ctx.name(), ctx);
+            registrationMap.put(userKey, registration);
+            ctxMap.put(userKey, ctx);
         }
     }
 
@@ -41,15 +40,16 @@ public class Registrar {
     public Optional<Registration> get(String aor){
         return Optional.ofNullable(registrationMap.get(aor));
     }
-*/
+    */
 
-    public Registration getRegistration(String aor){
-        return registrationMap.get(aor);
+    public Registration getRegistration(String userKey){
+        return registrationMap.get(userKey);
     }
 
-    public ChannelHandlerContext getCtx(String aor){
-        String ctxName=getRegistration(aor).getCtxName();
-        return ctxMap.get(ctxName);
+    public ChannelHandlerContext getCtx(String userKey){
+        synchronized (this.ctxMap){
+            return ctxMap.get(userKey);
+        }
     }
 
 

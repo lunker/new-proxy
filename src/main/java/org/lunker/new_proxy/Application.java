@@ -1,6 +1,6 @@
 package org.lunker.new_proxy;
 
-import org.lunker.new_proxy.server.TCPServer;
+import org.lunker.new_proxy.server.tcp.TCPServer;
 import org.lunker.new_proxy.util.Closer;
 
 /**

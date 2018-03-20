@@ -5,7 +5,4 @@ package org.lunker.new_proxy.config;
  */
 public class Configuration {
 
-
-
-
 }

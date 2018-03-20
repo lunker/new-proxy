@@ -2,6 +2,8 @@ package org.lunker.new_proxy.util;
 
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;
+import redis.clients.jedis.JedisPoolConfig;
+import redis.clients.jedis.Pipeline;
 
 /**
  * Created by dongqlee on 2018. 3. 19..
@@ -17,13 +19,21 @@ public class JedisConnection {
 
 
     private JedisConnection() {
-        jedisPool = new JedisPool(redisHost, redisPort);
+        JedisPoolConfig config = new JedisPoolConfig();
+        config.setMaxTotal(400);
+        config.setMaxIdle(1000 * 60 * 60 * 6);
+        config.setMaxWaitMillis(15 * 1000);
+
+//        config.setMaxWait(1000);
+
+        jedisPool = new JedisPool(config, redisHost, redisPort);
     }
 
     public static JedisConnection getInstance(){
         if (instance==null){
             instance=new JedisConnection();
         }
+
         return instance;
     }
 
@@ -33,9 +43,13 @@ public class JedisConnection {
         try{
             jedis=jedisPool.getResource();
 
-            jedis.set(key, value);
+            Pipeline pipeline=jedis.pipelined();
+
+            pipeline.set(key, value);
+            pipeline.sync();
 
             jedis.close();
+            pipeline.close();
             jedis=null;
         }
         catch (Exception e){
