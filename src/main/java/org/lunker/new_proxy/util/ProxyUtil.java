@@ -42,7 +42,7 @@ public class ProxyUtil {
 
         targetAor=sipMessage.getTo().getAddress().getURI().toString().split(":")[1];
         userAgent= SIPHeaderParser.getUserAent(sipMessage);
-        userKey=targetAor+"_"+userAgent;
+        userKey=targetAor;
 
         targetCtx=registrar.getCtx(userKey);
 
@@ -105,5 +105,9 @@ public class ProxyUtil {
                 stringBuilder.append('_');
         }
         return stringBuilder.toString();
+    }
+
+    public static String createSIPApplicationSessionId(){
+        return "";
     }
 }

@@ -1,5 +1,8 @@
 package org.lunker.new_proxy.stub.session.ss;
 
+import org.lunker.new_proxy.sip.session.ss.SIPSessionKey;
+import org.lunker.new_proxy.stub.session.sas.SIPApplicationSession;
+
 /**
  * Created by dongqlee on 2018. 3. 16..
  */
@@ -200,4 +203,10 @@ public interface SIPSession {
 //        CONFIRMED,
 //        TERMINATED;
 //    }
+
+
+    SIPApplicationSession getSIPApplicationSession();
+    SIPSessionKey getSipSessionkey();
+    void addAttribute(String key, Object value);
+
 }

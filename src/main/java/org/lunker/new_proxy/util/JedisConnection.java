@@ -48,6 +48,7 @@ public class JedisConnection {
             pipeline.set(key, value);
             pipeline.sync();
 
+
             jedis.close();
             pipeline.close();
             jedis=null;

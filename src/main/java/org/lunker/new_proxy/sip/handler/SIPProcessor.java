@@ -1,13 +1,11 @@
 package org.lunker.new_proxy.sip.handler;
 
 import com.google.gson.Gson;
-import com.google.gson.JsonObject;
 import gov.nist.javax.sip.message.SIPMessage;
 import gov.nist.javax.sip.message.SIPRequest;
 import gov.nist.javax.sip.message.SIPResponse;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
-import org.lunker.new_proxy.rest.HttpService;
 import org.lunker.new_proxy.sip.SIPHeaderParser;
 import org.lunker.new_proxy.stub.AbstractSIPHandler;
 import org.lunker.new_proxy.util.*;
@@ -64,9 +62,15 @@ public class SIPProcessor extends ChannelInboundHandlerAdapter implements Abstra
 
         SIPMessage sipMessage=(SIPMessage) msg;
 
+        /*
+        Stream<SIPMessage> sipMessageFlow=Stream.of(sipMessage);
 
+        sipMessageFlow.forEach((message)->{
+            logger.info("!");
+            handle(message);
+        });
+        */
 
-        // find target context
         this.targetCtx=ProxyUtil.getTargetCtx(sipMessage);
 
         if(sipMessage instanceof SIPRequest){
@@ -93,13 +97,13 @@ public class SIPProcessor extends ChannelInboundHandlerAdapter implements Abstra
         if(method.equals("INVITE") && statusCode==SIPResponse.OK){
 
             // handle 200 ok with INVITE
+
             String targetAor="";
             String userKey="";
 
             ChannelHandlerContext targetCtx=null;
 
             targetAor=response.getFrom().getAddress().getURI().toString().split(":")[1];
-
             targetCtx=registrar.getCtx(targetAor);
 
             if(targetCtx==null){
@@ -109,8 +113,30 @@ public class SIPProcessor extends ChannelInboundHandlerAdapter implements Abstra
                 targetCtx.fireChannelRead(response.toString());
             }
         }
+        else if(method.equals("INVITE") && statusCode==SIPResponse.RINGING){
+
+            String targetAor="";
+            String userKey="";
+
+            ChannelHandlerContext targetCtx=null;
+
+            targetAor=response.getFrom().getAddress().getURI().toString().split(":")[1];
+
+            targetCtx=registrar.getCtx(targetAor);
+            targetCtx.fireChannelRead(response.toString());
+        }
+        else if(method.equals("BYE") && statusCode==SIPResponse.OK){
+            String targetAor="";
+            ChannelHandlerContext targetCtx=null;
+
+            targetAor=response.getFrom().getAddress().getURI().toString().split(":")[1];
+
+            targetCtx=registrar.getCtx(targetAor);
+            targetCtx.fireChannelRead(response.toString());
+        }
         else {
             logger.warn("Not implemented call logic . . .");
+            this.targetCtx.fireChannelRead(response.toString());
         }
     }
 
@@ -153,12 +179,16 @@ public class SIPProcessor extends ChannelInboundHandlerAdapter implements Abstra
 
             String userAgent= SIPHeaderParser.getUserAent(registerRequest);
 
-            userKey=aor+"_"+userAgent;
+            userKey=aor;// 1단계에서는 OPMD 지원 고려 안하는걸로.
 
             authorization=authHeader.toString();
 
+
             // TODO(lunker): get password from rest
-            HttpService httpService=new HttpService();
+
+            /*
+            HttpService httpService=HttpService.getInstance();
+
             try{
                 JsonObject response=httpService.get("/ims/users/"+aor+"/password", JsonObject.class);
                 String status=response.getAsJsonObject("header").get("status").getAsString();
@@ -170,6 +200,7 @@ public class SIPProcessor extends ChannelInboundHandlerAdapter implements Abstra
                 e.printStackTrace();
                 // return
             }
+            */
 
             AuthUtil authUtil=new AuthUtil(authorization);
             authUtil.setPassword(ipPhonePassword);
@@ -182,8 +213,9 @@ public class SIPProcessor extends ChannelInboundHandlerAdapter implements Abstra
                 // store to redis
                 // store registration info in cache
                 Registration registration=new Registration(userKey, aor,account, domain);
+
                 registrar.register(userKey, registration, this.currentCtx);
-                jedisConnection.set(userKey, gson.toJson(registration));
+//                jedisConnection.set(userKey, gson.toJson(registration));
             }
             else{
                 logger.warn("REGISTER Fail");
@@ -208,7 +240,7 @@ public class SIPProcessor extends ChannelInboundHandlerAdapter implements Abstra
 
         ChannelHandlerContext targetCtx=registrar.getCtx(userKey);
 
-        if(targetCtx==null){
+        if(this.targetCtx==null){
             // error
 
             sipResponse=inviteRequest.createResponse(SIPResponse.TEMPORARILY_UNAVAILABLE, "User is not registered");
@@ -218,11 +250,11 @@ public class SIPProcessor extends ChannelInboundHandlerAdapter implements Abstra
 //            sipResponse=inviteRequest.createResponse(SIPResponse.OK);
 //            this.ctx.fireChannelRead(sipResponse.toString());
 
-
-            targetCtx.fireChannelRead(inviteRequest.toString());
+            this.targetCtx.fireChannelRead(inviteRequest.toString());
 
             // store request for testing sip-session
         }
+
     }
 
     @Override
@@ -248,13 +280,13 @@ public class SIPProcessor extends ChannelInboundHandlerAdapter implements Abstra
 //        registration=registrar.get(targetAor);
         targetCtx=registrar.getCtx(userKey);
 
-        if(targetCtx==null){
+        if(this.targetCtx==null){
             // TODO: error
             // ?
         }
         else{
             // forward ack
-            targetCtx.fireChannelRead(ackRequest.toString());
+            this.targetCtx.fireChannelRead(ackRequest.toString());
         }
     }
 
@@ -275,14 +307,11 @@ public class SIPProcessor extends ChannelInboundHandlerAdapter implements Abstra
 
         targetCtx=registrar.getCtx(userKey);
 
-        if(registration==null){
+        if(this.targetCtx==null){
             // TODO: error
         }
         else{
-            SIPResponse sipResponse=byeRequest.createResponse(SIPResponse.OK);
-
-            targetCtx.fireChannelRead(byeRequest.toString());
-            this.currentCtx.fireChannelRead(sipResponse.toString());
+            this.targetCtx.fireChannelRead(byeRequest.toString());
         }
     }
 
@@ -290,6 +319,5 @@ public class SIPProcessor extends ChannelInboundHandlerAdapter implements Abstra
     public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) throws Exception {
         logger.error("ExceptionCaught!: " + cause.getMessage());
         cause.printStackTrace();
-//        super.exceptionCaught(ctx, cause);
     }
 }

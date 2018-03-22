@@ -1,7 +1,9 @@
 package org.lunker.new_proxy.sip.session.ss;
 
 import io.netty.channel.ChannelHandlerContext;
-import org.lunker.new_proxy.stub.session.ss.SIPSessionKey;
+import org.lunker.new_proxy.sip.session.sas.SIPApplicationSessionKey;
+import org.lunker.new_proxy.stub.session.sas.SIPApplicationSession;
+import org.lunker.new_proxy.stub.session.ss.SIPSession;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -9,13 +11,16 @@ import java.util.Map;
 /**
  * Created by dongqlee on 2018. 3. 16..
  */
-public class SIPSessionImpl  {
+public class SIPSessionImpl implements SIPSession{
 
     private SIPSessionKey sipSessionKey;
+    private SIPApplicationSessionKey sipApplicationSessionKey;
+    private SIPApplicationSession sipApplicationSession;
+
     private ChannelHandlerContext ctx;
     private Map<String, Object> sessionAttributes;
 
-    public SIPSessionImpl() {
+    private SIPSessionImpl() {
 
     }
 
@@ -24,12 +29,20 @@ public class SIPSessionImpl  {
         this.sessionAttributes=new HashMap<>();
     }
 
-//    public SIPSessionKey getSipSessionKey() {
-//        return sipSessionKey;
-//    }
 
-    public String getSipSessionKey(){
-        return sipSessionKey.getKey();
+    @Override
+    public SIPApplicationSession getSIPApplicationSession() {
+        return null;
+    }
+
+    @Override
+    public SIPSessionKey getSipSessionkey() {
+        return this.sipSessionKey;
+    }
+
+    @Override
+    public void addAttribute(String key, Object value) {
+        this.sessionAttributes.put(key, value);
     }
 }
 

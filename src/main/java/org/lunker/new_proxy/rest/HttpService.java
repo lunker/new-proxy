@@ -10,6 +10,7 @@ import org.apache.http.impl.conn.PoolingHttpClientConnectionManager;
 import org.apache.http.impl.nio.client.CloseableHttpAsyncClient;
 import org.apache.http.impl.nio.client.HttpAsyncClients;
 import org.apache.http.impl.nio.conn.PoolingNHttpClientConnectionManager;
+import org.apache.http.impl.nio.reactor.DefaultConnectingIOReactor;
 import org.apache.http.util.EntityUtils;
 import org.lunker.new_proxy.util.HttpEntityUtils;
 import org.slf4j.Logger;
@@ -23,32 +24,34 @@ import java.util.concurrent.Future;
  * Created by dongqlee on 2018. 3. 16..
  */
 public class HttpService {
-
+    private static HttpService instance=null;
     private Logger logger= LoggerFactory.getLogger(HttpService.class);
-    private static PoolingHttpClientConnectionManager syncConnectionManager=null;
-    private static PoolingNHttpClientConnectionManager asyncConnectionManager=null;
+    private PoolingHttpClientConnectionManager syncConnectionManager=null;
+    private PoolingNHttpClientConnectionManager asyncConnectionManager=null;
 
-    static {
-        /*
-        SSLContext sslcontext = SSLContexts.custom().albuild();
-        sslcontext.init(null, new X509TrustManager[]{new HttpsTrustManager()}, new SecureRandom());
+//    public String restEndpoint="https://smartbiz.sejongtelecom.net:4435/b2b/v1.0";
+    public String restEndpoint="http://203.240.153.14:8180/b2b/v1.0";
 
+    private HttpService(){
+        try{
+            syncConnectionManager=new PoolingHttpClientConnectionManager();
+            syncConnectionManager.setMaxTotal(500);
+            syncConnectionManager.setDefaultMaxPerRoute(100);
 
-        ConnectionSocketFactory plainSocketFactory=new PlainConnectionSocketFactory();
-        ConnectionSocketFactory sslSocketFactory=new SSLConnectionSocketFactory();
-
-        Registry<ConnectionSocketFactory> r = RegistryBuilder.<ConnectionSocketFactory>create()
-            .register("http", plainsf)
-            .register("https", sslsf)
-            .build();
-        */
-
-        syncConnectionManager=new PoolingHttpClientConnectionManager();
-        syncConnectionManager.setMaxTotal(500);
-        syncConnectionManager.setDefaultMaxPerRoute(20);
+            asyncConnectionManager=new PoolingNHttpClientConnectionManager(new DefaultConnectingIOReactor());
+            asyncConnectionManager.setMaxTotal(1000);
+            asyncConnectionManager.setDefaultMaxPerRoute(100);
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
-    public String restEndpoint="https://smartbiz.sejongtelecom.net:4435/b2b/v1.0";
+    public static HttpService getInstance() {
+        if (instance==null)
+            instance=new HttpService();
+        return instance;
+    }
 
     public <T extends Object> T get(String url, Class<T> type) throws IOException{
         logger.info("Generate http GET request for url : " + url);
@@ -71,8 +74,9 @@ public class HttpService {
             logger.info("json!");
             response=(T) HttpEntityUtils.toJson(httpEntity);
         }
-        closeableHttpResponse.close();
-        EntityUtils.consume(httpEntity);
+
+//        closeableHttpResponse.close();
+//        EntityUtils.consume(httpEntity);
 
         return response;
     }
@@ -110,16 +114,39 @@ public class HttpService {
         return "";
     }
 
-    public void getAsync(String url) throws InterruptedException, ExecutionException, IOException{
+    public <T extends Object> T getAsync(String url, Class<T> type) throws InterruptedException, ExecutionException, IOException{
 
-        CloseableHttpAsyncClient client = HttpAsyncClients.createDefault();
+        T response=null;
+
+        CloseableHttpAsyncClient client = HttpAsyncClients.custom().setConnectionManager(asyncConnectionManager).build();
+
         client.start();
-        HttpGet request = new HttpGet("http://www.google.com");
+
+        String requestUrl=restEndpoint+url;
+
+        HttpGet request = new HttpGet(requestUrl);
 
         Future<HttpResponse> future = client.execute(request, null);
-        HttpResponse response = future.get();
+
+        HttpResponse httpResponse = future.get();
+        HttpEntity httpEntity=httpResponse.getEntity();
+
+        String contentType=httpResponse.getFirstHeader("Content-Type").getValue();
+
+        if(contentType.equals("application/xml")){
+            logger.info("xml!");
+            response=(T) EntityUtils.toString(httpEntity);
+        }
+        else {
+            logger.info("json!");
+            response=(T) HttpEntityUtils.toJson(httpEntity);
+        }
 
         client.close();
-    }
+//        EntityUtils.consume(httpEntity);
 
+        return response;
+    }
+// 4시 13분 김석중
+    // 111@
 }

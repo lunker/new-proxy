@@ -35,11 +35,11 @@ public class TCPServer extends ChannelInboundHandlerAdapter {
             b.group(bossGroup, workerGroup)
                     .channel(NioServerSocketChannel.class) // (3)
                     .childHandler(new ProxyChannelInitializer())
-                    .option(ChannelOption.SO_BACKLOG, 2048)          // (5)
+                    .option(ChannelOption.SO_BACKLOG, 20000)          // (5)
                     .childOption(ChannelOption.SO_KEEPALIVE, true) // (6)
                     .childOption(ChannelOption.TCP_NODELAY, true)
-                    .childOption(ChannelOption.SO_RCVBUF, 2000)
-                    .childOption(ChannelOption.SO_REUSEADDR, true);
+                    .childOption(ChannelOption.SO_RCVBUF, 20000);
+//                    .childOption(ChannelOption.SO_REUSEADDR, true);
 
             // Bind and start to accept incoming connections.
             ChannelFuture f = b.bind(port).sync(); // (7)

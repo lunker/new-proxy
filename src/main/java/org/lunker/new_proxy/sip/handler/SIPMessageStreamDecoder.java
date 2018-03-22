@@ -24,6 +24,9 @@ public class SIPMessageStreamDecoder extends LineBasedFrameDecoder {
     private boolean hasContentBody=false;
 
 
+    private byte[] preservedBuffer=null;
+
+
     public SIPMessageStreamDecoder(int maxLength) {
         super(maxLength); // ?
 
@@ -33,6 +36,7 @@ public class SIPMessageStreamDecoder extends LineBasedFrameDecoder {
 
     @Override
     protected Object decode(ChannelHandlerContext ctx, ByteBuf buffer) throws Exception {
+
         logger.debug("[SIPMessageStreamDecoder][decode()]");
 
         ByteBuf buf=(ByteBuf) super.decode(ctx, buffer);
@@ -44,13 +48,15 @@ public class SIPMessageStreamDecoder extends LineBasedFrameDecoder {
 //            logger.info("Received raw buffer : " + buf.toString(CharsetUtil.UTF_8));
         }
 
-//        GeneralSipRequest generalSipRequest=new GeneralSipRequest();
-//        generalSipRequest.createResponse()
         String sipMsgLine=buf.toString(CharsetUtil.UTF_8);
 
         if(sipMsgLine.equals("\r\n")){
-//            buf.release();
             return null;
+        }
+
+        if(preservedBuffer!=null){
+            sipMessageBuilder.append(new String(preservedBuffer));
+            preservedBuffer=null;
         }
 
         sipMessageBuilder.append(sipMsgLine);
@@ -65,20 +71,40 @@ public class SIPMessageStreamDecoder extends LineBasedFrameDecoder {
 
             if(contentLengthValue!=0){
                 // read addtional buffer (message body)
-                int readbytes=0;
-                byte[] contentBody=new byte[contentLengthValue];
 
-                if(buffer.isReadable()){
-                    buffer.readBytes(contentBody);
+                byte[] contentBody=null;
+
+                try{
+                    if(buffer.isReadable() && contentLengthValue  <= buffer.readableBytes()){
+                        contentBody=new byte[contentLengthValue];
+
+                        buffer.readBytes(contentBody);
+                    }
+                    else{
+                        logger.info("why here?");
+
+                        preservedBuffer=new byte[buffer.readableBytes()];
+
+                        buffer.readBytes(preservedBuffer);
+                        return null;
+                    }
+                }
+                catch (Exception e){
+                    e.printStackTrace();
                 }
 
-                sipMessageBuilder.append(new String(contentBody));
-                sipMessageBuilder.append("\r\n");
-                String rawSipMessage=sipMessageBuilder.toString();
-                sipMessageBuilder=new StringBuilder();
-//                buf.release();
+                if(contentBody!=null){
+                    sipMessageBuilder.append(new String(contentBody));
+                    sipMessageBuilder.append("\r\n");
 
-                return rawSipMessage;
+                    String rawSipMessage=sipMessageBuilder.toString();
+                    sipMessageBuilder=new StringBuilder();
+
+                    return rawSipMessage;
+                }
+                else{
+                    return null;
+                }
             }
             else{
                 // just fire ctx event
