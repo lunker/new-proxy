@@ -16,7 +16,7 @@ ext{
     slf4jVersion = '1.7.21'
     log4j2Version = '2.5'
     commonsLogging = '1.2'
-    nettyVersion='4.1.22.Final'
+    nettyVersion='4.1.21.Final'
 }
 
 dependencies {

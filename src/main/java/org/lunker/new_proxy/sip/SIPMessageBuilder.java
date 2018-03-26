@@ -16,6 +16,7 @@ import java.text.ParseException;
 public class SIPMessageBuilder {
     private StringMsgParser stringMsgParser=null;
 
+
     public SIPMessageBuilder() {
         stringMsgParser=new StringMsgParser();
     }

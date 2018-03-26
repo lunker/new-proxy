@@ -2,48 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f60861d7-cb54-45b9-a59e-c7cf232f4985" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/org/lunker/new_proxy/sip/session/sas/SIPApplicationSessionKey.java" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.0/fileHashes/fileHashes.bin" afterPath="$PROJECT_DIR$/.gradle/4.0/fileHashes/fileHashes.bin" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.0/fileHashes/fileHashes.lock" afterPath="$PROJECT_DIR$/.gradle/4.0/fileHashes/fileHashes.lock" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__io_netty_netty_all_4_1_22_Final.xml" afterPath="" />
       <change beforePath="$PROJECT_DIR$/.idea/modules/new-proxy_main.iml" afterPath="$PROJECT_DIR$/.idea/modules/new-proxy_main.iml" />
       <change beforePath="$PROJECT_DIR$/.idea/modules/new-proxy_test.iml" afterPath="$PROJECT_DIR$/.idea/modules/new-proxy_test.iml" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/build.gradle" afterPath="$PROJECT_DIR$/build.gradle" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/org/lunker/new_proxy/rest/HttpService.class" afterPath="$PROJECT_DIR$/out/production/classes/org/lunker/new_proxy/rest/HttpService.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/org/lunker/new_proxy/sip/context/ProxyContext.class" afterPath="$PROJECT_DIR$/out/production/classes/org/lunker/new_proxy/sip/context/ProxyContext.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/org/lunker/new_proxy/sip/handler/SIPPreProcessor.class" afterPath="$PROJECT_DIR$/out/production/classes/org/lunker/new_proxy/sip/handler/SIPPreProcessor.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/org/lunker/new_proxy/sip/handler/SIPProcessor.class" afterPath="$PROJECT_DIR$/out/production/classes/org/lunker/new_proxy/sip/handler/SIPProcessor.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/org/lunker/new_proxy/sip/session/SIPSessionManagerImpl.class" afterPath="$PROJECT_DIR$/out/production/classes/org/lunker/new_proxy/sip/session/SIPSessionManagerImpl.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/org/lunker/new_proxy/sip/session/sas/SIPApplicationSessionImpl.class" afterPath="$PROJECT_DIR$/out/production/classes/org/lunker/new_proxy/sip/session/sas/SIPApplicationSessionImpl.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/org/lunker/new_proxy/sip/session/sas/SIPApplicationSessionKeyImpl.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/org/lunker/new_proxy/sip/session/ss/SIPSessionImpl.class" afterPath="$PROJECT_DIR$/out/production/classes/org/lunker/new_proxy/sip/session/ss/SIPSessionImpl.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/org/lunker/new_proxy/sip/session/ss/SIPSessionKeyImpl.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/org/lunker/new_proxy/stub/session/SIPSessionManager.class" afterPath="$PROJECT_DIR$/out/production/classes/org/lunker/new_proxy/stub/session/SIPSessionManager.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/org/lunker/new_proxy/stub/session/sas/SIPApplicationSession.class" afterPath="$PROJECT_DIR$/out/production/classes/org/lunker/new_proxy/stub/session/sas/SIPApplicationSession.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/org/lunker/new_proxy/stub/session/sas/SIPApplicationSessionKey.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/org/lunker/new_proxy/stub/session/ss/SIPSession.class" afterPath="$PROJECT_DIR$/out/production/classes/org/lunker/new_proxy/stub/session/ss/SIPSession.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/org/lunker/new_proxy/stub/session/ss/SIPSessionKey.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/org/lunker/new_proxy/util/JedisConnection.class" afterPath="$PROJECT_DIR$/out/production/classes/org/lunker/new_proxy/util/JedisConnection.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/org/lunker/new_proxy/util/ProxyUtil.class" afterPath="$PROJECT_DIR$/out/production/classes/org/lunker/new_proxy/util/ProxyUtil.class" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/lunker/new_proxy/rest/HttpService.java" afterPath="$PROJECT_DIR$/src/main/java/org/lunker/new_proxy/rest/HttpService.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/lunker/new_proxy/server/tcp/TCPServer.java" afterPath="$PROJECT_DIR$/src/main/java/org/lunker/new_proxy/server/tcp/TCPServer.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/lunker/new_proxy/sip/SIPHeaderParser.java" afterPath="$PROJECT_DIR$/src/main/java/org/lunker/new_proxy/sip/SIPHeaderParser.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/lunker/new_proxy/sip/context/ProxyContext.java" afterPath="$PROJECT_DIR$/src/main/java/org/lunker/new_proxy/sip/context/ProxyContext.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/lunker/new_proxy/sip/handler/SIPMessageStreamDecoder.java" afterPath="$PROJECT_DIR$/src/main/java/org/lunker/new_proxy/sip/handler/SIPMessageStreamDecoder.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/lunker/new_proxy/sip/handler/SIPPreProcessor.java" afterPath="$PROJECT_DIR$/src/main/java/org/lunker/new_proxy/sip/handler/SIPPreProcessor.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/lunker/new_proxy/sip/handler/SIPProcessor.java" afterPath="$PROJECT_DIR$/src/main/java/org/lunker/new_proxy/sip/handler/SIPProcessor.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/lunker/new_proxy/sip/session/SIPSessionManagerImpl.java" afterPath="$PROJECT_DIR$/src/main/java/org/lunker/new_proxy/sip/session/SIPSessionManagerImpl.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/lunker/new_proxy/sip/session/sas/SIPApplicationSessionImpl.java" afterPath="$PROJECT_DIR$/src/main/java/org/lunker/new_proxy/sip/session/sas/SIPApplicationSessionImpl.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/lunker/new_proxy/sip/session/sas/SIPApplicationSessionKeyImpl.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/lunker/new_proxy/sip/session/ss/SIPSessionImpl.java" afterPath="$PROJECT_DIR$/src/main/java/org/lunker/new_proxy/sip/session/ss/SIPSessionImpl.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/lunker/new_proxy/sip/session/ss/SIPSessionKeyImpl.java" afterPath="$PROJECT_DIR$/src/main/java/org/lunker/new_proxy/sip/session/ss/SIPSessionKey.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/lunker/new_proxy/stub/session/SIPSessionManager.java" afterPath="$PROJECT_DIR$/src/main/java/org/lunker/new_proxy/stub/session/SIPSessionManager.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/lunker/new_proxy/stub/session/sas/SIPApplicationSession.java" afterPath="$PROJECT_DIR$/src/main/java/org/lunker/new_proxy/stub/session/sas/SIPApplicationSession.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/lunker/new_proxy/stub/session/sas/SIPApplicationSessionKey.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/lunker/new_proxy/stub/session/ss/SIPSession.java" afterPath="$PROJECT_DIR$/src/main/java/org/lunker/new_proxy/stub/session/ss/SIPSession.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/lunker/new_proxy/stub/session/ss/SIPSessionKey.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/lunker/new_proxy/util/JedisConnection.java" afterPath="$PROJECT_DIR$/src/main/java/org/lunker/new_proxy/util/JedisConnection.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/lunker/new_proxy/util/ProxyUtil.java" afterPath="$PROJECT_DIR$/src/main/java/org/lunker/new_proxy/util/ProxyUtil.java" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/org/lunker/new_proxy/jetty/ProxyChannelInitializer.class" afterPath="$PROJECT_DIR$/out/production/classes/org/lunker/new_proxy/jetty/ProxyChannelInitializer.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/resources/log4j2.xml" afterPath="$PROJECT_DIR$/out/production/resources/log4j2.xml" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/lunker/new_proxy/jetty/ProxyChannelInitializer.java" afterPath="$PROJECT_DIR$/src/main/java/org/lunker/new_proxy/jetty/ProxyChannelInitializer.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/lunker/new_proxy/sip/SIPMessageBuilder.java" afterPath="$PROJECT_DIR$/src/main/java/org/lunker/new_proxy/sip/SIPMessageBuilder.java" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/log4j2.xml" afterPath="$PROJECT_DIR$/src/main/resources/log4j2.xml" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -74,6 +43,24 @@
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
                 <item name="new-proxy" type="f1a62948:ProjectNode" />
               </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="new-proxy" type="f1a62948:ProjectNode" />
+                <item name="Source Sets" type="e897c970:GradleViewContributor$SourceSetsNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="new-proxy" type="f1a62948:ProjectNode" />
+                <item name="Source Sets" type="e897c970:GradleViewContributor$SourceSetsNode" />
+                <item name="main" type="396b929e:GradleViewContributor$SourceSetNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="new-proxy" type="f1a62948:ProjectNode" />
+                <item name="Source Sets" type="e897c970:GradleViewContributor$SourceSetsNode" />
+                <item name="main" type="396b929e:GradleViewContributor$SourceSetNode" />
+                <item name="Dependencies" type="6de06a37:ExternalSystemViewDefaultContributor$MyDependenciesNode" />
+              </path>
             </expand>
             <select />
           </tree_state>
@@ -81,57 +68,121 @@
       </state>
     </system>
   </component>
+  <component name="FavoritesManager">
+    <favorites_list name="new-proxy" />
+  </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="SIPProcessor.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/org/lunker/new_proxy/sip/handler/SIPProcessor.java">
+      <file leaf-file-name="SIPByteDecoder.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/org/lunker/new_proxy/sip/handler/SIPByteDecoder.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="562">
-              <caret line="108" column="32" lean-forward="true" selection-start-line="108" selection-start-column="32" selection-end-line="108" selection-end-column="32" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Application.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/org/lunker/new_proxy/Application.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="252">
-              <caret line="22" column="35" lean-forward="false" selection-start-line="22" selection-start-column="35" selection-end-line="22" selection-end-column="35" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ProxyUtil.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/org/lunker/new_proxy/util/ProxyUtil.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2">
-              <caret line="15" column="44" lean-forward="true" selection-start-line="15" selection-start-column="44" selection-end-line="15" selection-end-column="44" />
+            <state relative-caret-position="300">
+              <caret line="107" column="71" lean-forward="true" selection-start-line="106" selection-start-column="36" selection-end-line="107" selection-end-column="71" />
               <folding>
-                <element signature="docComment;class#ProxyUtil#0" expanded="false" />
-                <element signature="initializer##0;class#ProxyUtil#0" expanded="false" />
-                <element signature="method#generateRandStr#0;class#ProxyUtil#0" expanded="false" />
+                <element signature="imports" expanded="true" />
+                <element signature="e#1530#1531#0" expanded="true" />
+                <element signature="e#1571#1572#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TCPServer.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/org/lunker/new_proxy/server/tcp/TCPServer.java">
+      <file leaf-file-name="SIPStreamDecoder.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/org/lunker/new_proxy/sip/handler/SIPStreamDecoder.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="486">
-              <caret line="38" column="73" lean-forward="false" selection-start-line="38" selection-start-column="70" selection-end-line="38" selection-end-column="73" />
+            <state relative-caret-position="1024">
+              <caret line="189" column="0" lean-forward="true" selection-start-line="189" selection-start-column="0" selection-end-line="189" selection-end-column="0" />
+              <folding>
+                <element signature="e#1869#1870#0" expanded="true" />
+                <element signature="e#1929#1930#0" expanded="true" />
+                <element signature="e#6259#6260#0" expanded="true" />
+                <element signature="e#6287#6288#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ByteBuf.java" pinned="false" current-in-tab="false">
+        <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.netty/netty-all/4.1.21.Final/da05c0e6882e9c1f613165cc66fcea6b0f1cdffd/netty-all-4.1.21.Final-sources.jar!/io/netty/buffer/ByteBuf.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="5518">
+              <caret line="2445" column="24" lean-forward="false" selection-start-line="2445" selection-start-column="24" selection-end-line="2445" selection-end-column="24" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SIPMessageStreamDecoder.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/org/lunker/new_proxy/sip/handler/SIPMessageStreamDecoder.java">
+      <file leaf-file-name="ProxyChannelInitializer.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/org/lunker/new_proxy/jetty/ProxyChannelInitializer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1184">
-              <caret line="110" column="66" lean-forward="true" selection-start-line="110" selection-start-column="66" selection-end-line="110" selection-end-column="66" />
+            <state relative-caret-position="450">
+              <caret line="35" column="65" lean-forward="true" selection-start-line="35" selection-start-column="65" selection-end-line="35" selection-end-column="65" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SIPMessageBuilder.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/org/lunker/new_proxy/sip/SIPMessageBuilder.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="162">
+              <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+              <folding>
+                <element signature="e#601#602#0" expanded="true" />
+                <element signature="e#654#655#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="log4j2.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/log4j2.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="252">
+              <caret line="14" column="56" lean-forward="true" selection-start-line="14" selection-start-column="56" selection-end-line="14" selection-end-column="56" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SIPPreProcessor.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/org/lunker/new_proxy/sip/handler/SIPPreProcessor.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="504">
+              <caret line="39" column="0" lean-forward="false" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AbstractByteBufAllocator.java" pinned="false" current-in-tab="false">
+        <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.netty/netty-all/4.1.21.Final/da05c0e6882e9c1f613165cc66fcea6b0f1cdffd/netty-all-4.1.21.Final-sources.jar!/io/netty/buffer/AbstractByteBufAllocator.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2682">
+              <caret line="174" column="19" lean-forward="false" selection-start-line="174" selection-start-column="19" selection-end-line="174" selection-end-column="19" />
+              <folding>
+                <element signature="e#5519#5520#0" expanded="true" />
+                <element signature="e#5593#5594#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PooledByteBufAllocator.java" pinned="false" current-in-tab="false">
+        <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.netty/netty-all/4.1.21.Final/da05c0e6882e9c1f613165cc66fcea6b0f1cdffd/netty-all-4.1.21.Final-sources.jar!/io/netty/buffer/PooledByteBufAllocator.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="5274">
+              <caret line="323" column="0" lean-forward="false" selection-start-line="323" selection-start-column="0" selection-end-line="323" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PoolArena.java" pinned="false" current-in-tab="false">
+        <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.netty/netty-all/4.1.21.Final/da05c0e6882e9c1f613165cc66fcea6b0f1cdffd/netty-all-4.1.21.Final-sources.jar!/io/netty/buffer/PoolArena.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="12672">
+              <caret line="778" column="0" lean-forward="false" selection-start-line="778" selection-start-column="0" selection-end-line="778" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -149,20 +200,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>exceptioncaught</find>
-      <find>ExceptionCaught</find>
-      <find>exceptioncau</find>
-      <find>messageparser</find>
-      <find>ctx.</find>
-      <find>copy</find>
-      <find>decode</find>
-      <find>strea</find>
-      <find>channelread</find>
-      <find>null buffer</find>
-      <find>Received r</find>
-      <find>nioEventLoopGroup-3-6</find>
-      <find>sipcallee00011</find>
-      <find>error while</find>
       <find>handleinvite</find>
       <find>cr</find>
       <find>createresponse</find>
@@ -179,6 +216,20 @@
       <find>not implement</find>
       <find>handlebyt</find>
       <find>sipcaller00010</find>
+      <find>smp</find>
+      <find>currentStreamEnded</find>
+      <find>readableBytes()</find>
+      <find>remain</find>
+      <find>copy</find>
+      <find>PooledUnsafeDirectByteBuf</find>
+      <find>preservedBuff</find>
+      <find>sizeCounter</find>
+      <find>maxMessageSize</find>
+      <find>contentLength</find>
+      <find>Concat</find>
+      <find>message</find>
+      <find>message.</find>
+      <find>isPreviousLineCRLF</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -363,8 +414,8 @@
     <option name="modificationStamps">
       <map>
         <entry key="$PROJECT_DIR$/../ims_proxy_library" value="3038222592000" />
-        <entry key="$PROJECT_DIR$" value="4563829553000" />
-        <entry key="$PROJECT_DIR$/build.gradle" value="709838655" />
+        <entry key="$PROJECT_DIR$" value="4563931761000" />
+        <entry key="$PROJECT_DIR$/build.gradle" value="1704670585" />
         <entry key="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" value="975608090" />
         <entry key="$PROJECT_DIR$/settings.gradle" value="2557979874" />
         <entry key="$PROJECT_DIR$/../typhone-biz-web" value="1512115253000" />
@@ -487,10 +538,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/org/lunker/new_proxy/server/SIPMessageEncoder.java" />
-        <option value="$PROJECT_DIR$/src/main/java/org/lunker/new_proxy/server/SIPMessageParser.java" />
-        <option value="$PROJECT_DIR$/src/main/java/org/lunker/new_proxy/server/TCPServer.java" />
-        <option value="$PROJECT_DIR$/src/main/java/org/lunker/new_proxy/server/TCPHandler.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/lunker/new_proxy/server/SIPMessageStreamDecoder.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/lunker/new_proxy/util/Registration.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/lunker/new_proxy/jetty/codec/SIPMessageStreamDecoder.java" />
@@ -507,14 +554,12 @@
         <option value="$PROJECT_DIR$/src/main/java/org/lunker/new_proxy/sip/session/SIPApplicationSessionImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/lunker/new_proxy/stub/session/SIPApplicationSessionKey.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/lunker/new_proxy/sip/session/SIPSessionManager.java" />
-        <option value="$PROJECT_DIR$/src/main/java/org/lunker/new_proxy/jetty/ProxyChannelInitializer.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/lunker/new_proxy/util/Registrar.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/lunker/new_proxy/util/JedisConnection.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/lunker/new_proxy/util/B2BUAHelper.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/lunker/new_proxy/stub/session/ss/SIPSessionKey.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/lunker/new_proxy/util/HashUtil.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/lunker/new_proxy/stub/session/sas/SIPApplicationSessionKey.java" />
-        <option value="$PROJECT_DIR$/src/main/java/org/lunker/new_proxy/exception/InvalidArgumentException.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/lunker/new_proxy/sip/session/sas/SIPApplicationSessionKeyImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/lunker/new_proxy/sip/session/ss/SIPSessionKeyImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/lunker/new_proxy/sip/message/SIPMessage.java" />
@@ -529,15 +574,21 @@
         <option value="$PROJECT_DIR$/src/main/java/org/lunker/new_proxy/sip/session/ss/SIPSessionImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/lunker/new_proxy/sip/context/ProxyContext.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/lunker/new_proxy/sip/handler/SIPPreProcessor.java" />
-        <option value="$PROJECT_DIR$/build.gradle" />
         <option value="$PROJECT_DIR$/src/main/java/org/lunker/new_proxy/sip/session/SIPSessionManagerImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/lunker/new_proxy/rest/HttpService.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/lunker/new_proxy/util/ProxyUtil.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/lunker/new_proxy/sip/SIPHeaderParser.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/log4j2.xml" />
         <option value="$PROJECT_DIR$/src/main/java/org/lunker/new_proxy/sip/handler/SIPProcessor.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/lunker/new_proxy/server/tcp/TCPServer.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/lunker/new_proxy/sip/handler/SIPMessageStreamDecoder.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/lunker/new_proxy/sip/handler/SIPInboundAdapter.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/lunker/new_proxy/exception/InvalidArgumentException.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/log4j2.xml" />
+        <option value="$PROJECT_DIR$/build.gradle" />
+        <option value="$PROJECT_DIR$/src/main/java/org/lunker/new_proxy/sip/handler/SIPByteDecoder.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/lunker/new_proxy/sip/SIPMessageBuilder.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/lunker/new_proxy/jetty/ProxyChannelInitializer.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/lunker/new_proxy/sip/handler/SIPStreamDecoder.java" />
       </list>
     </option>
   </component>
@@ -555,9 +606,9 @@
   </component>
   <component name="ProjectFrameBounds" fullScreen="true">
     <option name="x" value="1440" />
-    <option name="y" value="-231" />
+    <option name="y" value="-253" />
     <option name="width" value="2560" />
-    <option name="height" value="1418" />
+    <option name="height" value="1440" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -575,9 +626,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="AndroidView" />
-      <pane id="PackagesPane" />
       <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
@@ -638,15 +686,6 @@
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="new_proxy" type="462c0819:PsiDirectoryNode" />
               <item name="jetty" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="new-proxy" type="b2602c69:ProjectViewProjectNode" />
-              <item name="new-proxy" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="new_proxy" type="462c0819:PsiDirectoryNode" />
-              <item name="rest" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="new-proxy" type="b2602c69:ProjectViewProjectNode" />
@@ -724,47 +763,6 @@
               <item name="new-proxy" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="new_proxy" type="462c0819:PsiDirectoryNode" />
-              <item name="stub" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="new-proxy" type="b2602c69:ProjectViewProjectNode" />
-              <item name="new-proxy" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="new_proxy" type="462c0819:PsiDirectoryNode" />
-              <item name="stub" type="462c0819:PsiDirectoryNode" />
-              <item name="session" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="new-proxy" type="b2602c69:ProjectViewProjectNode" />
-              <item name="new-proxy" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="new_proxy" type="462c0819:PsiDirectoryNode" />
-              <item name="stub" type="462c0819:PsiDirectoryNode" />
-              <item name="session" type="462c0819:PsiDirectoryNode" />
-              <item name="sas" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="new-proxy" type="b2602c69:ProjectViewProjectNode" />
-              <item name="new-proxy" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="new_proxy" type="462c0819:PsiDirectoryNode" />
-              <item name="stub" type="462c0819:PsiDirectoryNode" />
-              <item name="session" type="462c0819:PsiDirectoryNode" />
-              <item name="ss" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="new-proxy" type="b2602c69:ProjectViewProjectNode" />
-              <item name="new-proxy" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -775,6 +773,9 @@
           <select />
         </subPane>
       </pane>
+      <pane id="AndroidView" />
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -782,10 +783,15 @@
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="SearchEverywhereHistoryKey" value="PooledUns&#9;PSI&#9;JAVA://io.netty.buffer.PooledUnsafeDirectByteBuf&#10;PooledSl&#9;PSI&#9;JAVA://io.netty.buffer.PooledSlicedByteBuf&#10;SIPApplica&#9;FILE&#9;file:///Users/voiceloco/work/ims/new-proxy/src/main/java/org/lunker/new_proxy/sip/session/sas/SIPApplicationSessionKey.java&#10;SIPREq&#9;PSI&#9;JAVA://gov.nist.javax.sip.message.SIPRequest&#10;hashu&#9;FILE&#9;file:///Users/voiceloco/work/ims/new-proxy/src/main/java/org/lunker/new_proxy/util/HashUtil.java&#10;SipApplication&#9;FILE&#9;file:///Users/voiceloco/work/ims/new-proxy/src/main/java/org/lunker/new_proxy/sip/session/sas/SIPApplicationSessionKeyImpl.java&#10;sipproce&#9;FILE&#9;file:///Users/voiceloco/work/ims/new-proxy/src/main/java/org/lunker/new_proxy/sip/handler/SIPProcessor.java&#10;To.java&#9;FILE&#9;jar:///Users/voiceloco/.gradle/caches/modules-2/files-2.1/javax.sip/jain-sip-ri/1.3.0-32/a6fc09ddb3556befa22bb8886dcf965fd36da5f9/jain-sip-ri-1.3.0-32-sources.jar!/gov/nist/javax/sip/header/To.java&#10;niopars&#9;PSI&#9;JAVA://gov.nist.javax.sip.parser.NioPipelineParser&#10;build.gr&#9;FILE&#9;file:///Users/voiceloco/work/ims/new-proxy/build.gradle&#10;processor&#9;FILE&#9;file:///Users/voiceloco/work/ims/new-proxy/src/main/java/org/lunker/new_proxy/sip/handler/SIPProcessor.java&#10;Fromheader&#9;PSI&#9;JAVA://javax.sip.header.FromHeader&#10;tcpser&#9;FILE&#9;file:///Users/voiceloco/work/ims/new-proxy/src/main/java/org/lunker/new_proxy/server/TCPServer.java&#10;SIPRe&#9;FILE&#9;jar:///Users/voiceloco/.gradle/caches/modules-2/files-2.1/javax.sip/jain-sip-ri/1.3.0-32/a6fc09ddb3556befa22bb8886dcf965fd36da5f9/jain-sip-ri-1.3.0-32-sources.jar!/gov/nist/javax/sip/message/SIPRequest.java&#10;build.gra&#9;FILE&#9;file:///Users/voiceloco/work/ims/new-proxy/build.gradle&#10;siphandl&#9;FILE&#9;file:///Users/voiceloco/work/ims/new-proxy/src/main/java/org/lunker/new_proxy/server/SIPHandler.java&#10;Lin&#9;FILE&#9;jar:///Users/voiceloco/.gradle/caches/modules-2/files-2.1/io.netty/netty-all/4.1.22.Final/72fef948d3371bb536c22cac960d94036109f799/netty-all-4.1.22.Final-sources.jar!/io/netty/handler/codec/LineBasedFrameDecoder.java&#10;SIPHand&#9;FILE&#9;file:///Users/voiceloco/work/ims/new-proxy/src/main/java/org/lunker/new_proxy/server/SIPHandler.java&#10;Stringdecoder&#9;PSI&#9;JAVA://io.netty.handler.codec.string.StringDecoder&#10;StringDecoder&#9;PSI&#9;JAVA://org.apache.commons.codec.StringDecoder&#10;DelimiterBasedFrameDecoder&#9;FILE&#9;jar:///Users/voiceloco/.gradle/caches/modules-2/files-2.1/io.netty/netty-all/4.1.22.Final/72fef948d3371bb536c22cac960d94036109f799/netty-all-4.1.22.Final-sources.jar!/io/netty/handler/codec/DelimiterBasedFrameDecoder.java&#10;MDCScheduledTHExecutor&#9;PSI&#9;JAVA://gov.nist.javax.sip.MDCScheduledTHExecutor&#10;niopipelin&#9;PSI&#9;JAVA://gov.nist.javax.sip.parser.NioPipelineParser&#10;siptimer&#9;PSI&#9;JAVA://gov.nist.javax.sip.stack.SIPStackTimerTask&#10;Timer&#9;PSI&#9;JAVA://gov.nist.javax.sip.stack.timers.SipTimer&#10;Authorizationheader&#9;PSI&#9;JAVA://javax.sip.header.AuthorizationHeader&#10;proxy&#9;FILE&#9;file:///Users/voiceloco/work/ims/new-proxy/src/main/java/org/lunker/new_proxy/jetty/ProxyChannelInitializer.java&#10;message&#9;FILE&#9;jar:///Users/voiceloco/.gradle/caches/modules-2/files-2.1/javax.sip/jain-sip-ri/1.3.0-32/a6fc09ddb3556befa22bb8886dcf965fd36da5f9/jain-sip-ri-1.3.0-32-sources.jar!/gov/nist/javax/sip/message/MessageFactoryImpl.java&#10;ChannelHandlerContext&#9;PSI&#9;JAVA://io.netty.channel.DefaultChannelHandlerContext&#10;DefaultChannelPip&#9;PSI&#9;JAVA://io.netty.channel.DefaultChannelPipeline&#10;MessageFacto&#9;FILE&#9;jar:///Users/voiceloco/.gradle/caches/modules-2/files-2.1/javax.sip/jain-sip-ri/1.3.0-32/a6fc09ddb3556befa22bb8886dcf965fd36da5f9/jain-sip-ri-1.3.0-32-sources.jar!/gov/nist/javax/sip/message/MessageFactoryImpl.java&#10;ServletContext&#9;FILE&#9;jar:///Users/voiceloco/.gradle/caches/modules-2/files-2.1/javax.servlet/javax.servlet-api/4.0.0/60200affc2fe0165136ed3690faf00b66aed581a/javax.servlet-api-4.0.0.jar!/javax/servlet/ServletContext.class&#10;SipSession&#9;FILE&#9;jar:///Users/voiceloco/.gradle/caches/modules-2/files-2.1/org.mobicents.servlet.sip/sip-servlets-spec/4.0.128/ced584703dd8d64c871fb6486a6b7549942c154e/sip-servlets-spec-4.0.128-sources.jar!/javax/servlet/sip/SipSession.java&#10;sipapplicationsession&#9;FILE&#9;jar:///Users/voiceloco/.gradle/caches/modules-2/files-2.1/org.mobicents.servlet.sip/sip-servlets-spec/4.0.128/3176b649a09a7d7b2d8b22087d3ef111866748b8/sip-servlets-spec-4.0.128.jar!/javax/servlet/sip/SipApplicationSession.class&#10;TCPHand&#9;FILE&#9;file:///Users/voiceloco/work/ims/new-proxy/src/main/java/org/lunker/new_proxy/server/TCPHandler.java&#10;MessageFactoryIm&#9;PSI&#9;JAVA://gov.nist.javax.sip.message.MessageFactoryImpl&#10;B2BUA&#9;FILE&#9;jar:///Users/voiceloco/.gradle/caches/modules-2/files-2.1/javax.sip/jain-sip-ri/1.3.0-32/a6fc09ddb3556befa22bb8886dcf965fd36da5f9/jain-sip-ri-1.3.0-32-sources.jar!/examples/websocket/B2BUA.java" />
+    <property name="SearchEverywhereHistoryKey" value="logj42&#9;FILE&#9;file:///Users/voiceloco/work/ims/new-proxy/.idea/libraries/Gradle__org_apache_logging_log4j_log4j_api_2_5.xml&#10;Poolbytebuf&#9;FILE&#9;jar:///Users/voiceloco/.gradle/caches/modules-2/files-2.1/io.netty/netty-all/4.1.22.Final/72fef948d3371bb536c22cac960d94036109f799/netty-all-4.1.22.Final-sources.jar!/io/netty/buffer/PooledUnsafeDirectByteBuf.java&#10;build.gra&#9;FILE&#9;file:///Users/voiceloco/work/ims/new-proxy/build.gradle&#10;log4j&#9;FILE&#9;file:///Users/voiceloco/work/ims/new-proxy/src/main/resources/log4j2.xml&#10;sipprocess&#9;FILE&#9;file:///Users/voiceloco/work/ims/new-proxy/src/main/java/org/lunker/new_proxy/sip/handler/SIPProcessor.java&#10;PooledUns&#9;PSI&#9;JAVA://io.netty.buffer.PooledUnsafeDirectByteBuf&#10;PooledSl&#9;PSI&#9;JAVA://io.netty.buffer.PooledSlicedByteBuf&#10;SIPApplica&#9;FILE&#9;file:///Users/voiceloco/work/ims/new-proxy/src/main/java/org/lunker/new_proxy/sip/session/sas/SIPApplicationSessionKey.java&#10;SIPREq&#9;PSI&#9;JAVA://gov.nist.javax.sip.message.SIPRequest&#10;hashu&#9;FILE&#9;file:///Users/voiceloco/work/ims/new-proxy/src/main/java/org/lunker/new_proxy/util/HashUtil.java&#10;SipApplication&#9;FILE&#9;file:///Users/voiceloco/work/ims/new-proxy/src/main/java/org/lunker/new_proxy/sip/session/sas/SIPApplicationSessionKeyImpl.java&#10;sipproce&#9;FILE&#9;file:///Users/voiceloco/work/ims/new-proxy/src/main/java/org/lunker/new_proxy/sip/handler/SIPProcessor.java&#10;To.java&#9;FILE&#9;jar:///Users/voiceloco/.gradle/caches/modules-2/files-2.1/javax.sip/jain-sip-ri/1.3.0-32/a6fc09ddb3556befa22bb8886dcf965fd36da5f9/jain-sip-ri-1.3.0-32-sources.jar!/gov/nist/javax/sip/header/To.java&#10;niopars&#9;PSI&#9;JAVA://gov.nist.javax.sip.parser.NioPipelineParser&#10;build.gr&#9;FILE&#9;file:///Users/voiceloco/work/ims/new-proxy/build.gradle&#10;processor&#9;FILE&#9;file:///Users/voiceloco/work/ims/new-proxy/src/main/java/org/lunker/new_proxy/sip/handler/SIPProcessor.java&#10;Fromheader&#9;PSI&#9;JAVA://javax.sip.header.FromHeader&#10;tcpser&#9;FILE&#9;file:///Users/voiceloco/work/ims/new-proxy/src/main/java/org/lunker/new_proxy/server/TCPServer.java&#10;SIPRe&#9;FILE&#9;jar:///Users/voiceloco/.gradle/caches/modules-2/files-2.1/javax.sip/jain-sip-ri/1.3.0-32/a6fc09ddb3556befa22bb8886dcf965fd36da5f9/jain-sip-ri-1.3.0-32-sources.jar!/gov/nist/javax/sip/message/SIPRequest.java&#10;siphandl&#9;FILE&#9;file:///Users/voiceloco/work/ims/new-proxy/src/main/java/org/lunker/new_proxy/server/SIPHandler.java&#10;Lin&#9;FILE&#9;jar:///Users/voiceloco/.gradle/caches/modules-2/files-2.1/io.netty/netty-all/4.1.22.Final/72fef948d3371bb536c22cac960d94036109f799/netty-all-4.1.22.Final-sources.jar!/io/netty/handler/codec/LineBasedFrameDecoder.java&#10;SIPHand&#9;FILE&#9;file:///Users/voiceloco/work/ims/new-proxy/src/main/java/org/lunker/new_proxy/server/SIPHandler.java&#10;Stringdecoder&#9;PSI&#9;JAVA://io.netty.handler.codec.string.StringDecoder&#10;StringDecoder&#9;PSI&#9;JAVA://org.apache.commons.codec.StringDecoder&#10;DelimiterBasedFrameDecoder&#9;FILE&#9;jar:///Users/voiceloco/.gradle/caches/modules-2/files-2.1/io.netty/netty-all/4.1.22.Final/72fef948d3371bb536c22cac960d94036109f799/netty-all-4.1.22.Final-sources.jar!/io/netty/handler/codec/DelimiterBasedFrameDecoder.java&#10;MDCScheduledTHExecutor&#9;PSI&#9;JAVA://gov.nist.javax.sip.MDCScheduledTHExecutor&#10;niopipelin&#9;PSI&#9;JAVA://gov.nist.javax.sip.parser.NioPipelineParser&#10;siptimer&#9;PSI&#9;JAVA://gov.nist.javax.sip.stack.SIPStackTimerTask&#10;Timer&#9;PSI&#9;JAVA://gov.nist.javax.sip.stack.timers.SipTimer&#10;Authorizationheader&#9;PSI&#9;JAVA://javax.sip.header.AuthorizationHeader&#10;proxy&#9;FILE&#9;file:///Users/voiceloco/work/ims/new-proxy/src/main/java/org/lunker/new_proxy/jetty/ProxyChannelInitializer.java&#10;message&#9;FILE&#9;jar:///Users/voiceloco/.gradle/caches/modules-2/files-2.1/javax.sip/jain-sip-ri/1.3.0-32/a6fc09ddb3556befa22bb8886dcf965fd36da5f9/jain-sip-ri-1.3.0-32-sources.jar!/gov/nist/javax/sip/message/MessageFactoryImpl.java&#10;ChannelHandlerContext&#9;PSI&#9;JAVA://io.netty.channel.DefaultChannelHandlerContext&#10;DefaultChannelPip&#9;PSI&#9;JAVA://io.netty.channel.DefaultChannelPipeline&#10;MessageFacto&#9;FILE&#9;jar:///Users/voiceloco/.gradle/caches/modules-2/files-2.1/javax.sip/jain-sip-ri/1.3.0-32/a6fc09ddb3556befa22bb8886dcf965fd36da5f9/jain-sip-ri-1.3.0-32-sources.jar!/gov/nist/javax/sip/message/MessageFactoryImpl.java&#10;ServletContext&#9;FILE&#9;jar:///Users/voiceloco/.gradle/caches/modules-2/files-2.1/javax.servlet/javax.servlet-api/4.0.0/60200affc2fe0165136ed3690faf00b66aed581a/javax.servlet-api-4.0.0.jar!/javax/servlet/ServletContext.class&#10;SipSession&#9;FILE&#9;jar:///Users/voiceloco/.gradle/caches/modules-2/files-2.1/org.mobicents.servlet.sip/sip-servlets-spec/4.0.128/ced584703dd8d64c871fb6486a6b7549942c154e/sip-servlets-spec-4.0.128-sources.jar!/javax/servlet/sip/SipSession.java&#10;sipapplicationsession&#9;FILE&#9;jar:///Users/voiceloco/.gradle/caches/modules-2/files-2.1/org.mobicents.servlet.sip/sip-servlets-spec/4.0.128/3176b649a09a7d7b2d8b22087d3ef111866748b8/sip-servlets-spec-4.0.128.jar!/javax/servlet/sip/SipApplicationSession.class&#10;TCPHand&#9;FILE&#9;file:///Users/voiceloco/work/ims/new-proxy/src/main/java/org/lunker/new_proxy/server/TCPHandler.java&#10;MessageFactoryIm&#9;PSI&#9;JAVA://gov.nist.javax.sip.message.MessageFactoryImpl&#10;B2BUA&#9;FILE&#9;jar:///Users/voiceloco/.gradle/caches/modules-2/files-2.1/javax.sip/jain-sip-ri/1.3.0-32/a6fc09ddb3556befa22bb8886dcf965fd36da5f9/jain-sip-ri-1.3.0-32-sources.jar!/examples/websocket/B2BUA.java" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="org.lunker.new_proxy.sip.handler" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -948,7 +954,9 @@
       <workItem from="1521185017285" duration="12881000" />
       <workItem from="1521204787485" duration="11737000" />
       <workItem from="1521421079027" duration="27588000" />
-      <workItem from="1521513408215" duration="46995000" />
+      <workItem from="1521513408215" duration="54151000" />
+      <workItem from="1521720109757" duration="3493000" />
+      <workItem from="1522036408089" duration="7838000" />
     </task>
     <servers />
   </component>
@@ -967,39 +975,40 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="113417000" />
+    <option name="totallyTimeSpent" value="131904000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1440" y="-253" width="2560" height="1440" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3268945" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32615155" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32974482" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25557205" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3959881" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32986626" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32986626" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18859649" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Build" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32973805" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20494418" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3268945" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32894737" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32615155" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32853025" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3551263" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5089153" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3299712" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Build" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32973805" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
@@ -1085,582 +1094,146 @@
           <properties />
           <option name="timeStamp" value="43" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
+        <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/org/lunker/new_proxy/sip/handler/SIPMessageStreamDecoder.java</url>
           <line>83</line>
           <properties />
           <option name="timeStamp" value="46" />
         </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/lunker/new_proxy/sip/handler/SIPByteDecoder.java</url>
+          <line>232</line>
+          <properties />
+          <option name="timeStamp" value="50" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/lunker/new_proxy/sip/handler/SIPByteDecoder.java</url>
+          <line>212</line>
+          <properties />
+          <option name="timeStamp" value="59" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/lunker/new_proxy/sip/handler/SIPByteDecoder.java</url>
+          <line>79</line>
+          <properties />
+          <option name="timeStamp" value="60" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.netty/netty-all/4.1.22.Final/72fef948d3371bb536c22cac960d94036109f799/netty-all-4.1.22.Final-sources.jar!/io/netty/buffer/PooledUnsafeDirectByteBuf.java</url>
+          <line>39</line>
+          <properties />
+          <option name="timeStamp" value="62" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/lunker/new_proxy/sip/handler/SIPByteDecoder.java</url>
+          <line>60</line>
+          <properties />
+          <option name="timeStamp" value="64" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/lunker/new_proxy/sip/handler/SIPStreamDecoder.java</url>
+          <line>113</line>
+          <properties />
+          <option name="timeStamp" value="70" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/lunker/new_proxy/sip/handler/SIPStreamDecoder.java</url>
+          <line>181</line>
+          <properties />
+          <option name="timeStamp" value="72" />
+        </line-breakpoint>
       </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="49" />
+      <option name="time" value="73" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="Application">
-        <watch expression="new StringMsgParser().parseSIPMessage(&quot;SIP/2.0 401 Unauthorized CSeq: 1 REGISTER Call-ID: register-sipcallee00008///8-77076@127.0.0.1 From: \&quot;sipcallee00008\&quot; &lt;sip:sipcallee00008@siptest.com&gt;;tag=77076SIPpTag008 To: \&quot;sipcallee00008\&quot; &lt;sip:sipcallee00008@siptest.com&gt; Via: SIP/2.0/TCP 127.0.0.1:56622;branch=z9hG4bK-77076-8-0;rport WWW-Authenticate: Digest algorithm=MD5,qop=\&quot;auth\&quot;,nonce=\&quot;854b3cdffd9673951c8cab5b854932ce\&quot;,realm=\&quot;siptest.com\&quot; Content-Length: 0&quot;.getBytes(), false, false, null)" language="JAVA" custom="gov.nist.javax.sip.parser.StringMsgParser" />
-        <watch expression="ProxyContext.getInstance().sipSessionManager.sipApplicationSessionConcurrentHashMap" language="JAVA" custom="org.lunker.new_proxy.sip.context.ProxyContext" />
-        <watch expression="buffer.readableBytes()" language="JAVA" />
-        <watch expression="sipMessageBuilder" language="JAVA" />
-        <watch expression="ProxyContext.getInstance().sipSessionManager.sipSessionConcurrentHashMap" language="JAVA" custom="org.lunker.new_proxy.sip.context.ProxyContext" />
-        <watch expression="buf.toString(CharsetUtil.UTF_8)" language="JAVA" />
-        <watch expression="buffer.toString(CharsetUtil.UTF_8)" language="JAVA" />
-        <watch expression="((PooledSlicedByteBuf) buf).readerIndex()" language="JAVA" custom="io.netty.buffer.PooledSlicedByteBuf" />
+        <watch expression="ctx.channel().read()" language="JAVA" />
+        <watch expression="headerBuffer.toString(CharsetUtil.UTF_8)" language="JAVA" custom="io.netty.util.CharsetUtil" />
+        <watch expression="tmp" language="JAVA" />
+        <watch expression="Integer.parseInt(new String(tmp).trim().split(&quot;:&quot;)[1])" language="JAVA" />
+        <watch expression="lastHeaerIdx" language="JAVA" />
+        <watch expression="headerLineBuffer.toString(CharsetUtil.UTF_8)" language="JAVA" />
+        <watch expression="contains(headerLineBuffer, contentByte)" language="JAVA" />
+        <watch expression="contentLength" language="JAVA" />
+        <watch expression="headerBuffer" language="JAVA" />
+        <watch expression="bodyBuffer" language="JAVA" />
       </configuration>
     </watches-manager>
   </component>
   <component name="debuggerHistoryManager">
     <expressions id="watch">
       <expression>
-        <expression-string>sipMessageBuilder</expression-string>
+        <expression-string>bodyBuffer</expression-string>
         <language-id>JAVA</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>buffer.readableBytes()</expression-string>
+        <expression-string>headerBuffer</expression-string>
         <language-id>JAVA</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>((PooledSlicedByteBuf) buf).readerIndex()</expression-string>
-        <language-id>JAVA</language-id>
-        <custom-info>io.netty.buffer.PooledSlicedByteBuf</custom-info>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>((PooledSlicedByteBuf) buf).readerIndex</expression-string>
-        <language-id>JAVA</language-id>
-        <custom-info>io.netty.buffer.PooledSlicedByteBuf</custom-info>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>buffer</expression-string>
+        <expression-string>contentLength</expression-string>
         <language-id>JAVA</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>buffer.toString(CharsetUtil.UTF_8)</expression-string>
+        <expression-string>contains(headerLineBuffer, contentByte)</expression-string>
         <language-id>JAVA</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>buf.toString(CharsetUtil.UTF_8)</expression-string>
+        <expression-string>headerLineBuffer.toString(CharsetUtil.UTF_8)</expression-string>
         <language-id>JAVA</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>ProxyContext.getInstance().sipSessionManager.sipApplicationSessionConcurrentHashMap</expression-string>
+        <expression-string>headerLineBuffer.toString()</expression-string>
         <language-id>JAVA</language-id>
-        <custom-info>org.lunker.new_proxy.sip.context.ProxyContext</custom-info>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>ProxyContext.getInstance().sipSessionManager.sipSessionConcurrentHashMap</expression-string>
+        <expression-string>lastHeaerIdx</expression-string>
         <language-id>JAVA</language-id>
-        <custom-info>org.lunker.new_proxy.sip.context.ProxyContext</custom-info>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>sipApplicationSessionConcurrentHashMap</expression-string>
+        <expression-string>lasthead</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>new String(tmp).trim()</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>Integer.parseInt(new String(tmp).trim().split(&quot;:&quot;)[1])</expression-string>
         <language-id>JAVA</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.netty/netty-all/4.1.22.Final/72fef948d3371bb536c22cac960d94036109f799/netty-all-4.1.22.Final-sources.jar!/io/netty/buffer/ByteBuf.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="41616">
-          <caret line="2354" column="24" lean-forward="false" selection-start-line="2354" selection-start-column="24" selection-end-line="2354" selection-end-column="24" />
-          <folding>
-            <element signature="e#10616#10656#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_111.jdk/Contents/Home/src.zip!/java/nio/ByteBuffer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="504">
-          <caret line="274" column="67" lean-forward="false" selection-start-line="274" selection-start-column="67" selection-end-line="274" selection-end-column="67" />
-          <folding>
-            <element signature="docComment;class#ByteBuffer#0" expanded="false" />
-            <element signature="method#ByteBuffer#0;class#ByteBuffer#0" expanded="false" />
-            <element signature="docComment;method#allocateDirect#0;class#ByteBuffer#0" expanded="false" />
-            <element signature="docComment;method#allocate#0;class#ByteBuffer#0" expanded="false" />
-            <element signature="method#allocate#0;class#ByteBuffer#0" expanded="false" />
-            <element signature="docComment;method#wrap#0;class#ByteBuffer#0" expanded="false" />
-            <element signature="method#wrap#0;class#ByteBuffer#0" expanded="false" />
-            <element signature="docComment;method#wrap#1;class#ByteBuffer#0" expanded="false" />
-            <element signature="docComment;method#slice#0;class#ByteBuffer#0" expanded="false" />
-            <element signature="docComment;method#duplicate#0;class#ByteBuffer#0" expanded="false" />
-            <element signature="docComment;method#asReadOnlyBuffer#0;class#ByteBuffer#0" expanded="false" />
-            <element signature="docComment;method#get#0;class#ByteBuffer#0" expanded="false" />
-            <element signature="docComment;method#put#0;class#ByteBuffer#0" expanded="false" />
-            <element signature="docComment;method#get#1;class#ByteBuffer#0" expanded="false" />
-            <element signature="docComment;method#put#1;class#ByteBuffer#0" expanded="false" />
-            <element signature="docComment;method#get#2;class#ByteBuffer#0" expanded="false" />
-            <element signature="method#get#2;class#ByteBuffer#0" expanded="false" />
-            <element signature="docComment;method#get#3;class#ByteBuffer#0" expanded="false" />
-            <element signature="docComment;method#put#2;class#ByteBuffer#0" expanded="false" />
-            <element signature="method#put#2;class#ByteBuffer#0" expanded="false" />
-            <element signature="docComment;method#put#3;class#ByteBuffer#0" expanded="false" />
-            <element signature="method#put#3;class#ByteBuffer#0" expanded="false" />
-            <element signature="docComment;method#put#4;class#ByteBuffer#0" expanded="false" />
-            <element signature="docComment;method#hasArray#0;class#ByteBuffer#0" expanded="false" />
-            <element signature="docComment;method#array#0;class#ByteBuffer#0" expanded="false" />
-            <element signature="method#array#0;class#ByteBuffer#0" expanded="false" />
-            <element signature="docComment;method#arrayOffset#0;class#ByteBuffer#0" expanded="false" />
-            <element signature="method#arrayOffset#0;class#ByteBuffer#0" expanded="false" />
-            <element signature="docComment;method#compact#0;class#ByteBuffer#0" expanded="false" />
-            <element signature="docComment;method#isDirect#0;class#ByteBuffer#0" expanded="false" />
-            <element signature="docComment;method#toString#0;class#ByteBuffer#0" expanded="false" />
-            <element signature="method#toString#0;class#ByteBuffer#0" expanded="false" />
-            <element signature="docComment;method#hashCode#0;class#ByteBuffer#0" expanded="false" />
-            <element signature="method#hashCode#0;class#ByteBuffer#0" expanded="false" />
-            <element signature="docComment;method#equals#0;class#ByteBuffer#0" expanded="false" />
-            <element signature="method#equals#0;class#ByteBuffer#0" expanded="false" />
-            <element signature="method#equals#1;class#ByteBuffer#0" expanded="false" />
-            <element signature="docComment;method#compareTo#0;class#ByteBuffer#0" expanded="false" />
-            <element signature="method#compareTo#0;class#ByteBuffer#0" expanded="false" />
-            <element signature="method#compare#0;class#ByteBuffer#0" expanded="false" />
-            <element signature="e#33494#33519#0" expanded="false" />
-            <element signature="docComment;method#order#0;class#ByteBuffer#0" expanded="false" />
-            <element signature="docComment;method#order#1;class#ByteBuffer#0" expanded="false" />
-            <element signature="method#order#1;class#ByteBuffer#0" expanded="false" />
-            <element signature="docComment;method#getChar#0;class#ByteBuffer#0" expanded="false" />
-            <element signature="docComment;method#putChar#0;class#ByteBuffer#0" expanded="false" />
-            <element signature="docComment;method#getChar#1;class#ByteBuffer#0" expanded="false" />
-            <element signature="docComment;method#putChar#1;class#ByteBuffer#0" expanded="false" />
-            <element signature="docComment;method#asCharBuffer#0;class#ByteBuffer#0" expanded="false" />
-            <element signature="docComment;method#getShort#0;class#ByteBuffer#0" expanded="false" />
-            <element signature="docComment;method#putShort#0;class#ByteBuffer#0" expanded="false" />
-            <element signature="docComment;method#getShort#1;class#ByteBuffer#0" expanded="false" />
-            <element signature="docComment;method#putShort#1;class#ByteBuffer#0" expanded="false" />
-            <element signature="docComment;method#asShortBuffer#0;class#ByteBuffer#0" expanded="false" />
-            <element signature="docComment;method#getInt#0;class#ByteBuffer#0" expanded="false" />
-            <element signature="docComment;method#putInt#0;class#ByteBuffer#0" expanded="false" />
-            <element signature="docComment;method#getInt#1;class#ByteBuffer#0" expanded="false" />
-            <element signature="docComment;method#putInt#1;class#ByteBuffer#0" expanded="false" />
-            <element signature="docComment;method#asIntBuffer#0;class#ByteBuffer#0" expanded="false" />
-            <element signature="docComment;method#getLong#0;class#ByteBuffer#0" expanded="false" />
-            <element signature="docComment;method#putLong#0;class#ByteBuffer#0" expanded="false" />
-            <element signature="docComment;method#getLong#1;class#ByteBuffer#0" expanded="false" />
-            <element signature="docComment;method#putLong#1;class#ByteBuffer#0" expanded="false" />
-            <element signature="docComment;method#asLongBuffer#0;class#ByteBuffer#0" expanded="false" />
-            <element signature="docComment;method#getFloat#0;class#ByteBuffer#0" expanded="false" />
-            <element signature="docComment;method#putFloat#0;class#ByteBuffer#0" expanded="false" />
-            <element signature="docComment;method#getFloat#1;class#ByteBuffer#0" expanded="false" />
-            <element signature="docComment;method#putFloat#1;class#ByteBuffer#0" expanded="false" />
-            <element signature="docComment;method#asFloatBuffer#0;class#ByteBuffer#0" expanded="false" />
-            <element signature="docComment;method#getDouble#0;class#ByteBuffer#0" expanded="false" />
-            <element signature="docComment;method#putDouble#0;class#ByteBuffer#0" expanded="false" />
-            <element signature="docComment;method#getDouble#1;class#ByteBuffer#0" expanded="false" />
-            <element signature="docComment;method#putDouble#1;class#ByteBuffer#0" expanded="false" />
-            <element signature="docComment;method#asDoubleBuffer#0;class#ByteBuffer#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/javax.sip/jain-sip-ri/1.3.0-32/a6fc09ddb3556befa22bb8886dcf965fd36da5f9/jain-sip-ri-1.3.0-32-sources.jar!/gov/nist/javax/sip/parser/NioPipelineParser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1476">
-          <caret line="82" column="41" lean-forward="false" selection-start-line="82" selection-start-column="41" selection-end-line="82" selection-end-column="41" />
-          <folding>
-            <element signature="e#0#18356#0" expanded="false" />
-            <element signature="imports" expanded="false" />
-            <element signature="e#3430#3431#0" expanded="false" />
-            <element signature="e#3477#3478#0" expanded="false" />
-            <element signature="e#6606#6607#0" expanded="false" />
-            <element signature="e#6626#6627#0" expanded="false" />
-            <element signature="e#13908#13909#0" expanded="false" />
-            <element signature="e#13939#13940#0" expanded="false" />
-            <element signature="e#15746#15747#0" expanded="false" />
-            <element signature="e#15792#15793#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/lunker/new_proxy/util/HttpEntityUtils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="14" column="13" lean-forward="false" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/lunker/new_proxy/sip/handler/SIPPostProcessor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/lunker/new_proxy/server/LoggingHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="13" column="13" lean-forward="false" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/redis.clients/jedis/2.9.0/6d75e2498cd82c02665df5f9d7a77d0b5e398157/jedis-2.9.0-sources.jar!/redis/clients/jedis/RedisPipeline.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="414">
-          <caret line="30" column="17" lean-forward="false" selection-start-line="30" selection-start-column="17" selection-end-line="30" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.httpcomponents/httpclient/4.5.5/9fd59f6f22326a4241f9524fdfd66a1f34824054/httpclient-4.5.5-sources.jar!/org/apache/http/impl/conn/PoolingHttpClientConnectionManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="6804">
-          <caret line="455" column="16" lean-forward="false" selection-start-line="455" selection-start-column="16" selection-end-line="455" selection-end-column="16" />
-          <folding>
-            <element signature="e#18192#18193#0" expanded="false" />
-            <element signature="e#18244#18245#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/lunker/new_proxy/jetty/ProxyChannelInitializer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="24" column="11" lean-forward="false" selection-start-line="24" selection-start-column="11" selection-end-line="24" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/lunker/new_proxy/util/Registrar.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="702">
-          <caret line="42" column="6" lean-forward="false" selection-start-line="42" selection-start-column="6" selection-end-line="42" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.netty/netty-all/4.1.22.Final/72fef948d3371bb536c22cac960d94036109f799/netty-all-4.1.22.Final-sources.jar!/io/netty/channel/socket/nio/NioServerSocketChannel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="42" column="13" lean-forward="false" selection-start-line="42" selection-start-column="13" selection-end-line="42" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.httpcomponents/httpcore/4.4.9/5808b4637c385d939e901eee3dc5f1121fc73a3b/httpcore-4.4.9-sources.jar!/org/apache/http/util/EntityUtils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="279">
-          <caret line="82" column="23" lean-forward="false" selection-start-line="82" selection-start-column="23" selection-end-line="82" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/lunker/new_proxy/util/JedisConnection.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="26" column="34" lean-forward="true" selection-start-line="26" selection-start-column="34" selection-end-line="26" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/lunker/new_proxy/sip/handler/TCPHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="504">
-          <caret line="34" column="60" lean-forward="true" selection-start-line="34" selection-start-column="60" selection-end-line="34" selection-end-column="60" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/javax.sip/jain-sip-ri/1.3.0-32/a6fc09ddb3556befa22bb8886dcf965fd36da5f9/jain-sip-ri-1.3.0-32-sources.jar!/gov/nist/javax/sip/header/To.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="141" column="22" lean-forward="false" selection-start-line="141" selection-start-column="22" selection-end-line="141" selection-end-column="22" />
-          <folding>
-            <element signature="e#0#5097#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/javax.sip/jain-sip-ri/1.3.0-32/a6fc09ddb3556befa22bb8886dcf965fd36da5f9/jain-sip-ri-1.3.0-32-sources.jar!/gov/nist/javax/sip/header/ParametersHeader.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="203">
-          <caret line="79" column="37" lean-forward="true" selection-start-line="79" selection-start-column="37" selection-end-line="79" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/javax.sip/jain-sip-ri/1.3.0-32/a6fc09ddb3556befa22bb8886dcf965fd36da5f9/jain-sip-ri-1.3.0-32-sources.jar!/gov/nist/core/NameValueList.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="411">
-          <caret line="70" column="5" lean-forward="true" selection-start-line="70" selection-start-column="5" selection-end-line="70" selection-end-column="5" />
-          <folding>
-            <element signature="e#7909#7910#0" expanded="false" />
-            <element signature="e#7956#7957#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/lunker/new_proxy/stub/session/ss/SIPSessionKey.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="10" column="0" lean-forward="true" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/lunker/new_proxy/util/HashUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="10" column="4" lean-forward="false" selection-start-line="10" selection-start-column="4" selection-end-line="10" selection-end-column="4" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/lunker/new_proxy/exception/InvalidArgumentException.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="7" column="5" lean-forward="true" selection-start-line="7" selection-start-column="5" selection-end-line="7" selection-end-column="5" />
-          <folding>
-            <element signature="e#200#201#0" expanded="false" />
-            <element signature="e#230#231#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/lunker/new_proxy/stub/session/sas/SIPApplicationSessionKey.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="12" column="0" lean-forward="true" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/javax.sip/jain-sip-ri/1.3.0-32/a6fc09ddb3556befa22bb8886dcf965fd36da5f9/jain-sip-ri-1.3.0-32-sources.jar!/gov/nist/javax/sip/message/SIPMessage.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-2259">
           <caret line="133" column="22" lean-forward="false" selection-start-line="133" selection-start-column="22" selection-end-line="133" selection-end-column="22" />
-          <folding>
-            <element signature="docComment;class#SIPMessage#0" expanded="false" />
-            <element signature="docComment;field#unrecognizedHeaders#0;class#SIPMessage#0" expanded="false" />
-            <element signature="docComment;field#headers#0;class#SIPMessage#0" expanded="false" />
-            <element signature="docComment;field#fromHeader#0;class#SIPMessage#0" expanded="false" />
-            <element signature="docComment;field#applicationData#0;class#SIPMessage#0" expanded="false" />
-            <element signature="docComment;field#remoteAddress#0;class#SIPMessage#0" expanded="false" />
-            <element signature="docComment;field#remotePort#0;class#SIPMessage#0" expanded="false" />
-            <element signature="docComment;field#localAddress#0;class#SIPMessage#0" expanded="false" />
-            <element signature="docComment;field#localPort#0;class#SIPMessage#0" expanded="false" />
-            <element signature="docComment;method#isRequestHeader#0;class#SIPMessage#0" expanded="false" />
-            <element signature="method#isRequestHeader#0;class#SIPMessage#0" expanded="false" />
-            <element signature="docComment;method#isResponseHeader#0;class#SIPMessage#0" expanded="false" />
-            <element signature="method#isResponseHeader#0;class#SIPMessage#0" expanded="false" />
-            <element signature="docComment;method#getMessageAsEncodedStrings#0;class#SIPMessage#0" expanded="false" />
-            <element signature="method#getMessageAsEncodedStrings#0;class#SIPMessage#0" expanded="false" />
-            <element signature="docComment;method#encodeSIPHeaders#0;class#SIPMessage#0" expanded="false" />
-            <element signature="method#encodeSIPHeaders#0;class#SIPMessage#0" expanded="false" />
-            <element signature="docComment;method#encodeMessage#0;class#SIPMessage#0" expanded="false" />
-            <element signature="docComment;method#getDialogId#0;class#SIPMessage#0" expanded="false" />
-            <element signature="method#getDialogId#0;class#SIPMessage#0" expanded="false" />
-            <element signature="docComment;method#getDialogId#1;class#SIPMessage#0" expanded="false" />
-            <element signature="method#getDialogId#1;class#SIPMessage#0" expanded="false" />
-            <element signature="docComment;method#match#0;class#SIPMessage#0" expanded="false" />
-            <element signature="method#match#0;class#SIPMessage#0" expanded="false" />
-            <element signature="docComment;method#merge#0;class#SIPMessage#0" expanded="false" />
-            <element signature="method#merge#0;class#SIPMessage#0" expanded="false" />
-            <element signature="docComment;method#encode#0;class#SIPMessage#0" expanded="false" />
-            <element signature="method#encode#0;class#SIPMessage#0" expanded="false" />
-            <element signature="e#16017#16073#0" expanded="false" />
-            <element signature="docComment;method#encodeAsBytes#0;class#SIPMessage#0" expanded="false" />
-            <element signature="method#encodeAsBytes#0;class#SIPMessage#0" expanded="false" />
-            <element signature="e#17727#17799#0" expanded="false" />
-            <element signature="docComment;method#clone#0;class#SIPMessage#0" expanded="false" />
-            <element signature="method#clone#0;class#SIPMessage#0" expanded="false" />
-            <element signature="docComment;method#debugDump#0;class#SIPMessage#0" expanded="false" />
-            <element signature="method#debugDump#0;class#SIPMessage#0" expanded="false" />
-            <element signature="docComment;method#SIPMessage#0;class#SIPMessage#0" expanded="false" />
-            <element signature="method#SIPMessage#0;class#SIPMessage#0" expanded="false" />
-            <element signature="docComment;method#attachHeader#0;class#SIPMessage#0" expanded="false" />
-            <element signature="method#attachHeader#0;class#SIPMessage#0" expanded="false" />
-            <element signature="docComment;method#setHeader#0;class#SIPMessage#0" expanded="false" />
-            <element signature="method#setHeader#0;class#SIPMessage#0" expanded="false" />
-            <element signature="docComment;method#setHeaders#0;class#SIPMessage#0" expanded="false" />
-            <element signature="method#setHeaders#0;class#SIPMessage#0" expanded="false" />
-            <element signature="docComment;method#attachHeader#1;class#SIPMessage#0" expanded="false" />
-            <element signature="method#attachHeader#1;class#SIPMessage#0" expanded="false" />
-            <element signature="docComment;method#attachHeader#2;class#SIPMessage#0" expanded="false" />
-            <element signature="method#attachHeader#2;class#SIPMessage#0" expanded="false" />
-            <element signature="docComment;method#removeHeader#0;class#SIPMessage#0" expanded="false" />
-            <element signature="method#removeHeader#0;class#SIPMessage#0" expanded="false" />
-            <element signature="e#30721#30775#0" expanded="false" />
-            <element signature="docComment;method#removeHeader#1;class#SIPMessage#0" expanded="false" />
-            <element signature="method#removeHeader#1;class#SIPMessage#0" expanded="false" />
-            <element signature="docComment;method#getTransactionId#0;class#SIPMessage#0" expanded="false" />
-            <element signature="method#getTransactionId#0;class#SIPMessage#0" expanded="false" />
-            <element signature="e#34406#34454#0" expanded="false" />
-            <element signature="e#34936#34985#0" expanded="false" />
-            <element signature="e#35348#35407#0" expanded="false" />
-            <element signature="e#35613#35657#0" expanded="false" />
-            <element signature="e#35809#35849#0" expanded="false" />
-            <element signature="docComment;method#hashCode#0;class#SIPMessage#0" expanded="false" />
-            <element signature="method#hashCode#0;class#SIPMessage#0" expanded="false" />
-            <element signature="docComment;method#hasContent#0;class#SIPMessage#0" expanded="false" />
-            <element signature="docComment;method#getHeaders#0;class#SIPMessage#0" expanded="false" />
-            <element signature="docComment;method#getHeader#0;class#SIPMessage#0" expanded="false" />
-            <element signature="method#getHeader#0;class#SIPMessage#0" expanded="false" />
-            <element signature="method#getHeaderLowerCase#0;class#SIPMessage#0" expanded="false" />
-            <element signature="docComment;method#getContentTypeHeader#0;class#SIPMessage#0" expanded="false" />
-            <element signature="docComment;method#getContentLengthHeader#0;class#SIPMessage#0" expanded="false" />
-            <element signature="docComment;method#getFrom#0;class#SIPMessage#0" expanded="false" />
-            <element signature="docComment;method#getErrorInfoHeaders#0;class#SIPMessage#0" expanded="false" />
-            <element signature="docComment;method#getContactHeaders#0;class#SIPMessage#0" expanded="false" />
-            <element signature="docComment;method#getContactHeader#0;class#SIPMessage#0" expanded="false" />
-            <element signature="method#getContactHeader#0;class#SIPMessage#0" expanded="false" />
-            <element signature="docComment;method#getViaHeaders#0;class#SIPMessage#0" expanded="false" />
-            <element signature="docComment;method#setVia#0;class#SIPMessage#0" expanded="false" />
-            <element signature="method#setVia#0;class#SIPMessage#0" expanded="false" />
-            <element signature="docComment;method#setHeader#1;class#SIPMessage#0" expanded="false" />
-            <element signature="docComment;method#getTopmostVia#0;class#SIPMessage#0" expanded="false" />
-            <element signature="method#getTopmostVia#0;class#SIPMessage#0" expanded="false" />
-            <element signature="docComment;method#getCSeq#0;class#SIPMessage#0" expanded="false" />
-            <element signature="docComment;method#getAuthorization#0;class#SIPMessage#0" expanded="false" />
-            <element signature="docComment;method#getMaxForwards#0;class#SIPMessage#0" expanded="false" />
-            <element signature="docComment;method#setMaxForwards#0;class#SIPMessage#0" expanded="false" />
-            <element signature="docComment;method#getRouteHeaders#0;class#SIPMessage#0" expanded="false" />
-            <element signature="docComment;method#getCallId#0;class#SIPMessage#0" expanded="false" />
-            <element signature="docComment;method#setCallId#0;class#SIPMessage#0" expanded="false" />
-            <element signature="docComment;method#setCallId#1;class#SIPMessage#0" expanded="false" />
-            <element signature="method#setCallId#1;class#SIPMessage#0" expanded="false" />
-            <element signature="docComment;method#getRecordRouteHeaders#0;class#SIPMessage#0" expanded="false" />
-            <element signature="method#getRecordRouteHeaders#0;class#SIPMessage#0" expanded="false" />
-            <element signature="docComment;method#getTo#0;class#SIPMessage#0" expanded="false" />
-            <element signature="method#setFrom#0;class#SIPMessage#0" expanded="false" />
-            <element signature="docComment;method#getContentLength#0;class#SIPMessage#0" expanded="false" />
-            <element signature="docComment;method#getMessageContent#0;class#SIPMessage#0" expanded="false" />
-            <element signature="method#getMessageContent#0;class#SIPMessage#0" expanded="false" />
-            <element signature="docComment;method#getRawContent#0;class#SIPMessage#0" expanded="false" />
-            <element signature="method#getRawContent#0;class#SIPMessage#0" expanded="false" />
-            <element signature="docComment;method#setMessageContent#0;class#SIPMessage#0" expanded="false" />
-            <element signature="method#setMessageContent#0;class#SIPMessage#0" expanded="false" />
-            <element signature="e#47026#47078#0" expanded="false" />
-            <element signature="docComment;method#setContent#0;class#SIPMessage#0" expanded="false" />
-            <element signature="method#setContent#0;class#SIPMessage#0" expanded="false" />
-            <element signature="docComment;method#getContent#0;class#SIPMessage#0" expanded="false" />
-            <element signature="method#getContent#0;class#SIPMessage#0" expanded="false" />
-            <element signature="docComment;method#setMessageContent#1;class#SIPMessage#0" expanded="false" />
-            <element signature="method#setMessageContent#1;class#SIPMessage#0" expanded="false" />
-            <element signature="docComment;method#setMessageContent#2;class#SIPMessage#0" expanded="false" />
-            <element signature="method#setMessageContent#2;class#SIPMessage#0" expanded="false" />
-            <element signature="e#49325#49380#0" expanded="false" />
-            <element signature="docComment;method#setMessageContent#3;class#SIPMessage#0" expanded="false" />
-            <element signature="method#setMessageContent#3;class#SIPMessage#0" expanded="false" />
-            <element signature="docComment;method#setMessageContent#4;class#SIPMessage#0" expanded="false" />
-            <element signature="method#setMessageContent#4;class#SIPMessage#0" expanded="false" />
-            <element signature="docComment;method#computeContentLength#0;class#SIPMessage#0" expanded="false" />
-            <element signature="method#computeContentLength#0;class#SIPMessage#0" expanded="false" />
-            <element signature="docComment;method#removeContent#0;class#SIPMessage#0" expanded="false" />
-            <element signature="method#removeContent#0;class#SIPMessage#0" expanded="false" />
-            <element signature="docComment;method#getHeaders#1;class#SIPMessage#0" expanded="false" />
-            <element signature="method#getHeaders#1;class#SIPMessage#0" expanded="false" />
-            <element signature="docComment;method#getHeaderAsFormattedString#0;class#SIPMessage#0" expanded="false" />
-            <element signature="method#getHeaderAsFormattedString#0;class#SIPMessage#0" expanded="false" />
-            <element signature="method#getSIPHeaderListLowerCase#0;class#SIPMessage#0" expanded="false" />
-            <element signature="docComment;method#getHeaderList#0;class#SIPMessage#0" expanded="false" />
-            <element signature="method#getHeaderList#0;class#SIPMessage#0" expanded="false" />
-            <element signature="docComment;method#hasHeader#0;class#SIPMessage#0" expanded="false" />
-            <element signature="method#hasHeader#0;class#SIPMessage#0" expanded="false" />
-            <element signature="docComment;method#hasFromTag#0;class#SIPMessage#0" expanded="false" />
-            <element signature="docComment;method#hasToTag#0;class#SIPMessage#0" expanded="false" />
-            <element signature="docComment;method#getFromTag#0;class#SIPMessage#0" expanded="false" />
-            <element signature="docComment;method#setFromTag#0;class#SIPMessage#0" expanded="false" />
-            <element signature="method#setFromTag#0;class#SIPMessage#0" expanded="false" />
-            <element signature="docComment;method#setToTag#0;class#SIPMessage#0" expanded="false" />
-            <element signature="method#setToTag#0;class#SIPMessage#0" expanded="false" />
-            <element signature="docComment;method#getToTag#0;class#SIPMessage#0" expanded="false" />
-            <element signature="docComment;method#getFirstLine#0;class#SIPMessage#0" expanded="false" />
-            <element signature="docComment;method#addHeader#0;class#SIPMessage#0" expanded="false" />
-            <element signature="method#addHeader#0;class#SIPMessage#0" expanded="false" />
-            <element signature="docComment;method#addUnparsed#0;class#SIPMessage#0" expanded="false" />
-            <element signature="docComment;method#addHeader#1;class#SIPMessage#0" expanded="false" />
-            <element signature="method#addHeader#1;class#SIPMessage#0" expanded="false" />
-            <element signature="docComment;method#getUnrecognizedHeaders#0;class#SIPMessage#0" expanded="false" />
-            <element signature="docComment;method#getHeaderNames#0;class#SIPMessage#0" expanded="false" />
-            <element signature="method#getHeaderNames#0;class#SIPMessage#0" expanded="false" />
-            <element signature="docComment;method#equals#0;class#SIPMessage#0" expanded="false" />
-            <element signature="method#equals#0;class#SIPMessage#0" expanded="false" />
-            <element signature="docComment;method#getContentDisposition#0;class#SIPMessage#0" expanded="false" />
-            <element signature="method#getContentDisposition#0;class#SIPMessage#0" expanded="false" />
-            <element signature="docComment;method#getContentEncoding#0;class#SIPMessage#0" expanded="false" />
-            <element signature="method#getContentEncoding#0;class#SIPMessage#0" expanded="false" />
-            <element signature="docComment;method#getContentLanguage#0;class#SIPMessage#0" expanded="false" />
-            <element signature="method#getContentLanguage#0;class#SIPMessage#0" expanded="false" />
-            <element signature="docComment;method#getExpires#0;class#SIPMessage#0" expanded="false" />
-            <element signature="docComment;method#setExpires#0;class#SIPMessage#0" expanded="false" />
-            <element signature="docComment;method#setContentDisposition#0;class#SIPMessage#0" expanded="false" />
-            <element signature="method#setContentDisposition#0;class#SIPMessage#0" expanded="false" />
-            <element signature="method#setContentEncoding#0;class#SIPMessage#0" expanded="false" />
-            <element signature="method#setContentLanguage#0;class#SIPMessage#0" expanded="false" />
-            <element signature="docComment;method#setContentLength#0;class#SIPMessage#0" expanded="false" />
-            <element signature="method#setContentLength#0;class#SIPMessage#0" expanded="false" />
-            <element signature="docComment;method#setSize#0;class#SIPMessage#0" expanded="false" />
-            <element signature="method#addLast#0;class#SIPMessage#0" expanded="false" />
-            <element signature="method#addFirst#0;class#SIPMessage#0" expanded="false" />
-            <element signature="method#removeFirst#0;class#SIPMessage#0" expanded="false" />
-            <element signature="method#removeLast#0;class#SIPMessage#0" expanded="false" />
-            <element signature="docComment;method#setCSeq#0;class#SIPMessage#0" expanded="false" />
-            <element signature="docComment;method#setApplicationData#0;class#SIPMessage#0" expanded="false" />
-            <element signature="docComment;method#getApplicationData#0;class#SIPMessage#0" expanded="false" />
-            <element signature="docComment;method#getMultipartMimeContent#0;class#SIPMessage#0" expanded="false" />
-            <element signature="method#getMultipartMimeContent#0;class#SIPMessage#0" expanded="false" />
-            <element signature="docComment;method#getCharset#0;class#SIPMessage#0" expanded="false" />
-            <element signature="method#getCharset#0;class#SIPMessage#0" expanded="false" />
-            <element signature="docComment;method#isNullRequest#0;class#SIPMessage#0" expanded="false" />
-            <element signature="docComment;method#setNullRequest#0;class#SIPMessage#0" expanded="false" />
-            <element signature="method#getForkId#0;class#SIPMessage#0" expanded="false" />
-            <element signature="method#cleanUp#0;class#SIPMessage#0" expanded="false" />
-            <element signature="e#68155#68185#0" expanded="false" />
-            <element signature="docComment;method#setUnrecognizedHeadersList#0;class#SIPMessage#0" expanded="false" />
-            <element signature="method#setUnrecognizedHeadersList#0;class#SIPMessage#0" expanded="false" />
-            <element signature="docComment;method#getUnrecognizedHeadersList#0;class#SIPMessage#0" expanded="false" />
-            <element signature="method#getUnrecognizedHeadersList#0;class#SIPMessage#0" expanded="false" />
-            <element signature="method#setPeerPacketSourceAddress#0;class#SIPMessage#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/lunker/new_proxy/sip/message/SIPMessage.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="41" lean-forward="true" selection-start-line="0" selection-start-column="41" selection-end-line="0" selection-end-column="41" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/lunker/new_proxy/sip/message/SIPMessage.java" />
     <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/javax.sip/jain-sip-ri/1.3.0-32/a6fc09ddb3556befa22bb8886dcf965fd36da5f9/jain-sip-ri-1.3.0-32-sources.jar!/gov/nist/javax/sip/message/SIPRequest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="396">
           <caret line="324" column="14" lean-forward="true" selection-start-line="324" selection-start-column="14" selection-end-line="324" selection-end-column="14" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/lunker/new_proxy/sip/message/SIPRequest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="11" column="39" lean-forward="false" selection-start-line="11" selection-start-column="39" selection-end-line="11" selection-end-column="39" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/lunker/new_proxy/sip/SIPMessageBuilder.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="31" column="9" lean-forward="true" selection-start-line="31" selection-start-column="9" selection-end-line="31" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/lunker/new_proxy/sip/message/SIPRequest.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/org/lunker/new_proxy/stub/session/SIPSessionManager.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="126">
@@ -1750,14 +1323,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="246">
-          <caret line="59" column="96" lean-forward="true" selection-start-line="59" selection-start-column="96" selection-end-line="59" selection-end-column="96" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/org/lunker/new_proxy/sip/context/ProxyContext.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="522">
@@ -1773,7 +1338,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="310">
           <caret line="933" column="13" lean-forward="false" selection-start-line="933" selection-start-column="13" selection-end-line="933" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1790,13 +1354,13 @@
         <state relative-caret-position="0">
           <caret line="0" column="32" lean-forward="false" selection-start-line="0" selection-start-column="32" selection-end-line="0" selection-end-column="32" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#470#471#0" expanded="true" />
-            <element signature="e#518#519#0" expanded="true" />
-            <element signature="e#1071#1072#0" expanded="true" />
-            <element signature="e#1162#1163#0" expanded="true" />
-            <element signature="e#1364#1365#0" expanded="true" />
-            <element signature="e#1404#1405#0" expanded="true" />
+            <element signature="imports" expanded="false" />
+            <element signature="e#470#471#0" expanded="false" />
+            <element signature="e#518#519#0" expanded="false" />
+            <element signature="e#1071#1072#0" expanded="false" />
+            <element signature="e#1162#1163#0" expanded="false" />
+            <element signature="e#1364#1365#0" expanded="false" />
+            <element signature="e#1404#1405#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1821,7 +1385,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="252">
           <caret line="63" column="10" lean-forward="false" selection-start-line="63" selection-start-column="10" selection-end-line="63" selection-end-column="10" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1829,54 +1392,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-2">
           <caret line="15" column="44" lean-forward="true" selection-start-line="15" selection-start-column="44" selection-end-line="15" selection-end-column="44" />
-          <folding>
-            <element signature="docComment;class#ProxyUtil#0" expanded="false" />
-            <element signature="initializer##0;class#ProxyUtil#0" expanded="false" />
-            <element signature="method#generateRandStr#0;class#ProxyUtil#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/log4j2.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="7" column="192" lean-forward="false" selection-start-line="7" selection-start-column="192" selection-end-line="7" selection-end-column="192" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.netty/netty-all/4.1.22.Final/72fef948d3371bb536c22cac960d94036109f799/netty-all-4.1.22.Final-sources.jar!/io/netty/buffer/PooledUnsafeDirectByteBuf.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="371">
-          <caret line="132" column="5" lean-forward="true" selection-start-line="132" selection-start-column="5" selection-end-line="132" selection-end-column="5" />
-          <folding>
-            <element signature="e#1185#1421#0" expanded="true" />
-            <element signature="e#1420#1421#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/lunker/new_proxy/sip/handler/SIPPreProcessor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="594">
-          <caret line="44" column="0" lean-forward="false" selection-start-line="44" selection-start-column="0" selection-end-line="44" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.netty/netty-all/4.1.22.Final/72fef948d3371bb536c22cac960d94036109f799/netty-all-4.1.22.Final-sources.jar!/io/netty/handler/codec/ByteToMessageDecoder.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="706">
-          <caret line="453" column="17" lean-forward="true" selection-start-line="453" selection-start-column="17" selection-end-line="453" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/lunker/new_proxy/sip/handler/SIPProcessor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="562">
-          <caret line="108" column="32" lean-forward="true" selection-start-line="108" selection-start-column="32" selection-end-line="108" selection-end-column="32" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1898,9 +1413,235 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/org/lunker/new_proxy/sip/handler/SIPMessageStreamDecoder.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1184">
-          <caret line="110" column="66" lean-forward="true" selection-start-line="110" selection-start-column="66" selection-end-line="110" selection-end-column="66" />
+        <state relative-caret-position="443">
+          <caret line="32" column="46" lean-forward="true" selection-start-line="32" selection-start-column="46" selection-end-line="32" selection-end-column="46" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/application.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/javax.sip/jain-sip-ri/1.3.0-32/a6fc09ddb3556befa22bb8886dcf965fd36da5f9/jain-sip-ri-1.3.0-32-sources.jar!/gov/nist/javax/sip/parser/PostParseExecutorServices.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="846">
+          <caret line="55" column="34" lean-forward="false" selection-start-line="55" selection-start-column="34" selection-end-line="55" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.netty/netty-all/4.1.22.Final/72fef948d3371bb536c22cac960d94036109f799/netty-all-4.1.22.Final-sources.jar!/io/netty/channel/ChannelHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="197" column="15" lean-forward="true" selection-start-line="197" selection-start-column="15" selection-end-line="197" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/lunker/new_proxy/sip/handler/SIPInboundAdapter.java" />
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.netty/netty-all/4.1.22.Final/72fef948d3371bb536c22cac960d94036109f799/netty-all-4.1.22.Final-sources.jar!/io/netty/channel/ChannelHandlerAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="25" column="63" lean-forward="false" selection-start-line="25" selection-start-column="63" selection-end-line="25" selection-end-column="63" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.netty/netty-all/4.1.22.Final/72fef948d3371bb536c22cac960d94036109f799/netty-all-4.1.22.Final-sources.jar!/io/netty/channel/ChannelInboundHandlerAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-944">
+          <caret line="31" column="59" lean-forward="false" selection-start-line="31" selection-start-column="59" selection-end-line="31" selection-end-column="59" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/lunker/new_proxy/exception/InvalidArgumentException.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="9" column="5" lean-forward="true" selection-start-line="9" selection-start-column="5" selection-end-line="9" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.netty/netty-all/4.1.22.Final/72fef948d3371bb536c22cac960d94036109f799/netty-all-4.1.22.Final-sources.jar!/io/netty/handler/codec/ByteToMessageDecoder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="8190">
+          <caret line="492" column="0" lean-forward="false" selection-start-line="492" selection-start-column="0" selection-end-line="492" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.netty/netty-all/4.1.22.Final/72fef948d3371bb536c22cac960d94036109f799/netty-all-4.1.22.Final-sources.jar!/io/netty/buffer/ByteBuf.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="38394">
+          <caret line="2175" column="28" lean-forward="false" selection-start-line="2175" selection-start-column="28" selection-end-line="2175" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.netty/netty-all/4.1.22.Final/72fef948d3371bb536c22cac960d94036109f799/netty-all-4.1.22.Final-sources.jar!/io/netty/buffer/UnpooledByteBufAllocator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="396">
+          <caret line="40" column="6" lean-forward="true" selection-start-line="40" selection-start-column="6" selection-end-line="40" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.netty/netty-all/4.1.21.Final/da05c0e6882e9c1f613165cc66fcea6b0f1cdffd/netty-all-4.1.21.Final-sources.jar!/io/netty/buffer/PooledByteBuf.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="24" column="15" lean-forward="false" selection-start-line="24" selection-start-column="15" selection-end-line="24" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.netty/netty-all/4.1.21.Final/da05c0e6882e9c1f613165cc66fcea6b0f1cdffd/netty-all-4.1.21.Final-sources.jar!/io/netty/buffer/UnpooledByteBufAllocator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="28" column="17" lean-forward="false" selection-start-line="28" selection-start-column="17" selection-end-line="28" selection-end-column="17" />
+          <folding>
+            <element signature="e#1762#1763#0" expanded="false" />
+            <element signature="e#1803#1804#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/lunker/new_proxy/sip/handler/SIPProcessor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="108" column="32" lean-forward="false" selection-start-line="108" selection-start-column="32" selection-end-line="108" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.netty/netty-all/4.1.22.Final/72fef948d3371bb536c22cac960d94036109f799/netty-all-4.1.22.Final-sources.jar!/io/netty/buffer/AbstractByteBuf.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="14" column="3" lean-forward="false" selection-start-line="14" selection-start-column="3" selection-end-line="14" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.netty/netty-all/4.1.22.Final/72fef948d3371bb536c22cac960d94036109f799/netty-all-4.1.22.Final-sources.jar!/io/netty/buffer/PooledUnsafeDirectByteBuf.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="43" column="0" lean-forward="false" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.netty/netty-all/4.1.21.Final/da05c0e6882e9c1f613165cc66fcea6b0f1cdffd/netty-all-4.1.21.Final-sources.jar!/io/netty/buffer/PooledUnsafeDirectByteBuf.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="39" column="0" lean-forward="false" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.netty/netty-all/4.1.21.Final/da05c0e6882e9c1f613165cc66fcea6b0f1cdffd/netty-all-4.1.21.Final-sources.jar!/io/netty/buffer/PoolArena.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="12672">
+          <caret line="778" column="0" lean-forward="false" selection-start-line="778" selection-start-column="0" selection-end-line="778" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.netty/netty-all/4.1.21.Final/da05c0e6882e9c1f613165cc66fcea6b0f1cdffd/netty-all-4.1.21.Final-sources.jar!/io/netty/buffer/PooledByteBufAllocator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5274">
+          <caret line="323" column="0" lean-forward="false" selection-start-line="323" selection-start-column="0" selection-end-line="323" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.idea/libraries/Gradle__org_apache_logging_log4j_log4j_api_2_5.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="4" column="14" lean-forward="true" selection-start-line="4" selection-start-column="14" selection-end-line="4" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/log4j2.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="14" column="56" lean-forward="true" selection-start-line="14" selection-start-column="56" selection-end-line="14" selection-end-column="56" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/lunker/new_proxy/sip/SIPMessageBuilder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+          <folding>
+            <element signature="e#601#602#0" expanded="true" />
+            <element signature="e#654#655#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/lunker/new_proxy/jetty/ProxyChannelInitializer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="35" column="65" lean-forward="true" selection-start-line="35" selection-start-column="65" selection-end-line="35" selection-end-column="65" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.netty/netty-all/4.1.21.Final/da05c0e6882e9c1f613165cc66fcea6b0f1cdffd/netty-all-4.1.21.Final-sources.jar!/io/netty/buffer/ByteBuf.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5518">
+          <caret line="2445" column="24" lean-forward="false" selection-start-line="2445" selection-start-column="24" selection-end-line="2445" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/lunker/new_proxy/sip/handler/SIPByteDecoder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="107" column="71" lean-forward="true" selection-start-line="106" selection-start-column="36" selection-end-line="107" selection-end-column="71" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1530#1531#0" expanded="true" />
+            <element signature="e#1571#1572#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/lunker/new_proxy/sip/handler/SIPPreProcessor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="504">
+          <caret line="39" column="0" lean-forward="false" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.netty/netty-all/4.1.21.Final/da05c0e6882e9c1f613165cc66fcea6b0f1cdffd/netty-all-4.1.21.Final-sources.jar!/io/netty/buffer/AbstractByteBufAllocator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2682">
+          <caret line="174" column="19" lean-forward="false" selection-start-line="174" selection-start-column="19" selection-end-line="174" selection-end-column="19" />
+          <folding>
+            <element signature="e#5519#5520#0" expanded="true" />
+            <element signature="e#5593#5594#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/lunker/new_proxy/sip/handler/SIPStreamDecoder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1024">
+          <caret line="189" column="0" lean-forward="true" selection-start-line="189" selection-start-column="0" selection-end-line="189" selection-end-column="0" />
+          <folding>
+            <element signature="e#1869#1870#0" expanded="true" />
+            <element signature="e#1929#1930#0" expanded="true" />
+            <element signature="e#6259#6260#0" expanded="true" />
+            <element signature="e#6287#6288#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
