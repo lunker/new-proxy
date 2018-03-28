@@ -6,7 +6,6 @@ import io.netty.buffer.UnpooledByteBufAllocator;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.handler.codec.ByteToMessageDecoder;
 import io.netty.util.CharsetUtil;
-import org.lunker.new_proxy.sip.SIPMessageBuilder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -24,7 +23,6 @@ public class SIPStreamDecoder extends ByteToMessageDecoder{
     private final int DEFAULT_HEADER_SIZE=3000;
     private final int DEFAULT_HEADER_LINE_SIZE=512;
 
-    private SIPMessageBuilder sipMessageBuilder=null;
     private ByteBuf headerBuffer=null;
     private ByteBuf headerLineBuffer=null;
     private int headerIdx=0;
@@ -46,8 +44,6 @@ public class SIPStreamDecoder extends ByteToMessageDecoder{
     private byte[] contentByte="Content-Length:".getBytes();
 
     public SIPStreamDecoder() {
-//        sipMessageBuilder=new SIPMessageBuilder();
-
         pooledByteBufAllocator=new PooledByteBufAllocator();
         unpooledByteBufAllocator=new UnpooledByteBufAllocator(false);
 
@@ -151,12 +147,11 @@ public class SIPStreamDecoder extends ByteToMessageDecoder{
                 }
                 else{
 
-                    // create entire Sip message
-
+                    // create entire Sip wrapper
                     try{
 
                         String sipMessage=headerBuffer.toString(CharsetUtil.UTF_8) + bodyBuffer.toString(CharsetUtil.UTF_8);
-                        logger.info("Parsed sip message:\n" + sipMessage );
+                        logger.info("Parsed sip wrapper:\n" + sipMessage);
 
                         // reset used buffer
                         headerBuffer.clear();

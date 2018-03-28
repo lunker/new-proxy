@@ -1,9 +1,9 @@
 package org.lunker.new_proxy.sip.session.sas;
 
 import org.lunker.new_proxy.exception.InvalidArgumentException;
-import org.lunker.new_proxy.sip.session.ss.SIPSessionKey;
-import org.lunker.new_proxy.stub.session.sas.SIPApplicationSession;
-import org.lunker.new_proxy.stub.session.ss.SIPSession;
+import org.lunker.new_proxy.sip.session.ss.SipSessionKey;
+import org.lunker.new_proxy.stub.session.sas.SipApplicationSession;
+import org.lunker.new_proxy.stub.session.ss.SipSession;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -13,19 +13,19 @@ import java.util.HashMap;
 /**
  * Created by dongqlee on 2018. 3. 20..
  */
-public class SIPApplicationSessionImpl implements SIPApplicationSession {
+public class SipApplicationSessionImpl implements SipApplicationSession {
 
-    private Logger logger= LoggerFactory.getLogger(SIPApplicationSessionImpl.class);
-    private SIPApplicationSessionKey sipApplicationSessionKey=null;
+    private Logger logger= LoggerFactory.getLogger(SipApplicationSessionImpl.class);
+    private SipApplicationSessionKey sipApplicationSessionKey=null;
     private LocalDateTime createdTime=null;
 
-    private HashMap<SIPSessionKey, SIPSession> sipSessions;
+    private HashMap<SipSessionKey, SipSession> sipSessions;
 
-    private SIPApplicationSessionImpl() {
+    private SipApplicationSessionImpl() {
 
     }
 
-    public SIPApplicationSessionImpl(SIPApplicationSessionKey sipApplicationSessionKey) throws InvalidArgumentException{
+    public SipApplicationSessionImpl(SipApplicationSessionKey sipApplicationSessionKey) throws InvalidArgumentException{
         if(sipApplicationSessionKey==null){
             throw new InvalidArgumentException("Not valid sipApplicationSessionKey is entered");
         }
@@ -33,17 +33,17 @@ public class SIPApplicationSessionImpl implements SIPApplicationSession {
         this.sipSessions=new HashMap<>();
     }
 
-    public void addSession(SIPSession sipSession){
+    public void addSession(SipSession sipSession){
         this.sipSessions.put(sipSession.getSipSessionkey(), sipSession);
     }
 
     @Override
-    public SIPApplicationSessionKey getSipApplicationKey() {
+    public SipApplicationSessionKey getSipApplicationKey() {
         return this.sipApplicationSessionKey;
     }
 
     @Override
-    public void addSIPSession(SIPSession sipSession) {
+    public void addSipSession(SipSession sipSession) {
         this.sipSessions.put(sipSession.getSipSessionkey(), sipSession);
     }
 }

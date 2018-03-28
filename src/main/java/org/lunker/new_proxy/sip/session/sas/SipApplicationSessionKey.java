@@ -1,5 +1,6 @@
 package org.lunker.new_proxy.sip.session.sas;
 
+import gov.nist.javax.sip.message.SIPMessage;
 import org.lunker.new_proxy.util.HashUtil;
 
 import java.util.UUID;
@@ -7,18 +8,22 @@ import java.util.UUID;
 /**
  * Created by dongqlee on 2018. 3. 20..
  */
-public class SIPApplicationSessionKey {
+public class SipApplicationSessionKey {
 
     private String uuid;
     private String generatedKey="";
     private int MAX_HASHED_LENGTH=8;
 
-    public SIPApplicationSessionKey() {
+    public SipApplicationSessionKey() {
         this.uuid=""+UUID.randomUUID();
         generateKey();
     }
 
-    public SIPApplicationSessionKey(String generatedKey) {
+    public SipApplicationSessionKey(SIPMessage sipMessage) {
+        generateKey();
+    }
+
+    public SipApplicationSessionKey(String generatedKey) {
         this.generatedKey = generatedKey;
     }
 
@@ -31,7 +36,7 @@ public class SIPApplicationSessionKey {
         } else if (this.getClass() != obj.getClass()) {
             return false;
         } else {
-            SIPApplicationSessionKey other=(SIPApplicationSessionKey)obj;
+            SipApplicationSessionKey other=(SipApplicationSessionKey)obj;
 
             if(!other.getGeneratedKey().equals(this.getGeneratedKey())){
                 return false;
@@ -42,12 +47,10 @@ public class SIPApplicationSessionKey {
     }
 
     private void generateKey(){
-        this.generatedKey= HashUtil.hashString(this.uuid, MAX_HASHED_LENGTH);// hash
+        this.generatedKey=HashUtil.hashString(this.uuid, MAX_HASHED_LENGTH);// hash
     }
 
     public String getGeneratedKey() {
-//        if(this.generatedKey.equals(""))
-//            this.generateKey();
         return this.generatedKey;
     }
 

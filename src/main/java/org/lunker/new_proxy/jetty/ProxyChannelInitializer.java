@@ -29,10 +29,10 @@ public class ProxyChannelInitializer extends ChannelInitializer {
 
 //        ch.pipeline().addLast("tcp", new TCPHandler());
 //        ch.pipeline().addLast("parser", new SIPMessageParser());
-
-
 //        ch.pipeline().addLast("decoder", new SIPMessageStreamDecoder(1024));
 //        ch.pipeline().addLast("decoder", new SIPByteDecoder());
+
+
         ch.pipeline().addLast("decoder", new SIPStreamDecoder());
         ch.pipeline().addLast("encoder", new SIPPreProcessor());
         ch.pipeline().addLast("handler", new SIPProcessor());

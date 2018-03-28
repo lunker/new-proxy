@@ -1,14 +1,16 @@
 package org.lunker.new_proxy.sip.session;
 
 import gov.nist.javax.sip.message.SIPMessage;
+import io.netty.channel.ChannelHandlerContext;
 import org.lunker.new_proxy.exception.InvalidArgumentException;
-import org.lunker.new_proxy.sip.session.sas.SIPApplicationSessionImpl;
-import org.lunker.new_proxy.sip.session.sas.SIPApplicationSessionKey;
-import org.lunker.new_proxy.sip.session.ss.SIPSessionImpl;
-import org.lunker.new_proxy.sip.session.ss.SIPSessionKey;
+import org.lunker.new_proxy.sip.session.sas.SipApplicationSessionImpl;
+import org.lunker.new_proxy.sip.session.sas.SipApplicationSessionKey;
+import org.lunker.new_proxy.sip.session.ss.SipSessionImpl;
+import org.lunker.new_proxy.sip.session.ss.SipSessionKey;
+import org.lunker.new_proxy.sip.wrapper.message.GeneralSipMessage;
 import org.lunker.new_proxy.stub.session.SIPSessionManager;
-import org.lunker.new_proxy.stub.session.sas.SIPApplicationSession;
-import org.lunker.new_proxy.stub.session.ss.SIPSession;
+import org.lunker.new_proxy.stub.session.sas.SipApplicationSession;
+import org.lunker.new_proxy.stub.session.ss.SipSession;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -19,30 +21,35 @@ import java.util.concurrent.ConcurrentHashMap;
  */
 
 /**
- * CRUD for SIPSession & SIPApplicatoinSession
+ * CRUD for SipSession & SIPApplicatoinSession
  */
 public class SIPSessionManagerImpl implements SIPSessionManager{
 
     private Logger logger= LoggerFactory.getLogger(SIPSessionManagerImpl.class);
     private int INITIAL_CAPACITY=1024;
-    private ConcurrentHashMap<SIPSessionKey, SIPSession> sipSessionConcurrentHashMap;
-    private ConcurrentHashMap<SIPApplicationSessionKey, SIPApplicationSession> sipApplicationSessionConcurrentHashMap;
+    private ConcurrentHashMap<SipSessionKey, SipSession> sipSessionConcurrentHashMap;
+    private ConcurrentHashMap<SipApplicationSessionKey, SipApplicationSession> sipApplicationSessionConcurrentHashMap;
 
     public SIPSessionManagerImpl() {
         this.sipApplicationSessionConcurrentHashMap=new ConcurrentHashMap<>(INITIAL_CAPACITY * 2);
         this.sipSessionConcurrentHashMap=new ConcurrentHashMap<>(INITIAL_CAPACITY);
     }
 
-    public SIPSession createOrGetSIPSession(SIPMessage sipMessage) {
-        // create SIPSession
+    public SipSession createOrGetSIPSession(ChannelHandlerContext ctx, GeneralSipMessage generalSipMessage) {
+        return createOrGetSIPSession(ctx, generalSipMessage.getRawSipMessage());
+    }
+
+    public SipSession createOrGetSIPSession(ChannelHandlerContext ctx, SIPMessage generalSipMessage) {
+        // create SipSession
         // using SIPmessage
 
-        SIPSessionKey currentSIPSessionKey=null;
-        SIPSession currentSIPSession=null;
-        String fromTag=sipMessage.getFromTag();
-        String toTag=sipMessage.getToTag();
+        SipSessionKey currentSipSessionKey =null;
+        SipSession currentSipSession =null;
 
-        SIPApplicationSession currentCallSipApplicationSession=null;
+        String fromTag=generalSipMessage.getFrom().getTag();
+        String toTag=generalSipMessage.getTo().getTag();
+
+        SipApplicationSession currentCallSipApplicationSession=null;
         currentCallSipApplicationSession=findSipApplicationSession(fromTag, toTag);
         logger.info(String.format("FromTag: %s, ToTag: %s", fromTag, toTag));
 
@@ -50,26 +57,30 @@ public class SIPSessionManagerImpl implements SIPSessionManager{
             // first comming request
 
             // create SAS && SS
-            currentCallSipApplicationSession=createSIPApplicationSession();
+            currentCallSipApplicationSession=createSipApplicationSession();
 
-            currentSIPSessionKey=new SIPSessionKey(sipMessage.getFromTag(), sipMessage.getCallId().getCallId(), currentCallSipApplicationSession.getSipApplicationKey().getGeneratedKey());
-            currentSIPSession=new SIPSessionImpl(currentSIPSessionKey);
-            currentCallSipApplicationSession.addSIPSession(currentSIPSession);
+            currentSipSessionKey =new SipSessionKey(generalSipMessage, currentCallSipApplicationSession.getSipApplicationKey().getGeneratedKey());
+            currentSipSession =new SipSessionImpl(currentSipSessionKey, currentCallSipApplicationSession.getSipApplicationKey());
 
-            this.sipSessionConcurrentHashMap.put(currentSIPSessionKey, currentSIPSession);
+            // Add SipSession as child of SAS
+            currentCallSipApplicationSession.addSipSession(currentSipSession);
+
+            this.sipSessionConcurrentHashMap.put(currentSipSessionKey, currentSipSession);
 
             logger.info(String.format("Create SAS : %s", currentCallSipApplicationSession.getSipApplicationKey().getGeneratedKey()));
         }
         else{
-            currentSIPSessionKey=new SIPSessionKey(sipMessage.getFromTag(), sipMessage.getCallId().getCallId(), "");
-            currentSIPSession=sipSessionConcurrentHashMap.get(currentSIPSessionKey);
+            currentSipSessionKey =new SipSessionKey(generalSipMessage, currentCallSipApplicationSession.getSipApplicationKey().getGeneratedKey());
+            currentSipSession=sipSessionConcurrentHashMap.get(currentSipSessionKey);
         }
 
-        return currentSIPSession;
+        currentSipSession.setCtx(ctx);
+
+        return currentSipSession;
     }
 
-    public SIPApplicationSession findSipApplicationSession(String fromTag, String toTag){
-        SIPApplicationSession sipApplicationSession=null;
+    public SipApplicationSession findSipApplicationSession(String fromTag, String toTag){
+        SipApplicationSession sipApplicationSession=null;
 
         sipApplicationSession=findSipApplicationSession(fromTag);
 
@@ -79,7 +90,18 @@ public class SIPSessionManagerImpl implements SIPSessionManager{
         return sipApplicationSession;
     }
 
-    private SIPApplicationSession findSipApplicationSession(String tag){
+    public SipApplicationSession findSipApplicationSession(SipApplicationSessionKey sipApplicationSessionKey){
+        return this.sipApplicationSessionConcurrentHashMap.get(sipApplicationSessionKey);
+    }
+
+    public SipApplicationSession findSipApplicationSession(SipSessionKey sipSessionKey){
+        SipApplicationSessionKey sipApplicationSessionKey=new SipApplicationSessionKey(sipSessionKey.getApplicationSessionId());
+
+        return this.sipApplicationSessionConcurrentHashMap.get(sipApplicationSessionKey);
+    }
+
+
+    private SipApplicationSession findSipApplicationSession(String tag){
         String sasId="";
 
         if(tag ==null || tag.length() < 8){
@@ -91,12 +113,12 @@ public class SIPSessionManagerImpl implements SIPSessionManager{
         return sipApplicationSessionConcurrentHashMap.get(sasId);
     }
 
-    public SIPApplicationSession createSIPApplicationSession() {
-        SIPApplicationSessionKey sipApplicationSessionKey=new SIPApplicationSessionKey();
-        SIPApplicationSession sipApplicationSession=null;
+    public SipApplicationSession createSipApplicationSession() {
+        SipApplicationSessionKey sipApplicationSessionKey=new SipApplicationSessionKey();
+        SipApplicationSession sipApplicationSession=null;
 
         try{
-            sipApplicationSession=new SIPApplicationSessionImpl(sipApplicationSessionKey);
+            sipApplicationSession=new SipApplicationSessionImpl(sipApplicationSessionKey);
             this.sipApplicationSessionConcurrentHashMap.put(sipApplicationSessionKey, sipApplicationSession);
         }
         catch (InvalidArgumentException iae){
@@ -106,12 +128,11 @@ public class SIPSessionManagerImpl implements SIPSessionManager{
         return sipApplicationSession;
     }
 
-    public SIPSession getSIPSession(SIPMessage sipMessage){
-        SIPApplicationSession sipApplicationSession=null;
-        sipApplicationSession=findSipApplicationSession(sipMessage.getFromTag(), sipMessage.getToTag());
+    public SipSession getSipSession(SipSessionKey sipSessionKey){
+        return sipSessionConcurrentHashMap.get(sipSessionKey);
+    }
 
-        SIPSessionKey currentSIPSessionKey=new SIPSessionKey(sipMessage.getFromTag(), sipMessage.getCallId().getCallId(), sipApplicationSession.getSipApplicationKey().getGeneratedKey());
-
-        return sipSessionConcurrentHashMap.get(currentSIPSessionKey);
+    public SipSession getSipSession(GeneralSipMessage generalSipMessage){
+        return this.getSipSession(generalSipMessage.getSipSessionKey());
     }
 }
