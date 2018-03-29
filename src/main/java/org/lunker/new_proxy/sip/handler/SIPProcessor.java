@@ -18,6 +18,7 @@ import javax.sip.header.Header;
 import javax.sip.header.HeaderFactory;
 import javax.sip.header.WWWAuthenticateHeader;
 import javax.sip.message.MessageFactory;
+import java.net.InetSocketAddress;
 
 
 /**
@@ -66,8 +67,7 @@ public class SIPProcessor extends ChannelInboundHandlerAdapter implements Abstra
 
         GeneralSipMessage sipMessage=(GeneralSipMessage) msg;
 
-        this.targetCtx=ProxyUtil.getTargetCtx(sipMessage);
-
+//        this.targetCtx=ProxyUtil.getTargetCtx(sipMessage);
 
         sipMessage.getSipSession().setAttribute("hi",123);
 
@@ -215,7 +215,12 @@ public class SIPProcessor extends ChannelInboundHandlerAdapter implements Abstra
 
                 // store to redis
                 // store registration info in cache
-                Registration registration=new Registration(userKey, aor,account, domain);
+                String remoteAddress="";
+                int remotePort=0;
+
+                remoteAddress=((InetSocketAddress)this.currentCtx.channel().remoteAddress()).getHostString();
+                remotePort=((InetSocketAddress)this.currentCtx.channel().remoteAddress()).getPort();
+                Registration registration=new Registration(userKey, aor,account, domain, remoteAddress, remotePort);
 
                 registrar.register(userKey, registration, this.currentCtx);
                 jedisConnection.set(userKey, gson.toJson(registration));

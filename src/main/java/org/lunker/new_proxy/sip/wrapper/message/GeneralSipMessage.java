@@ -96,8 +96,19 @@ public abstract class GeneralSipMessage {
     }
 
     public void send(){
+        // 연결된 LB가 없으면, SIP Message에 있는 정보로 전송한다
+
+
         if(this.getSipSession()!=null){
-            this.getSipSession().getCtx().writeAndFlush(this.message);
+            if(this instanceof GeneralSipRequest){
+                // send to other session's ctx
+
+
+            }
+            else{
+                // send to this session's ctx
+                this.getSipSession().getCtx().writeAndFlush(this.message);
+            }
         }
     }
 

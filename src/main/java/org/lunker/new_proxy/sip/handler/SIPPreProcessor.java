@@ -1,5 +1,7 @@
 package org.lunker.new_proxy.sip.handler;
 
+import gov.nist.javax.sip.header.Via;
+import gov.nist.javax.sip.header.ViaList;
 import gov.nist.javax.sip.message.SIPMessage;
 import gov.nist.javax.sip.message.SIPRequest;
 import gov.nist.javax.sip.parser.StringMsgParser;
@@ -14,6 +16,7 @@ import org.lunker.new_proxy.stub.session.ss.SipSession;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.net.InetSocketAddress;
 import java.text.ParseException;
 
 /**
@@ -58,12 +61,44 @@ public class SIPPreProcessor extends ChannelInboundHandlerAdapter {
         // TODO(lunker): message send를 위해 ctx를 session에 저장시킨다
         SipSession sipSession=proxyContext.createOrGetSIPSession(ctx, jainSipMessage);
 
+
+        // update Via
+        ViaList viaList=jainSipMessage.getViaHeaders();
+
+        Via topViaHeader=(Via) viaList.getFirst();
+
+        if (topViaHeader.getReceived() == null) {
+            String received=((InetSocketAddress) ctx.channel().remoteAddress()).getHostString();
+            topViaHeader.setReceived(received);
+        }
+
+        if(topViaHeader.getRPort() == 0 || topViaHeader.getRPort() == -1) {
+            int rport=((InetSocketAddress) ctx.channel().remoteAddress()).getPort();
+//            viaHeader.setParameter("rport", rport);
+            topViaHeader.setParameter("rport", rport+"");
+            /*
+            try{
+//                topViaHeader.setPort(rport);
+                topViaHeader.setParameter("rport", rport+"");
+            }
+            catch (InvalidArgumentException iae){
+                iae.printStackTrace();
+            }
+            */
+        }
+
+        viaList.set(0, topViaHeader);
+        jainSipMessage.setHeader(viaList);
+
         if(jainSipMessage instanceof SIPRequest){
             generalSipMessage=new GeneralSipRequest(jainSipMessage, sipSession.getSipSessionkey());
         }
         else{
             generalSipMessage=new GeneralSipResponse(jainSipMessage, sipSession.getSipSessionkey());
         }
+
+
+
 
         return generalSipMessage;
     }

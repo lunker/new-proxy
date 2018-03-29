@@ -10,6 +10,9 @@ public class Registration {
     private String account;
     private String domain;
 
+    private String remoteAddress;
+    private int remotePort;
+
     private Registration() {
     }
 
@@ -18,6 +21,15 @@ public class Registration {
         this.aor = aor;
         this.account = account;
         this.domain = domain;
+    }
+
+    public Registration(String userKey, String aor, String account, String domain, String remoteAddress, int remotePort) {
+        this.userKey = userKey;
+        this.aor = aor;
+        this.account = account;
+        this.domain = domain;
+        this.remoteAddress = remoteAddress;
+        this.remotePort = remotePort;
     }
 
     public String getUserKey() {
@@ -50,5 +62,21 @@ public class Registration {
 
     public void setDomain(String domain) {
         this.domain = domain;
+    }
+
+    public String getRemoteAddress() {
+        return remoteAddress;
+    }
+
+    public void setRemoteAddress(String remoteAddress) {
+        this.remoteAddress = remoteAddress;
+    }
+
+    public int getRemotePort() {
+        return remotePort;
+    }
+
+    public void setRemotePort(int remotePort) {
+        this.remotePort = remotePort;
     }
 }

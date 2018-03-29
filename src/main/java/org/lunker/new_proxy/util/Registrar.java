@@ -29,18 +29,18 @@ public class Registrar {
         return instance;
     }
 
+    /**
+     *
+     * @param userKey AOR
+     * @param registration
+     * @param ctx
+     */
     public void register(String userKey, Registration registration, ChannelHandlerContext ctx){
         synchronized (registrationMap){
             registrationMap.put(userKey, registration);
             ctxMap.put(userKey, ctx);
         }
     }
-
-    /*
-    public Optional<Registration> get(String aor){
-        return Optional.ofNullable(registrationMap.get(aor));
-    }
-    */
 
     public Registration getRegistration(String userKey){
         return registrationMap.get(userKey);
@@ -51,6 +51,4 @@ public class Registrar {
             return ctxMap.get(userKey);
         }
     }
-
-
 }
