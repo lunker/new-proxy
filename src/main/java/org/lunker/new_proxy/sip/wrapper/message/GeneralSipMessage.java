@@ -1,20 +1,31 @@
 package org.lunker.new_proxy.sip.wrapper.message;
 
+import gov.nist.javax.sip.address.SipUri;
 import gov.nist.javax.sip.message.SIPMessage;
+import io.netty.buffer.Unpooled;
+import io.netty.channel.ChannelFuture;
+import io.netty.channel.ChannelHandlerContext;
+import io.netty.util.CharsetUtil;
 import org.lunker.new_proxy.sip.context.ProxyContext;
 import org.lunker.new_proxy.sip.session.ss.SipSessionKey;
 import org.lunker.new_proxy.sip.util.SipMessageFactory;
 import org.lunker.new_proxy.stub.session.sas.SipApplicationSession;
 import org.lunker.new_proxy.stub.session.ss.SipSession;
+import org.lunker.new_proxy.util.Registration;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import javax.sip.header.*;
 import javax.sip.message.Request;
+import java.text.ParseException;
 import java.util.Map;
 
 /**
  * Created by dongqlee on 2018. 3. 19..
  */
 public abstract class GeneralSipMessage {
+
+    protected Logger logger= LoggerFactory.getLogger(GeneralSipMessage.class);
     protected SIPMessage message;
     protected SipSessionKey sipSessionKey;
     protected SipMessageFactory sipMessageFactory;
@@ -95,19 +106,50 @@ public abstract class GeneralSipMessage {
         return this.message;
     }
 
-    public void send(){
+    public void send() throws ParseException{
         // 연결된 LB가 없으면, SIP Message에 있는 정보로 전송한다
-
 
         if(this.getSipSession()!=null){
             if(this instanceof GeneralSipRequest){
                 // send to other session's ctx
+                String toAor="";
+                ChannelHandlerContext targetCtx=null;
+                Registration targetRegistration=null;
 
+//                toAor=((GeneralSipRequest) this).message.getToHeader().getName();
+                toAor=this.message.getToHeader().getAddress().getURI().toString().split(":")[1];
+                targetRegistration=proxyContext.getRegistrar().getRegistration(toAor);
+                targetCtx=proxyContext.getRegistrar().getCtx(toAor);
 
+                Request targetRequest=(Request) ((GeneralSipRequest) this).message;
+                SipUri requestUri = new SipUri();
+
+                requestUri.setHost(targetRegistration.getRemoteAddress());
+                requestUri.setPort(targetRegistration.getRemotePort());
+
+//                URIImpl uriImpl = (URIImpl)uri;
+//                javax.sip.address.URI wrappedUri = uriImpl.getURI();
+                targetRequest.setRequestURI(requestUri);
+
+                ChannelFuture cf=targetCtx.writeAndFlush((Unpooled.copiedBuffer(((GeneralSipRequest) this).message.toString(), CharsetUtil.UTF_8)));
+                targetCtx.flush();
+                if (!cf.isSuccess()) {
+                    logger.warn("Send failed: " + cf.cause());
+                }
+
+                logger.info("[SENT]:\n" + ((GeneralSipRequest) this).message.toString());
             }
             else{
                 // send to this session's ctx
-                this.getSipSession().getCtx().writeAndFlush(this.message);
+                ChannelHandlerContext targetCtx=this.getSipSession().getCtx();
+                ChannelFuture cf=targetCtx.writeAndFlush(Unpooled.copiedBuffer(this.message.toString(), CharsetUtil.UTF_8));
+
+                targetCtx.flush();
+                if (!cf.isSuccess()) {
+                    logger.warn("Send failed: " + cf.cause());
+                }
+
+                logger.info("[SENT]:\n" + ((GeneralSipResponse) this).message.toString());
             }
         }
     }

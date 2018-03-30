@@ -47,9 +47,9 @@ public class SipSessionKey {
 
     public void generateKey(){
         if (this.toTag != null) {
-            this.generatedKey = "(" + this.fromTag + ";" + this.toTag + ";" + this.callId + ";" + this.applicationSessionId + ";" + this.applicationName + ")";
+            this.generatedKey = "(" + this.fromTag + ";" + this.toTag + ";" + this.callId + ";" + this.applicationSessionId + ")";
         } else {
-            this.generatedKey = "(" + this.fromTag + ";" + this.callId + ";" + this.applicationSessionId + ";" + this.applicationName + ")";
+            this.generatedKey = "(" + this.fromTag + ";" + this.callId + ";" + this.applicationSessionId + ")";
         }
 //        // set generatedKey value using fromTag, toTag, callId, applicationSEssonId,
 //        return "(" + this.fromTag + ";" + this.callId + ";" + this.applicationSessionId + ";" + this.applicationName + ")";

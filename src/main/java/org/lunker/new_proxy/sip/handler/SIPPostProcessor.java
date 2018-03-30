@@ -27,6 +27,7 @@ public class SIPPostProcessor extends ChannelInboundHandlerAdapter{
 
         generalSipMessage.send();
 
+        // TODO: destory session
         if(generalSipMessage instanceof GeneralSipResponse){
             String method=generalSipMessage.getMethod();
         }

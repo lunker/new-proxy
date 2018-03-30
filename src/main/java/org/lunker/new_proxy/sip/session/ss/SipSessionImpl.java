@@ -39,6 +39,8 @@ public class SipSessionImpl implements SipSession {
         this.sipSessionKey = sipSessionKey;
         this.sipApplicationSessionKey=sipApplicationSessionKey;
         this.sessionAttributes=new HashMap<>();
+        this.sipMessageFactory=SipMessageFactory.getInstance();
+        this.proxyContext=ProxyContext.getInstance();
     }
 
     @Override
@@ -87,7 +89,13 @@ public class SipSessionImpl implements SipSession {
          * - Route
          * - Content-Type
          */
-        GeneralSipRequest createdRequest = null;
+
+        if(!"INVITE".equals(method) && !"REGISTER".equals(method)){
+            return null;
+        }
+
+        GeneralSipRequest createdRequest=null;
+        SipSession newSipSession=null;
 
         try {
             Request originalRequest=null;
@@ -95,6 +103,9 @@ public class SipSessionImpl implements SipSession {
             FromHeader originalFromHeader=null;
             ToHeader originalToHeader=null;
             ContactHeader originalContactHeader=null;
+
+            newRequest=new SIPRequest();
+            newRequest.setMethod(method);
 
             originalRequest = (Request) this.firstRequest.getRawSipMessage();
 
@@ -130,6 +141,9 @@ public class SipSessionImpl implements SipSession {
 
             originalContactHeader=(ContactHeader) originalRequest.getHeader("Contact");
             newContactHeader=this.sipMessageFactory.getHeaderFactory().createContactHeader();
+            // Contact: <sip:07079159144@203.240.153.11:5072;transport=tcp>^M
+            // originalRequest의 from's displayName@connectd LB address; transport with LB
+            // newContactHeader.
 
             Iterator<String> originalContactParameterItr=originalContactHeader.getParameterNames();
             while(originalContactParameterItr.hasNext()){
@@ -141,7 +155,7 @@ public class SipSessionImpl implements SipSession {
             newUri.setHost("10.0.1.202");
             newUri.setPort(10010);
 
-            Address newAddress=this.sipMessageFactory.getAddressFactory().createAddress(originalFromHeader.getName(), newUri);
+            Address newAddress=this.sipMessageFactory.getAddressFactory().createAddress(originalFromHeader.getAddress().getURI().toString().split(":")[1], newUri);
             newContactHeader.setAddress(newAddress);
 
             // new-feature: Create Via:
@@ -170,14 +184,6 @@ public class SipSessionImpl implements SipSession {
             // new-feature: Create Content-Type:
             ContentTypeHeader newContentTypeHeader=this.sipMessageFactory.getHeaderFactory().createContentTypeHeader("application", "sdp");
 
-            // Create Content-Length:
-            SipSessionKey newSipSessionKey=new SipSessionKey(newRequest, this.sipSessionKey.getApplicationSessionId());
-            createdRequest=new GeneralSipRequest(newRequest, newSipSessionKey);
-
-            ChannelHandlerContext targetCtx=findTarget(newToHeader.getName());
-
-            SipSession newSipSession=proxyContext.createOrGetSIPSession(targetCtx, createdRequest);
-
             newRequest.addHeader(newCallIdHeader);
             newRequest.addHeader(newFromHeader);
             newRequest.addHeader(newToHeader);
@@ -186,10 +192,25 @@ public class SipSessionImpl implements SipSession {
             newRequest.addHeader(newViaHeader);
             newRequest.addHeader(newUserAgentHeader);
             newRequest.addHeader(newContentTypeHeader);
+
+            // Create Content-Length:
+            SipSessionKey newSipSessionKey=new SipSessionKey(newRequest, this.sipSessionKey.getApplicationSessionId());
+            createdRequest=new GeneralSipRequest(newRequest, newSipSessionKey);
+
+            ChannelHandlerContext targetCtx=findTarget(newToHeader.getAddress().getURI().toString().split(":")[1]);
+            newSipSession=proxyContext.createOrGetSIPSession(targetCtx, createdRequest); // 쌩뚱맞은 sasId를 가져온다 ㅡㅡ
+
+            System.out.println("asdf");
         }
         catch (Exception e){
             e.printStackTrace();
         }
+
+        if("INVITE".equals(method)){
+            newSipSession.setFirstRequest(createdRequest);
+        }
+
+
 
         return createdRequest;
     }
@@ -203,6 +224,11 @@ public class SipSessionImpl implements SipSession {
     @Override
     public void setFirstRequest(GeneralSipRequest generalSipRequest) {
         this.firstRequest=generalSipRequest;
+    }
+
+    @Override
+    public GeneralSipRequest getFirstRequest() {
+        return this.firstRequest;
     }
 
     public ChannelHandlerContext getCtx() {

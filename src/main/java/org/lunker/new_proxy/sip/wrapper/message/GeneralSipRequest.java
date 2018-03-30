@@ -7,6 +7,7 @@ import org.lunker.new_proxy.sip.session.ss.SipSessionKey;
 
 import javax.sip.address.Address;
 import javax.sip.header.ContactHeader;
+import javax.sip.header.ContentTypeHeader;
 import javax.sip.header.RecordRouteHeader;
 import javax.sip.header.ToHeader;
 import javax.sip.message.Request;
@@ -90,12 +91,11 @@ public class GeneralSipRequest extends GeneralSipMessage{
                 }
                 */
 
+                // Set toTag
                 if(toHeader.getTag() == null){
                     String applicatoinSessionId=this.sipSessionKey.getApplicationSessionId();
                     toHeader.setTag(applicatoinSessionId);
                 }
-
-
                 // end set to-tag
 
                 // set contact header
@@ -122,18 +122,7 @@ public class GeneralSipRequest extends GeneralSipMessage{
             }
 
             // Set Record-Route
-            /*
-            if (session != null && session.getCopyRecordRouteHeadersOnSubsequentResponses() && !this.isInitial() && "INVITE".equals(requestMethod)) {
-                ListIterator recordRouteHeaders = request.getHeaders("Record-Route");
-
-                while(recordRouteHeaders.hasNext()) {
-                    RecordRouteHeader recordRouteHeader = (RecordRouteHeader)recordRouteHeaders.next();
-                    response.addHeader(recordRouteHeader);
-                }
-            }
-            */
-
-            if("INVITE".equals(requestMethod)){
+            if ("INVITE".equals(requestMethod)) {
                 ListIterator recordRouteHeaders = request.getHeaders("Record-Route");
 
                 while(recordRouteHeaders.hasNext()) {
@@ -163,4 +152,84 @@ public class GeneralSipRequest extends GeneralSipMessage{
             throw new IllegalArgumentException("Bad status code " + statusCode, var19);
         }
     }// end method
+
+
+    public void setContent(Object content, String contentType) {
+//        this.checkContentType(contentType);
+
+        try{
+            ContentTypeHeader contentTypeHeader=null;
+            contentTypeHeader=(ContentTypeHeader)this.message.getHeader("Content-Type");
+            contentTypeHeader.setContentType("application");
+            contentTypeHeader.setContentSubType("sdp");
+
+            this.message.setContent(content, contentTypeHeader);
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
+
+//
+//
+//        if (contentType != null && contentType.length() > 0) {
+//            this.addHeader("Content-Type", contentType);
+//            ContentTypeHeader contentTypeHeader = (ContentTypeHeader)this.message.getHeader("Content-Type");
+//            String charset = this.getCharacterEncoding();
+//
+//            try {
+//                if (contentType.contains("multipart") && content instanceof Multipart) {
+//                    Multipart multipart = (Multipart)content;
+//                    OutputStream os = new ByteArrayOutputStream();
+//                    multipart.writeTo(os);
+//                    this.message.setContent(os.toString(), contentTypeHeader);
+//                } else {
+//                    if (content instanceof String && charset != null) {
+//                        new String("testEncoding".getBytes(charset));
+//                        new String(((String)content).getBytes());
+//                    }
+//
+//                    this.message.setContent(content, contentTypeHeader);
+//                }
+//            } catch (UnsupportedEncodingException var7) {
+//                throw var7;
+//            } catch (Exception var8) {
+//                throw new IllegalArgumentException("Parse error reading content " + content + " with content type " + contentType, var8);
+//            }
+//        }
+
+    }
+
+    private void checkContentType(String contentType) {
+        if (contentType == null) {
+            throw new IllegalArgumentException("the content type cannot be null");
+        } else {
+            int indexOfSlash = contentType.indexOf("/");
+            if (indexOfSlash != -1) {
+                /*
+                if (!JainSipUtils.IANA_ALLOWED_CONTENT_TYPES.contains(contentType.substring(0, indexOfSlash))) {
+                    throw new IllegalArgumentException("the given content type " + contentType + " is not allowed");
+                }
+                */
+                throw new IllegalArgumentException("the given content type " + contentType + " is not allowed");
+            } else {
+                throw new IllegalArgumentException("the given content type " + contentType + " is not allowed");
+            }
+
+        }
+    }
+
+    public String getCharacterEncoding() {
+        if (this.message.getContentEncoding() != null) {
+            return this.message.getContentEncoding().getEncoding();
+        } else {
+            ContentTypeHeader cth = (ContentTypeHeader)this.message.getHeader("Content-Type");
+            return cth == null ? null : cth.getParameter("charset");
+        }
+    }
+
+    public Object getContent(){
+        return this.message.getContent();
+    }
+
+
 }

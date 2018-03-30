@@ -61,7 +61,6 @@ public class SIPPreProcessor extends ChannelInboundHandlerAdapter {
         // TODO(lunker): message send를 위해 ctx를 session에 저장시킨다
         SipSession sipSession=proxyContext.createOrGetSIPSession(ctx, jainSipMessage);
 
-
         // update Via
         ViaList viaList=jainSipMessage.getViaHeaders();
 
@@ -76,6 +75,7 @@ public class SIPPreProcessor extends ChannelInboundHandlerAdapter {
             int rport=((InetSocketAddress) ctx.channel().remoteAddress()).getPort();
 //            viaHeader.setParameter("rport", rport);
             topViaHeader.setParameter("rport", rport+"");
+
             /*
             try{
 //                topViaHeader.setPort(rport);
@@ -97,8 +97,9 @@ public class SIPPreProcessor extends ChannelInboundHandlerAdapter {
             generalSipMessage=new GeneralSipResponse(jainSipMessage, sipSession.getSipSessionkey());
         }
 
-
-
+        if(jainSipMessage instanceof SIPRequest && sipSession.getFirstRequest()==null && ((SIPRequest) jainSipMessage).getMethod().equals("INVITE")){
+            sipSession.setFirstRequest((GeneralSipRequest) generalSipMessage);
+        }
 
         return generalSipMessage;
     }

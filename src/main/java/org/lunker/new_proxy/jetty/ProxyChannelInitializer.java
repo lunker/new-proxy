@@ -3,7 +3,7 @@ package org.lunker.new_proxy.jetty;
 import io.netty.channel.Channel;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInitializer;
-import org.lunker.new_proxy.server.LoggingHandler;
+import org.lunker.new_proxy.sip.handler.SIPPostProcessor;
 import org.lunker.new_proxy.sip.handler.SIPPreProcessor;
 import org.lunker.new_proxy.sip.handler.SIPProcessor;
 import org.lunker.new_proxy.sip.handler.SIPStreamDecoder;
@@ -32,11 +32,12 @@ public class ProxyChannelInitializer extends ChannelInitializer {
 //        ch.pipeline().addLast("decoder", new SIPMessageStreamDecoder(1024));
 //        ch.pipeline().addLast("decoder", new SIPByteDecoder());
 
-
         ch.pipeline().addLast("decoder", new SIPStreamDecoder());
         ch.pipeline().addLast("encoder", new SIPPreProcessor());
         ch.pipeline().addLast("handler", new SIPProcessor());
-        ch.pipeline().addLast("logging", new LoggingHandler());
+        ch.pipeline().addLast("postProcessor", new SIPPostProcessor());
+//        ch.pipeline().addLast("logging", new LoggingHandler());
+
     }
 
     @Override

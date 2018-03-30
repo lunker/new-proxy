@@ -62,38 +62,42 @@ public class SIPProcessor extends ChannelInboundHandlerAdapter implements Abstra
 
     @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
-        logger.info("In SIPProcessor");
+//        logger.info("In SIPProcessor");
         logger.info("[RECEIVED]:\n" + ((GeneralSipMessage) msg).toString());
 
         GeneralSipMessage sipMessage=(GeneralSipMessage) msg;
+        GeneralSipMessage targetMessage=null;
 
-//        this.targetCtx=ProxyUtil.getTargetCtx(sipMessage);
 
+        // test SipSession
         sipMessage.getSipSession().setAttribute("hi",123);
 
         if(sipMessage instanceof GeneralSipRequest){
             String method=sipMessage.getMethod();
             if(method.equals(SIPRequest.REGISTER))
-                this.handleRegister(sipMessage);
+                targetMessage=this.handleRegister(sipMessage);
             else if (method.equals(SIPRequest.INVITE))
-                this.handleInvite(sipMessage);
+                targetMessage=this.handleInvite(sipMessage);
             else if(method.equals(SIPRequest.ACK))
-                this.handleAck(sipMessage);
+                targetMessage=this.handleAck(sipMessage);
             else if(method.equals(SIPRequest.BYE))
-                this.handleBye(sipMessage);
+                targetMessage=this.handleBye(sipMessage);
         }
         else if(sipMessage instanceof GeneralSipResponse){
-            handleResponse(sipMessage);
+            targetMessage=handleResponse(sipMessage);
         }
+
+        this.currentCtx.fireChannelRead(targetMessage);
     }
 
-    public void handleResponse(GeneralSipMessage response){
+    public GeneralSipMessage handleResponse(GeneralSipMessage response){
         response=(GeneralSipResponse) response;
 
         int statusCode=((GeneralSipResponse) response).getStatusCode();
 
         String method=response.getMethod();
 
+        /*
         if(method.equals("INVITE") && statusCode==SIPResponse.OK){
 
             // handle 200 ok with INVITE
@@ -140,10 +144,13 @@ public class SIPProcessor extends ChannelInboundHandlerAdapter implements Abstra
             logger.warn("Not implemented call logic . . .");
             this.targetCtx.fireChannelRead(response.toString());
         }
+        */
+
+        return response;
     }
 
     @Override
-    public void handleRegister(GeneralSipMessage registerRequest) {
+    public GeneralSipMessage handleRegister(GeneralSipMessage registerRequest) {
 //        Optional<Header> authorization = Optional.ofNullable(registerRequest.getHeader("Authorization"));
         registerRequest=(GeneralSipRequest) registerRequest;
         Header authHeader= registerRequest.getHeader("Authorization");
@@ -231,100 +238,59 @@ public class SIPProcessor extends ChannelInboundHandlerAdapter implements Abstra
         }
 
         // fire response
-        this.currentCtx.fireChannelRead(sipResponse.toString());
+//        this.currentCtx.fireChannelRead(sipResponse);
+        return sipResponse;
     }
 
     @Override
-    public void handleInvite(GeneralSipMessage inviteRequest) {
+    public GeneralSipMessage handleInvite(GeneralSipMessage inviteRequest) {
         logger.info("handleInvite");
 
         inviteRequest=(GeneralSipRequest) inviteRequest;
         GeneralSipResponse sipResponse=null;
-        String toAor="";
-        String userAgent="";
-        String userKey="";
 
-        toAor=inviteRequest.getTo().getAddress().getURI().toString().split(":")[1];
-//        userAgent=SIPHeaderParser.getUserAent(inviteRequest);
-        userKey=toAor+"_"+userAgent;
+        // 1) Create 180 Ringing to Caller
 
-        ChannelHandlerContext targetCtx=registrar.getCtx(userKey);
+        sipResponse=((GeneralSipRequest) inviteRequest).createResponse(SIPResponse.RINGING);
 
-        if(this.targetCtx==null){
-            // error
-
-            // createResponse(SIPResponse.TEMPORARILY_UNAVAILABLE, "User is not registered");
-            sipResponse=((GeneralSipRequest) inviteRequest).createResponse(SIPResponse.TEMPORARILY_UNAVAILABLE);
-            this.currentCtx.fireChannelRead(sipResponse.toString());
+        // TODO:: 1개의 로직에서 여러개의 SipMessage를 전송해야 한다. 이를 위해서 List<GeneralSipMessage> 로 return되도록 관련 로직 수정
+        try{
+            sipResponse.send();
         }
-        else{
-//            sipResponse=inviteRequest.createResponse(SIPResponse.OK);
-//            this.ctx.fireChannelRead(sipResponse.toString());
-
-            this.targetCtx.fireChannelRead(inviteRequest.toString());
-
-            // store request for testing sip-session
+        catch (Exception e){
+            e.printStackTrace();
         }
 
+        GeneralSipRequest forwardedRequest=null;
+
+        forwardedRequest=inviteRequest.getSipSession().createRequest("INVITE");
+        forwardedRequest.setContent(((GeneralSipRequest) inviteRequest).getContent(), "application/sdp");
+
+
+
+        // 2) Create INVITE to Callee
+
+        return forwardedRequest;
     }
 
     @Override
-    public void handleCancel(GeneralSipMessage request) {
+    public GeneralSipMessage handleCancel(GeneralSipMessage cancelRequest) {
 
+        return cancelRequest;
     }
 
     @Override
-    public void handleAck(GeneralSipMessage ackRequest) {
+    public GeneralSipMessage handleAck(GeneralSipMessage ackRequest) {
         logger.info("handleAck");
 
-        ackRequest.getSipApplicationSession();
-        String targetAor="";
-        String userKey="";
-        String userAgent="";
-
-        Registration registration=null;
-        ChannelHandlerContext targetCtx=null;
-
-        targetAor=ackRequest.getTo().getAddress().getURI().toString().split(":")[1];
-//        userAgent=SIPHeaderParser.getUserAent(ackRequest);
-        userKey=targetAor+"_"+userAgent;
-
-//        registration=registrar.get(targetAor);
-        targetCtx=registrar.getCtx(userKey);
-
-        if(this.targetCtx==null){
-            // TODO: error
-            // ?
-        }
-        else{
-            // forward ack
-            this.targetCtx.fireChannelRead(ackRequest.toString());
-        }
+        return ackRequest;
     }
 
     @Override
-    public void handleBye(GeneralSipMessage byeRequest) {
+    public GeneralSipMessage handleBye(GeneralSipMessage byeRequest) {
         logger.info("handleBye");
 
-        String targetAor="";
-        String userAgent="";
-        String userKey="";
-
-        Registration registration=null;
-        ChannelHandlerContext targetCtx=null;
-
-        targetAor=byeRequest.getTo().getAddress().getURI().toString().split(":")[1];
-//        userAgent=SIPHeaderParser.getUserAent(byeRequest);
-        userKey=targetAor+"_"+userAgent;
-
-        targetCtx=registrar.getCtx(userKey);
-
-        if(this.targetCtx==null){
-            // TODO: error
-        }
-        else{
-            this.targetCtx.fireChannelRead(byeRequest.toString());
-        }
+        return byeRequest;
     }
 
     @Override

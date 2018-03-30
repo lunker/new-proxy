@@ -108,9 +108,15 @@ public class SIPSessionManagerImpl implements SIPSessionManager{
             return null;
         }
 
-        sasId=tag.substring(tag.length()-7, tag.length());
+//        sasId=tag.substring(tag.length()-7, tag.length());
+        String[] fromTags=tag.split(";");
 
-        return sipApplicationSessionConcurrentHashMap.get(sasId);
+        if(fromTags.length>1) {
+            sasId = fromTags[fromTags.length - 1];
+            return sipApplicationSessionConcurrentHashMap.get(sasId);
+        }
+        else
+            return null;
     }
 
     public SipApplicationSession createSipApplicationSession() {

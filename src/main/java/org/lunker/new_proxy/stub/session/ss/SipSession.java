@@ -19,6 +19,8 @@ public interface SipSession {
 
     void setFirstRequest(GeneralSipRequest generalSipRequest);
 
+    GeneralSipRequest getFirstRequest();
+
     void setCtx(ChannelHandlerContext ctx);
 
     ChannelHandlerContext getCtx();
