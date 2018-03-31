@@ -23,13 +23,21 @@ public class SIPPostProcessor extends ChannelInboundHandlerAdapter{
 
     @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
-        GeneralSipMessage generalSipMessage=(GeneralSipMessage) msg;
+        if(msg!=null){
+            GeneralSipMessage generalSipMessage=(GeneralSipMessage) msg;
 
-        generalSipMessage.send();
+            generalSipMessage.send();
 
-        // TODO: destory session
-        if(generalSipMessage instanceof GeneralSipResponse){
-            String method=generalSipMessage.getMethod();
+            // TODO: destory session
+            if(generalSipMessage instanceof GeneralSipResponse){
+                String method=generalSipMessage.getMethod();
+            }
         }
+
+    }
+
+    @Override
+    public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) throws Exception {
+        cause.printStackTrace();
     }
 }

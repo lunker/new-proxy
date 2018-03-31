@@ -129,7 +129,9 @@ public abstract class GeneralSipMessage {
 
 //                URIImpl uriImpl = (URIImpl)uri;
 //                javax.sip.address.URI wrappedUri = uriImpl.getURI();
-                targetRequest.setRequestURI(requestUri);
+
+//                targetRequest.setRequestURI(requestUri);
+                targetRequest.setRequestURI(((GeneralSipRequest) this).message.getTo().getAddress().getURI());
 
                 ChannelFuture cf=targetCtx.writeAndFlush((Unpooled.copiedBuffer(((GeneralSipRequest) this).message.toString(), CharsetUtil.UTF_8)));
                 targetCtx.flush();

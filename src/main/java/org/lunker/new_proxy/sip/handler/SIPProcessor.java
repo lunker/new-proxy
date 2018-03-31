@@ -97,39 +97,16 @@ public class SIPProcessor extends ChannelInboundHandlerAdapter implements Abstra
 
         String method=response.getMethod();
 
-        /*
         if(method.equals("INVITE") && statusCode==SIPResponse.OK){
+            GeneralSipRequest invite=(GeneralSipRequest) response.getSipSession().getAttribute("invite");
+            System.out.println("asdf");
 
-            // handle 200 ok with INVITE
+            GeneralSipResponse generalSipResponse=invite.createResponse(statusCode);
 
-            String targetAor="";
-            String userKey="";
 
-            ChannelHandlerContext targetCtx=null;
-
-            targetAor=response.getFrom().getAddress().getURI().toString().split(":")[1];
-            targetCtx=registrar.getCtx(targetAor);
-
-            if(targetCtx==null){
-
-            }
-            else{
-                targetCtx.fireChannelRead(response.toString());
-            }
         }
         else if(method.equals("INVITE") && statusCode==SIPResponse.RINGING){
-
-            String targetAor="";
-            String userKey="";
-
-            ChannelHandlerContext targetCtx=null;
-
-            targetAor=response.getFrom().getAddress().getURI().toString().split(":")[1];
-
-//            proxyContext.getSipSession(response);
-
-            targetCtx=registrar.getCtx(targetAor);
-            targetCtx.fireChannelRead(response.toString());
+            response=null;
         }
         else if(method.equals("BYE") && statusCode==SIPResponse.OK){
             String targetAor="";
@@ -144,7 +121,6 @@ public class SIPProcessor extends ChannelInboundHandlerAdapter implements Abstra
             logger.warn("Not implemented call logic . . .");
             this.targetCtx.fireChannelRead(response.toString());
         }
-        */
 
         return response;
     }
@@ -250,7 +226,6 @@ public class SIPProcessor extends ChannelInboundHandlerAdapter implements Abstra
         GeneralSipResponse sipResponse=null;
 
         // 1) Create 180 Ringing to Caller
-
         sipResponse=((GeneralSipRequest) inviteRequest).createResponse(SIPResponse.RINGING);
 
         // TODO:: 1개의 로직에서 여러개의 SipMessage를 전송해야 한다. 이를 위해서 List<GeneralSipMessage> 로 return되도록 관련 로직 수정
@@ -266,9 +241,10 @@ public class SIPProcessor extends ChannelInboundHandlerAdapter implements Abstra
         forwardedRequest=inviteRequest.getSipSession().createRequest("INVITE");
         forwardedRequest.setContent(((GeneralSipRequest) inviteRequest).getContent(), "application/sdp");
 
-
-
         // 2) Create INVITE to Callee
+
+        // store Invite for b2bua
+        forwardedRequest.getSipSession().setAttribute("invite", forwardedRequest);
 
         return forwardedRequest;
     }

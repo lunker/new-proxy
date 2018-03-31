@@ -46,11 +46,15 @@ public class SipSessionKey {
     }
 
     public void generateKey(){
+        /*
         if (this.toTag != null) {
             this.generatedKey = "(" + this.fromTag + ";" + this.toTag + ";" + this.callId + ";" + this.applicationSessionId + ")";
         } else {
             this.generatedKey = "(" + this.fromTag + ";" + this.callId + ";" + this.applicationSessionId + ")";
         }
+        */
+        this.generatedKey = "(" + this.fromTag + ";" + this.callId + ";" + this.applicationSessionId + ")";
+
 //        // set generatedKey value using fromTag, toTag, callId, applicationSEssonId,
 //        return "(" + this.fromTag + ";" + this.callId + ";" + this.applicationSessionId + ";" + this.applicationName + ")";
     }
@@ -73,6 +77,15 @@ public class SipSessionKey {
                 return true;
             }
         }
+    }
+
+    @Override
+    public int hashCode() {
+        int result = 1;
+//        result = 31 * result + (this.applicationSessionId == null ? 0 : this.applicationSessionId.hashCode());
+//        result = 31 * result + (this.callId == null ? 0 : this.callId.hashCode());
+        result = 31 * result + (this.generatedKey.equals("") ? 0 : this.generatedKey.hashCode());
+        return result;
     }
 
     public String getApplicationSessionId() {

@@ -46,6 +46,15 @@ public class SipApplicationSessionKey {
         }
     }
 
+    @Override
+    public int hashCode() {
+        int result = 1;
+//        result = 31 * result + (this.applicationName == null ? 0 : this.applicationName.hashCode());
+//        result = 31 * result + (this.uuid == null ? 0 : this.uuid.hashCode());
+        result = 31 * result + (this.generatedKey.equals("") ? 0 : this.generatedKey.hashCode());
+        return result;
+    }
+
     private void generateKey(){
         this.generatedKey=HashUtil.hashString(this.uuid, MAX_HASHED_LENGTH);// hash
     }

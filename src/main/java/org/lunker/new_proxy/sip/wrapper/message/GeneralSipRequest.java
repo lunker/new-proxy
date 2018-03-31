@@ -153,7 +153,6 @@ public class GeneralSipRequest extends GeneralSipMessage{
         }
     }// end method
 
-
     public void setContent(Object content, String contentType) {
 //        this.checkContentType(contentType);
 
@@ -230,6 +229,4 @@ public class GeneralSipRequest extends GeneralSipMessage{
     public Object getContent(){
         return this.message.getContent();
     }
-
-
 }

@@ -29,7 +29,6 @@ public class HttpService {
     private PoolingHttpClientConnectionManager syncConnectionManager=null;
     private PoolingNHttpClientConnectionManager asyncConnectionManager=null;
 
-//    public String restEndpoint="https://smartbiz.sejongtelecom.net:4435/b2b/v1.0";
     public String restEndpoint="http://203.240.153.14:8180/b2b/v1.0";
 
     private HttpService(){

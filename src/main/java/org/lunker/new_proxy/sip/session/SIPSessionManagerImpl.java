@@ -58,23 +58,19 @@ public class SIPSessionManagerImpl implements SIPSessionManager{
 
             // create SAS && SS
             currentCallSipApplicationSession=createSipApplicationSession();
-
-            currentSipSessionKey =new SipSessionKey(generalSipMessage, currentCallSipApplicationSession.getSipApplicationKey().getGeneratedKey());
-            currentSipSession =new SipSessionImpl(currentSipSessionKey, currentCallSipApplicationSession.getSipApplicationKey());
-
-            // Add SipSession as child of SAS
-            currentCallSipApplicationSession.addSipSession(currentSipSession);
-
-            this.sipSessionConcurrentHashMap.put(currentSipSessionKey, currentSipSession);
-
             logger.info(String.format("Create SAS : %s", currentCallSipApplicationSession.getSipApplicationKey().getGeneratedKey()));
         }
-        else{
-            currentSipSessionKey =new SipSessionKey(generalSipMessage, currentCallSipApplicationSession.getSipApplicationKey().getGeneratedKey());
-            currentSipSession=sipSessionConcurrentHashMap.get(currentSipSessionKey);
-        }
 
-        currentSipSession.setCtx(ctx);
+        currentSipSessionKey =new SipSessionKey(generalSipMessage, currentCallSipApplicationSession.getSipApplicationKey().getGeneratedKey());
+        currentSipSession=this.sipSessionConcurrentHashMap.get(currentSipSessionKey);
+
+        if(currentSipSession==null) {
+            currentSipSession = new SipSessionImpl(currentSipSessionKey, currentCallSipApplicationSession.getSipApplicationKey());
+            // Add SipSession as child of SAS
+            currentCallSipApplicationSession.addSipSession(currentSipSession);
+            this.sipSessionConcurrentHashMap.put(currentSipSessionKey, currentSipSession);
+            currentSipSession.setCtx(ctx);
+        }
 
         return currentSipSession;
     }
@@ -100,20 +96,18 @@ public class SIPSessionManagerImpl implements SIPSessionManager{
         return this.sipApplicationSessionConcurrentHashMap.get(sipApplicationSessionKey);
     }
 
-
     private SipApplicationSession findSipApplicationSession(String tag){
         String sasId="";
 
-        if(tag ==null || tag.length() < 8){
+        if(tag == null){
             return null;
         }
 
-//        sasId=tag.substring(tag.length()-7, tag.length());
-        String[] fromTags=tag.split(";");
+        String[] fromTags=tag.split("_");
 
         if(fromTags.length>1) {
             sasId = fromTags[fromTags.length - 1];
-            return sipApplicationSessionConcurrentHashMap.get(sasId);
+            return sipApplicationSessionConcurrentHashMap.get(new SipApplicationSessionKey(sasId));
         }
         else
             return null;

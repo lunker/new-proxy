@@ -59,6 +59,11 @@ public class SipSessionImpl implements SipSession {
     }
 
     @Override
+    public Object getAttribute(String key) {
+        return this.sessionAttributes.get(key);
+    }
+
+    @Override
     public GeneralSipRequest createRequest(String method) {
 
         /**
@@ -152,14 +157,15 @@ public class SipSessionImpl implements SipSession {
             }
 
             SipUri newUri=new SipUri();
-            newUri.setHost("10.0.1.202");
+            newUri.setHost("10.0.8.2");
             newUri.setPort(10010);
 
             Address newAddress=this.sipMessageFactory.getAddressFactory().createAddress(originalFromHeader.getAddress().getURI().toString().split(":")[1], newUri);
             newContactHeader.setAddress(newAddress);
+            newContactHeader.removeParameter("expires");
 
             // new-feature: Create Via:
-            ViaHeader newViaHeader=this.sipMessageFactory.getHeaderFactory().createViaHeader("10.0.1.202", 10010, "tcp", this.sipMessageFactory.generateBranch());
+            ViaHeader newViaHeader=this.sipMessageFactory.getHeaderFactory().createViaHeader("10.0.8.2", 10010, "tcp", this.sipMessageFactory.generateBranch());
 
             // new-feature: Create Route: (Optional)
             if(originalRequest.getHeader("Record-Route") != null){
@@ -184,6 +190,17 @@ public class SipSessionImpl implements SipSession {
             // new-feature: Create Content-Type:
             ContentTypeHeader newContentTypeHeader=this.sipMessageFactory.getHeaderFactory().createContentTypeHeader("application", "sdp");
 
+            // new-feature: Create CSeq:
+            CSeqHeader originalCSeqHeader=(CSeqHeader) this.firstRequest.getHeader("CSeq");
+            CSeqHeader newCSeqHeader=null;
+
+            if(originalCSeqHeader.getMethod().equals(method)){
+                newCSeqHeader=this.sipMessageFactory.getHeaderFactory().createCSeqHeader(originalCSeqHeader.getSeqNumber()+1, method);
+            }
+            else{
+                newCSeqHeader=this.sipMessageFactory.getHeaderFactory().createCSeqHeader(1, method);
+            }
+
             newRequest.addHeader(newCallIdHeader);
             newRequest.addHeader(newFromHeader);
             newRequest.addHeader(newToHeader);
@@ -192,6 +209,7 @@ public class SipSessionImpl implements SipSession {
             newRequest.addHeader(newViaHeader);
             newRequest.addHeader(newUserAgentHeader);
             newRequest.addHeader(newContentTypeHeader);
+            newRequest.addHeader(newCSeqHeader);
 
             // Create Content-Length:
             SipSessionKey newSipSessionKey=new SipSessionKey(newRequest, this.sipSessionKey.getApplicationSessionId());

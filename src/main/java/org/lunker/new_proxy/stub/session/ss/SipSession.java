@@ -15,6 +15,8 @@ public interface SipSession {
 
     void setAttribute(String key, Object value);
 
+    Object getAttribute(String key);
+
     GeneralSipRequest createRequest(String method);
 
     void setFirstRequest(GeneralSipRequest generalSipRequest);
