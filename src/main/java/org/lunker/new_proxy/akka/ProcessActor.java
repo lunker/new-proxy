@@ -1,16 +1,17 @@
-package org.lunker.new_proxy.sip.handler;
+package org.lunker.new_proxy.akka;
 
-import com.google.gson.Gson;
+import akka.actor.AbstractActor;
+import akka.actor.ActorRef;
+import akka.actor.Props;
 import gov.nist.javax.sip.message.SIPRequest;
 import gov.nist.javax.sip.message.SIPResponse;
 import io.netty.channel.ChannelHandlerContext;
-import io.netty.channel.ChannelInboundHandlerAdapter;
-import org.lunker.new_proxy.sip.context.ProxyContext;
 import org.lunker.new_proxy.sip.wrapper.message.GeneralSipMessage;
 import org.lunker.new_proxy.sip.wrapper.message.GeneralSipRequest;
 import org.lunker.new_proxy.sip.wrapper.message.GeneralSipResponse;
-import org.lunker.new_proxy.stub.AbstractSIPHandler;
-import org.lunker.new_proxy.util.*;
+import org.lunker.new_proxy.util.AuthUtil;
+import org.lunker.new_proxy.util.Registrar;
+import org.lunker.new_proxy.util.Registration;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -19,55 +20,69 @@ import javax.sip.header.HeaderFactory;
 import javax.sip.header.WWWAuthenticateHeader;
 import javax.sip.message.MessageFactory;
 import java.net.InetSocketAddress;
-
+import java.util.ArrayList;
+import java.util.List;
 
 /**
- * Created by dongqlee on 2018. 3. 16..
+ * Created by dongqlee on 2018. 3. 31..
  */
-public class SIPProcessor extends ChannelInboundHandlerAdapter implements AbstractSIPHandler{
-    private Logger logger= LoggerFactory.getLogger(SIPProcessor.class);
-
+public class ProcessActor extends AbstractActor {
+    private Logger logger= LoggerFactory.getLogger(ProcessActor.class);
+    private ActorRef postProcessActorRef=null;
     private ChannelHandlerContext currentCtx=null;
-    private ChannelHandlerContext targetCtx=null;
+
     private javax.sip.SipFactory sipFactory=null;
     private HeaderFactory headerFactory=null;
     private MessageFactory messageFactory=null;
     private Registrar registrar=null;
-    private JedisConnection jedisConnection=null;
-    private Gson gson=null;
-    private ProxyContext proxyContext=null;
 
-    public SIPProcessor() {
-        jedisConnection=JedisConnection.getInstance();
-        gson=new Gson();
-        proxyContext=ProxyContext.getInstance();
+    static public Props props(ActorRef postProcessActorRef) {
+        return Props.create(ProcessActor.class, () -> new ProcessActor(postProcessActorRef));
     }
 
-    @Override
-    public void channelActive(ChannelHandlerContext currentCtx) throws Exception {
-        logger.info("Channel Active!!!!!!!!!!!!!!!!!!!!!!!!!!");
-
-        this.currentCtx=currentCtx;
+    public ProcessActor(ActorRef postProcessActorRef) {
+        this.postProcessActorRef = postProcessActorRef;
 
         try{
             this.sipFactory=javax.sip.SipFactory.getInstance();
             this.headerFactory=sipFactory.createHeaderFactory();
-            this.registrar=Registrar.getInstance();
+            this.registrar= Registrar.getInstance();
             this.messageFactory=sipFactory.createMessageFactory();
         }
         catch (Exception e){
             e.printStackTrace();
         }
+
+    }
+
+    public ProcessActor(GeneralSipMessage generalSipMessage, ActorRef postProcessActorRef) {
+        this.postProcessActorRef=postProcessActorRef;
     }
 
     @Override
-    public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
-//        logger.info("In SIPProcessor");
-        logger.info("[RECEIVED]:\n" + ((GeneralSipMessage) msg).toString());
+    public Receive createReceive() {
+        return receiveBuilder()
+                .match(GeneralSipMessage.class, (generalSipMessage)->{
 
-        GeneralSipMessage sipMessage=(GeneralSipMessage) msg;
+                    logger.info("In proessActor");
+
+                    List<GeneralSipMessage> messageToBeSent=process(generalSipMessage);
+
+                    messageToBeSent.stream().forEach(message -> {
+                        postProcessActorRef.tell(message, getSelf());
+                    });
+                })
+                .build();
+    }
+
+
+    public List<GeneralSipMessage> process(GeneralSipMessage generalSipMessage){
+        GeneralSipMessage sipMessage=(GeneralSipMessage) generalSipMessage;
         GeneralSipMessage targetMessage=null;
 
+        List<GeneralSipMessage> results=new ArrayList<>();
+
+        this.currentCtx=sipMessage.getSipSession().getCtx();
 
         // test SipSession
         sipMessage.getSipSession().setAttribute("hi",123);
@@ -87,9 +102,10 @@ public class SIPProcessor extends ChannelInboundHandlerAdapter implements Abstra
             targetMessage=handleResponse(sipMessage);
         }
 
-        this.currentCtx.fireChannelRead(targetMessage);
-    }
+        results.add(targetMessage);
 
+        return results;
+    }
 
     public GeneralSipMessage handleResponse(GeneralSipMessage response){
         response=(GeneralSipResponse) response;
@@ -98,7 +114,7 @@ public class SIPProcessor extends ChannelInboundHandlerAdapter implements Abstra
 
         String method=response.getMethod();
 
-        if(method.equals("INVITE") && statusCode==SIPResponse.OK){
+        if(method.equals("INVITE") && statusCode== SIPResponse.OK){
             GeneralSipRequest invite=(GeneralSipRequest) response.getSipSession().getAttribute("invite");
             System.out.println("asdf");
 
@@ -120,13 +136,12 @@ public class SIPProcessor extends ChannelInboundHandlerAdapter implements Abstra
         }
         else {
             logger.warn("Not implemented call logic . . .");
-            this.targetCtx.fireChannelRead(response.toString());
+//            this.targetCtx.fireChannelRead(response.toString());
         }
 
         return response;
     }
 
-    @Override
     public GeneralSipMessage handleRegister(GeneralSipMessage registerRequest) {
 //        Optional<Header> authorization = Optional.ofNullable(registerRequest.getHeader("Authorization"));
         registerRequest=(GeneralSipRequest) registerRequest;
@@ -207,7 +222,7 @@ public class SIPProcessor extends ChannelInboundHandlerAdapter implements Abstra
                 Registration registration=new Registration(userKey, aor,account, domain, remoteAddress, remotePort);
 
                 registrar.register(userKey, registration, this.currentCtx);
-                jedisConnection.set(userKey, gson.toJson(registration));
+//                jedisConnection.set(userKey, gson.toJson(registration));
             }
             else{
                 logger.warn("REGISTER Fail");
@@ -219,7 +234,6 @@ public class SIPProcessor extends ChannelInboundHandlerAdapter implements Abstra
         return sipResponse;
     }
 
-    @Override
     public GeneralSipMessage handleInvite(GeneralSipMessage inviteRequest) {
         logger.info("handleInvite");
 
@@ -250,29 +264,20 @@ public class SIPProcessor extends ChannelInboundHandlerAdapter implements Abstra
         return forwardedRequest;
     }
 
-    @Override
     public GeneralSipMessage handleCancel(GeneralSipMessage cancelRequest) {
 
         return cancelRequest;
     }
 
-    @Override
     public GeneralSipMessage handleAck(GeneralSipMessage ackRequest) {
         logger.info("handleAck");
 
         return ackRequest;
     }
 
-    @Override
     public GeneralSipMessage handleBye(GeneralSipMessage byeRequest) {
         logger.info("handleBye");
 
         return byeRequest;
-    }
-
-    @Override
-    public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) throws Exception {
-        logger.error("ExceptionCaught!: " + cause.getMessage());
-        cause.printStackTrace();
     }
 }

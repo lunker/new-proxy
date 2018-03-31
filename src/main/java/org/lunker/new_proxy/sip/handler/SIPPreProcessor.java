@@ -1,5 +1,6 @@
 package org.lunker.new_proxy.sip.handler;
 
+import akka.actor.ActorRef;
 import gov.nist.javax.sip.header.Via;
 import gov.nist.javax.sip.header.ViaList;
 import gov.nist.javax.sip.message.SIPMessage;
@@ -44,8 +45,19 @@ public class SIPPreProcessor extends ChannelInboundHandlerAdapter {
         try{
             GeneralSipMessage generalSipMessage=deserialize(ctx, (String) msg);
 
-            ctx.fireChannelActive();
-            ctx.fireChannelRead(generalSipMessage);
+            // using netty chain
+//            ctx.fireChannelActive();
+//            ctx.fireChannelRead(generalSipMessage);
+
+
+            // using akka chain
+
+//            ActorRef postProcessActorRef=proxyContext.getSystem().actorOf(PostProcessActor.props());
+//            ActorRef processActorRef=proxyContext.getSystem().actorOf(ProcessActor.props(postProcessActorRef));
+//            ActorRef preProcessActorRef=proxyContext.getSystem().actorOf(PreProcessActor.props(generalSipMessage, processActorRef));
+
+
+            proxyContext.getPreProcessActorRef().tell(generalSipMessage,ActorRef.noSender());
         }
         catch (Exception e){
             logger.warn("Error while encoding sip wrapper . . . :\n" + ((String) msg));

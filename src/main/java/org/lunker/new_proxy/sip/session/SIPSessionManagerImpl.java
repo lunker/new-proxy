@@ -66,10 +66,12 @@ public class SIPSessionManagerImpl implements SIPSessionManager{
 
         if(currentSipSession==null) {
             currentSipSession = new SipSessionImpl(currentSipSessionKey, currentCallSipApplicationSession.getSipApplicationKey());
+            currentSipSession.setCtx(ctx);
+
             // Add SipSession as child of SAS
             currentCallSipApplicationSession.addSipSession(currentSipSession);
             this.sipSessionConcurrentHashMap.put(currentSipSessionKey, currentSipSession);
-            currentSipSession.setCtx(ctx);
+
         }
 
         return currentSipSession;

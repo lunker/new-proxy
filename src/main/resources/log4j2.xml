@@ -2,7 +2,7 @@
 <Configuration status="WARN" name="MyApp">
     <Appenders>
         <Console name="console" target="SYSTEM_OUT">
-            <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n" />
+            <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36}(%M:%L) - %msg%n" />
         </Console>
 
         <RollingRandomAccessFile name="LogApp" fileName="/Users/voiceloco/logs/new-proxy.log" filePattern="/Users/voiceloco/logs/backup/new-proxy-%d{yyyy-MM-dd_HH}_%i.log" immediateFlush="true" append="true" ignoreExceptions="false">

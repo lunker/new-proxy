@@ -17,7 +17,6 @@ import org.slf4j.LoggerFactory;
 
 import javax.sip.header.*;
 import javax.sip.message.Request;
-import java.text.ParseException;
 import java.util.Map;
 
 /**
@@ -106,7 +105,7 @@ public abstract class GeneralSipMessage {
         return this.message;
     }
 
-    public void send() throws ParseException{
+    public void send() throws Exception{
         // 연결된 LB가 없으면, SIP Message에 있는 정보로 전송한다
 
         if(this.getSipSession()!=null){
@@ -134,24 +133,26 @@ public abstract class GeneralSipMessage {
                 targetRequest.setRequestURI(((GeneralSipRequest) this).message.getTo().getAddress().getURI());
 
                 ChannelFuture cf=targetCtx.writeAndFlush((Unpooled.copiedBuffer(((GeneralSipRequest) this).message.toString(), CharsetUtil.UTF_8)));
-                targetCtx.flush();
-                if (!cf.isSuccess()) {
+//                targetCtx.flush();
+
+                if (!cf.await().isSuccess()) {
                     logger.warn("Send failed: " + cf.cause());
                 }
-
-                logger.info("[SENT]:\n" + ((GeneralSipRequest) this).message.toString());
+                else
+                    logger.info("[SENT]:\n" + ((GeneralSipRequest) this).message.toString());
             }
             else{
                 // send to this session's ctx
                 ChannelHandlerContext targetCtx=this.getSipSession().getCtx();
                 ChannelFuture cf=targetCtx.writeAndFlush(Unpooled.copiedBuffer(this.message.toString(), CharsetUtil.UTF_8));
 
-                targetCtx.flush();
-                if (!cf.isSuccess()) {
+//                targetCtx.flush();
+                if (!cf.await().isSuccess()) {
                     logger.warn("Send failed: " + cf.cause());
                 }
+                else
+                    logger.info("[SENT]:\n" + ((GeneralSipResponse) this).message.toString());
 
-                logger.info("[SENT]:\n" + ((GeneralSipResponse) this).message.toString());
             }
         }
     }
