@@ -22,6 +22,7 @@ import java.util.Map;
 /**
  * Created by dongqlee on 2018. 3. 19..
  */
+                    // SipServletMessage
 public abstract class GeneralSipMessage {
 
     protected Logger logger= LoggerFactory.getLogger(GeneralSipMessage.class);

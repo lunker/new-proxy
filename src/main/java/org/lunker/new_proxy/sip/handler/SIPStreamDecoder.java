@@ -22,6 +22,7 @@ public class SIPStreamDecoder extends ByteToMessageDecoder{
 
     private final int DEFAULT_HEADER_SIZE=2500;
     private final int DEFAULT_HEADER_LINE_SIZE=512;
+    private final int DEFAULT_BODY_SIZE=6000;
 
     private ByteBuf headerBuffer=null;
     private ByteBuf headerLineBuffer=null;
@@ -49,6 +50,7 @@ public class SIPStreamDecoder extends ByteToMessageDecoder{
 
         headerBuffer=allocate(DEFAULT_HEADER_SIZE);
         headerLineBuffer=allocate(DEFAULT_HEADER_LINE_SIZE);
+        bodyBuffer=allocate(DEFAULT_BODY_SIZE);
     }
 
     public ByteBuf allocate(int size){
@@ -88,6 +90,7 @@ public class SIPStreamDecoder extends ByteToMessageDecoder{
                 // read Header
                 if(currentByte != CR && currentByte != LF){
                     headerLineBuffer.writeByte(currentByte);
+
                     this.hasCRLF=false;
                 }
                 else if(currentByte == CR){
@@ -100,7 +103,7 @@ public class SIPStreamDecoder extends ByteToMessageDecoder{
                                     ContentLengthHeader.NAME.length()+1).trim());
 
 //                            bodyBuffer=pooledByteBufAllocator.directBuffer(contentLength);
-                            bodyBuffer=allocate(contentLength);
+//                            bodyBuffer=allocate(contentLength);
                         }
                         catch (Exception e){
                             e.printStackTrace();
@@ -114,7 +117,6 @@ public class SIPStreamDecoder extends ByteToMessageDecoder{
 
                         headerLineBuffer.writeByte(CR);
                         headerLineBuffer.writeByte(LF);
-
 
                         headerBuffer.writeBytes(headerLineBuffer);
                         headerLineBuffer.clear();
@@ -146,7 +148,7 @@ public class SIPStreamDecoder extends ByteToMessageDecoder{
                     // create entire Sip wrapper
                     try{
 
-                        String sipMessage=headerBuffer.toString(CharsetUtil.UTF_8) + bodyBuffer.toString(CharsetUtil.UTF_8);
+                        String sipMessage=headerBuffer.toString(0, headerBuffer.writerIndex(), CharsetUtil.UTF_8) + bodyBuffer.toString(0, bodyBuffer.writerIndex(), CharsetUtil.UTF_8);
                         logger.info("Parsed sip wrapper:\n" + sipMessage);
 
                         // reset used buffer

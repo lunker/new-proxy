@@ -1,6 +1,5 @@
 package org.lunker.new_proxy.sip.handler;
 
-import akka.actor.ActorRef;
 import gov.nist.javax.sip.message.SIPMessage;
 import gov.nist.javax.sip.message.SIPRequest;
 import gov.nist.javax.sip.parser.StringMsgParser;
@@ -14,6 +13,7 @@ import org.lunker.new_proxy.sip.wrapper.message.GeneralSipResponse;
 import org.lunker.new_proxy.stub.session.ss.SipSession;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import reactor.core.publisher.Mono;
 
 import java.text.ParseException;
 
@@ -26,31 +26,69 @@ public class SIPPreProcessor extends ChannelInboundHandlerAdapter {
     private StringMsgParser stringMsgParser=null;
     private SipMessageFactory sipMessageFactory=null;
     private ProxyContext proxyContext=ProxyContext.getInstance();
+    private SIPHandler sipHandler=null;
 
     public SIPPreProcessor() {
         this.stringMsgParser=new StringMsgParser();
+        this.sipHandler=new SIPHandler();
     }
 
     @Override
     public void channelActive(ChannelHandlerContext ctx) throws Exception {
+        // socket -> byte : nonblocking :: library :: netty
 
+        // message :: reactive. Java nonblocking
+                //->
+
+        // Servlet
+        // Message 1 -> Thread 1
+
+
+        // Reactive
+        //
+
+
+        // b2bua
+        // Mobicents, rfc
     }
 
     @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
         try{
-            GeneralSipMessage generalSipMessage=deserialize(ctx, (String) msg);
+            Mono<String> rawSipMessageMono=Mono.just((String) msg);
 
-            // using netty chain
-//            ctx.fireChannelActive();
-//            ctx.fireChannelRead(generalSipMessage);
 
-            // using akka chain
-//            ActorRef postProcessActorRef=proxyContext.getSystem().actorOf(PostProcessActor.props());
-//            ActorRef processActorRef=proxyContext.getSystem().actorOf(ProcessActor.props(postProcessActorRef));
-//            ActorRef preProcessActorRef=proxyContext.getSystem().actorOf(PreProcessActor.props(generalSipMessage, processActorRef));
+            rawSipMessageMono.map((message)->{
 
-            proxyContext.getPreProcessActorRef().tell(generalSipMessage,ActorRef.noSender());
+                try{
+                    logger.info("Before deserialized");
+                    return deserialize(ctx, message);
+                }
+                catch (Exception e){
+                    e.printStackTrace();
+                }
+
+                return null;
+            }).map((message)->{
+                logger.info("Before process");
+                return this.sipHandler.process(ctx, message);
+            }).subscribe((messageList)->{
+
+                messageList.stream().forEach((message)->{
+                    GeneralSipMessage generalSipMessage=(GeneralSipMessage) message;
+
+                    try{
+                        generalSipMessage.send();
+                        logger.info("Send !");
+                    }
+                    catch (Exception e){
+                        e.printStackTrace();
+                    }
+
+                });
+
+
+            });
         }
         catch (Exception e){
             logger.warn("Error while encoding sip wrapper . . . :\n" + ((String) msg));
@@ -58,6 +96,10 @@ public class SIPPreProcessor extends ChannelInboundHandlerAdapter {
         }
     }
 
+    // Mobicents
+    // SipServletRequest <- SIPRequest(Jain)
+    // SipServletResponse <- SIPResponse(Jain)
+    // SipServletMessage <- SIPMessage(Jain)
     public GeneralSipMessage deserialize(ChannelHandlerContext ctx, String message) throws ParseException{
         GeneralSipMessage generalSipMessage=null;
 
