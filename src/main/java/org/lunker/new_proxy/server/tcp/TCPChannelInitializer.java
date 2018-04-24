@@ -3,9 +3,7 @@ package org.lunker.new_proxy.server.tcp;
 import io.netty.channel.Channel;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInitializer;
-import org.lunker.new_proxy.sip.handler.SIPPostProcessor;
 import org.lunker.new_proxy.sip.handler.SIPPreProcessor;
-import org.lunker.new_proxy.sip.handler.SIPProcessor;
 import org.lunker.new_proxy.sip.handler.SIPStreamDecoder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -25,8 +23,10 @@ public class TCPChannelInitializer extends ChannelInitializer {
     protected void initChannel(Channel ch) throws Exception {
         ch.pipeline().addLast("decoder", new SIPStreamDecoder());
         ch.pipeline().addLast("encoder", new SIPPreProcessor());
-        ch.pipeline().addLast("handler", new SIPProcessor());
-        ch.pipeline().addLast("postProcessor", new SIPPostProcessor());
+
+
+//        ch.pipeline().addLast("handler", new SIPProcessor());
+//        ch.pipeline().addLast("postProcessor", new SIPPostProcessor());
     }
 
     @Override

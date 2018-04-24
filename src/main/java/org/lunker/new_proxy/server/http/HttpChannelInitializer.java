@@ -23,8 +23,8 @@ public class HttpChannelInitializer extends ChannelInitializer<SocketChannel> {
         ChannelPipeline pipeline = socketChannel.pipeline();
         pipeline.addLast("httpServerCodec", new HttpServerCodec());
         pipeline.addLast("httpHandler", new HttpServerHandler());
-
     }
+
     @Override
     public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) throws Exception {
         logger.error("ExceptionCaught:: " + cause.getMessage());

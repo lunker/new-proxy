@@ -26,7 +26,7 @@ import java.util.concurrent.ConcurrentHashMap;
 public class SIPSessionManagerImpl implements SIPSessionManager{
 
     private Logger logger= LoggerFactory.getLogger(SIPSessionManagerImpl.class);
-    private int INITIAL_CAPACITY=1024;
+    private int INITIAL_CAPACITY=2000;
     private ConcurrentHashMap<SipSessionKey, SipSession> sipSessionConcurrentHashMap;
     private ConcurrentHashMap<SipApplicationSessionKey, SipApplicationSession> sipApplicationSessionConcurrentHashMap;
 
@@ -41,8 +41,6 @@ public class SIPSessionManagerImpl implements SIPSessionManager{
 
     public SipSession createOrGetSIPSession(ChannelHandlerContext ctx, SIPMessage generalSipMessage) {
         // create SipSession
-        // using SIPmessage
-
         SipSessionKey currentSipSessionKey =null;
         SipSession currentSipSession =null;
 
@@ -62,6 +60,7 @@ public class SIPSessionManagerImpl implements SIPSessionManager{
         }
 
         currentSipSessionKey =new SipSessionKey(generalSipMessage, currentCallSipApplicationSession.getSipApplicationKey().getGeneratedKey());
+
         currentSipSession=this.sipSessionConcurrentHashMap.get(currentSipSessionKey);
 
         if(currentSipSession==null) {
@@ -71,7 +70,6 @@ public class SIPSessionManagerImpl implements SIPSessionManager{
             // Add SipSession as child of SAS
             currentCallSipApplicationSession.addSipSession(currentSipSession);
             this.sipSessionConcurrentHashMap.put(currentSipSessionKey, currentSipSession);
-
         }
 
         return currentSipSession;

@@ -21,6 +21,7 @@ public class PostProcessActor extends AbstractActor{
         return receiveBuilder().match(GeneralSipMessage.class, (generalSipMessage)->{
             logger.info("In PostprocessActor");
             generalSipMessage.send();
+
 //            logger.info("[SENT]: \n" + generalSipMessage.toString());
         }).build();
     }

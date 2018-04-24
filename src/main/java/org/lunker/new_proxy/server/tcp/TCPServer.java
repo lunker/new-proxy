@@ -36,7 +36,7 @@ public class TCPServer extends ChannelInboundHandlerAdapter {
                 .childOption(ChannelOption.SO_KEEPALIVE, true) // (6)
                 .childOption(ChannelOption.TCP_NODELAY, true)
                 .childOption(ChannelOption.SO_RCVBUF, 20000);
-//                    .childOption(ChannelOption.SO_REUSEADDR, true);
+//                .childOption(ChannelOption.SO_REUSEADDR, true);
 
         // Bind and start to accept incoming connections.
         ChannelFuture f = b.bind(port).sync(); // (7)

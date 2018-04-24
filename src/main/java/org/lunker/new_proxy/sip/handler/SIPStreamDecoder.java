@@ -20,7 +20,7 @@ public class SIPStreamDecoder extends ByteToMessageDecoder{
 
     private Logger logger= LoggerFactory.getLogger(SIPStreamDecoder.class);
 
-    private final int DEFAULT_HEADER_SIZE=3000;
+    private final int DEFAULT_HEADER_SIZE=2500;
     private final int DEFAULT_HEADER_LINE_SIZE=512;
 
     private ByteBuf headerBuffer=null;
@@ -56,12 +56,9 @@ public class SIPStreamDecoder extends ByteToMessageDecoder{
     }
 
     public boolean contains(ByteBuf srcBuf, byte[] targetBuf){
-        int srcSize=srcBuf.readableBytes();
-        byte[] srcTmp=new byte[srcSize];
+        byte[] srcTmp=srcBuf.array();
         byte[] small;
         byte[] large;
-
-        srcBuf.getBytes(0, srcTmp);
 
         if(srcTmp.length > targetBuf.length){
             small=targetBuf;
@@ -71,7 +68,6 @@ public class SIPStreamDecoder extends ByteToMessageDecoder{
             small=srcTmp;
             large=targetBuf;
         }
-
 
         for(int idx=0; idx<small.length; idx++){
             if(small[idx] != large[idx])
@@ -88,7 +84,7 @@ public class SIPStreamDecoder extends ByteToMessageDecoder{
         while(in.isReadable()){
             currentByte=in.readByte();
 
-            if(isHeaderState){
+            if(this.isHeaderState){
                 // read Header
                 if(currentByte != CR && currentByte != LF){
                     headerLineBuffer.writeByte(currentByte);
@@ -138,7 +134,7 @@ public class SIPStreamDecoder extends ByteToMessageDecoder{
                 }// end handling
             }
 
-            if(isBodyState){
+            if(this.isBodyState){
                 // read content body
 
                 if(this.contentLength > this.readBodyLength){
@@ -164,12 +160,14 @@ public class SIPStreamDecoder extends ByteToMessageDecoder{
                         this.readBodyLength=0;
                         this.contentLength=0;
 
+                        /*
                         this.headerBuffer.release();
-                        this.headerLineBuffer.release();
                         this.bodyBuffer.release();
+                        this.headerLineBuffer.release();
+                        */
 
-                        this.headerBuffer=allocate(DEFAULT_HEADER_SIZE);
-                        this.headerLineBuffer=allocate(DEFAULT_HEADER_LINE_SIZE);
+//                        this.headerBuffer=allocate(DEFAULT_HEADER_SIZE);
+//                        this.headerLineBuffer=allocate(DEFAULT_HEADER_LINE_SIZE);
 
                         ctx.fireChannelRead(sipMessage);
                     }

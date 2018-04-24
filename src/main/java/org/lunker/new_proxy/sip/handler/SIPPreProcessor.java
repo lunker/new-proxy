@@ -1,8 +1,6 @@
 package org.lunker.new_proxy.sip.handler;
 
 import akka.actor.ActorRef;
-import gov.nist.javax.sip.header.Via;
-import gov.nist.javax.sip.header.ViaList;
 import gov.nist.javax.sip.message.SIPMessage;
 import gov.nist.javax.sip.message.SIPRequest;
 import gov.nist.javax.sip.parser.StringMsgParser;
@@ -17,7 +15,6 @@ import org.lunker.new_proxy.stub.session.ss.SipSession;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.net.InetSocketAddress;
 import java.text.ParseException;
 
 /**
@@ -32,7 +29,6 @@ public class SIPPreProcessor extends ChannelInboundHandlerAdapter {
 
     public SIPPreProcessor() {
         this.stringMsgParser=new StringMsgParser();
-//        this.sipMessageFactory=new SipMessageFactory();
     }
 
     @Override
@@ -49,13 +45,10 @@ public class SIPPreProcessor extends ChannelInboundHandlerAdapter {
 //            ctx.fireChannelActive();
 //            ctx.fireChannelRead(generalSipMessage);
 
-
             // using akka chain
-
 //            ActorRef postProcessActorRef=proxyContext.getSystem().actorOf(PostProcessActor.props());
 //            ActorRef processActorRef=proxyContext.getSystem().actorOf(ProcessActor.props(postProcessActorRef));
 //            ActorRef preProcessActorRef=proxyContext.getSystem().actorOf(PreProcessActor.props(generalSipMessage, processActorRef));
-
 
             proxyContext.getPreProcessActorRef().tell(generalSipMessage,ActorRef.noSender());
         }
@@ -73,6 +66,7 @@ public class SIPPreProcessor extends ChannelInboundHandlerAdapter {
         // TODO(lunker): message send를 위해 ctx를 session에 저장시킨다
         SipSession sipSession=proxyContext.createOrGetSIPSession(ctx, jainSipMessage);
 
+        /*
         // update Via
         ViaList viaList=jainSipMessage.getViaHeaders();
 
@@ -85,22 +79,12 @@ public class SIPPreProcessor extends ChannelInboundHandlerAdapter {
 
         if(topViaHeader.getRPort() == 0 || topViaHeader.getRPort() == -1) {
             int rport=((InetSocketAddress) ctx.channel().remoteAddress()).getPort();
-//            viaHeader.setParameter("rport", rport);
             topViaHeader.setParameter("rport", rport+"");
-
-            /*
-            try{
-//                topViaHeader.setPort(rport);
-                topViaHeader.setParameter("rport", rport+"");
-            }
-            catch (InvalidArgumentException iae){
-                iae.printStackTrace();
-            }
-            */
         }
 
         viaList.set(0, topViaHeader);
         jainSipMessage.setHeader(viaList);
+        */
 
         if(jainSipMessage instanceof SIPRequest){
             generalSipMessage=new GeneralSipRequest(jainSipMessage, sipSession.getSipSessionkey());

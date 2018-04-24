@@ -41,11 +41,6 @@ public class SIPProcessor extends ChannelInboundHandlerAdapter implements Abstra
         jedisConnection=JedisConnection.getInstance();
         gson=new Gson();
         proxyContext=ProxyContext.getInstance();
-    }
-
-    @Override
-    public void channelActive(ChannelHandlerContext currentCtx) throws Exception {
-        logger.info("Channel Active!!!!!!!!!!!!!!!!!!!!!!!!!!");
 
         this.currentCtx=currentCtx;
 
@@ -61,8 +56,15 @@ public class SIPProcessor extends ChannelInboundHandlerAdapter implements Abstra
     }
 
     @Override
+    public void channelActive(ChannelHandlerContext currentCtx) throws Exception {
+        logger.info("Channel Active!!!!!!!!!!!!!!!!!!!!!!!!!!");
+
+
+    }
+
+    @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
-//        logger.info("In SIPProcessor");
+        this.currentCtx=ctx;
         logger.info("[RECEIVED]:\n" + ((GeneralSipMessage) msg).toString());
 
         GeneralSipMessage sipMessage=(GeneralSipMessage) msg;
@@ -70,7 +72,7 @@ public class SIPProcessor extends ChannelInboundHandlerAdapter implements Abstra
 
 
         // test SipSession
-        sipMessage.getSipSession().setAttribute("hi",123);
+//        sipMessage.getSipSession().setAttribute("hi",123);
 
         if(sipMessage instanceof GeneralSipRequest){
             String method=sipMessage.getMethod();

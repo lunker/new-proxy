@@ -135,11 +135,14 @@ public abstract class GeneralSipMessage {
                 ChannelFuture cf=targetCtx.writeAndFlush((Unpooled.copiedBuffer(((GeneralSipRequest) this).message.toString(), CharsetUtil.UTF_8)));
 //                targetCtx.flush();
 
+                /*
                 if (!cf.await().isSuccess()) {
                     logger.warn("Send failed: " + cf.cause());
                 }
                 else
                     logger.info("[SENT]:\n" + ((GeneralSipRequest) this).message.toString());
+                    */
+
             }
             else{
                 // send to this session's ctx
@@ -147,11 +150,13 @@ public abstract class GeneralSipMessage {
                 ChannelFuture cf=targetCtx.writeAndFlush(Unpooled.copiedBuffer(this.message.toString(), CharsetUtil.UTF_8));
 
 //                targetCtx.flush();
+                /*
                 if (!cf.await().isSuccess()) {
                     logger.warn("Send failed: " + cf.cause());
                 }
                 else
                     logger.info("[SENT]:\n" + ((GeneralSipResponse) this).message.toString());
+                    */
 
             }
         }
