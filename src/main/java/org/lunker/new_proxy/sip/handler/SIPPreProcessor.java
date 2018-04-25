@@ -8,7 +8,6 @@ import gov.nist.javax.sip.parser.StringMsgParser;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
 import org.lunker.new_proxy.sip.context.ProxyContext;
-import org.lunker.new_proxy.sip.util.SipMessageFactory;
 import org.lunker.new_proxy.sip.wrapper.message.GeneralSipMessage;
 import org.lunker.new_proxy.sip.wrapper.message.GeneralSipRequest;
 import org.lunker.new_proxy.sip.wrapper.message.GeneralSipResponse;
@@ -26,12 +25,10 @@ public class SIPPreProcessor extends ChannelInboundHandlerAdapter {
 
     private Logger logger= LoggerFactory.getLogger(SIPPreProcessor.class);
     private StringMsgParser stringMsgParser=null;
-    private SipMessageFactory sipMessageFactory=null;
     private ProxyContext proxyContext=ProxyContext.getInstance();
 
     public SIPPreProcessor() {
         this.stringMsgParser=new StringMsgParser();
-//        this.sipMessageFactory=new SipMessageFactory();
     }
 
     @Override
@@ -73,7 +70,7 @@ public class SIPPreProcessor extends ChannelInboundHandlerAdapter {
 
         if(topViaHeader.getRPort() == 0 || topViaHeader.getRPort() == -1) {
             int rport=((InetSocketAddress) ctx.channel().remoteAddress()).getPort();
-//            viaHeader.setParameter("rport", rport);
+
             topViaHeader.setParameter("rport", rport+"");
 
             /*

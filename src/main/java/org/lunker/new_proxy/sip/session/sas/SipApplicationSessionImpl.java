@@ -22,13 +22,13 @@ public class SipApplicationSessionImpl implements SipApplicationSession {
     private HashMap<SipSessionKey, SipSession> sipSessions;
 
     private SipApplicationSessionImpl() {
-
     }
 
     public SipApplicationSessionImpl(SipApplicationSessionKey sipApplicationSessionKey) throws InvalidArgumentException{
         if(sipApplicationSessionKey==null){
             throw new InvalidArgumentException("Not valid sipApplicationSessionKey is entered");
         }
+
         this.sipApplicationSessionKey=sipApplicationSessionKey;
         this.sipSessions=new HashMap<>();
     }

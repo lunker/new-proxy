@@ -29,6 +29,7 @@ public class HttpService {
     private PoolingHttpClientConnectionManager syncConnectionManager=null;
     private PoolingNHttpClientConnectionManager asyncConnectionManager=null;
 
+    // Test REST URl
     public String restEndpoint="http://203.240.153.14:8180/b2b/v1.0";
 
     private HttpService(){
@@ -66,15 +67,45 @@ public class HttpService {
         String contentType=closeableHttpResponse.getFirstHeader("Content-Type").getValue();
 
         if(contentType.equals("application/xml")){
-            logger.info("xml!");
             response=(T) EntityUtils.toString(httpEntity);
         }
         else {
-            logger.info("json!");
             response=(T) HttpEntityUtils.toJson(httpEntity);
         }
 
 //        closeableHttpResponse.close();
+//        EntityUtils.consume(httpEntity);
+
+        return response;
+    }
+
+    public <T extends Object> T getAsync(String url, Class<T> type) throws InterruptedException, ExecutionException, IOException{
+
+        T response=null;
+
+        CloseableHttpAsyncClient client = HttpAsyncClients.custom().setConnectionManager(asyncConnectionManager).build();
+
+        client.start();
+
+        String requestUrl=restEndpoint+url;
+
+        HttpGet request = new HttpGet(requestUrl);
+
+        Future<HttpResponse> future = client.execute(request, null);
+
+        HttpResponse httpResponse = future.get();
+        HttpEntity httpEntity=httpResponse.getEntity();
+
+        String contentType=httpResponse.getFirstHeader("Content-Type").getValue();
+
+        if(contentType.equals("application/xml")){
+            response=(T) EntityUtils.toString(httpEntity);
+        }
+        else {
+            response=(T) HttpEntityUtils.toJson(httpEntity);
+        }
+
+        client.close();
 //        EntityUtils.consume(httpEntity);
 
         return response;
@@ -112,40 +143,4 @@ public class HttpService {
 
         return "";
     }
-
-    public <T extends Object> T getAsync(String url, Class<T> type) throws InterruptedException, ExecutionException, IOException{
-
-        T response=null;
-
-        CloseableHttpAsyncClient client = HttpAsyncClients.custom().setConnectionManager(asyncConnectionManager).build();
-
-        client.start();
-
-        String requestUrl=restEndpoint+url;
-
-        HttpGet request = new HttpGet(requestUrl);
-
-        Future<HttpResponse> future = client.execute(request, null);
-
-        HttpResponse httpResponse = future.get();
-        HttpEntity httpEntity=httpResponse.getEntity();
-
-        String contentType=httpResponse.getFirstHeader("Content-Type").getValue();
-
-        if(contentType.equals("application/xml")){
-            logger.info("xml!");
-            response=(T) EntityUtils.toString(httpEntity);
-        }
-        else {
-            logger.info("json!");
-            response=(T) HttpEntityUtils.toJson(httpEntity);
-        }
-
-        client.close();
-//        EntityUtils.consume(httpEntity);
-
-        return response;
-    }
-// 4시 13분 김석중
-    // 111@
 }

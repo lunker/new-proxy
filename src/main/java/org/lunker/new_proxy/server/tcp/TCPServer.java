@@ -16,27 +16,36 @@ import org.slf4j.LoggerFactory;
 public class TCPServer extends ChannelInboundHandlerAdapter {
 
     private Logger logger= LoggerFactory.getLogger(TCPServer.class);
-    private int port=10010;
+
+    private int port=10010; //TODO: Get Server port from Property
     private EventLoopGroup bossGroup = new NioEventLoopGroup(); // (1)
     private EventLoopGroup workerGroup = new NioEventLoopGroup();
 
+    private TCPChannelInitializer tcpChannelInitializer=null;
+
     public TCPServer() {
+        tcpChannelInitializer=new TCPChannelInitializer();
+
     }
 
     public TCPServer(int port) {
         this.port = port;
     }
 
+    /**
+     * Run TCPServer
+     * @return
+     * @throws Exception
+     */
     public ChannelFuture run() throws Exception {
         ServerBootstrap b = new ServerBootstrap(); // (2)
         b.group(bossGroup, workerGroup)
                 .channel(NioServerSocketChannel.class) // (3)
-                .childHandler(new TCPChannelInitializer())
+                .childHandler(tcpChannelInitializer)
                 .option(ChannelOption.SO_BACKLOG, 20000)          // (5)
                 .childOption(ChannelOption.SO_KEEPALIVE, true) // (6)
                 .childOption(ChannelOption.TCP_NODELAY, true)
                 .childOption(ChannelOption.SO_RCVBUF, 20000);
-//                    .childOption(ChannelOption.SO_REUSEADDR, true);
 
         // Bind and start to accept incoming connections.
         ChannelFuture f = b.bind(port).sync(); // (7)
@@ -50,8 +59,19 @@ public class TCPServer extends ChannelInboundHandlerAdapter {
         return f;
     }// end run
 
+    /**
+     * Add SipServlet Handlers
+     * @param handler
+     */
+    public void addHandler(Object handler){
+        if(tcpChannelInitializer == null) {
+            // TODO: throw valid exception
+        }
+//        tcpChannelInitializer.
+    }
+
     public void shutdown(){
-        logger.info("Shut down TCPServer gracefully...");
+        logger.debug("Shut down TCPServer gracefully...");
 
         if(workerGroup!=null)
             workerGroup.shutdownGracefully();

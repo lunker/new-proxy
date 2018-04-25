@@ -15,5 +15,4 @@ public class B2BUAHelper {
 
         return createdRequest;
     }
-
 }

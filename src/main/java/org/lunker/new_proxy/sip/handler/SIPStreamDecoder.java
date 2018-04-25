@@ -11,12 +11,12 @@ import org.slf4j.LoggerFactory;
 
 import javax.sip.header.ContentLengthHeader;
 import java.util.List;
+import java.util.Optional;
 
 /**
  * Created by dongqlee on 2018. 3. 22..
  */
 public class SIPStreamDecoder extends ByteToMessageDecoder{
-
 
     private Logger logger= LoggerFactory.getLogger(SIPStreamDecoder.class);
 
@@ -25,9 +25,7 @@ public class SIPStreamDecoder extends ByteToMessageDecoder{
 
     private ByteBuf headerBuffer=null;
     private ByteBuf headerLineBuffer=null;
-    private int headerIdx=0;
     private ByteBuf bodyBuffer=null;
-    private int bodyIdx=0;
 
     private final int CR=13;
     private final int LF=10;
@@ -38,7 +36,6 @@ public class SIPStreamDecoder extends ByteToMessageDecoder{
     private boolean isBodyState=false;
     private byte lastByte;
     private boolean hasCRLF=false;
-    private int lastHeaerIdx=0;
     private int contentLength=-1;
     private int readBodyLength=0;
     private byte[] contentByte="Content-Length:".getBytes();
@@ -51,6 +48,11 @@ public class SIPStreamDecoder extends ByteToMessageDecoder{
         headerLineBuffer=allocate(DEFAULT_HEADER_LINE_SIZE);
     }
 
+    /**
+     * Allocate buffer
+     * @param size Buffer size
+     * @return
+     */
     public ByteBuf allocate(int size){
         return unpooledByteBufAllocator.buffer(size);
     }
@@ -71,7 +73,6 @@ public class SIPStreamDecoder extends ByteToMessageDecoder{
             small=srcTmp;
             large=targetBuf;
         }
-
 
         for(int idx=0; idx<small.length; idx++){
             if(small[idx] != large[idx])
@@ -150,7 +151,7 @@ public class SIPStreamDecoder extends ByteToMessageDecoder{
                     // create entire Sip wrapper
                     try{
 
-                        String sipMessage=headerBuffer.toString(CharsetUtil.UTF_8) + bodyBuffer.toString(CharsetUtil.UTF_8);
+                        String sipMessage=headerBuffer.toString(0, headerBuffer.writerIndex(), CharsetUtil.UTF_8) + bodyBuffer.toString(0, bodyBuffer.writerIndex(), CharsetUtil.UTF_8);
                         logger.info("Parsed sip wrapper:\n" + sipMessage);
 
                         // reset used buffer
@@ -171,7 +172,8 @@ public class SIPStreamDecoder extends ByteToMessageDecoder{
                         this.headerBuffer=allocate(DEFAULT_HEADER_SIZE);
                         this.headerLineBuffer=allocate(DEFAULT_HEADER_LINE_SIZE);
 
-                        ctx.fireChannelRead(sipMessage);
+                        // Fire Optional<String>
+                        ctx.fireChannelRead(Optional.ofNullable(sipMessage));
                     }
                     catch (Exception e){
                         e.printStackTrace();

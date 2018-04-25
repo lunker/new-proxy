@@ -55,6 +55,11 @@ public abstract class GeneralSipMessage {
         return this.method;
     }
 
+    /**
+     * Get 'From' Header
+     * @return
+     * @throws NullPointerException
+     */
     public FromHeader getFrom() throws NullPointerException{
         if(this.message==null)
             throw new NullPointerException("");
@@ -67,21 +72,10 @@ public abstract class GeneralSipMessage {
         return this.message.getTo();
     }
 
-    public String getCallId(){
+    public String getCallId() {
         CallIdHeader id = (CallIdHeader)this.message.getHeader("Call-ID");
         return id != null ? id.getCallId() : null;
     }
-
-    /*
-    public String getHeader(String headerName){
-        String value = null;
-        if (this.message.getHeader(headerName) != null) {
-            value = ((SIPHeader)this.message.getHeader(headerName)).getValue();
-        }
-
-        return value;
-    }
-    */
 
     public void addHeader(Header header){
         this.message.addHeader(header);
@@ -94,6 +88,10 @@ public abstract class GeneralSipMessage {
         return this.message.getHeader(headerName);
     }
 
+    /**
+     * Get SipSession
+     * @return {@link SipSession}
+     */
     public SipSession getSipSession(){
         return this.proxyContext.getSipSession(sipSessionKey);
     }
@@ -107,7 +105,7 @@ public abstract class GeneralSipMessage {
     }
 
     public void send() throws ParseException{
-        // 연결된 LB가 없으면, SIP Message에 있는 정보로 전송한다
+        // 연결된 LB가 없으면, SIPMessage에 있는 정보로 전송한다
 
         if(this.getSipSession()!=null){
             if(this instanceof GeneralSipRequest){
@@ -116,7 +114,6 @@ public abstract class GeneralSipMessage {
                 ChannelHandlerContext targetCtx=null;
                 Registration targetRegistration=null;
 
-//                toAor=((GeneralSipRequest) this).message.getToHeader().getName();
                 toAor=this.message.getToHeader().getAddress().getURI().toString().split(":")[1];
                 targetRegistration=proxyContext.getRegistrar().getRegistration(toAor);
                 targetCtx=proxyContext.getRegistrar().getCtx(toAor);
@@ -127,14 +124,11 @@ public abstract class GeneralSipMessage {
                 requestUri.setHost(targetRegistration.getRemoteAddress());
                 requestUri.setPort(targetRegistration.getRemotePort());
 
-//                URIImpl uriImpl = (URIImpl)uri;
-//                javax.sip.address.URI wrappedUri = uriImpl.getURI();
-
-//                targetRequest.setRequestURI(requestUri);
                 targetRequest.setRequestURI(((GeneralSipRequest) this).message.getTo().getAddress().getURI());
 
                 ChannelFuture cf=targetCtx.writeAndFlush((Unpooled.copiedBuffer(((GeneralSipRequest) this).message.toString(), CharsetUtil.UTF_8)));
                 targetCtx.flush();
+
                 if (!cf.isSuccess()) {
                     logger.warn("Send failed: " + cf.cause());
                 }

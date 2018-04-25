@@ -22,7 +22,6 @@ public class SipSessionImpl implements SipSession {
 
     private SipSessionKey sipSessionKey;
     private SipApplicationSessionKey sipApplicationSessionKey;
-//    private SipApplicationSession sipApplicationSession;
 
     private ProxyContext proxyContext=null;
     private SipMessageFactory sipMessageFactory=null;
@@ -218,7 +217,7 @@ public class SipSessionImpl implements SipSession {
             ChannelHandlerContext targetCtx=findTarget(newToHeader.getAddress().getURI().toString().split(":")[1]);
             newSipSession=proxyContext.createOrGetSIPSession(targetCtx, createdRequest); // 쌩뚱맞은 sasId를 가져온다 ㅡㅡ
 
-            System.out.println("asdf");
+            System.out.println("debug breakpoint");
         }
         catch (Exception e){
             e.printStackTrace();
@@ -227,8 +226,6 @@ public class SipSessionImpl implements SipSession {
         if("INVITE".equals(method)){
             newSipSession.setFirstRequest(createdRequest);
         }
-
-
 
         return createdRequest;
     }

@@ -11,12 +11,31 @@ import org.lunker.new_proxy.stub.session.sas.SipApplicationSession;
 public interface SipSession {
     SipApplicationSession getSipApplicationSession();
 
+    /**
+     * Get {@link SipSessionKey}
+     * @return
+     */
     SipSessionKey getSipSessionkey();
 
+    /**
+     * Set Session Attribute
+     * @param key
+     * @param value
+     */
     void setAttribute(String key, Object value);
 
+    /**
+     * Get Session Attribute
+     * @param key
+     * @return
+     */
     Object getAttribute(String key);
 
+    /**
+     * Create SipRequest
+     * @param method
+     * @return
+     */
     GeneralSipRequest createRequest(String method);
 
     void setFirstRequest(GeneralSipRequest generalSipRequest);

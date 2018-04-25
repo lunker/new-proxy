@@ -11,6 +11,9 @@ import java.io.IOException;
 
 /**
  * Created by dongqlee on 2018. 3. 19..
+ *
+ *
+ * Helper Class for handling Http Request & Response
  */
 public class HttpEntityUtils {
 
@@ -20,14 +23,28 @@ public class HttpEntityUtils {
         jsonParser=new JsonParser();
     }
 
+
+    /**
+     * Consume HttpEntity & Generate String Response
+     * @param entity
+     * @return
+     * @throws IOException
+     * @throws ParseException
+     */
     public static String toString(final HttpEntity entity) throws IOException, ParseException {
         return org.apache.http.util.EntityUtils.toString(entity);
     }
 
+    /**
+     * Consume HttpEntity & Generate Json Format Response
+     * @param entity
+     * @return
+     * @throws IOException
+     * @throws ParseException
+     * @throws JsonSyntaxException
+     */
     public static JsonObject toJson(final HttpEntity entity) throws IOException, ParseException, JsonSyntaxException {
         String str= EntityUtils.toString(entity);
         return jsonParser.parse(str).getAsJsonObject();
     }
-
-
 }

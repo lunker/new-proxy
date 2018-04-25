@@ -40,7 +40,6 @@ public class SipMessageFactory {
     private String IP="10.0.1.202";
     private String hashKey="new_proxy";
 
-
     private SipMessageFactory() {
         this.stringMsgParser=new StringMsgParser();
 
@@ -68,6 +67,13 @@ public class SipMessageFactory {
         return messageFactory;
     }
 
+    /**
+     * Create Jain SipResponse
+     * @param responseCode
+     * @param request
+     * @return
+     * @throws ParseException
+     */
     public Response createResponse(int responseCode, Request request) throws ParseException{
         return this.messageFactory.createResponse(responseCode, request);
     }

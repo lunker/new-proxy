@@ -24,8 +24,6 @@ public class JedisConnection {
         config.setMaxIdle(1000 * 60 * 60 * 6);
         config.setMaxWaitMillis(15 * 1000);
 
-//        config.setMaxWait(1000);
-
         jedisPool = new JedisPool(config, redisHost, redisPort);
     }
 
