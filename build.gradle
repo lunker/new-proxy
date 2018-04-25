@@ -3,6 +3,7 @@ version '1.0-SNAPSHOT'
 
 apply plugin: 'java'
 apply plugin: 'idea'
+apply plugin: 'maven-publish'
 
 sourceCompatibility = 1.8
 
@@ -18,6 +19,7 @@ ext{
     commonsLogging = '1.2'
     nettyVersion='4.1.21.Final'
 }
+
 
 dependencies {
     // junit
@@ -76,16 +78,59 @@ jar {
 }
 
 
-task generateJar (type: Jar) {
-    manifest {
-        attributes 'Implementation-Title': 'Gradle Jar File Example',
-                'Implementation-Version': version,
-                'Main-Class': 'com.voiceloco.invoker.Application'
+// javadoc.jar generation
+task javadocJar (type: Jar, dependsOn: javadoc) {
+    classifier = 'javadoc'
+    from javadoc.destinationDir
+}
+// sources.jar generation
+task sourceJar (type : Jar) {
+    classifier = 'sources'
+    from sourceSets.main.allSource
+}
+
+artifacts {
+    archives jar
+    archives sourceJar
+    archives javadocJar
+}
+
+publishing {
+    publications {
+
+        jar(MavenPublication) {
+            from components.java
+
+            artifact sourceJar {
+                classifier "sources"
+            }
+
+            artifact javadocJar {
+                classifier "javadoc"
+            }
+        }
     }
 
-    baseName = 'kurento-custom-client'
-    from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
-    with jar
+    repositories {
+        maven{
+
+            print(project.version.toString().contains('SNAPSHOT'))
+            if (project.version.toString().contains('SNAPSHOT')){
+                url 'http://10.0.1.159:8081/repository/proxy-snapshot/'
+            }
+            else {
+                url 'http://10.0.1.159:8081/repository/proxy-release/'
+            }
+
+            credentials {
+                username System.getProperty('username')
+                password System.getProperty('password')
+            }
+        }
+    }
 }
+
+
+
 
 

@@ -51,11 +51,6 @@ public class SIPPreProcessor extends ChannelInboundHandlerAdapter {
         try{
             GeneralSipMessage generalSipMessage=deserialize(ctx, (String) msg);
 
-            /*
-            ctx.fireChannelActive();
-            ctx.fireChannelRead(generalSipMessage);
-            */
-
             handlers.forEach((handler)->{
                 handler.get().handle(generalSipMessage);
             });

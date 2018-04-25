@@ -13,7 +13,7 @@ import java.io.IOException;
  * Created by dongqlee on 2018. 3. 19..
  *
  *
- * Helper Class for handling Http Request & Response
+ * Helper Class for handling Http Request, Response
  */
 public class HttpEntityUtils {
 
@@ -25,7 +25,7 @@ public class HttpEntityUtils {
 
 
     /**
-     * Consume HttpEntity & Generate String Response
+     * Consume HttpEntity and Generate String Response
      * @param entity
      * @return
      * @throws IOException
@@ -36,7 +36,7 @@ public class HttpEntityUtils {
     }
 
     /**
-     * Consume HttpEntity & Generate Json Format Response
+     * Consume HttpEntity and Generate Json Format Response
      * @param entity
      * @return
      * @throws IOException

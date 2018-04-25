@@ -5,7 +5,7 @@
             <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n" />
         </Console>
 
-        <RollingRandomAccessFile name="LogApp" fileName="/Users/voiceloco/logs/new-proxy.log" filePattern="/Users/voiceloco/logs/backup/new-proxy-%d{yyyy-MM-dd_HH}_%i.log" immediateFlush="true" append="true" ignoreExceptions="false">
+        <RollingRandomAccessFile name="LogApp" fileName="logs/neww-proxy.log" filePattern="logs/backup/neww-proxy-%d{yyyy-MM-dd_HH}_%i.log" immediateFlush="true" append="true" ignoreExceptions="false">
             <PatternLayout>
                 <Pattern>%d %p %c{1.} [%t] %m%n</Pattern>
             </PatternLayout>

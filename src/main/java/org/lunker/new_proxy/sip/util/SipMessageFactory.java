@@ -136,7 +136,7 @@ public class SipMessageFactory {
             MessageDigest md = MessageDigest.getInstance("MD5");
             md.update(hashKey.getBytes());
             byte[] digest = md.digest();
-            hashed=DatatypeConverter
+            hashed= DatatypeConverter
                     .printHexBinary(digest).toUpperCase();
         }
         catch (Exception e){

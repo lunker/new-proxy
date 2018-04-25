@@ -19,10 +19,6 @@ import java.util.concurrent.ConcurrentHashMap;
 /**
  * Created by dongqlee on 2018. 3. 20..
  */
-
-/**
- * CRUD for SipSession & SIPApplicatoinSession
- */
 public class SIPSessionManagerImpl implements SIPSessionManager{
 
     private Logger logger= LoggerFactory.getLogger(SIPSessionManagerImpl.class);
