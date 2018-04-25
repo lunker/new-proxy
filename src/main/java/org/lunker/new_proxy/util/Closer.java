@@ -10,4 +10,8 @@ public class Closer {
     public static void graceFullyShutdown(){
         JedisConnection.getInstance().close();
     }
+
+    public static void addGraceFullyShutdownHandler(){
+
+    }
 }

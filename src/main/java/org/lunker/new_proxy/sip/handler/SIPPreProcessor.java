@@ -11,12 +11,16 @@ import org.lunker.new_proxy.sip.context.ProxyContext;
 import org.lunker.new_proxy.sip.wrapper.message.GeneralSipMessage;
 import org.lunker.new_proxy.sip.wrapper.message.GeneralSipRequest;
 import org.lunker.new_proxy.sip.wrapper.message.GeneralSipResponse;
+import org.lunker.new_proxy.stub.SipServlet;
 import org.lunker.new_proxy.stub.session.ss.SipSession;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.net.InetSocketAddress;
 import java.text.ParseException;
+import java.util.List;
+import java.util.Optional;
+
 
 /**
  * Created by dongqlee on 2018. 3. 19..
@@ -26,9 +30,15 @@ public class SIPPreProcessor extends ChannelInboundHandlerAdapter {
     private Logger logger= LoggerFactory.getLogger(SIPPreProcessor.class);
     private StringMsgParser stringMsgParser=null;
     private ProxyContext proxyContext=ProxyContext.getInstance();
+    private List<Optional<SipServlet>> handlers=null;
 
     public SIPPreProcessor() {
         this.stringMsgParser=new StringMsgParser();
+    }
+
+    public SIPPreProcessor(List handlers){
+        this();
+        this.handlers=handlers;
     }
 
     @Override
@@ -41,8 +51,14 @@ public class SIPPreProcessor extends ChannelInboundHandlerAdapter {
         try{
             GeneralSipMessage generalSipMessage=deserialize(ctx, (String) msg);
 
+            /*
             ctx.fireChannelActive();
             ctx.fireChannelRead(generalSipMessage);
+            */
+
+            handlers.forEach((handler)->{
+                handler.get().handle(generalSipMessage);
+            });
         }
         catch (Exception e){
             logger.warn("Error while encoding sip wrapper . . . :\n" + ((String) msg));
