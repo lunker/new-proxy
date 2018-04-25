@@ -16,7 +16,7 @@ import org.slf4j.LoggerFactory;
 public class TCPServer extends ChannelInboundHandlerAdapter {
 
     private Logger logger= LoggerFactory.getLogger(TCPServer.class);
-    private int port=10010;
+    private int port=10010; //TODO: Get Server port from Property
     private EventLoopGroup bossGroup = new NioEventLoopGroup(); // (1)
     private EventLoopGroup workerGroup = new NioEventLoopGroup();
 
@@ -27,6 +27,11 @@ public class TCPServer extends ChannelInboundHandlerAdapter {
         this.port = port;
     }
 
+    /**
+     * Run TCPServer
+     * @return
+     * @throws Exception
+     */
     public ChannelFuture run() throws Exception {
         ServerBootstrap b = new ServerBootstrap(); // (2)
         b.group(bossGroup, workerGroup)
@@ -36,7 +41,6 @@ public class TCPServer extends ChannelInboundHandlerAdapter {
                 .childOption(ChannelOption.SO_KEEPALIVE, true) // (6)
                 .childOption(ChannelOption.TCP_NODELAY, true)
                 .childOption(ChannelOption.SO_RCVBUF, 20000);
-//                    .childOption(ChannelOption.SO_REUSEADDR, true);
 
         // Bind and start to accept incoming connections.
         ChannelFuture f = b.bind(port).sync(); // (7)
@@ -51,7 +55,7 @@ public class TCPServer extends ChannelInboundHandlerAdapter {
     }// end run
 
     public void shutdown(){
-        logger.info("Shut down TCPServer gracefully...");
+        logger.debug("Shut down TCPServer gracefully...");
 
         if(workerGroup!=null)
             workerGroup.shutdownGracefully();

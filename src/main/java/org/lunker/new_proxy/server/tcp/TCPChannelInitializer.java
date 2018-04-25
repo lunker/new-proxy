@@ -18,7 +18,6 @@ public class TCPChannelInitializer extends ChannelInitializer {
     private Logger logger= LoggerFactory.getLogger(TCPChannelInitializer.class);
 
     public TCPChannelInitializer() {
-        logger.info("create!!!!!!!!!!!!!!!!!!!!!!!!");
     }
 
     @Override

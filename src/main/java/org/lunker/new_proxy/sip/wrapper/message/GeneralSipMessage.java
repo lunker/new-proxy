@@ -55,6 +55,11 @@ public abstract class GeneralSipMessage {
         return this.method;
     }
 
+    /**
+     * Get 'From' Header
+     * @return
+     * @throws NullPointerException
+     */
     public FromHeader getFrom() throws NullPointerException{
         if(this.message==null)
             throw new NullPointerException("");
@@ -67,21 +72,10 @@ public abstract class GeneralSipMessage {
         return this.message.getTo();
     }
 
-    public String getCallId(){
+    public String getCallId() throws {
         CallIdHeader id = (CallIdHeader)this.message.getHeader("Call-ID");
         return id != null ? id.getCallId() : null;
     }
-
-    /*
-    public String getHeader(String headerName){
-        String value = null;
-        if (this.message.getHeader(headerName) != null) {
-            value = ((SIPHeader)this.message.getHeader(headerName)).getValue();
-        }
-
-        return value;
-    }
-    */
 
     public void addHeader(Header header){
         this.message.addHeader(header);
@@ -107,7 +101,8 @@ public abstract class GeneralSipMessage {
     }
 
     public void send() throws ParseException{
-        // 연결된 LB가 없으면, SIP Message에 있는 정보로 전송한다
+
+        // 연결된 LB가 없으면, SIPMessage에 있는 정보로 전송한다
 
         if(this.getSipSession()!=null){
             if(this instanceof GeneralSipRequest){

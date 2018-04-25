@@ -33,7 +33,6 @@ public class SIPPostProcessor extends ChannelInboundHandlerAdapter{
                 String method=generalSipMessage.getMethod();
             }
         }
-
     }
 
     @Override

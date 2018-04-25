@@ -45,8 +45,6 @@ public class SIPProcessor extends ChannelInboundHandlerAdapter implements Abstra
 
     @Override
     public void channelActive(ChannelHandlerContext currentCtx) throws Exception {
-        logger.info("Channel Active!!!!!!!!!!!!!!!!!!!!!!!!!!");
-
         this.currentCtx=currentCtx;
 
         try{
@@ -62,15 +60,13 @@ public class SIPProcessor extends ChannelInboundHandlerAdapter implements Abstra
 
     @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
-//        logger.info("In SIPProcessor");
         logger.info("[RECEIVED]:\n" + ((GeneralSipMessage) msg).toString());
 
         GeneralSipMessage sipMessage=(GeneralSipMessage) msg;
         GeneralSipMessage targetMessage=null;
 
-
         // test SipSession
-        sipMessage.getSipSession().setAttribute("hi",123);
+//        sipMessage.getSipSession().setAttribute("hi",123);
 
         if(sipMessage instanceof GeneralSipRequest){
             String method=sipMessage.getMethod();

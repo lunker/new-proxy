@@ -14,7 +14,6 @@ public class Application {
 
 
     public static void main(String[] args) throws Exception {
-
         tcpServer=new TCPServer();
         websocketServer=new WebsocketServer();
 
@@ -28,7 +27,6 @@ public class Application {
                 Closer.graceFullyShutdown();
             }
         });
-
 
         tcpServer.run();
 //        websocketServer.run();

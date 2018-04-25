@@ -31,7 +31,6 @@ public class SIPPreProcessor extends ChannelInboundHandlerAdapter {
 
     public SIPPreProcessor() {
         this.stringMsgParser=new StringMsgParser();
-//        this.sipMessageFactory=new SipMessageFactory();
     }
 
     @Override
@@ -73,6 +72,7 @@ public class SIPPreProcessor extends ChannelInboundHandlerAdapter {
 
         if(topViaHeader.getRPort() == 0 || topViaHeader.getRPort() == -1) {
             int rport=((InetSocketAddress) ctx.channel().remoteAddress()).getPort();
+
 //            viaHeader.setParameter("rport", rport);
             topViaHeader.setParameter("rport", rport+"");
 
