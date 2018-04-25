@@ -4,6 +4,7 @@ import gov.nist.javax.sip.header.Via;
 import gov.nist.javax.sip.header.ViaList;
 import gov.nist.javax.sip.message.SIPMessage;
 import gov.nist.javax.sip.message.SIPRequest;
+import gov.nist.javax.sip.parser.SIPETagParser;
 import gov.nist.javax.sip.parser.StringMsgParser;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
@@ -18,6 +19,7 @@ import org.slf4j.LoggerFactory;
 
 import java.net.InetSocketAddress;
 import java.text.ParseException;
+import java.util.Optional;
 
 /**
  * Created by dongqlee on 2018. 3. 19..
@@ -41,10 +43,21 @@ public class SIPPreProcessor extends ChannelInboundHandlerAdapter {
     @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
         try{
-            GeneralSipMessage generalSipMessage=deserialize(ctx, (String) msg);
+            Optional<String> maybeStrSipMessage=(Optional<String>) msg;
+
+            /*
+            maybeStrSipMessage.map((strSipMessage)->{
+                Optional<SIPMessage> maybeJainSipMessage=null;
+
+                maybeJainSipMessage=Optional.ofNullable(parseSipMessage(strSipMessage));
+                return maybeJainSipMessage;
+            });
+            */
+
+            maybeStrSipMessage.map(this::parseSipMessage);
 
             ctx.fireChannelActive();
-            ctx.fireChannelRead(generalSipMessage);
+            ctx.fireChannelRead(maybeStrSipMessage);
         }
         catch (Exception e){
             logger.warn("Error while encoding sip wrapper . . . :\n" + ((String) msg));
@@ -52,10 +65,17 @@ public class SIPPreProcessor extends ChannelInboundHandlerAdapter {
         }
     }
 
-    public GeneralSipMessage deserialize(ChannelHandlerContext ctx, String message) throws ParseException{
+    public SIPMessage parseSipMessage(String strSipMessage){
+        SIPMessage jainSipMessage=null;
+        jainSipMessage=stringMsgParser.parseSIPMessage(strSipMessage.getBytes(), true, false, null);
+
+        return jainSipMessage;
+    }
+
+    public GeneralSipMessage deserialize(ChannelHandlerContext ctx, Optional<String> maybeStrSipMessage) {
         GeneralSipMessage generalSipMessage=null;
 
-        SIPMessage jainSipMessage=stringMsgParser.parseSIPMessage(message.getBytes(), true, false, null);
+
 
         // TODO(lunker): message send를 위해 ctx를 session에 저장시킨다
         SipSession sipSession=proxyContext.createOrGetSIPSession(ctx, jainSipMessage);
