@@ -11,6 +11,7 @@ import org.slf4j.LoggerFactory;
 
 import javax.sip.header.ContentLengthHeader;
 import java.util.List;
+import java.util.Optional;
 
 /**
  * Created by dongqlee on 2018. 3. 22..
@@ -73,6 +74,8 @@ public class SIPStreamDecoder extends ByteToMessageDecoder{
             large=targetBuf;
         }
 
+
+        // TODO: Change to Stream API
         for(int idx=0; idx<small.length; idx++){
             if(small[idx] != large[idx])
                 return false;
@@ -172,8 +175,8 @@ public class SIPStreamDecoder extends ByteToMessageDecoder{
                         this.headerLineBuffer=allocate(DEFAULT_HEADER_LINE_SIZE);
 
                         // Fire Optional<String>
-//                        ctx.fireChannelRead(Optional.ofNullable(sipMessage));
-                        ctx.fireChannelRead(sipMessage);
+                        ctx.fireChannelRead(Optional.ofNullable(sipMessage));
+//                        ctx.fireChannelRead(sipMessage);
                     }
                     catch (Exception e){
                         e.printStackTrace();

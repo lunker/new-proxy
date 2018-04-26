@@ -26,7 +26,6 @@ public class TCPServer extends ChannelInboundHandlerAdapter {
 
     public TCPServer() {
         tcpChannelInitializer=new TCPChannelInitializer();
-
     }
 
     public TCPServer(int port) {
