@@ -1,4 +1,4 @@
-package org.lunker.new_proxy.sip.handler;
+package org.lunker.new_proxy.sip.processor;
 
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.PooledByteBufAllocator;
@@ -16,9 +16,9 @@ import java.util.Optional;
 /**
  * Created by dongqlee on 2018. 3. 22..
  */
-public class SIPStreamDecoder extends ByteToMessageDecoder{
+public class TCPStreamDecoder extends ByteToMessageDecoder{
 
-    private Logger logger= LoggerFactory.getLogger(SIPStreamDecoder.class);
+    private Logger logger= LoggerFactory.getLogger(TCPStreamDecoder.class);
 
     private final int DEFAULT_HEADER_SIZE=3000;
     private final int DEFAULT_HEADER_LINE_SIZE=512;
@@ -40,7 +40,7 @@ public class SIPStreamDecoder extends ByteToMessageDecoder{
     private int readBodyLength=0;
     private byte[] contentByte="Content-Length:".getBytes();
 
-    public SIPStreamDecoder() {
+    public TCPStreamDecoder() {
         pooledByteBufAllocator=new PooledByteBufAllocator();
         unpooledByteBufAllocator=new UnpooledByteBufAllocator(false);
 
@@ -153,8 +153,8 @@ public class SIPStreamDecoder extends ByteToMessageDecoder{
                     // create entire Sip wrapper
                     try{
 
-                        String sipMessage=headerBuffer.toString(0, headerBuffer.writerIndex(), CharsetUtil.UTF_8) + bodyBuffer.toString(0, bodyBuffer.writerIndex(), CharsetUtil.UTF_8);
-                        logger.info("Parsed sip wrapper:\n" + sipMessage);
+                        String strSipMessage=headerBuffer.toString(0, headerBuffer.writerIndex(), CharsetUtil.UTF_8) + bodyBuffer.toString(0, bodyBuffer.writerIndex(), CharsetUtil.UTF_8);
+                        logger.info("Parsed sip wrapper:\n" + strSipMessage);
 
                         // reset used buffer
                         headerBuffer.clear();
@@ -174,9 +174,7 @@ public class SIPStreamDecoder extends ByteToMessageDecoder{
                         this.headerBuffer=allocate(DEFAULT_HEADER_SIZE);
                         this.headerLineBuffer=allocate(DEFAULT_HEADER_LINE_SIZE);
 
-                        // Fire Optional<String>
-                        ctx.fireChannelRead(Optional.ofNullable(sipMessage));
-//                        ctx.fireChannelRead(sipMessage);
+                        ctx.fireChannelRead(Optional.ofNullable(strSipMessage));
                     }
                     catch (Exception e){
                         e.printStackTrace();

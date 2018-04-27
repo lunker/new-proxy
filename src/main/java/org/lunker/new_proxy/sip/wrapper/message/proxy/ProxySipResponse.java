@@ -1,4 +1,4 @@
-package org.lunker.new_proxy.sip.wrapper.message;
+package org.lunker.new_proxy.sip.wrapper.message.proxy;
 
 import gov.nist.javax.sip.message.SIPMessage;
 import gov.nist.javax.sip.message.SIPResponse;
@@ -9,11 +9,11 @@ import org.slf4j.LoggerFactory;
 /**
  * Created by dongqlee on 2018. 3. 19..
  */
-public class GeneralSipResponse extends GeneralSipMessage{
+public class ProxySipResponse extends ProxySipMessage {
 
-    private Logger logger= LoggerFactory.getLogger(GeneralSipResponse.class);
+    private Logger logger= LoggerFactory.getLogger(ProxySipResponse.class);
 
-    public GeneralSipResponse(SIPMessage sipMessage, SipSessionKey sipSessionKey) {
+    public ProxySipResponse(SIPMessage sipMessage, SipSessionKey sipSessionKey) {
         super(sipMessage, sipSessionKey);
     }
 

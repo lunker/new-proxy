@@ -1,5 +1,5 @@
 group 'org.lunker'
-version '1.0-SNAPSHOT'
+version '1.0.1'
 
 apply plugin: 'java'
 apply plugin: 'idea'
@@ -36,15 +36,11 @@ dependencies {
     }
 
     // SLF4J-Log4j2
-    compile("commons-logging:commons-logging:${commonsLogging}")
-    compile("org.slf4j:slf4j-api:${slf4jVersion}")
-    compile("org.apache.logging.log4j:log4j-api:${log4j2Version}")
-    compile("org.apache.logging.log4j:log4j-core:${log4j2Version}")
-    compile("org.apache.logging.log4j:log4j-slf4j-impl:${log4j2Version}")
-
-
-    // https://mvnrepository.com/artifact/javax.servlet/javax.servlet-api
-//    compile group: 'javax.servlet', name: 'javax.servlet-api', version: '4.0.0'
+    compileOnly("commons-logging:commons-logging:${commonsLogging}")
+    compileOnly("org.slf4j:slf4j-api:${slf4jVersion}")
+    compileOnly("org.apache.logging.log4j:log4j-api:${log4j2Version}")
+    compileOnly("org.apache.logging.log4j:log4j-core:${log4j2Version}")
+    compileOnly("org.apache.logging.log4j:log4j-slf4j-impl:${log4j2Version}")
 
     // https://mvnrepository.com/artifact/javax.sip/jain-sip-ri
     compile group: 'javax.sip', name: 'jain-sip-ri', version: '1.3.0-32'
@@ -115,6 +111,7 @@ publishing {
         maven{
 
             print(project.version.toString().contains('SNAPSHOT'))
+
             if (project.version.toString().contains('SNAPSHOT')){
                 url 'http://10.0.1.159:8081/repository/proxy-snapshot/'
             }
@@ -123,7 +120,7 @@ publishing {
             }
 
             credentials {
-                username System.getProperty('username')
+                username System.getProperty('user')
                 password System.getProperty('password')
             }
         }

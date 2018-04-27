@@ -7,7 +7,7 @@ import org.lunker.new_proxy.sip.session.sas.SipApplicationSessionImpl;
 import org.lunker.new_proxy.sip.session.sas.SipApplicationSessionKey;
 import org.lunker.new_proxy.sip.session.ss.SipSessionImpl;
 import org.lunker.new_proxy.sip.session.ss.SipSessionKey;
-import org.lunker.new_proxy.sip.wrapper.message.GeneralSipMessage;
+import org.lunker.new_proxy.sip.wrapper.message.proxy.ProxySipMessage;
 import org.lunker.new_proxy.stub.session.SIPSessionManager;
 import org.lunker.new_proxy.stub.session.sas.SipApplicationSession;
 import org.lunker.new_proxy.stub.session.ss.SipSession;
@@ -31,8 +31,8 @@ public class SIPSessionManagerImpl implements SIPSessionManager{
         this.sipSessionConcurrentHashMap=new ConcurrentHashMap<>(INITIAL_CAPACITY);
     }
 
-    public SipSession createOrGetSIPSession(ChannelHandlerContext ctx, GeneralSipMessage generalSipMessage) {
-        return createOrGetSIPSession(ctx, generalSipMessage.getRawSipMessage());
+    public SipSession createOrGetSIPSession(ChannelHandlerContext ctx, ProxySipMessage proxySipMessage) {
+        return createOrGetSIPSession(ctx, proxySipMessage.getRawSipMessage());
     }
 
     public SipSession createOrGetSIPSession(ChannelHandlerContext ctx, SIPMessage generalSipMessage) {
@@ -128,7 +128,7 @@ public class SIPSessionManagerImpl implements SIPSessionManager{
         return sipSessionConcurrentHashMap.get(sipSessionKey);
     }
 
-    public SipSession getSipSession(GeneralSipMessage generalSipMessage){
-        return this.getSipSession(generalSipMessage.getSipSessionKey());
+    public SipSession getSipSession(ProxySipMessage proxySipMessage){
+        return this.getSipSession(proxySipMessage.getSipSessionKey());
     }
 }

@@ -43,7 +43,7 @@ public class HttpServerHandler extends ChannelInboundHandlerAdapter {
             if (headers.get("Connection").equalsIgnoreCase("Upgrade") ||
                     headers.get("Upgrade").equalsIgnoreCase("WebSocket")) {
 
-                //Adding new handler to the existing pipeline to handle WebSocket Messages
+                //Adding new processor to the existing pipeline to handle WebSocket Messages
                 ctx.pipeline().replace(this, "websocketHandler", new WebsocketHandler());
 
                 System.out.println("WebSocketHandler added to the pipeline");

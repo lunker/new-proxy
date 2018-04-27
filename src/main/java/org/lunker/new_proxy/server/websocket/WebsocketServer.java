@@ -32,7 +32,7 @@ public class WebsocketServer {
             b.option(ChannelOption.SO_BACKLOG, 1024);
             b.group(bossGroup, workerGroup)
                     .channel(NioServerSocketChannel.class)
-//                    .handler(new LoggingHandler(LogLevel.INFO))
+//                    .processor(new LoggingHandler(LogLevel.INFO))
                     .childHandler(new HttpChannelInitializer());
 
             Channel ch = b.bind(PORT).sync().channel();
@@ -51,7 +51,7 @@ public class WebsocketServer {
         b.option(ChannelOption.SO_BACKLOG, 1024);
         b.group(bossGroup, workerGroup)
                 .channel(NioServerSocketChannel.class)
-//                    .handler(new LoggingHandler(LogLevel.INFO))
+//                    .processor(new LoggingHandler(LogLevel.INFO))
                 .childHandler(new HttpChannelInitializer());
 
         ChannelFuture f = b.bind(PORT).sync(); // (7)

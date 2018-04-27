@@ -1,4 +1,4 @@
-package org.lunker.new_proxy.sip.wrapper.message;
+package org.lunker.new_proxy.sip.wrapper.message.proxy;
 
 import gov.nist.javax.sip.message.SIPMessage;
 import gov.nist.javax.sip.message.SIPRequest;
@@ -18,22 +18,22 @@ import java.util.ListIterator;
 /**
  * Created by dongqlee on 2018. 3. 19..
  */
-public class GeneralSipRequest extends GeneralSipMessage{
+public class ProxySipRequest extends ProxySipMessage {
 
     private SIPRequest jainSipRequest=null;
 
-    private GeneralSipRequest() {
+    private ProxySipRequest() {
     }
 
-    public GeneralSipRequest(SIPMessage jainSipRequest, SipSessionKey sipSessionKey) {
+    public ProxySipRequest(SIPMessage jainSipRequest, SipSessionKey sipSessionKey) {
         super(jainSipRequest, sipSessionKey);
     }
 
-    public GeneralSipResponse createResponse(int statusCode) {
+    public ProxySipResponse createResponse(int statusCode) {
         return this.createResponse(statusCode,"");
     }
 
-    public GeneralSipResponse createResponse(int statusCode, String reasonPhrase) {
+    public ProxySipResponse createResponse(int statusCode, String reasonPhrase) {
 
         try {
             Request request = (Request)this.message;
@@ -131,7 +131,7 @@ public class GeneralSipRequest extends GeneralSipMessage{
                 }
             }
 
-            GeneralSipResponse generalSipResponse=new GeneralSipResponse((SIPResponse) response, this.sipSessionKey);
+            ProxySipResponse generalSipResponse=new ProxySipResponse((SIPResponse) response, this.sipSessionKey);
             return generalSipResponse;
 
                 /*

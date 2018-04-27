@@ -1,17 +1,12 @@
-package org.lunker.new_proxy.sip.wrapper.message;
+package org.lunker.new_proxy.sip.wrapper.message.proxy;
 
-import gov.nist.javax.sip.address.SipUri;
 import gov.nist.javax.sip.message.SIPMessage;
-import io.netty.buffer.Unpooled;
-import io.netty.channel.ChannelFuture;
-import io.netty.channel.ChannelHandlerContext;
-import io.netty.util.CharsetUtil;
-import org.lunker.new_proxy.sip.context.ProxyContext;
+import org.lunker.new_proxy.core.ProxyContext;
 import org.lunker.new_proxy.sip.session.ss.SipSessionKey;
 import org.lunker.new_proxy.sip.util.SipMessageFactory;
+import org.lunker.new_proxy.sip.wrapper.message.AbstractSipMessage;
 import org.lunker.new_proxy.stub.session.sas.SipApplicationSession;
 import org.lunker.new_proxy.stub.session.ss.SipSession;
-import org.lunker.new_proxy.util.Registration;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -23,9 +18,9 @@ import java.util.Map;
 /**
  * Created by dongqlee on 2018. 3. 19..
  */
-public abstract class GeneralSipMessage {
+public abstract class ProxySipMessage extends AbstractSipMessage{
 
-    protected Logger logger= LoggerFactory.getLogger(GeneralSipMessage.class);
+    protected Logger logger= LoggerFactory.getLogger(ProxySipMessage.class);
     protected SIPMessage message;
     protected SipSessionKey sipSessionKey;
     protected SipMessageFactory sipMessageFactory;
@@ -33,10 +28,13 @@ public abstract class GeneralSipMessage {
     protected ProxyContext proxyContext;
     protected String method;
 
-    protected GeneralSipMessage() {
+    //TODO: create pre-defined static messages
+//    public static ProxySipMessage SERVER_INTERNAL_ERROR_500=new ProxySipResponse(new SIPResponse(), new SipSessionKey());
+
+    protected ProxySipMessage() {
     }
 
-    protected GeneralSipMessage(SIPMessage message, SipSessionKey sipSessionKey) {
+    protected ProxySipMessage(SIPMessage message, SipSessionKey sipSessionKey) {
         this.message = message;
         this.sipSessionKey = sipSessionKey;
         this.proxyContext=ProxyContext.getInstance();
@@ -107,33 +105,44 @@ public abstract class GeneralSipMessage {
     public void send() throws ParseException{
         // 연결된 LB가 없으면, SIPMessage에 있는 정보로 전송한다
 
+        // TODO:: PostProcessor로 옮긴다.
+        /**
+         * Request:
+         *  - request uri 정보를 읽어와서 ctx를 뒤지고, 해당 socket에 전송한다
+         *  -> ctx manager가 필요함
+         * Response:
+         *  -> Via를 뒤져서, 해당 connection을 직접 가지고 있으면 전송, 아니면 lb에게 전송
+         */
+
+        /*
         if(this.getSipSession()!=null){
-            if(this instanceof GeneralSipRequest){
+            if(this instanceof ProxySipRequest){
                 // send to other session's ctx
                 String toAor="";
                 ChannelHandlerContext targetCtx=null;
-                Registration targetRegistration=null;
+
+                Registration targetRegistration=null; // .....? 이건 Proxy에서 Set어쩌고를 통해서 다 해줄거다. 나는 그냥
 
                 toAor=this.message.getToHeader().getAddress().getURI().toString().split(":")[1];
                 targetRegistration=proxyContext.getRegistrar().getRegistration(toAor);
                 targetCtx=proxyContext.getRegistrar().getCtx(toAor);
 
-                Request targetRequest=(Request) ((GeneralSipRequest) this).message;
+                Request targetRequest=(Request) ((ProxySipRequest) this).message;
                 SipUri requestUri = new SipUri();
 
                 requestUri.setHost(targetRegistration.getRemoteAddress());
                 requestUri.setPort(targetRegistration.getRemotePort());
 
-                targetRequest.setRequestURI(((GeneralSipRequest) this).message.getTo().getAddress().getURI());
+                targetRequest.setRequestURI(((ProxySipRequest) this).message.getTo().getAddress().getURI());
 
-                ChannelFuture cf=targetCtx.writeAndFlush((Unpooled.copiedBuffer(((GeneralSipRequest) this).message.toString(), CharsetUtil.UTF_8)));
+                ChannelFuture cf=targetCtx.writeAndFlush((Unpooled.copiedBuffer(((ProxySipRequest) this).message.toString(), CharsetUtil.UTF_8)));
                 targetCtx.flush();
 
                 if (!cf.isSuccess()) {
                     logger.warn("Send failed: " + cf.cause());
                 }
 
-                logger.info("[SENT]:\n" + ((GeneralSipRequest) this).message.toString());
+                logger.info("[SENT]:\n" + ((ProxySipRequest) this).message.toString());
             }
             else{
                 // send to this session's ctx
@@ -145,9 +154,12 @@ public abstract class GeneralSipMessage {
                     logger.warn("Send failed: " + cf.cause());
                 }
 
-                logger.info("[SENT]:\n" + ((GeneralSipResponse) this).message.toString());
+                logger.info("[SENT]:\n" + ((ProxySipResponse) this).message.toString());
             }
-        }
+        }// end-if
+        */
+
+
     }
 
     @Override

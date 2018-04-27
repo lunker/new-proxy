@@ -3,10 +3,10 @@ package org.lunker.new_proxy.sip.session.ss;
 import gov.nist.javax.sip.address.SipUri;
 import gov.nist.javax.sip.message.SIPRequest;
 import io.netty.channel.ChannelHandlerContext;
-import org.lunker.new_proxy.sip.context.ProxyContext;
+import org.lunker.new_proxy.core.ProxyContext;
 import org.lunker.new_proxy.sip.session.sas.SipApplicationSessionKey;
 import org.lunker.new_proxy.sip.util.SipMessageFactory;
-import org.lunker.new_proxy.sip.wrapper.message.GeneralSipRequest;
+import org.lunker.new_proxy.sip.wrapper.message.proxy.ProxySipRequest;
 import org.lunker.new_proxy.stub.session.sas.SipApplicationSession;
 import org.lunker.new_proxy.stub.session.ss.SipSession;
 
@@ -27,7 +27,7 @@ public class SipSessionImpl implements SipSession {
     private SipMessageFactory sipMessageFactory=null;
     private ChannelHandlerContext ctx;
     private Map<String, Object> sessionAttributes;
-    private GeneralSipRequest firstRequest=null;
+    private ProxySipRequest firstRequest=null;
 
     private SipSessionImpl() {
         this.proxyContext=ProxyContext.getInstance();
@@ -63,7 +63,7 @@ public class SipSessionImpl implements SipSession {
     }
 
     @Override
-    public GeneralSipRequest createRequest(String method) {
+    public ProxySipRequest createRequest(String method) {
 
         /**
          * 현재 SipSession에 존재하는 Sip Request를 이용하여 새로운 SipRequest를 만든다.
@@ -98,7 +98,7 @@ public class SipSessionImpl implements SipSession {
             return null;
         }
 
-        GeneralSipRequest createdRequest=null;
+        ProxySipRequest createdRequest=null;
         SipSession newSipSession=null;
 
         try {
@@ -212,7 +212,7 @@ public class SipSessionImpl implements SipSession {
 
             // Create Content-Length:
             SipSessionKey newSipSessionKey=new SipSessionKey(newRequest, this.sipSessionKey.getApplicationSessionId());
-            createdRequest=new GeneralSipRequest(newRequest, newSipSessionKey);
+            createdRequest=new ProxySipRequest(newRequest, newSipSessionKey);
 
             ChannelHandlerContext targetCtx=findTarget(newToHeader.getAddress().getURI().toString().split(":")[1]);
             newSipSession=proxyContext.createOrGetSIPSession(targetCtx, createdRequest); // 쌩뚱맞은 sasId를 가져온다 ㅡㅡ
@@ -233,16 +233,17 @@ public class SipSessionImpl implements SipSession {
     // find To user-agent registration info
 
     public ChannelHandlerContext findTarget(String aor){
-        return this.proxyContext.getRegistrar().getCtx(aor);
+//        return this.proxyContext.getRegistrar().getCtx(aor);
+        return null;
     }
 
     @Override
-    public void setFirstRequest(GeneralSipRequest generalSipRequest) {
+    public void setFirstRequest(ProxySipRequest generalSipRequest) {
         this.firstRequest=generalSipRequest;
     }
 
     @Override
-    public GeneralSipRequest getFirstRequest() {
+    public ProxySipRequest getFirstRequest() {
         return this.firstRequest;
     }
 

@@ -8,7 +8,7 @@ public class Closer {
      * Gracefully Close I/O resources
      */
     public static void graceFullyShutdown(){
-        JedisConnection.getInstance().close();
+//        JedisConnection.getInstance().close();
     }
 
     public static void addGraceFullyShutdownHandler(){

@@ -1,0 +1,1701 @@
+2018-04-27 12:50:57,717 INFO o.l.n.s.t.TCPServer [main] Run TCP Server Listening on 10010
+2018-04-27 12:50:59,870 INFO o.l.n.s.p.TCPStreamDecoder [nioEventLoopGroup-3-6] Parsed sip wrapper:
+REGISTER sip:siptest.com SIP/2.0
+Via: SIP/2.0/TCP 10.0.1.159:43010;branch=z9hG4bK-18395-7-0;rport
+From: sipcallee00007 <sip:sipcallee00007@siptest.com>;tag=18395SIPpTag007
+To: sipcallee00007 <sip:sipcallee00007@siptest.com>
+Call-ID: register-sipcallee00007///7-18395@10.0.1.159
+CSeq: 1 REGISTER
+Contact: <sip:sipcallee00007@10.0.1.159:43010;transport=TCP>
+Expires: 21600
+Max-Forwards: 70
+User-Agent: Moimstone
+Content-Type: application/sdp
+Content-Length:     0
+
+
+2018-04-27 12:50:59,870 INFO o.l.n.s.p.TCPStreamDecoder [nioEventLoopGroup-3-4] Parsed sip wrapper:
+REGISTER sip:siptest.com SIP/2.0
+Via: SIP/2.0/TCP 10.0.1.159:43098;branch=z9hG4bK-18395-5-0;rport
+From: sipcallee00005 <sip:sipcallee00005@siptest.com>;tag=18395SIPpTag005
+To: sipcallee00005 <sip:sipcallee00005@siptest.com>
+Call-ID: register-sipcallee00005///5-18395@10.0.1.159
+CSeq: 1 REGISTER
+Contact: <sip:sipcallee00005@10.0.1.159:43098;transport=TCP>
+Expires: 21600
+Max-Forwards: 70
+User-Agent: Moimstone
+Content-Type: application/sdp
+Content-Length:     0
+
+
+2018-04-27 12:50:59,870 INFO o.l.n.s.p.TCPStreamDecoder [nioEventLoopGroup-3-7] Parsed sip wrapper:
+REGISTER sip:siptest.com SIP/2.0
+Via: SIP/2.0/TCP 10.0.1.159:41508;branch=z9hG4bK-18395-8-0;rport
+From: sipcallee00008 <sip:sipcallee00008@siptest.com>;tag=18395SIPpTag008
+To: sipcallee00008 <sip:sipcallee00008@siptest.com>
+Call-ID: register-sipcallee00008///8-18395@10.0.1.159
+CSeq: 1 REGISTER
+Contact: <sip:sipcallee00008@10.0.1.159:41508;transport=TCP>
+Expires: 21600
+Max-Forwards: 70
+User-Agent: Moimstone
+Content-Type: application/sdp
+Content-Length:     0
+
+
+2018-04-27 12:50:59,870 INFO o.l.n.s.p.TCPStreamDecoder [nioEventLoopGroup-3-8] Parsed sip wrapper:
+REGISTER sip:siptest.com SIP/2.0
+Via: SIP/2.0/TCP 10.0.1.159:40166;branch=z9hG4bK-18395-9-0;rport
+From: sipcallee00009 <sip:sipcallee00009@siptest.com>;tag=18395SIPpTag009
+To: sipcallee00009 <sip:sipcallee00009@siptest.com>
+Call-ID: register-sipcallee00009///9-18395@10.0.1.159
+CSeq: 1 REGISTER
+Contact: <sip:sipcallee00009@10.0.1.159:40166;transport=TCP>
+Expires: 21600
+Max-Forwards: 70
+User-Agent: Moimstone
+Content-Type: application/sdp
+Content-Length:     0
+
+
+2018-04-27 12:50:59,870 INFO o.l.n.s.p.TCPStreamDecoder [nioEventLoopGroup-3-1] Parsed sip wrapper:
+REGISTER sip:siptest.com SIP/2.0
+Via: SIP/2.0/TCP 10.0.1.159:44954;branch=z9hG4bK-18395-2-0;rport
+From: sipcallee00002 <sip:sipcallee00002@siptest.com>;tag=18395SIPpTag002
+To: sipcallee00002 <sip:sipcallee00002@siptest.com>
+Call-ID: register-sipcallee00002///2-18395@10.0.1.159
+CSeq: 1 REGISTER
+Contact: <sip:sipcallee00002@10.0.1.159:44954;transport=TCP>
+Expires: 21600
+Max-Forwards: 70
+User-Agent: Moimstone
+Content-Type: application/sdp
+Content-Length:     0
+
+
+2018-04-27 12:50:59,870 INFO o.l.n.s.p.TCPStreamDecoder [nioEventLoopGroup-3-3] Parsed sip wrapper:
+REGISTER sip:siptest.com SIP/2.0
+Via: SIP/2.0/TCP 10.0.1.159:33938;branch=z9hG4bK-18395-4-0;rport
+From: sipcallee00004 <sip:sipcallee00004@siptest.com>;tag=18395SIPpTag004
+To: sipcallee00004 <sip:sipcallee00004@siptest.com>
+Call-ID: register-sipcallee00004///4-18395@10.0.1.159
+CSeq: 1 REGISTER
+Contact: <sip:sipcallee00004@10.0.1.159:33938;transport=TCP>
+Expires: 21600
+Max-Forwards: 70
+User-Agent: Moimstone
+Content-Type: application/sdp
+Content-Length:     0
+
+
+2018-04-27 12:50:59,870 INFO o.l.n.s.p.TCPStreamDecoder [nioEventLoopGroup-3-2] Parsed sip wrapper:
+REGISTER sip:siptest.com SIP/2.0
+Via: SIP/2.0/TCP 10.0.1.159:34206;branch=z9hG4bK-18395-3-0;rport
+From: sipcallee00003 <sip:sipcallee00003@siptest.com>;tag=18395SIPpTag003
+To: sipcallee00003 <sip:sipcallee00003@siptest.com>
+Call-ID: register-sipcallee00003///3-18395@10.0.1.159
+CSeq: 1 REGISTER
+Contact: <sip:sipcallee00003@10.0.1.159:34206;transport=TCP>
+Expires: 21600
+Max-Forwards: 70
+User-Agent: Moimstone
+Content-Type: application/sdp
+Content-Length:     0
+
+
+2018-04-27 12:50:59,870 INFO o.l.n.s.p.TCPStreamDecoder [nioEventLoopGroup-3-5] Parsed sip wrapper:
+REGISTER sip:siptest.com SIP/2.0
+Via: SIP/2.0/TCP 10.0.1.159:42897;branch=z9hG4bK-18395-6-0;rport
+From: sipcallee00006 <sip:sipcallee00006@siptest.com>;tag=18395SIPpTag006
+To: sipcallee00006 <sip:sipcallee00006@siptest.com>
+Call-ID: register-sipcallee00006///6-18395@10.0.1.159
+CSeq: 1 REGISTER
+Contact: <sip:sipcallee00006@10.0.1.159:42897;transport=TCP>
+Expires: 21600
+Max-Forwards: 70
+User-Agent: Moimstone
+Content-Type: application/sdp
+Content-Length:     0
+
+
+2018-04-27 12:50:59,874 INFO o.l.n.s.p.TCPStreamDecoder [nioEventLoopGroup-3-9] Parsed sip wrapper:
+REGISTER sip:siptest.com SIP/2.0
+Via: SIP/2.0/TCP 10.0.1.159:42098;branch=z9hG4bK-18395-10-0;rport
+From: sipcallee00010 <sip:sipcallee00010@siptest.com>;tag=18395SIPpTag0010
+To: sipcallee00010 <sip:sipcallee00010@siptest.com>
+Call-ID: register-sipcallee00010///10-18395@10.0.1.159
+CSeq: 1 REGISTER
+Contact: <sip:sipcallee00010@10.0.1.159:42098;transport=TCP>
+Expires: 21600
+Max-Forwards: 70
+User-Agent: Moimstone
+Content-Type: application/sdp
+Content-Length:     0
+
+
+2018-04-27 12:50:59,887 INFO o.l.n.s.p.TCPStreamDecoder [nioEventLoopGroup-3-10] Parsed sip wrapper:
+REGISTER sip:siptest.com SIP/2.0
+Via: SIP/2.0/TCP 10.0.1.159:35483;branch=z9hG4bK-18395-11-0;rport
+From: sipcallee00011 <sip:sipcallee00011@siptest.com>;tag=18395SIPpTag0011
+To: sipcallee00011 <sip:sipcallee00011@siptest.com>
+Call-ID: register-sipcallee00011///11-18395@10.0.1.159
+CSeq: 1 REGISTER
+Contact: <sip:sipcallee00011@10.0.1.159:35483;transport=TCP>
+Expires: 21600
+Max-Forwards: 70
+User-Agent: Moimstone
+Content-Type: application/sdp
+Content-Length:     0
+
+
+2018-04-27 12:50:59,894 INFO o.l.n.s.p.TCPStreamDecoder [nioEventLoopGroup-3-11] Parsed sip wrapper:
+REGISTER sip:siptest.com SIP/2.0
+Via: SIP/2.0/TCP 10.0.1.159:40731;branch=z9hG4bK-18395-12-0;rport
+From: sipcallee00012 <sip:sipcallee00012@siptest.com>;tag=18395SIPpTag0012
+To: sipcallee00012 <sip:sipcallee00012@siptest.com>
+Call-ID: register-sipcallee00012///12-18395@10.0.1.159
+CSeq: 1 REGISTER
+Contact: <sip:sipcallee00012@10.0.1.159:40731;transport=TCP>
+Expires: 21600
+Max-Forwards: 70
+User-Agent: Moimstone
+Content-Type: application/sdp
+Content-Length:     0
+
+
+2018-04-27 12:50:59,906 INFO o.l.n.s.p.TCPStreamDecoder [nioEventLoopGroup-3-12] Parsed sip wrapper:
+REGISTER sip:siptest.com SIP/2.0
+Via: SIP/2.0/TCP 10.0.1.159:35866;branch=z9hG4bK-18395-13-0;rport
+From: sipcallee00013 <sip:sipcallee00013@siptest.com>;tag=18395SIPpTag0013
+To: sipcallee00013 <sip:sipcallee00013@siptest.com>
+Call-ID: register-sipcallee00013///13-18395@10.0.1.159
+CSeq: 1 REGISTER
+Contact: <sip:sipcallee00013@10.0.1.159:35866;transport=TCP>
+Expires: 21600
+Max-Forwards: 70
+User-Agent: Moimstone
+Content-Type: application/sdp
+Content-Length:     0
+
+
+2018-04-27 12:50:59,915 INFO o.l.n.s.p.TCPStreamDecoder [nioEventLoopGroup-3-13] Parsed sip wrapper:
+REGISTER sip:siptest.com SIP/2.0
+Via: SIP/2.0/TCP 10.0.1.159:36505;branch=z9hG4bK-18395-14-0;rport
+From: sipcallee00014 <sip:sipcallee00014@siptest.com>;tag=18395SIPpTag0014
+To: sipcallee00014 <sip:sipcallee00014@siptest.com>
+Call-ID: register-sipcallee00014///14-18395@10.0.1.159
+CSeq: 1 REGISTER
+Contact: <sip:sipcallee00014@10.0.1.159:36505;transport=TCP>
+Expires: 21600
+Max-Forwards: 70
+User-Agent: Moimstone
+Content-Type: application/sdp
+Content-Length:     0
+
+
+2018-04-27 12:50:59,926 INFO o.l.n.s.p.TCPStreamDecoder [nioEventLoopGroup-3-14] Parsed sip wrapper:
+REGISTER sip:siptest.com SIP/2.0
+Via: SIP/2.0/TCP 10.0.1.159:34166;branch=z9hG4bK-18395-15-0;rport
+From: sipcallee00015 <sip:sipcallee00015@siptest.com>;tag=18395SIPpTag0015
+To: sipcallee00015 <sip:sipcallee00015@siptest.com>
+Call-ID: register-sipcallee00015///15-18395@10.0.1.159
+CSeq: 1 REGISTER
+Contact: <sip:sipcallee00015@10.0.1.159:34166;transport=TCP>
+Expires: 21600
+Max-Forwards: 70
+User-Agent: Moimstone
+Content-Type: application/sdp
+Content-Length:     0
+
+
+2018-04-27 12:50:59,933 INFO o.l.n.s.p.TCPStreamDecoder [nioEventLoopGroup-3-15] Parsed sip wrapper:
+REGISTER sip:siptest.com SIP/2.0
+Via: SIP/2.0/TCP 10.0.1.159:33396;branch=z9hG4bK-18395-16-0;rport
+From: sipcallee00016 <sip:sipcallee00016@siptest.com>;tag=18395SIPpTag0016
+To: sipcallee00016 <sip:sipcallee00016@siptest.com>
+Call-ID: register-sipcallee00016///16-18395@10.0.1.159
+CSeq: 1 REGISTER
+Contact: <sip:sipcallee00016@10.0.1.159:33396;transport=TCP>
+Expires: 21600
+Max-Forwards: 70
+User-Agent: Moimstone
+Content-Type: application/sdp
+Content-Length:     0
+
+
+2018-04-27 12:50:59,947 INFO o.l.n.s.p.TCPStreamDecoder [nioEventLoopGroup-3-16] Parsed sip wrapper:
+REGISTER sip:siptest.com SIP/2.0
+Via: SIP/2.0/TCP 10.0.1.159:39746;branch=z9hG4bK-18395-17-0;rport
+From: sipcallee00017 <sip:sipcallee00017@siptest.com>;tag=18395SIPpTag0017
+To: sipcallee00017 <sip:sipcallee00017@siptest.com>
+Call-ID: register-sipcallee00017///17-18395@10.0.1.159
+CSeq: 1 REGISTER
+Contact: <sip:sipcallee00017@10.0.1.159:39746;transport=TCP>
+Expires: 21600
+Max-Forwards: 70
+User-Agent: Moimstone
+Content-Type: application/sdp
+Content-Length:     0
+
+
+2018-04-27 12:50:59,961 INFO o.l.n.s.s.SIPSessionManagerImpl [nioEventLoopGroup-3-10] FromTag: 18395SIPpTag0011, ToTag: null
+2018-04-27 12:50:59,962 INFO o.l.n.s.s.SIPSessionManagerImpl [nioEventLoopGroup-3-9] FromTag: 18395SIPpTag0010, ToTag: null
+2018-04-27 12:50:59,962 INFO o.l.n.s.s.SIPSessionManagerImpl [nioEventLoopGroup-3-13] FromTag: 18395SIPpTag0014, ToTag: null
+2018-04-27 12:50:59,961 INFO o.l.n.s.s.SIPSessionManagerImpl [nioEventLoopGroup-3-12] FromTag: 18395SIPpTag0013, ToTag: null
+2018-04-27 12:50:59,962 INFO o.l.n.s.s.SIPSessionManagerImpl [nioEventLoopGroup-3-14] FromTag: 18395SIPpTag0015, ToTag: null
+2018-04-27 12:50:59,962 INFO o.l.n.s.s.SIPSessionManagerImpl [nioEventLoopGroup-3-6] FromTag: 18395SIPpTag007, ToTag: null
+2018-04-27 12:50:59,962 INFO o.l.n.s.s.SIPSessionManagerImpl [nioEventLoopGroup-3-1] FromTag: 18395SIPpTag002, ToTag: null
+2018-04-27 12:50:59,962 INFO o.l.n.s.s.SIPSessionManagerImpl [nioEventLoopGroup-3-3] FromTag: 18395SIPpTag004, ToTag: null
+2018-04-27 12:50:59,962 INFO o.l.n.s.s.SIPSessionManagerImpl [nioEventLoopGroup-3-11] FromTag: 18395SIPpTag0012, ToTag: null
+2018-04-27 12:50:59,962 INFO o.l.n.s.s.SIPSessionManagerImpl [nioEventLoopGroup-3-15] FromTag: 18395SIPpTag0016, ToTag: null
+2018-04-27 12:50:59,962 INFO o.l.n.s.s.SIPSessionManagerImpl [nioEventLoopGroup-3-2] FromTag: 18395SIPpTag003, ToTag: null
+2018-04-27 12:50:59,963 INFO o.l.n.s.s.SIPSessionManagerImpl [nioEventLoopGroup-3-5] FromTag: 18395SIPpTag006, ToTag: null
+2018-04-27 12:50:59,963 INFO o.l.n.s.s.SIPSessionManagerImpl [nioEventLoopGroup-3-16] FromTag: 18395SIPpTag0017, ToTag: null
+2018-04-27 12:50:59,963 INFO o.l.n.s.s.SIPSessionManagerImpl [nioEventLoopGroup-3-8] FromTag: 18395SIPpTag009, ToTag: null
+2018-04-27 12:50:59,963 INFO o.l.n.s.s.SIPSessionManagerImpl [nioEventLoopGroup-3-7] FromTag: 18395SIPpTag008, ToTag: null
+2018-04-27 12:50:59,963 INFO o.l.n.s.s.SIPSessionManagerImpl [nioEventLoopGroup-3-4] FromTag: 18395SIPpTag005, ToTag: null
+2018-04-27 12:50:59,967 INFO o.l.n.s.s.SIPSessionManagerImpl [nioEventLoopGroup-3-12] Create SAS : 1bf39bae
+2018-04-27 12:50:59,967 INFO o.l.n.s.s.SIPSessionManagerImpl [nioEventLoopGroup-3-1] Create SAS : 57f22021
+2018-04-27 12:50:59,967 INFO o.l.n.s.s.SIPSessionManagerImpl [nioEventLoopGroup-3-7] Create SAS : 8db1106d
+2018-04-27 12:50:59,967 INFO o.l.n.s.s.SIPSessionManagerImpl [nioEventLoopGroup-3-14] Create SAS : 6b2f3fd4
+2018-04-27 12:50:59,968 INFO o.l.n.s.s.SIPSessionManagerImpl [nioEventLoopGroup-3-5] Create SAS : a29e24a8
+2018-04-27 12:50:59,968 INFO o.l.n.s.s.SIPSessionManagerImpl [nioEventLoopGroup-3-15] Create SAS : b1a4ecbb
+2018-04-27 12:50:59,968 INFO o.l.n.s.s.SIPSessionManagerImpl [nioEventLoopGroup-3-13] Create SAS : 01f309c9
+2018-04-27 12:50:59,968 INFO o.l.n.s.s.SIPSessionManagerImpl [nioEventLoopGroup-3-16] Create SAS : 5cc91666
+2018-04-27 12:50:59,968 INFO o.l.n.s.s.SIPSessionManagerImpl [nioEventLoopGroup-3-11] Create SAS : 6da3d26b
+2018-04-27 12:50:59,968 INFO o.l.n.s.s.SIPSessionManagerImpl [nioEventLoopGroup-3-3] Create SAS : 4e93a485
+2018-04-27 12:50:59,968 INFO o.l.n.s.s.SIPSessionManagerImpl [nioEventLoopGroup-3-2] Create SAS : cba83cc9
+2018-04-27 12:50:59,968 INFO o.l.n.s.s.SIPSessionManagerImpl [nioEventLoopGroup-3-8] Create SAS : f2e1479a
+2018-04-27 12:50:59,967 INFO o.l.n.s.s.SIPSessionManagerImpl [nioEventLoopGroup-3-4] Create SAS : 71fc1fc3
+2018-04-27 12:50:59,968 INFO o.l.n.s.s.SIPSessionManagerImpl [nioEventLoopGroup-3-9] Create SAS : 1f36d9bc
+2018-04-27 12:50:59,968 INFO o.l.n.s.s.SIPSessionManagerImpl [nioEventLoopGroup-3-10] Create SAS : 88d98dcc
+2018-04-27 12:50:59,968 INFO o.l.n.s.s.SIPSessionManagerImpl [nioEventLoopGroup-3-6] Create SAS : 336c15c1
+2018-04-27 12:50:59,981 INFO o.l.n.s.p.TCPStreamDecoder [nioEventLoopGroup-3-3] Parsed sip wrapper:
+REGISTER sip:siptest.com SIP/2.0
+Via: SIP/2.0/TCP 10.0.1.159:39017;branch=z9hG4bK-18395-20-0;rport
+From: sipcallee00020 <sip:sipcallee00020@siptest.com>;tag=18395SIPpTag0020
+To: sipcallee00020 <sip:sipcallee00020@siptest.com>
+Call-ID: register-sipcallee00020///20-18395@10.0.1.159
+CSeq: 1 REGISTER
+Contact: <sip:sipcallee00020@10.0.1.159:39017;transport=TCP>
+Expires: 21600
+Max-Forwards: 70
+User-Agent: Moimstone
+Content-Type: application/sdp
+Content-Length:     0
+
+
+2018-04-27 12:50:59,981 INFO o.l.n.s.p.TCPStreamDecoder [nioEventLoopGroup-3-1] Parsed sip wrapper:
+REGISTER sip:siptest.com SIP/2.0
+Via: SIP/2.0/TCP 10.0.1.159:34673;branch=z9hG4bK-18395-18-0;rport
+From: sipcallee00018 <sip:sipcallee00018@siptest.com>;tag=18395SIPpTag0018
+To: sipcallee00018 <sip:sipcallee00018@siptest.com>
+Call-ID: register-sipcallee00018///18-18395@10.0.1.159
+CSeq: 1 REGISTER
+Contact: <sip:sipcallee00018@10.0.1.159:34673;transport=TCP>
+Expires: 21600
+Max-Forwards: 70
+User-Agent: Moimstone
+Content-Type: application/sdp
+Content-Length:     0
+
+
+2018-04-27 12:50:59,981 INFO o.l.n.s.p.TCPStreamDecoder [nioEventLoopGroup-3-2] Parsed sip wrapper:
+REGISTER sip:siptest.com SIP/2.0
+Via: SIP/2.0/TCP 10.0.1.159:45854;branch=z9hG4bK-18395-19-0;rport
+From: sipcallee00019 <sip:sipcallee00019@siptest.com>;tag=18395SIPpTag0019
+To: sipcallee00019 <sip:sipcallee00019@siptest.com>
+Call-ID: register-sipcallee00019///19-18395@10.0.1.159
+CSeq: 1 REGISTER
+Contact: <sip:sipcallee00019@10.0.1.159:45854;transport=TCP>
+Expires: 21600
+Max-Forwards: 70
+User-Agent: Moimstone
+Content-Type: application/sdp
+Content-Length:     0
+
+
+2018-04-27 12:50:59,982 INFO o.l.n.s.s.SIPSessionManagerImpl [nioEventLoopGroup-3-2] FromTag: 18395SIPpTag0019, ToTag: null
+2018-04-27 12:50:59,982 INFO o.l.n.s.s.SIPSessionManagerImpl [nioEventLoopGroup-3-1] FromTag: 18395SIPpTag0018, ToTag: null
+2018-04-27 12:50:59,982 INFO o.l.n.s.s.SIPSessionManagerImpl [nioEventLoopGroup-3-2] Create SAS : 3ffcf766
+2018-04-27 12:50:59,982 INFO o.l.n.s.s.SIPSessionManagerImpl [nioEventLoopGroup-3-1] Create SAS : 8f74405c
+2018-04-27 12:50:59,983 INFO o.l.n.s.s.SIPSessionManagerImpl [nioEventLoopGroup-3-3] FromTag: 18395SIPpTag0020, ToTag: null
+2018-04-27 12:50:59,983 INFO o.l.n.s.s.SIPSessionManagerImpl [nioEventLoopGroup-3-3] Create SAS : 72573c6a
+2018-04-27 12:50:59,985 INFO o.l.n.s.p.TCPStreamDecoder [nioEventLoopGroup-3-4] Parsed sip wrapper:
+REGISTER sip:siptest.com SIP/2.0
+Via: SIP/2.0/TCP 10.0.1.159:34035;branch=z9hG4bK-18395-21-0;rport
+From: sipcallee00021 <sip:sipcallee00021@siptest.com>;tag=18395SIPpTag0021
+To: sipcallee00021 <sip:sipcallee00021@siptest.com>
+Call-ID: register-sipcallee00021///21-18395@10.0.1.159
+CSeq: 1 REGISTER
+Contact: <sip:sipcallee00021@10.0.1.159:34035;transport=TCP>
+Expires: 21600
+Max-Forwards: 70
+User-Agent: Moimstone
+Content-Type: application/sdp
+Content-Length:     0
+
+
+2018-04-27 12:50:59,986 INFO o.l.n.s.s.SIPSessionManagerImpl [nioEventLoopGroup-3-4] FromTag: 18395SIPpTag0021, ToTag: null
+2018-04-27 12:50:59,987 INFO o.l.n.s.s.SIPSessionManagerImpl [nioEventLoopGroup-3-4] Create SAS : 35db8970
+2018-04-27 12:50:59,993 INFO o.l.n.s.p.TCPStreamDecoder [nioEventLoopGroup-3-5] Parsed sip wrapper:
+REGISTER sip:siptest.com SIP/2.0
+Via: SIP/2.0/TCP 10.0.1.159:39208;branch=z9hG4bK-18395-22-0;rport
+From: sipcallee00022 <sip:sipcallee00022@siptest.com>;tag=18395SIPpTag0022
+To: sipcallee00022 <sip:sipcallee00022@siptest.com>
+Call-ID: register-sipcallee00022///22-18395@10.0.1.159
+CSeq: 1 REGISTER
+Contact: <sip:sipcallee00022@10.0.1.159:39208;transport=TCP>
+Expires: 21600
+Max-Forwards: 70
+User-Agent: Moimstone
+Content-Type: application/sdp
+Content-Length:     0
+
+
+2018-04-27 12:50:59,995 INFO o.l.n.s.s.SIPSessionManagerImpl [nioEventLoopGroup-3-5] FromTag: 18395SIPpTag0022, ToTag: null
+2018-04-27 12:50:59,995 INFO o.l.n.s.s.SIPSessionManagerImpl [nioEventLoopGroup-3-5] Create SAS : 718f1397
+2018-04-27 12:51:00,006 INFO o.l.n.s.p.TCPStreamDecoder [nioEventLoopGroup-3-6] Parsed sip wrapper:
+REGISTER sip:siptest.com SIP/2.0
+Via: SIP/2.0/TCP 10.0.1.159:35001;branch=z9hG4bK-18395-23-0;rport
+From: sipcallee00023 <sip:sipcallee00023@siptest.com>;tag=18395SIPpTag0023
+To: sipcallee00023 <sip:sipcallee00023@siptest.com>
+Call-ID: register-sipcallee00023///23-18395@10.0.1.159
+CSeq: 1 REGISTER
+Contact: <sip:sipcallee00023@10.0.1.159:35001;transport=TCP>
+Expires: 21600
+Max-Forwards: 70
+User-Agent: Moimstone
+Content-Type: application/sdp
+Content-Length:     0
+
+
+2018-04-27 12:51:00,007 INFO o.l.n.s.s.SIPSessionManagerImpl [nioEventLoopGroup-3-6] FromTag: 18395SIPpTag0023, ToTag: null
+2018-04-27 12:51:00,008 INFO o.l.n.s.s.SIPSessionManagerImpl [nioEventLoopGroup-3-6] Create SAS : e12eb740
+2018-04-27 12:51:00,014 INFO o.l.n.s.p.TCPStreamDecoder [nioEventLoopGroup-3-7] Parsed sip wrapper:
+REGISTER sip:siptest.com SIP/2.0
+Via: SIP/2.0/TCP 10.0.1.159:40718;branch=z9hG4bK-18395-24-0;rport
+From: sipcallee00024 <sip:sipcallee00024@siptest.com>;tag=18395SIPpTag0024
+To: sipcallee00024 <sip:sipcallee00024@siptest.com>
+Call-ID: register-sipcallee00024///24-18395@10.0.1.159
+CSeq: 1 REGISTER
+Contact: <sip:sipcallee00024@10.0.1.159:40718;transport=TCP>
+Expires: 21600
+Max-Forwards: 70
+User-Agent: Moimstone
+Content-Type: application/sdp
+Content-Length:     0
+
+
+2018-04-27 12:51:00,015 INFO o.l.n.s.s.SIPSessionManagerImpl [nioEventLoopGroup-3-7] FromTag: 18395SIPpTag0024, ToTag: null
+2018-04-27 12:51:00,015 INFO o.l.n.s.s.SIPSessionManagerImpl [nioEventLoopGroup-3-7] Create SAS : b1db788e
+2018-04-27 12:51:00,027 INFO o.l.n.s.p.TCPStreamDecoder [nioEventLoopGroup-3-8] Parsed sip wrapper:
+REGISTER sip:siptest.com SIP/2.0
+Via: SIP/2.0/TCP 10.0.1.159:36265;branch=z9hG4bK-18395-25-0;rport
+From: sipcallee00025 <sip:sipcallee00025@siptest.com>;tag=18395SIPpTag0025
+To: sipcallee00025 <sip:sipcallee00025@siptest.com>
+Call-ID: register-sipcallee00025///25-18395@10.0.1.159
+CSeq: 1 REGISTER
+Contact: <sip:sipcallee00025@10.0.1.159:36265;transport=TCP>
+Expires: 21600
+Max-Forwards: 70
+User-Agent: Moimstone
+Content-Type: application/sdp
+Content-Length:     0
+
+
+2018-04-27 12:51:00,031 INFO o.l.n.s.s.SIPSessionManagerImpl [nioEventLoopGroup-3-8] FromTag: 18395SIPpTag0025, ToTag: null
+2018-04-27 12:51:00,031 INFO o.l.n.s.s.SIPSessionManagerImpl [nioEventLoopGroup-3-8] Create SAS : 4669c1d4
+2018-04-27 12:51:00,033 INFO o.l.n.s.p.TCPStreamDecoder [nioEventLoopGroup-3-9] Parsed sip wrapper:
+REGISTER sip:siptest.com SIP/2.0
+Via: SIP/2.0/TCP 10.0.1.159:40369;branch=z9hG4bK-18395-26-0;rport
+From: sipcallee00026 <sip:sipcallee00026@siptest.com>;tag=18395SIPpTag0026
+To: sipcallee00026 <sip:sipcallee00026@siptest.com>
+Call-ID: register-sipcallee00026///26-18395@10.0.1.159
+CSeq: 1 REGISTER
+Contact: <sip:sipcallee00026@10.0.1.159:40369;transport=TCP>
+Expires: 21600
+Max-Forwards: 70
+User-Agent: Moimstone
+Content-Type: application/sdp
+Content-Length:     0
+
+
+2018-04-27 12:51:00,034 INFO o.l.n.s.s.SIPSessionManagerImpl [nioEventLoopGroup-3-9] FromTag: 18395SIPpTag0026, ToTag: null
+2018-04-27 12:51:00,035 INFO o.l.n.s.s.SIPSessionManagerImpl [nioEventLoopGroup-3-9] Create SAS : a4430cb5
+2018-04-27 12:51:00,045 INFO o.l.n.s.p.TCPStreamDecoder [nioEventLoopGroup-3-10] Parsed sip wrapper:
+REGISTER sip:siptest.com SIP/2.0
+Via: SIP/2.0/TCP 10.0.1.159:38577;branch=z9hG4bK-18395-27-0;rport
+From: sipcallee00027 <sip:sipcallee00027@siptest.com>;tag=18395SIPpTag0027
+To: sipcallee00027 <sip:sipcallee00027@siptest.com>
+Call-ID: register-sipcallee00027///27-18395@10.0.1.159
+CSeq: 1 REGISTER
+Contact: <sip:sipcallee00027@10.0.1.159:38577;transport=TCP>
+Expires: 21600
+Max-Forwards: 70
+User-Agent: Moimstone
+Content-Type: application/sdp
+Content-Length:     0
+
+
+2018-04-27 12:51:00,047 INFO o.l.n.s.s.SIPSessionManagerImpl [nioEventLoopGroup-3-10] FromTag: 18395SIPpTag0027, ToTag: null
+2018-04-27 12:51:00,047 INFO o.l.n.s.s.SIPSessionManagerImpl [nioEventLoopGroup-3-10] Create SAS : 1aee4b0c
+2018-04-27 12:51:00,055 INFO o.l.n.s.p.TCPStreamDecoder [nioEventLoopGroup-3-11] Parsed sip wrapper:
+REGISTER sip:siptest.com SIP/2.0
+Via: SIP/2.0/TCP 10.0.1.159:36565;branch=z9hG4bK-18395-28-0;rport
+From: sipcallee00028 <sip:sipcallee00028@siptest.com>;tag=18395SIPpTag0028
+To: sipcallee00028 <sip:sipcallee00028@siptest.com>
+Call-ID: register-sipcallee00028///28-18395@10.0.1.159
+CSeq: 1 REGISTER
+Contact: <sip:sipcallee00028@10.0.1.159:36565;transport=TCP>
+Expires: 21600
+Max-Forwards: 70
+User-Agent: Moimstone
+Content-Type: application/sdp
+Content-Length:     0
+
+
+2018-04-27 12:51:00,056 INFO o.l.n.s.s.SIPSessionManagerImpl [nioEventLoopGroup-3-11] FromTag: 18395SIPpTag0028, ToTag: null
+2018-04-27 12:51:00,056 INFO o.l.n.s.s.SIPSessionManagerImpl [nioEventLoopGroup-3-11] Create SAS : 7740dbcd
+2018-04-27 12:51:00,066 INFO o.l.n.s.p.TCPStreamDecoder [nioEventLoopGroup-3-12] Parsed sip wrapper:
+REGISTER sip:siptest.com SIP/2.0
+Via: SIP/2.0/TCP 10.0.1.159:38912;branch=z9hG4bK-18395-29-0;rport
+From: sipcallee00029 <sip:sipcallee00029@siptest.com>;tag=18395SIPpTag0029
+To: sipcallee00029 <sip:sipcallee00029@siptest.com>
+Call-ID: register-sipcallee00029///29-18395@10.0.1.159
+CSeq: 1 REGISTER
+Contact: <sip:sipcallee00029@10.0.1.159:38912;transport=TCP>
+Expires: 21600
+Max-Forwards: 70
+User-Agent: Moimstone
+Content-Type: application/sdp
+Content-Length:     0
+
+
+2018-04-27 12:51:00,067 INFO o.l.n.s.s.SIPSessionManagerImpl [nioEventLoopGroup-3-12] FromTag: 18395SIPpTag0029, ToTag: null
+2018-04-27 12:51:00,068 INFO o.l.n.s.s.SIPSessionManagerImpl [nioEventLoopGroup-3-12] Create SAS : 2ebba6a2
+2018-04-27 12:51:00,073 INFO o.l.n.s.p.TCPStreamDecoder [nioEventLoopGroup-3-13] Parsed sip wrapper:
+REGISTER sip:siptest.com SIP/2.0
+Via: SIP/2.0/TCP 10.0.1.159:36776;branch=z9hG4bK-18395-30-0;rport
+From: sipcallee00030 <sip:sipcallee00030@siptest.com>;tag=18395SIPpTag0030
+To: sipcallee00030 <sip:sipcallee00030@siptest.com>
+Call-ID: register-sipcallee00030///30-18395@10.0.1.159
+CSeq: 1 REGISTER
+Contact: <sip:sipcallee00030@10.0.1.159:36776;transport=TCP>
+Expires: 21600
+Max-Forwards: 70
+User-Agent: Moimstone
+Content-Type: application/sdp
+Content-Length:     0
+
+
+2018-04-27 12:51:00,074 INFO o.l.n.s.s.SIPSessionManagerImpl [nioEventLoopGroup-3-13] FromTag: 18395SIPpTag0030, ToTag: null
+2018-04-27 12:51:00,074 INFO o.l.n.s.s.SIPSessionManagerImpl [nioEventLoopGroup-3-13] Create SAS : 733ed783
+2018-04-27 12:51:00,085 INFO o.l.n.s.p.TCPStreamDecoder [nioEventLoopGroup-3-14] Parsed sip wrapper:
+REGISTER sip:siptest.com SIP/2.0
+Via: SIP/2.0/TCP 10.0.1.159:34891;branch=z9hG4bK-18395-31-0;rport
+From: sipcallee00031 <sip:sipcallee00031@siptest.com>;tag=18395SIPpTag0031
+To: sipcallee00031 <sip:sipcallee00031@siptest.com>
+Call-ID: register-sipcallee00031///31-18395@10.0.1.159
+CSeq: 1 REGISTER
+Contact: <sip:sipcallee00031@10.0.1.159:34891;transport=TCP>
+Expires: 21600
+Max-Forwards: 70
+User-Agent: Moimstone
+Content-Type: application/sdp
+Content-Length:     0
+
+
+2018-04-27 12:51:00,087 INFO o.l.n.s.s.SIPSessionManagerImpl [nioEventLoopGroup-3-14] FromTag: 18395SIPpTag0031, ToTag: null
+2018-04-27 12:51:00,087 INFO o.l.n.s.s.SIPSessionManagerImpl [nioEventLoopGroup-3-14] Create SAS : 947f12df
+2018-04-27 12:51:00,094 INFO o.l.n.s.p.TCPStreamDecoder [nioEventLoopGroup-3-15] Parsed sip wrapper:
+REGISTER sip:siptest.com SIP/2.0
+Via: SIP/2.0/TCP 10.0.1.159:36705;branch=z9hG4bK-18395-32-0;rport
+From: sipcallee00032 <sip:sipcallee00032@siptest.com>;tag=18395SIPpTag0032
+To: sipcallee00032 <sip:sipcallee00032@siptest.com>
+Call-ID: register-sipcallee00032///32-18395@10.0.1.159
+CSeq: 1 REGISTER
+Contact: <sip:sipcallee00032@10.0.1.159:36705;transport=TCP>
+Expires: 21600
+Max-Forwards: 70
+User-Agent: Moimstone
+Content-Type: application/sdp
+Content-Length:     0
+
+
+2018-04-27 12:51:00,095 INFO o.l.n.s.s.SIPSessionManagerImpl [nioEventLoopGroup-3-15] FromTag: 18395SIPpTag0032, ToTag: null
+2018-04-27 12:51:00,095 INFO o.l.n.s.s.SIPSessionManagerImpl [nioEventLoopGroup-3-15] Create SAS : c5d8d610
+2018-04-27 12:51:00,106 INFO o.l.n.s.p.TCPStreamDecoder [nioEventLoopGroup-3-16] Parsed sip wrapper:
+REGISTER sip:siptest.com SIP/2.0
+Via: SIP/2.0/TCP 10.0.1.159:33466;branch=z9hG4bK-18395-33-0;rport
+From: sipcallee00033 <sip:sipcallee00033@siptest.com>;tag=18395SIPpTag0033
+To: sipcallee00033 <sip:sipcallee00033@siptest.com>
+Call-ID: register-sipcallee00033///33-18395@10.0.1.159
+CSeq: 1 REGISTER
+Contact: <sip:sipcallee00033@10.0.1.159:33466;transport=TCP>
+Expires: 21600
+Max-Forwards: 70
+User-Agent: Moimstone
+Content-Type: application/sdp
+Content-Length:     0
+
+
+2018-04-27 12:51:00,106 INFO o.l.n.s.s.SIPSessionManagerImpl [nioEventLoopGroup-3-16] FromTag: 18395SIPpTag0033, ToTag: null
+2018-04-27 12:51:00,107 INFO o.l.n.s.s.SIPSessionManagerImpl [nioEventLoopGroup-3-16] Create SAS : b39725df
+2018-04-27 12:51:00,114 INFO o.l.n.s.p.TCPStreamDecoder [nioEventLoopGroup-3-1] Parsed sip wrapper:
+REGISTER sip:siptest.com SIP/2.0
+Via: SIP/2.0/TCP 10.0.1.159:37616;branch=z9hG4bK-18395-34-0;rport
+From: sipcallee00034 <sip:sipcallee00034@siptest.com>;tag=18395SIPpTag0034
+To: sipcallee00034 <sip:sipcallee00034@siptest.com>
+Call-ID: register-sipcallee00034///34-18395@10.0.1.159
+CSeq: 1 REGISTER
+Contact: <sip:sipcallee00034@10.0.1.159:37616;transport=TCP>
+Expires: 21600
+Max-Forwards: 70
+User-Agent: Moimstone
+Content-Type: application/sdp
+Content-Length:     0
+
+
+2018-04-27 12:51:00,114 INFO o.l.n.s.s.SIPSessionManagerImpl [nioEventLoopGroup-3-1] FromTag: 18395SIPpTag0034, ToTag: null
+2018-04-27 12:51:00,115 INFO o.l.n.s.s.SIPSessionManagerImpl [nioEventLoopGroup-3-1] Create SAS : 73b387f9
+2018-04-27 12:51:00,126 INFO o.l.n.s.p.TCPStreamDecoder [nioEventLoopGroup-3-2] Parsed sip wrapper:
+REGISTER sip:siptest.com SIP/2.0
+Via: SIP/2.0/TCP 10.0.1.159:33563;branch=z9hG4bK-18395-35-0;rport
+From: sipcallee00035 <sip:sipcallee00035@siptest.com>;tag=18395SIPpTag0035
+To: sipcallee00035 <sip:sipcallee00035@siptest.com>
+Call-ID: register-sipcallee00035///35-18395@10.0.1.159
+CSeq: 1 REGISTER
+Contact: <sip:sipcallee00035@10.0.1.159:33563;transport=TCP>
+Expires: 21600
+Max-Forwards: 70
+User-Agent: Moimstone
+Content-Type: application/sdp
+Content-Length:     0
+
+
+2018-04-27 12:51:00,126 INFO o.l.n.s.s.SIPSessionManagerImpl [nioEventLoopGroup-3-2] FromTag: 18395SIPpTag0035, ToTag: null
+2018-04-27 12:51:00,126 INFO o.l.n.s.s.SIPSessionManagerImpl [nioEventLoopGroup-3-2] Create SAS : 6f4bd360
+2018-04-27 12:51:00,133 INFO o.l.n.s.p.TCPStreamDecoder [nioEventLoopGroup-3-3] Parsed sip wrapper:
+REGISTER sip:siptest.com SIP/2.0
+Via: SIP/2.0/TCP 10.0.1.159:39979;branch=z9hG4bK-18395-36-0;rport
+From: sipcallee00036 <sip:sipcallee00036@siptest.com>;tag=18395SIPpTag0036
+To: sipcallee00036 <sip:sipcallee00036@siptest.com>
+Call-ID: register-sipcallee00036///36-18395@10.0.1.159
+CSeq: 1 REGISTER
+Contact: <sip:sipcallee00036@10.0.1.159:39979;transport=TCP>
+Expires: 21600
+Max-Forwards: 70
+User-Agent: Moimstone
+Content-Type: application/sdp
+Content-Length:     0
+
+
+2018-04-27 12:51:00,133 INFO o.l.n.s.s.SIPSessionManagerImpl [nioEventLoopGroup-3-3] FromTag: 18395SIPpTag0036, ToTag: null
+2018-04-27 12:51:00,133 INFO o.l.n.s.s.SIPSessionManagerImpl [nioEventLoopGroup-3-3] Create SAS : 3739ece9
+2018-04-27 12:51:00,146 INFO o.l.n.s.p.TCPStreamDecoder [nioEventLoopGroup-3-4] Parsed sip wrapper:
+REGISTER sip:siptest.com SIP/2.0
+Via: SIP/2.0/TCP 10.0.1.159:41872;branch=z9hG4bK-18395-37-0;rport
+From: sipcallee00037 <sip:sipcallee00037@siptest.com>;tag=18395SIPpTag0037
+To: sipcallee00037 <sip:sipcallee00037@siptest.com>
+Call-ID: register-sipcallee00037///37-18395@10.0.1.159
+CSeq: 1 REGISTER
+Contact: <sip:sipcallee00037@10.0.1.159:41872;transport=TCP>
+Expires: 21600
+Max-Forwards: 70
+User-Agent: Moimstone
+Content-Type: application/sdp
+Content-Length:     0
+
+
+2018-04-27 12:51:00,146 INFO o.l.n.s.s.SIPSessionManagerImpl [nioEventLoopGroup-3-4] FromTag: 18395SIPpTag0037, ToTag: null
+2018-04-27 12:51:00,147 INFO o.l.n.s.s.SIPSessionManagerImpl [nioEventLoopGroup-3-4] Create SAS : 7bbe1bf3
+2018-04-27 12:51:00,154 INFO o.l.n.s.p.TCPStreamDecoder [nioEventLoopGroup-3-5] Parsed sip wrapper:
+REGISTER sip:siptest.com SIP/2.0
+Via: SIP/2.0/TCP 10.0.1.159:44761;branch=z9hG4bK-18395-38-0;rport
+From: sipcallee00038 <sip:sipcallee00038@siptest.com>;tag=18395SIPpTag0038
+To: sipcallee00038 <sip:sipcallee00038@siptest.com>
+Call-ID: register-sipcallee00038///38-18395@10.0.1.159
+CSeq: 1 REGISTER
+Contact: <sip:sipcallee00038@10.0.1.159:44761;transport=TCP>
+Expires: 21600
+Max-Forwards: 70
+User-Agent: Moimstone
+Content-Type: application/sdp
+Content-Length:     0
+
+
+2018-04-27 12:51:00,155 INFO o.l.n.s.s.SIPSessionManagerImpl [nioEventLoopGroup-3-5] FromTag: 18395SIPpTag0038, ToTag: null
+2018-04-27 12:51:00,155 INFO o.l.n.s.s.SIPSessionManagerImpl [nioEventLoopGroup-3-5] Create SAS : ef665996
+2018-04-27 12:51:00,165 INFO o.l.n.s.p.TCPStreamDecoder [nioEventLoopGroup-3-6] Parsed sip wrapper:
+REGISTER sip:siptest.com SIP/2.0
+Via: SIP/2.0/TCP 10.0.1.159:39259;branch=z9hG4bK-18395-39-0;rport
+From: sipcallee00039 <sip:sipcallee00039@siptest.com>;tag=18395SIPpTag0039
+To: sipcallee00039 <sip:sipcallee00039@siptest.com>
+Call-ID: register-sipcallee00039///39-18395@10.0.1.159
+CSeq: 1 REGISTER
+Contact: <sip:sipcallee00039@10.0.1.159:39259;transport=TCP>
+Expires: 21600
+Max-Forwards: 70
+User-Agent: Moimstone
+Content-Type: application/sdp
+Content-Length:     0
+
+
+2018-04-27 12:51:00,167 INFO o.l.n.s.s.SIPSessionManagerImpl [nioEventLoopGroup-3-6] FromTag: 18395SIPpTag0039, ToTag: null
+2018-04-27 12:51:00,167 INFO o.l.n.s.s.SIPSessionManagerImpl [nioEventLoopGroup-3-6] Create SAS : 00d652f8
+2018-04-27 12:51:00,174 INFO o.l.n.s.p.TCPStreamDecoder [nioEventLoopGroup-3-7] Parsed sip wrapper:
+REGISTER sip:siptest.com SIP/2.0
+Via: SIP/2.0/TCP 10.0.1.159:37742;branch=z9hG4bK-18395-40-0;rport
+From: sipcallee00040 <sip:sipcallee00040@siptest.com>;tag=18395SIPpTag0040
+To: sipcallee00040 <sip:sipcallee00040@siptest.com>
+Call-ID: register-sipcallee00040///40-18395@10.0.1.159
+CSeq: 1 REGISTER
+Contact: <sip:sipcallee00040@10.0.1.159:37742;transport=TCP>
+Expires: 21600
+Max-Forwards: 70
+User-Agent: Moimstone
+Content-Type: application/sdp
+Content-Length:     0
+
+
+2018-04-27 12:51:00,174 INFO o.l.n.s.s.SIPSessionManagerImpl [nioEventLoopGroup-3-7] FromTag: 18395SIPpTag0040, ToTag: null
+2018-04-27 12:51:00,174 INFO o.l.n.s.s.SIPSessionManagerImpl [nioEventLoopGroup-3-7] Create SAS : 4a873cc1
+2018-04-27 12:51:00,185 INFO o.l.n.s.p.TCPStreamDecoder [nioEventLoopGroup-3-8] Parsed sip wrapper:
+REGISTER sip:siptest.com SIP/2.0
+Via: SIP/2.0/TCP 10.0.1.159:40024;branch=z9hG4bK-18395-41-0;rport
+From: sipcallee00041 <sip:sipcallee00041@siptest.com>;tag=18395SIPpTag0041
+To: sipcallee00041 <sip:sipcallee00041@siptest.com>
+Call-ID: register-sipcallee00041///41-18395@10.0.1.159
+CSeq: 1 REGISTER
+Contact: <sip:sipcallee00041@10.0.1.159:40024;transport=TCP>
+Expires: 21600
+Max-Forwards: 70
+User-Agent: Moimstone
+Content-Type: application/sdp
+Content-Length:     0
+
+
+2018-04-27 12:51:00,186 INFO o.l.n.s.s.SIPSessionManagerImpl [nioEventLoopGroup-3-8] FromTag: 18395SIPpTag0041, ToTag: null
+2018-04-27 12:51:00,186 INFO o.l.n.s.s.SIPSessionManagerImpl [nioEventLoopGroup-3-8] Create SAS : ba2493d5
+2018-04-27 12:51:00,193 INFO o.l.n.s.p.TCPStreamDecoder [nioEventLoopGroup-3-9] Parsed sip wrapper:
+REGISTER sip:siptest.com SIP/2.0
+Via: SIP/2.0/TCP 10.0.1.159:32868;branch=z9hG4bK-18395-42-0;rport
+From: sipcallee00042 <sip:sipcallee00042@siptest.com>;tag=18395SIPpTag0042
+To: sipcallee00042 <sip:sipcallee00042@siptest.com>
+Call-ID: register-sipcallee00042///42-18395@10.0.1.159
+CSeq: 1 REGISTER
+Contact: <sip:sipcallee00042@10.0.1.159:32868;transport=TCP>
+Expires: 21600
+Max-Forwards: 70
+User-Agent: Moimstone
+Content-Type: application/sdp
+Content-Length:     0
+
+
+2018-04-27 12:51:00,194 INFO o.l.n.s.s.SIPSessionManagerImpl [nioEventLoopGroup-3-9] FromTag: 18395SIPpTag0042, ToTag: null
+2018-04-27 12:51:00,194 INFO o.l.n.s.s.SIPSessionManagerImpl [nioEventLoopGroup-3-9] Create SAS : 8d30cadc
+2018-04-27 12:51:00,205 INFO o.l.n.s.p.TCPStreamDecoder [nioEventLoopGroup-3-10] Parsed sip wrapper:
+REGISTER sip:siptest.com SIP/2.0
+Via: SIP/2.0/TCP 10.0.1.159:32846;branch=z9hG4bK-18395-43-0;rport
+From: sipcallee00043 <sip:sipcallee00043@siptest.com>;tag=18395SIPpTag0043
+To: sipcallee00043 <sip:sipcallee00043@siptest.com>
+Call-ID: register-sipcallee00043///43-18395@10.0.1.159
+CSeq: 1 REGISTER
+Contact: <sip:sipcallee00043@10.0.1.159:32846;transport=TCP>
+Expires: 21600
+Max-Forwards: 70
+User-Agent: Moimstone
+Content-Type: application/sdp
+Content-Length:     0
+
+
+2018-04-27 12:51:00,206 INFO o.l.n.s.s.SIPSessionManagerImpl [nioEventLoopGroup-3-10] FromTag: 18395SIPpTag0043, ToTag: null
+2018-04-27 12:51:00,206 INFO o.l.n.s.s.SIPSessionManagerImpl [nioEventLoopGroup-3-10] Create SAS : b819df7c
+2018-04-27 12:51:00,213 INFO o.l.n.s.p.TCPStreamDecoder [nioEventLoopGroup-3-11] Parsed sip wrapper:
+REGISTER sip:siptest.com SIP/2.0
+Via: SIP/2.0/TCP 10.0.1.159:42582;branch=z9hG4bK-18395-44-0;rport
+From: sipcallee00044 <sip:sipcallee00044@siptest.com>;tag=18395SIPpTag0044
+To: sipcallee00044 <sip:sipcallee00044@siptest.com>
+Call-ID: register-sipcallee00044///44-18395@10.0.1.159
+CSeq: 1 REGISTER
+Contact: <sip:sipcallee00044@10.0.1.159:42582;transport=TCP>
+Expires: 21600
+Max-Forwards: 70
+User-Agent: Moimstone
+Content-Type: application/sdp
+Content-Length:     0
+
+
+2018-04-27 12:51:00,213 INFO o.l.n.s.s.SIPSessionManagerImpl [nioEventLoopGroup-3-11] FromTag: 18395SIPpTag0044, ToTag: null
+2018-04-27 12:51:00,214 INFO o.l.n.s.s.SIPSessionManagerImpl [nioEventLoopGroup-3-11] Create SAS : 4de557d7
+2018-04-27 12:51:00,225 INFO o.l.n.s.p.TCPStreamDecoder [nioEventLoopGroup-3-12] Parsed sip wrapper:
+REGISTER sip:siptest.com SIP/2.0
+Via: SIP/2.0/TCP 10.0.1.159:45292;branch=z9hG4bK-18395-45-0;rport
+From: sipcallee00045 <sip:sipcallee00045@siptest.com>;tag=18395SIPpTag0045
+To: sipcallee00045 <sip:sipcallee00045@siptest.com>
+Call-ID: register-sipcallee00045///45-18395@10.0.1.159
+CSeq: 1 REGISTER
+Contact: <sip:sipcallee00045@10.0.1.159:45292;transport=TCP>
+Expires: 21600
+Max-Forwards: 70
+User-Agent: Moimstone
+Content-Type: application/sdp
+Content-Length:     0
+
+
+2018-04-27 12:51:00,226 INFO o.l.n.s.s.SIPSessionManagerImpl [nioEventLoopGroup-3-12] FromTag: 18395SIPpTag0045, ToTag: null
+2018-04-27 12:51:00,226 INFO o.l.n.s.s.SIPSessionManagerImpl [nioEventLoopGroup-3-12] Create SAS : 3f52d02b
+2018-04-27 12:51:00,233 INFO o.l.n.s.p.TCPStreamDecoder [nioEventLoopGroup-3-13] Parsed sip wrapper:
+REGISTER sip:siptest.com SIP/2.0
+Via: SIP/2.0/TCP 10.0.1.159:43455;branch=z9hG4bK-18395-46-0;rport
+From: sipcallee00046 <sip:sipcallee00046@siptest.com>;tag=18395SIPpTag0046
+To: sipcallee00046 <sip:sipcallee00046@siptest.com>
+Call-ID: register-sipcallee00046///46-18395@10.0.1.159
+CSeq: 1 REGISTER
+Contact: <sip:sipcallee00046@10.0.1.159:43455;transport=TCP>
+Expires: 21600
+Max-Forwards: 70
+User-Agent: Moimstone
+Content-Type: application/sdp
+Content-Length:     0
+
+
+2018-04-27 12:51:00,234 INFO o.l.n.s.s.SIPSessionManagerImpl [nioEventLoopGroup-3-13] FromTag: 18395SIPpTag0046, ToTag: null
+2018-04-27 12:51:00,234 INFO o.l.n.s.s.SIPSessionManagerImpl [nioEventLoopGroup-3-13] Create SAS : 2dfb9471
+2018-04-27 12:51:00,245 INFO o.l.n.s.p.TCPStreamDecoder [nioEventLoopGroup-3-14] Parsed sip wrapper:
+REGISTER sip:siptest.com SIP/2.0
+Via: SIP/2.0/TCP 10.0.1.159:42775;branch=z9hG4bK-18395-47-0;rport
+From: sipcallee00047 <sip:sipcallee00047@siptest.com>;tag=18395SIPpTag0047
+To: sipcallee00047 <sip:sipcallee00047@siptest.com>
+Call-ID: register-sipcallee00047///47-18395@10.0.1.159
+CSeq: 1 REGISTER
+Contact: <sip:sipcallee00047@10.0.1.159:42775;transport=TCP>
+Expires: 21600
+Max-Forwards: 70
+User-Agent: Moimstone
+Content-Type: application/sdp
+Content-Length:     0
+
+
+2018-04-27 12:51:00,245 INFO o.l.n.s.s.SIPSessionManagerImpl [nioEventLoopGroup-3-14] FromTag: 18395SIPpTag0047, ToTag: null
+2018-04-27 12:51:00,246 INFO o.l.n.s.s.SIPSessionManagerImpl [nioEventLoopGroup-3-14] Create SAS : 11335c07
+2018-04-27 12:51:00,253 INFO o.l.n.s.p.TCPStreamDecoder [nioEventLoopGroup-3-15] Parsed sip wrapper:
+REGISTER sip:siptest.com SIP/2.0
+Via: SIP/2.0/TCP 10.0.1.159:40112;branch=z9hG4bK-18395-48-0;rport
+From: sipcallee00048 <sip:sipcallee00048@siptest.com>;tag=18395SIPpTag0048
+To: sipcallee00048 <sip:sipcallee00048@siptest.com>
+Call-ID: register-sipcallee00048///48-18395@10.0.1.159
+CSeq: 1 REGISTER
+Contact: <sip:sipcallee00048@10.0.1.159:40112;transport=TCP>
+Expires: 21600
+Max-Forwards: 70
+User-Agent: Moimstone
+Content-Type: application/sdp
+Content-Length:     0
+
+
+2018-04-27 12:51:00,254 INFO o.l.n.s.s.SIPSessionManagerImpl [nioEventLoopGroup-3-15] FromTag: 18395SIPpTag0048, ToTag: null
+2018-04-27 12:51:00,254 INFO o.l.n.s.s.SIPSessionManagerImpl [nioEventLoopGroup-3-15] Create SAS : 9d80ee7d
+2018-04-27 12:51:00,266 INFO o.l.n.s.p.TCPStreamDecoder [nioEventLoopGroup-3-16] Parsed sip wrapper:
+REGISTER sip:siptest.com SIP/2.0
+Via: SIP/2.0/TCP 10.0.1.159:36156;branch=z9hG4bK-18395-49-0;rport
+From: sipcallee00049 <sip:sipcallee00049@siptest.com>;tag=18395SIPpTag0049
+To: sipcallee00049 <sip:sipcallee00049@siptest.com>
+Call-ID: register-sipcallee00049///49-18395@10.0.1.159
+CSeq: 1 REGISTER
+Contact: <sip:sipcallee00049@10.0.1.159:36156;transport=TCP>
+Expires: 21600
+Max-Forwards: 70
+User-Agent: Moimstone
+Content-Type: application/sdp
+Content-Length:     0
+
+
+2018-04-27 12:51:00,266 INFO o.l.n.s.s.SIPSessionManagerImpl [nioEventLoopGroup-3-16] FromTag: 18395SIPpTag0049, ToTag: null
+2018-04-27 12:51:00,266 INFO o.l.n.s.s.SIPSessionManagerImpl [nioEventLoopGroup-3-16] Create SAS : 27d3026a
+2018-04-27 12:51:00,273 INFO o.l.n.s.p.TCPStreamDecoder [nioEventLoopGroup-3-1] Parsed sip wrapper:
+REGISTER sip:siptest.com SIP/2.0
+Via: SIP/2.0/TCP 10.0.1.159:38032;branch=z9hG4bK-18395-50-0;rport
+From: sipcallee00050 <sip:sipcallee00050@siptest.com>;tag=18395SIPpTag0050
+To: sipcallee00050 <sip:sipcallee00050@siptest.com>
+Call-ID: register-sipcallee00050///50-18395@10.0.1.159
+CSeq: 1 REGISTER
+Contact: <sip:sipcallee00050@10.0.1.159:38032;transport=TCP>
+Expires: 21600
+Max-Forwards: 70
+User-Agent: Moimstone
+Content-Type: application/sdp
+Content-Length:     0
+
+
+2018-04-27 12:51:00,274 INFO o.l.n.s.s.SIPSessionManagerImpl [nioEventLoopGroup-3-1] FromTag: 18395SIPpTag0050, ToTag: null
+2018-04-27 12:51:00,274 INFO o.l.n.s.s.SIPSessionManagerImpl [nioEventLoopGroup-3-1] Create SAS : fefbf1d3
+2018-04-27 12:51:00,286 INFO o.l.n.s.p.TCPStreamDecoder [nioEventLoopGroup-3-2] Parsed sip wrapper:
+REGISTER sip:siptest.com SIP/2.0
+Via: SIP/2.0/TCP 10.0.1.159:34211;branch=z9hG4bK-18395-51-0;rport
+From: sipcallee00051 <sip:sipcallee00051@siptest.com>;tag=18395SIPpTag0051
+To: sipcallee00051 <sip:sipcallee00051@siptest.com>
+Call-ID: register-sipcallee00051///51-18395@10.0.1.159
+CSeq: 1 REGISTER
+Contact: <sip:sipcallee00051@10.0.1.159:34211;transport=TCP>
+Expires: 21600
+Max-Forwards: 70
+User-Agent: Moimstone
+Content-Type: application/sdp
+Content-Length:     0
+
+
+2018-04-27 12:51:00,287 INFO o.l.n.s.s.SIPSessionManagerImpl [nioEventLoopGroup-3-2] FromTag: 18395SIPpTag0051, ToTag: null
+2018-04-27 12:51:00,287 INFO o.l.n.s.s.SIPSessionManagerImpl [nioEventLoopGroup-3-2] Create SAS : 629dc85f
+2018-04-27 12:51:00,293 INFO o.l.n.s.p.TCPStreamDecoder [nioEventLoopGroup-3-3] Parsed sip wrapper:
+REGISTER sip:siptest.com SIP/2.0
+Via: SIP/2.0/TCP 10.0.1.159:33036;branch=z9hG4bK-18395-52-0;rport
+From: sipcallee00052 <sip:sipcallee00052@siptest.com>;tag=18395SIPpTag0052
+To: sipcallee00052 <sip:sipcallee00052@siptest.com>
+Call-ID: register-sipcallee00052///52-18395@10.0.1.159
+CSeq: 1 REGISTER
+Contact: <sip:sipcallee00052@10.0.1.159:33036;transport=TCP>
+Expires: 21600
+Max-Forwards: 70
+User-Agent: Moimstone
+Content-Type: application/sdp
+Content-Length:     0
+
+
+2018-04-27 12:51:00,294 INFO o.l.n.s.s.SIPSessionManagerImpl [nioEventLoopGroup-3-3] FromTag: 18395SIPpTag0052, ToTag: null
+2018-04-27 12:51:00,294 INFO o.l.n.s.s.SIPSessionManagerImpl [nioEventLoopGroup-3-3] Create SAS : f08cb871
+2018-04-27 12:51:00,305 INFO o.l.n.s.p.TCPStreamDecoder [nioEventLoopGroup-3-4] Parsed sip wrapper:
+REGISTER sip:siptest.com SIP/2.0
+Via: SIP/2.0/TCP 10.0.1.159:33343;branch=z9hG4bK-18395-53-0;rport
+From: sipcallee00053 <sip:sipcallee00053@siptest.com>;tag=18395SIPpTag0053
+To: sipcallee00053 <sip:sipcallee00053@siptest.com>
+Call-ID: register-sipcallee00053///53-18395@10.0.1.159
+CSeq: 1 REGISTER
+Contact: <sip:sipcallee00053@10.0.1.159:33343;transport=TCP>
+Expires: 21600
+Max-Forwards: 70
+User-Agent: Moimstone
+Content-Type: application/sdp
+Content-Length:     0
+
+
+2018-04-27 12:51:00,306 INFO o.l.n.s.s.SIPSessionManagerImpl [nioEventLoopGroup-3-4] FromTag: 18395SIPpTag0053, ToTag: null
+2018-04-27 12:51:00,307 INFO o.l.n.s.s.SIPSessionManagerImpl [nioEventLoopGroup-3-4] Create SAS : 2d77337a
+2018-04-27 12:51:00,315 INFO o.l.n.s.p.TCPStreamDecoder [nioEventLoopGroup-3-5] Parsed sip wrapper:
+REGISTER sip:siptest.com SIP/2.0
+Via: SIP/2.0/TCP 10.0.1.159:39590;branch=z9hG4bK-18395-54-0;rport
+From: sipcallee00054 <sip:sipcallee00054@siptest.com>;tag=18395SIPpTag0054
+To: sipcallee00054 <sip:sipcallee00054@siptest.com>
+Call-ID: register-sipcallee00054///54-18395@10.0.1.159
+CSeq: 1 REGISTER
+Contact: <sip:sipcallee00054@10.0.1.159:39590;transport=TCP>
+Expires: 21600
+Max-Forwards: 70
+User-Agent: Moimstone
+Content-Type: application/sdp
+Content-Length:     0
+
+
+2018-04-27 12:51:00,317 INFO o.l.n.s.s.SIPSessionManagerImpl [nioEventLoopGroup-3-5] FromTag: 18395SIPpTag0054, ToTag: null
+2018-04-27 12:51:00,317 INFO o.l.n.s.s.SIPSessionManagerImpl [nioEventLoopGroup-3-5] Create SAS : 8cdbd553
+2018-04-27 12:51:00,326 INFO o.l.n.s.p.TCPStreamDecoder [nioEventLoopGroup-3-6] Parsed sip wrapper:
+REGISTER sip:siptest.com SIP/2.0
+Via: SIP/2.0/TCP 10.0.1.159:44351;branch=z9hG4bK-18395-55-0;rport
+From: sipcallee00055 <sip:sipcallee00055@siptest.com>;tag=18395SIPpTag0055
+To: sipcallee00055 <sip:sipcallee00055@siptest.com>
+Call-ID: register-sipcallee00055///55-18395@10.0.1.159
+CSeq: 1 REGISTER
+Contact: <sip:sipcallee00055@10.0.1.159:44351;transport=TCP>
+Expires: 21600
+Max-Forwards: 70
+User-Agent: Moimstone
+Content-Type: application/sdp
+Content-Length:     0
+
+
+2018-04-27 12:51:00,327 INFO o.l.n.s.s.SIPSessionManagerImpl [nioEventLoopGroup-3-6] FromTag: 18395SIPpTag0055, ToTag: null
+2018-04-27 12:51:00,327 INFO o.l.n.s.s.SIPSessionManagerImpl [nioEventLoopGroup-3-6] Create SAS : 3dc02a02
+2018-04-27 12:51:00,333 INFO o.l.n.s.p.TCPStreamDecoder [nioEventLoopGroup-3-7] Parsed sip wrapper:
+REGISTER sip:siptest.com SIP/2.0
+Via: SIP/2.0/TCP 10.0.1.159:46079;branch=z9hG4bK-18395-56-0;rport
+From: sipcallee00056 <sip:sipcallee00056@siptest.com>;tag=18395SIPpTag0056
+To: sipcallee00056 <sip:sipcallee00056@siptest.com>
+Call-ID: register-sipcallee00056///56-18395@10.0.1.159
+CSeq: 1 REGISTER
+Contact: <sip:sipcallee00056@10.0.1.159:46079;transport=TCP>
+Expires: 21600
+Max-Forwards: 70
+User-Agent: Moimstone
+Content-Type: application/sdp
+Content-Length:     0
+
+
+2018-04-27 12:51:00,334 INFO o.l.n.s.s.SIPSessionManagerImpl [nioEventLoopGroup-3-7] FromTag: 18395SIPpTag0056, ToTag: null
+2018-04-27 12:51:00,334 INFO o.l.n.s.s.SIPSessionManagerImpl [nioEventLoopGroup-3-7] Create SAS : dfc7b869
+2018-04-27 12:51:00,345 INFO o.l.n.s.p.TCPStreamDecoder [nioEventLoopGroup-3-8] Parsed sip wrapper:
+REGISTER sip:siptest.com SIP/2.0
+Via: SIP/2.0/TCP 10.0.1.159:45369;branch=z9hG4bK-18395-57-0;rport
+From: sipcallee00057 <sip:sipcallee00057@siptest.com>;tag=18395SIPpTag0057
+To: sipcallee00057 <sip:sipcallee00057@siptest.com>
+Call-ID: register-sipcallee00057///57-18395@10.0.1.159
+CSeq: 1 REGISTER
+Contact: <sip:sipcallee00057@10.0.1.159:45369;transport=TCP>
+Expires: 21600
+Max-Forwards: 70
+User-Agent: Moimstone
+Content-Type: application/sdp
+Content-Length:     0
+
+
+2018-04-27 12:51:00,346 INFO o.l.n.s.s.SIPSessionManagerImpl [nioEventLoopGroup-3-8] FromTag: 18395SIPpTag0057, ToTag: null
+2018-04-27 12:51:00,346 INFO o.l.n.s.s.SIPSessionManagerImpl [nioEventLoopGroup-3-8] Create SAS : f621b7a2
+2018-04-27 12:51:00,353 INFO o.l.n.s.p.TCPStreamDecoder [nioEventLoopGroup-3-9] Parsed sip wrapper:
+REGISTER sip:siptest.com SIP/2.0
+Via: SIP/2.0/TCP 10.0.1.159:38597;branch=z9hG4bK-18395-58-0;rport
+From: sipcallee00058 <sip:sipcallee00058@siptest.com>;tag=18395SIPpTag0058
+To: sipcallee00058 <sip:sipcallee00058@siptest.com>
+Call-ID: register-sipcallee00058///58-18395@10.0.1.159
+CSeq: 1 REGISTER
+Contact: <sip:sipcallee00058@10.0.1.159:38597;transport=TCP>
+Expires: 21600
+Max-Forwards: 70
+User-Agent: Moimstone
+Content-Type: application/sdp
+Content-Length:     0
+
+
+2018-04-27 12:51:00,354 INFO o.l.n.s.s.SIPSessionManagerImpl [nioEventLoopGroup-3-9] FromTag: 18395SIPpTag0058, ToTag: null
+2018-04-27 12:51:00,354 INFO o.l.n.s.s.SIPSessionManagerImpl [nioEventLoopGroup-3-9] Create SAS : d8038ee5
+2018-04-27 12:51:00,366 INFO o.l.n.s.p.TCPStreamDecoder [nioEventLoopGroup-3-10] Parsed sip wrapper:
+REGISTER sip:siptest.com SIP/2.0
+Via: SIP/2.0/TCP 10.0.1.159:36948;branch=z9hG4bK-18395-59-0;rport
+From: sipcallee00059 <sip:sipcallee00059@siptest.com>;tag=18395SIPpTag0059
+To: sipcallee00059 <sip:sipcallee00059@siptest.com>
+Call-ID: register-sipcallee00059///59-18395@10.0.1.159
+CSeq: 1 REGISTER
+Contact: <sip:sipcallee00059@10.0.1.159:36948;transport=TCP>
+Expires: 21600
+Max-Forwards: 70
+User-Agent: Moimstone
+Content-Type: application/sdp
+Content-Length:     0
+
+
+2018-04-27 12:51:00,366 INFO o.l.n.s.s.SIPSessionManagerImpl [nioEventLoopGroup-3-10] FromTag: 18395SIPpTag0059, ToTag: null
+2018-04-27 12:51:00,367 INFO o.l.n.s.s.SIPSessionManagerImpl [nioEventLoopGroup-3-10] Create SAS : 813c6fec
+2018-04-27 12:51:00,373 INFO o.l.n.s.p.TCPStreamDecoder [nioEventLoopGroup-3-11] Parsed sip wrapper:
+REGISTER sip:siptest.com SIP/2.0
+Via: SIP/2.0/TCP 10.0.1.159:46026;branch=z9hG4bK-18395-60-0;rport
+From: sipcallee00060 <sip:sipcallee00060@siptest.com>;tag=18395SIPpTag0060
+To: sipcallee00060 <sip:sipcallee00060@siptest.com>
+Call-ID: register-sipcallee00060///60-18395@10.0.1.159
+CSeq: 1 REGISTER
+Contact: <sip:sipcallee00060@10.0.1.159:46026;transport=TCP>
+Expires: 21600
+Max-Forwards: 70
+User-Agent: Moimstone
+Content-Type: application/sdp
+Content-Length:     0
+
+
+2018-04-27 12:51:00,374 INFO o.l.n.s.s.SIPSessionManagerImpl [nioEventLoopGroup-3-11] FromTag: 18395SIPpTag0060, ToTag: null
+2018-04-27 12:51:00,374 INFO o.l.n.s.s.SIPSessionManagerImpl [nioEventLoopGroup-3-11] Create SAS : bb7545a3
+2018-04-27 12:51:00,386 INFO o.l.n.s.p.TCPStreamDecoder [nioEventLoopGroup-3-12] Parsed sip wrapper:
+REGISTER sip:siptest.com SIP/2.0
+Via: SIP/2.0/TCP 10.0.1.159:35926;branch=z9hG4bK-18395-61-0;rport
+From: sipcallee00061 <sip:sipcallee00061@siptest.com>;tag=18395SIPpTag0061
+To: sipcallee00061 <sip:sipcallee00061@siptest.com>
+Call-ID: register-sipcallee00061///61-18395@10.0.1.159
+CSeq: 1 REGISTER
+Contact: <sip:sipcallee00061@10.0.1.159:35926;transport=TCP>
+Expires: 21600
+Max-Forwards: 70
+User-Agent: Moimstone
+Content-Type: application/sdp
+Content-Length:     0
+
+
+2018-04-27 12:51:00,386 INFO o.l.n.s.s.SIPSessionManagerImpl [nioEventLoopGroup-3-12] FromTag: 18395SIPpTag0061, ToTag: null
+2018-04-27 12:51:00,387 INFO o.l.n.s.s.SIPSessionManagerImpl [nioEventLoopGroup-3-12] Create SAS : 912ac3e0
+2018-04-27 12:51:00,398 INFO o.l.n.s.p.TCPStreamDecoder [nioEventLoopGroup-3-13] Parsed sip wrapper:
+REGISTER sip:siptest.com SIP/2.0
+Via: SIP/2.0/TCP 10.0.1.159:37811;branch=z9hG4bK-18395-62-0;rport
+From: sipcallee00062 <sip:sipcallee00062@siptest.com>;tag=18395SIPpTag0062
+To: sipcallee00062 <sip:sipcallee00062@siptest.com>
+Call-ID: register-sipcallee00062///62-18395@10.0.1.159
+CSeq: 1 REGISTER
+Contact: <sip:sipcallee00062@10.0.1.159:37811;transport=TCP>
+Expires: 21600
+Max-Forwards: 70
+User-Agent: Moimstone
+Content-Type: application/sdp
+Content-Length:     0
+
+
+2018-04-27 12:51:00,398 INFO o.l.n.s.s.SIPSessionManagerImpl [nioEventLoopGroup-3-13] FromTag: 18395SIPpTag0062, ToTag: null
+2018-04-27 12:51:00,399 INFO o.l.n.s.s.SIPSessionManagerImpl [nioEventLoopGroup-3-13] Create SAS : 8d693fc7
+2018-04-27 12:51:00,406 INFO o.l.n.s.p.TCPStreamDecoder [nioEventLoopGroup-3-14] Parsed sip wrapper:
+REGISTER sip:siptest.com SIP/2.0
+Via: SIP/2.0/TCP 10.0.1.159:40289;branch=z9hG4bK-18395-63-0;rport
+From: sipcallee00063 <sip:sipcallee00063@siptest.com>;tag=18395SIPpTag0063
+To: sipcallee00063 <sip:sipcallee00063@siptest.com>
+Call-ID: register-sipcallee00063///63-18395@10.0.1.159
+CSeq: 1 REGISTER
+Contact: <sip:sipcallee00063@10.0.1.159:40289;transport=TCP>
+Expires: 21600
+Max-Forwards: 70
+User-Agent: Moimstone
+Content-Type: application/sdp
+Content-Length:     0
+
+
+2018-04-27 12:51:00,407 INFO o.l.n.s.s.SIPSessionManagerImpl [nioEventLoopGroup-3-14] FromTag: 18395SIPpTag0063, ToTag: null
+2018-04-27 12:51:00,407 INFO o.l.n.s.s.SIPSessionManagerImpl [nioEventLoopGroup-3-14] Create SAS : 4dceb69e
+2018-04-27 12:51:00,414 INFO o.l.n.s.p.TCPStreamDecoder [nioEventLoopGroup-3-15] Parsed sip wrapper:
+REGISTER sip:siptest.com SIP/2.0
+Via: SIP/2.0/TCP 10.0.1.159:37643;branch=z9hG4bK-18395-64-0;rport
+From: sipcallee00064 <sip:sipcallee00064@siptest.com>;tag=18395SIPpTag0064
+To: sipcallee00064 <sip:sipcallee00064@siptest.com>
+Call-ID: register-sipcallee00064///64-18395@10.0.1.159
+CSeq: 1 REGISTER
+Contact: <sip:sipcallee00064@10.0.1.159:37643;transport=TCP>
+Expires: 21600
+Max-Forwards: 70
+User-Agent: Moimstone
+Content-Type: application/sdp
+Content-Length:     0
+
+
+2018-04-27 12:51:00,415 INFO o.l.n.s.s.SIPSessionManagerImpl [nioEventLoopGroup-3-15] FromTag: 18395SIPpTag0064, ToTag: null
+2018-04-27 12:51:00,415 INFO o.l.n.s.s.SIPSessionManagerImpl [nioEventLoopGroup-3-15] Create SAS : a092a7ad
+2018-04-27 12:51:00,425 INFO o.l.n.s.p.TCPStreamDecoder [nioEventLoopGroup-3-16] Parsed sip wrapper:
+REGISTER sip:siptest.com SIP/2.0
+Via: SIP/2.0/TCP 10.0.1.159:41123;branch=z9hG4bK-18395-65-0;rport
+From: sipcallee00065 <sip:sipcallee00065@siptest.com>;tag=18395SIPpTag0065
+To: sipcallee00065 <sip:sipcallee00065@siptest.com>
+Call-ID: register-sipcallee00065///65-18395@10.0.1.159
+CSeq: 1 REGISTER
+Contact: <sip:sipcallee00065@10.0.1.159:41123;transport=TCP>
+Expires: 21600
+Max-Forwards: 70
+User-Agent: Moimstone
+Content-Type: application/sdp
+Content-Length:     0
+
+
+2018-04-27 12:51:00,425 INFO o.l.n.s.s.SIPSessionManagerImpl [nioEventLoopGroup-3-16] FromTag: 18395SIPpTag0065, ToTag: null
+2018-04-27 12:51:00,425 INFO o.l.n.s.s.SIPSessionManagerImpl [nioEventLoopGroup-3-16] Create SAS : 5a04459b
+2018-04-27 12:51:00,433 INFO o.l.n.s.p.TCPStreamDecoder [nioEventLoopGroup-3-1] Parsed sip wrapper:
+REGISTER sip:siptest.com SIP/2.0
+Via: SIP/2.0/TCP 10.0.1.159:45624;branch=z9hG4bK-18395-66-0;rport
+From: sipcallee00066 <sip:sipcallee00066@siptest.com>;tag=18395SIPpTag0066
+To: sipcallee00066 <sip:sipcallee00066@siptest.com>
+Call-ID: register-sipcallee00066///66-18395@10.0.1.159
+CSeq: 1 REGISTER
+Contact: <sip:sipcallee00066@10.0.1.159:45624;transport=TCP>
+Expires: 21600
+Max-Forwards: 70
+User-Agent: Moimstone
+Content-Type: application/sdp
+Content-Length:     0
+
+
+2018-04-27 12:51:00,434 INFO o.l.n.s.s.SIPSessionManagerImpl [nioEventLoopGroup-3-1] FromTag: 18395SIPpTag0066, ToTag: null
+2018-04-27 12:51:00,434 INFO o.l.n.s.s.SIPSessionManagerImpl [nioEventLoopGroup-3-1] Create SAS : c4c087f9
+2018-04-27 12:51:00,445 INFO o.l.n.s.p.TCPStreamDecoder [nioEventLoopGroup-3-2] Parsed sip wrapper:
+REGISTER sip:siptest.com SIP/2.0
+Via: SIP/2.0/TCP 10.0.1.159:39002;branch=z9hG4bK-18395-67-0;rport
+From: sipcallee00067 <sip:sipcallee00067@siptest.com>;tag=18395SIPpTag0067
+To: sipcallee00067 <sip:sipcallee00067@siptest.com>
+Call-ID: register-sipcallee00067///67-18395@10.0.1.159
+CSeq: 1 REGISTER
+Contact: <sip:sipcallee00067@10.0.1.159:39002;transport=TCP>
+Expires: 21600
+Max-Forwards: 70
+User-Agent: Moimstone
+Content-Type: application/sdp
+Content-Length:     0
+
+
+2018-04-27 12:51:00,446 INFO o.l.n.s.s.SIPSessionManagerImpl [nioEventLoopGroup-3-2] FromTag: 18395SIPpTag0067, ToTag: null
+2018-04-27 12:51:00,446 INFO o.l.n.s.s.SIPSessionManagerImpl [nioEventLoopGroup-3-2] Create SAS : acc311e7
+2018-04-27 12:51:00,453 INFO o.l.n.s.p.TCPStreamDecoder [nioEventLoopGroup-3-3] Parsed sip wrapper:
+REGISTER sip:siptest.com SIP/2.0
+Via: SIP/2.0/TCP 10.0.1.159:33952;branch=z9hG4bK-18395-68-0;rport
+From: sipcallee00068 <sip:sipcallee00068@siptest.com>;tag=18395SIPpTag0068
+To: sipcallee00068 <sip:sipcallee00068@siptest.com>
+Call-ID: register-sipcallee00068///68-18395@10.0.1.159
+CSeq: 1 REGISTER
+Contact: <sip:sipcallee00068@10.0.1.159:33952;transport=TCP>
+Expires: 21600
+Max-Forwards: 70
+User-Agent: Moimstone
+Content-Type: application/sdp
+Content-Length:     0
+
+
+2018-04-27 12:51:00,454 INFO o.l.n.s.s.SIPSessionManagerImpl [nioEventLoopGroup-3-3] FromTag: 18395SIPpTag0068, ToTag: null
+2018-04-27 12:51:00,454 INFO o.l.n.s.s.SIPSessionManagerImpl [nioEventLoopGroup-3-3] Create SAS : 7f6895b5
+2018-04-27 12:51:00,466 INFO o.l.n.s.p.TCPStreamDecoder [nioEventLoopGroup-3-4] Parsed sip wrapper:
+REGISTER sip:siptest.com SIP/2.0
+Via: SIP/2.0/TCP 10.0.1.159:36368;branch=z9hG4bK-18395-69-0;rport
+From: sipcallee00069 <sip:sipcallee00069@siptest.com>;tag=18395SIPpTag0069
+To: sipcallee00069 <sip:sipcallee00069@siptest.com>
+Call-ID: register-sipcallee00069///69-18395@10.0.1.159
+CSeq: 1 REGISTER
+Contact: <sip:sipcallee00069@10.0.1.159:36368;transport=TCP>
+Expires: 21600
+Max-Forwards: 70
+User-Agent: Moimstone
+Content-Type: application/sdp
+Content-Length:     0
+
+
+2018-04-27 12:51:00,466 INFO o.l.n.s.s.SIPSessionManagerImpl [nioEventLoopGroup-3-4] FromTag: 18395SIPpTag0069, ToTag: null
+2018-04-27 12:51:00,467 INFO o.l.n.s.s.SIPSessionManagerImpl [nioEventLoopGroup-3-4] Create SAS : 3b0d9652
+2018-04-27 12:51:00,473 INFO o.l.n.s.p.TCPStreamDecoder [nioEventLoopGroup-3-5] Parsed sip wrapper:
+REGISTER sip:siptest.com SIP/2.0
+Via: SIP/2.0/TCP 10.0.1.159:37066;branch=z9hG4bK-18395-70-0;rport
+From: sipcallee00070 <sip:sipcallee00070@siptest.com>;tag=18395SIPpTag0070
+To: sipcallee00070 <sip:sipcallee00070@siptest.com>
+Call-ID: register-sipcallee00070///70-18395@10.0.1.159
+CSeq: 1 REGISTER
+Contact: <sip:sipcallee00070@10.0.1.159:37066;transport=TCP>
+Expires: 21600
+Max-Forwards: 70
+User-Agent: Moimstone
+Content-Type: application/sdp
+Content-Length:     0
+
+
+2018-04-27 12:51:00,474 INFO o.l.n.s.s.SIPSessionManagerImpl [nioEventLoopGroup-3-5] FromTag: 18395SIPpTag0070, ToTag: null
+2018-04-27 12:51:00,474 INFO o.l.n.s.s.SIPSessionManagerImpl [nioEventLoopGroup-3-5] Create SAS : 49296d24
+2018-04-27 12:51:00,485 INFO o.l.n.s.p.TCPStreamDecoder [nioEventLoopGroup-3-6] Parsed sip wrapper:
+REGISTER sip:siptest.com SIP/2.0
+Via: SIP/2.0/TCP 10.0.1.159:46159;branch=z9hG4bK-18395-71-0;rport
+From: sipcallee00071 <sip:sipcallee00071@siptest.com>;tag=18395SIPpTag0071
+To: sipcallee00071 <sip:sipcallee00071@siptest.com>
+Call-ID: register-sipcallee00071///71-18395@10.0.1.159
+CSeq: 1 REGISTER
+Contact: <sip:sipcallee00071@10.0.1.159:46159;transport=TCP>
+Expires: 21600
+Max-Forwards: 70
+User-Agent: Moimstone
+Content-Type: application/sdp
+Content-Length:     0
+
+
+2018-04-27 12:51:00,486 INFO o.l.n.s.s.SIPSessionManagerImpl [nioEventLoopGroup-3-6] FromTag: 18395SIPpTag0071, ToTag: null
+2018-04-27 12:51:00,486 INFO o.l.n.s.s.SIPSessionManagerImpl [nioEventLoopGroup-3-6] Create SAS : 0cde2a90
+2018-04-27 12:51:00,494 INFO o.l.n.s.p.TCPStreamDecoder [nioEventLoopGroup-3-7] Parsed sip wrapper:
+REGISTER sip:siptest.com SIP/2.0
+Via: SIP/2.0/TCP 10.0.1.159:35818;branch=z9hG4bK-18395-72-0;rport
+From: sipcallee00072 <sip:sipcallee00072@siptest.com>;tag=18395SIPpTag0072
+To: sipcallee00072 <sip:sipcallee00072@siptest.com>
+Call-ID: register-sipcallee00072///72-18395@10.0.1.159
+CSeq: 1 REGISTER
+Contact: <sip:sipcallee00072@10.0.1.159:35818;transport=TCP>
+Expires: 21600
+Max-Forwards: 70
+User-Agent: Moimstone
+Content-Type: application/sdp
+Content-Length:     0
+
+
+2018-04-27 12:51:00,494 INFO o.l.n.s.s.SIPSessionManagerImpl [nioEventLoopGroup-3-7] FromTag: 18395SIPpTag0072, ToTag: null
+2018-04-27 12:51:00,494 INFO o.l.n.s.s.SIPSessionManagerImpl [nioEventLoopGroup-3-7] Create SAS : 6dc598d2
+2018-04-27 12:51:00,506 INFO o.l.n.s.p.TCPStreamDecoder [nioEventLoopGroup-3-8] Parsed sip wrapper:
+REGISTER sip:siptest.com SIP/2.0
+Via: SIP/2.0/TCP 10.0.1.159:37372;branch=z9hG4bK-18395-73-0;rport
+From: sipcallee00073 <sip:sipcallee00073@siptest.com>;tag=18395SIPpTag0073
+To: sipcallee00073 <sip:sipcallee00073@siptest.com>
+Call-ID: register-sipcallee00073///73-18395@10.0.1.159
+CSeq: 1 REGISTER
+Contact: <sip:sipcallee00073@10.0.1.159:37372;transport=TCP>
+Expires: 21600
+Max-Forwards: 70
+User-Agent: Moimstone
+Content-Type: application/sdp
+Content-Length:     0
+
+
+2018-04-27 12:51:00,506 INFO o.l.n.s.s.SIPSessionManagerImpl [nioEventLoopGroup-3-8] FromTag: 18395SIPpTag0073, ToTag: null
+2018-04-27 12:51:00,507 INFO o.l.n.s.s.SIPSessionManagerImpl [nioEventLoopGroup-3-8] Create SAS : 6262f109
+2018-04-27 12:51:00,513 INFO o.l.n.s.p.TCPStreamDecoder [nioEventLoopGroup-3-9] Parsed sip wrapper:
+REGISTER sip:siptest.com SIP/2.0
+Via: SIP/2.0/TCP 10.0.1.159:41579;branch=z9hG4bK-18395-74-0;rport
+From: sipcallee00074 <sip:sipcallee00074@siptest.com>;tag=18395SIPpTag0074
+To: sipcallee00074 <sip:sipcallee00074@siptest.com>
+Call-ID: register-sipcallee00074///74-18395@10.0.1.159
+CSeq: 1 REGISTER
+Contact: <sip:sipcallee00074@10.0.1.159:41579;transport=TCP>
+Expires: 21600
+Max-Forwards: 70
+User-Agent: Moimstone
+Content-Type: application/sdp
+Content-Length:     0
+
+
+2018-04-27 12:51:00,514 INFO o.l.n.s.s.SIPSessionManagerImpl [nioEventLoopGroup-3-9] FromTag: 18395SIPpTag0074, ToTag: null
+2018-04-27 12:51:00,514 INFO o.l.n.s.s.SIPSessionManagerImpl [nioEventLoopGroup-3-9] Create SAS : 44c1ffe3
+2018-04-27 12:51:00,526 INFO o.l.n.s.p.TCPStreamDecoder [nioEventLoopGroup-3-10] Parsed sip wrapper:
+REGISTER sip:siptest.com SIP/2.0
+Via: SIP/2.0/TCP 10.0.1.159:43460;branch=z9hG4bK-18395-75-0;rport
+From: sipcallee00075 <sip:sipcallee00075@siptest.com>;tag=18395SIPpTag0075
+To: sipcallee00075 <sip:sipcallee00075@siptest.com>
+Call-ID: register-sipcallee00075///75-18395@10.0.1.159
+CSeq: 1 REGISTER
+Contact: <sip:sipcallee00075@10.0.1.159:43460;transport=TCP>
+Expires: 21600
+Max-Forwards: 70
+User-Agent: Moimstone
+Content-Type: application/sdp
+Content-Length:     0
+
+
+2018-04-27 12:51:00,527 INFO o.l.n.s.s.SIPSessionManagerImpl [nioEventLoopGroup-3-10] FromTag: 18395SIPpTag0075, ToTag: null
+2018-04-27 12:51:00,527 INFO o.l.n.s.s.SIPSessionManagerImpl [nioEventLoopGroup-3-10] Create SAS : ee5b0cfb
+2018-04-27 12:51:00,533 INFO o.l.n.s.p.TCPStreamDecoder [nioEventLoopGroup-3-11] Parsed sip wrapper:
+REGISTER sip:siptest.com SIP/2.0
+Via: SIP/2.0/TCP 10.0.1.159:46328;branch=z9hG4bK-18395-76-0;rport
+From: sipcallee00076 <sip:sipcallee00076@siptest.com>;tag=18395SIPpTag0076
+To: sipcallee00076 <sip:sipcallee00076@siptest.com>
+Call-ID: register-sipcallee00076///76-18395@10.0.1.159
+CSeq: 1 REGISTER
+Contact: <sip:sipcallee00076@10.0.1.159:46328;transport=TCP>
+Expires: 21600
+Max-Forwards: 70
+User-Agent: Moimstone
+Content-Type: application/sdp
+Content-Length:     0
+
+
+2018-04-27 12:51:00,533 INFO o.l.n.s.s.SIPSessionManagerImpl [nioEventLoopGroup-3-11] FromTag: 18395SIPpTag0076, ToTag: null
+2018-04-27 12:51:00,533 INFO o.l.n.s.s.SIPSessionManagerImpl [nioEventLoopGroup-3-11] Create SAS : 2a3598ed
+2018-04-27 12:51:00,546 INFO o.l.n.s.p.TCPStreamDecoder [nioEventLoopGroup-3-12] Parsed sip wrapper:
+REGISTER sip:siptest.com SIP/2.0
+Via: SIP/2.0/TCP 10.0.1.159:38977;branch=z9hG4bK-18395-77-0;rport
+From: sipcallee00077 <sip:sipcallee00077@siptest.com>;tag=18395SIPpTag0077
+To: sipcallee00077 <sip:sipcallee00077@siptest.com>
+Call-ID: register-sipcallee00077///77-18395@10.0.1.159
+CSeq: 1 REGISTER
+Contact: <sip:sipcallee00077@10.0.1.159:38977;transport=TCP>
+Expires: 21600
+Max-Forwards: 70
+User-Agent: Moimstone
+Content-Type: application/sdp
+Content-Length:     0
+
+
+2018-04-27 12:51:00,547 INFO o.l.n.s.s.SIPSessionManagerImpl [nioEventLoopGroup-3-12] FromTag: 18395SIPpTag0077, ToTag: null
+2018-04-27 12:51:00,547 INFO o.l.n.s.s.SIPSessionManagerImpl [nioEventLoopGroup-3-12] Create SAS : f535bd59
+2018-04-27 12:51:00,553 INFO o.l.n.s.p.TCPStreamDecoder [nioEventLoopGroup-3-13] Parsed sip wrapper:
+REGISTER sip:siptest.com SIP/2.0
+Via: SIP/2.0/TCP 10.0.1.159:39916;branch=z9hG4bK-18395-78-0;rport
+From: sipcallee00078 <sip:sipcallee00078@siptest.com>;tag=18395SIPpTag0078
+To: sipcallee00078 <sip:sipcallee00078@siptest.com>
+Call-ID: register-sipcallee00078///78-18395@10.0.1.159
+CSeq: 1 REGISTER
+Contact: <sip:sipcallee00078@10.0.1.159:39916;transport=TCP>
+Expires: 21600
+Max-Forwards: 70
+User-Agent: Moimstone
+Content-Type: application/sdp
+Content-Length:     0
+
+
+2018-04-27 12:51:00,554 INFO o.l.n.s.s.SIPSessionManagerImpl [nioEventLoopGroup-3-13] FromTag: 18395SIPpTag0078, ToTag: null
+2018-04-27 12:51:00,554 INFO o.l.n.s.s.SIPSessionManagerImpl [nioEventLoopGroup-3-13] Create SAS : 5609fade
+2018-04-27 12:51:00,566 INFO o.l.n.s.p.TCPStreamDecoder [nioEventLoopGroup-3-14] Parsed sip wrapper:
+REGISTER sip:siptest.com SIP/2.0
+Via: SIP/2.0/TCP 10.0.1.159:37024;branch=z9hG4bK-18395-79-0;rport
+From: sipcallee00079 <sip:sipcallee00079@siptest.com>;tag=18395SIPpTag0079
+To: sipcallee00079 <sip:sipcallee00079@siptest.com>
+Call-ID: register-sipcallee00079///79-18395@10.0.1.159
+CSeq: 1 REGISTER
+Contact: <sip:sipcallee00079@10.0.1.159:37024;transport=TCP>
+Expires: 21600
+Max-Forwards: 70
+User-Agent: Moimstone
+Content-Type: application/sdp
+Content-Length:     0
+
+
+2018-04-27 12:51:00,567 INFO o.l.n.s.s.SIPSessionManagerImpl [nioEventLoopGroup-3-14] FromTag: 18395SIPpTag0079, ToTag: null
+2018-04-27 12:51:00,567 INFO o.l.n.s.s.SIPSessionManagerImpl [nioEventLoopGroup-3-14] Create SAS : 9c823b8d
+2018-04-27 12:51:00,573 INFO o.l.n.s.p.TCPStreamDecoder [nioEventLoopGroup-3-15] Parsed sip wrapper:
+REGISTER sip:siptest.com SIP/2.0
+Via: SIP/2.0/TCP 10.0.1.159:35485;branch=z9hG4bK-18395-80-0;rport
+From: sipcallee00080 <sip:sipcallee00080@siptest.com>;tag=18395SIPpTag0080
+To: sipcallee00080 <sip:sipcallee00080@siptest.com>
+Call-ID: register-sipcallee00080///80-18395@10.0.1.159
+CSeq: 1 REGISTER
+Contact: <sip:sipcallee00080@10.0.1.159:35485;transport=TCP>
+Expires: 21600
+Max-Forwards: 70
+User-Agent: Moimstone
+Content-Type: application/sdp
+Content-Length:     0
+
+
+2018-04-27 12:51:00,574 INFO o.l.n.s.s.SIPSessionManagerImpl [nioEventLoopGroup-3-15] FromTag: 18395SIPpTag0080, ToTag: null
+2018-04-27 12:51:00,574 INFO o.l.n.s.s.SIPSessionManagerImpl [nioEventLoopGroup-3-15] Create SAS : 33d1a315
+2018-04-27 12:51:00,586 INFO o.l.n.s.p.TCPStreamDecoder [nioEventLoopGroup-3-16] Parsed sip wrapper:
+REGISTER sip:siptest.com SIP/2.0
+Via: SIP/2.0/TCP 10.0.1.159:43632;branch=z9hG4bK-18395-81-0;rport
+From: sipcallee00081 <sip:sipcallee00081@siptest.com>;tag=18395SIPpTag0081
+To: sipcallee00081 <sip:sipcallee00081@siptest.com>
+Call-ID: register-sipcallee00081///81-18395@10.0.1.159
+CSeq: 1 REGISTER
+Contact: <sip:sipcallee00081@10.0.1.159:43632;transport=TCP>
+Expires: 21600
+Max-Forwards: 70
+User-Agent: Moimstone
+Content-Type: application/sdp
+Content-Length:     0
+
+
+2018-04-27 12:51:00,587 INFO o.l.n.s.s.SIPSessionManagerImpl [nioEventLoopGroup-3-16] FromTag: 18395SIPpTag0081, ToTag: null
+2018-04-27 12:51:00,587 INFO o.l.n.s.s.SIPSessionManagerImpl [nioEventLoopGroup-3-16] Create SAS : 5a3f5812
+2018-04-27 12:51:00,596 INFO o.l.n.s.p.TCPStreamDecoder [nioEventLoopGroup-3-1] Parsed sip wrapper:
+REGISTER sip:siptest.com SIP/2.0
+Via: SIP/2.0/TCP 10.0.1.159:37749;branch=z9hG4bK-18395-82-0;rport
+From: sipcallee00082 <sip:sipcallee00082@siptest.com>;tag=18395SIPpTag0082
+To: sipcallee00082 <sip:sipcallee00082@siptest.com>
+Call-ID: register-sipcallee00082///82-18395@10.0.1.159
+CSeq: 1 REGISTER
+Contact: <sip:sipcallee00082@10.0.1.159:37749;transport=TCP>
+Expires: 21600
+Max-Forwards: 70
+User-Agent: Moimstone
+Content-Type: application/sdp
+Content-Length:     0
+
+
+2018-04-27 12:51:00,598 INFO o.l.n.s.s.SIPSessionManagerImpl [nioEventLoopGroup-3-1] FromTag: 18395SIPpTag0082, ToTag: null
+2018-04-27 12:51:00,598 INFO o.l.n.s.s.SIPSessionManagerImpl [nioEventLoopGroup-3-1] Create SAS : 319fa252
+2018-04-27 12:51:00,605 INFO o.l.n.s.p.TCPStreamDecoder [nioEventLoopGroup-3-2] Parsed sip wrapper:
+REGISTER sip:siptest.com SIP/2.0
+Via: SIP/2.0/TCP 10.0.1.159:39257;branch=z9hG4bK-18395-83-0;rport
+From: sipcallee00083 <sip:sipcallee00083@siptest.com>;tag=18395SIPpTag0083
+To: sipcallee00083 <sip:sipcallee00083@siptest.com>
+Call-ID: register-sipcallee00083///83-18395@10.0.1.159
+CSeq: 1 REGISTER
+Contact: <sip:sipcallee00083@10.0.1.159:39257;transport=TCP>
+Expires: 21600
+Max-Forwards: 70
+User-Agent: Moimstone
+Content-Type: application/sdp
+Content-Length:     0
+
+
+2018-04-27 12:51:00,606 INFO o.l.n.s.s.SIPSessionManagerImpl [nioEventLoopGroup-3-2] FromTag: 18395SIPpTag0083, ToTag: null
+2018-04-27 12:51:00,606 INFO o.l.n.s.s.SIPSessionManagerImpl [nioEventLoopGroup-3-2] Create SAS : b49d1738
+2018-04-27 12:51:00,614 INFO o.l.n.s.p.TCPStreamDecoder [nioEventLoopGroup-3-3] Parsed sip wrapper:
+REGISTER sip:siptest.com SIP/2.0
+Via: SIP/2.0/TCP 10.0.1.159:40275;branch=z9hG4bK-18395-84-0;rport
+From: sipcallee00084 <sip:sipcallee00084@siptest.com>;tag=18395SIPpTag0084
+To: sipcallee00084 <sip:sipcallee00084@siptest.com>
+Call-ID: register-sipcallee00084///84-18395@10.0.1.159
+CSeq: 1 REGISTER
+Contact: <sip:sipcallee00084@10.0.1.159:40275;transport=TCP>
+Expires: 21600
+Max-Forwards: 70
+User-Agent: Moimstone
+Content-Type: application/sdp
+Content-Length:     0
+
+
+2018-04-27 12:51:00,615 INFO o.l.n.s.s.SIPSessionManagerImpl [nioEventLoopGroup-3-3] FromTag: 18395SIPpTag0084, ToTag: null
+2018-04-27 12:51:00,615 INFO o.l.n.s.s.SIPSessionManagerImpl [nioEventLoopGroup-3-3] Create SAS : 2790c013
+2018-04-27 12:51:00,625 INFO o.l.n.s.p.TCPStreamDecoder [nioEventLoopGroup-3-4] Parsed sip wrapper:
+REGISTER sip:siptest.com SIP/2.0
+Via: SIP/2.0/TCP 10.0.1.159:45807;branch=z9hG4bK-18395-85-0;rport
+From: sipcallee00085 <sip:sipcallee00085@siptest.com>;tag=18395SIPpTag0085
+To: sipcallee00085 <sip:sipcallee00085@siptest.com>
+Call-ID: register-sipcallee00085///85-18395@10.0.1.159
+CSeq: 1 REGISTER
+Contact: <sip:sipcallee00085@10.0.1.159:45807;transport=TCP>
+Expires: 21600
+Max-Forwards: 70
+User-Agent: Moimstone
+Content-Type: application/sdp
+Content-Length:     0
+
+
+2018-04-27 12:51:00,626 INFO o.l.n.s.s.SIPSessionManagerImpl [nioEventLoopGroup-3-4] FromTag: 18395SIPpTag0085, ToTag: null
+2018-04-27 12:51:00,626 INFO o.l.n.s.s.SIPSessionManagerImpl [nioEventLoopGroup-3-4] Create SAS : d063614e
+2018-04-27 12:51:00,634 INFO o.l.n.s.p.TCPStreamDecoder [nioEventLoopGroup-3-5] Parsed sip wrapper:
+REGISTER sip:siptest.com SIP/2.0
+Via: SIP/2.0/TCP 10.0.1.159:43360;branch=z9hG4bK-18395-86-0;rport
+From: sipcallee00086 <sip:sipcallee00086@siptest.com>;tag=18395SIPpTag0086
+To: sipcallee00086 <sip:sipcallee00086@siptest.com>
+Call-ID: register-sipcallee00086///86-18395@10.0.1.159
+CSeq: 1 REGISTER
+Contact: <sip:sipcallee00086@10.0.1.159:43360;transport=TCP>
+Expires: 21600
+Max-Forwards: 70
+User-Agent: Moimstone
+Content-Type: application/sdp
+Content-Length:     0
+
+
+2018-04-27 12:51:00,635 INFO o.l.n.s.s.SIPSessionManagerImpl [nioEventLoopGroup-3-5] FromTag: 18395SIPpTag0086, ToTag: null
+2018-04-27 12:51:00,635 INFO o.l.n.s.s.SIPSessionManagerImpl [nioEventLoopGroup-3-5] Create SAS : b2745093
+2018-04-27 12:51:00,646 INFO o.l.n.s.p.TCPStreamDecoder [nioEventLoopGroup-3-6] Parsed sip wrapper:
+REGISTER sip:siptest.com SIP/2.0
+Via: SIP/2.0/TCP 10.0.1.159:33987;branch=z9hG4bK-18395-87-0;rport
+From: sipcallee00087 <sip:sipcallee00087@siptest.com>;tag=18395SIPpTag0087
+To: sipcallee00087 <sip:sipcallee00087@siptest.com>
+Call-ID: register-sipcallee00087///87-18395@10.0.1.159
+CSeq: 1 REGISTER
+Contact: <sip:sipcallee00087@10.0.1.159:33987;transport=TCP>
+Expires: 21600
+Max-Forwards: 70
+User-Agent: Moimstone
+Content-Type: application/sdp
+Content-Length:     0
+
+
+2018-04-27 12:51:00,647 INFO o.l.n.s.s.SIPSessionManagerImpl [nioEventLoopGroup-3-6] FromTag: 18395SIPpTag0087, ToTag: null
+2018-04-27 12:51:00,648 INFO o.l.n.s.s.SIPSessionManagerImpl [nioEventLoopGroup-3-6] Create SAS : 55246b90
+2018-04-27 12:51:00,653 INFO o.l.n.s.p.TCPStreamDecoder [nioEventLoopGroup-3-7] Parsed sip wrapper:
+REGISTER sip:siptest.com SIP/2.0
+Via: SIP/2.0/TCP 10.0.1.159:32932;branch=z9hG4bK-18395-88-0;rport
+From: sipcallee00088 <sip:sipcallee00088@siptest.com>;tag=18395SIPpTag0088
+To: sipcallee00088 <sip:sipcallee00088@siptest.com>
+Call-ID: register-sipcallee00088///88-18395@10.0.1.159
+CSeq: 1 REGISTER
+Contact: <sip:sipcallee00088@10.0.1.159:32932;transport=TCP>
+Expires: 21600
+Max-Forwards: 70
+User-Agent: Moimstone
+Content-Type: application/sdp
+Content-Length:     0
+
+
+2018-04-27 12:51:00,654 INFO o.l.n.s.s.SIPSessionManagerImpl [nioEventLoopGroup-3-7] FromTag: 18395SIPpTag0088, ToTag: null
+2018-04-27 12:51:00,654 INFO o.l.n.s.s.SIPSessionManagerImpl [nioEventLoopGroup-3-7] Create SAS : 3a65a589
+2018-04-27 12:51:00,666 INFO o.l.n.s.p.TCPStreamDecoder [nioEventLoopGroup-3-8] Parsed sip wrapper:
+REGISTER sip:siptest.com SIP/2.0
+Via: SIP/2.0/TCP 10.0.1.159:42602;branch=z9hG4bK-18395-89-0;rport
+From: sipcallee00089 <sip:sipcallee00089@siptest.com>;tag=18395SIPpTag0089
+To: sipcallee00089 <sip:sipcallee00089@siptest.com>
+Call-ID: register-sipcallee00089///89-18395@10.0.1.159
+CSeq: 1 REGISTER
+Contact: <sip:sipcallee00089@10.0.1.159:42602;transport=TCP>
+Expires: 21600
+Max-Forwards: 70
+User-Agent: Moimstone
+Content-Type: application/sdp
+Content-Length:     0
+
+
+2018-04-27 12:51:00,666 INFO o.l.n.s.s.SIPSessionManagerImpl [nioEventLoopGroup-3-8] FromTag: 18395SIPpTag0089, ToTag: null
+2018-04-27 12:51:00,667 INFO o.l.n.s.s.SIPSessionManagerImpl [nioEventLoopGroup-3-8] Create SAS : 85d35a97
+2018-04-27 12:51:00,674 INFO o.l.n.s.p.TCPStreamDecoder [nioEventLoopGroup-3-9] Parsed sip wrapper:
+REGISTER sip:siptest.com SIP/2.0
+Via: SIP/2.0/TCP 10.0.1.159:39966;branch=z9hG4bK-18395-90-0;rport
+From: sipcallee00090 <sip:sipcallee00090@siptest.com>;tag=18395SIPpTag0090
+To: sipcallee00090 <sip:sipcallee00090@siptest.com>
+Call-ID: register-sipcallee00090///90-18395@10.0.1.159
+CSeq: 1 REGISTER
+Contact: <sip:sipcallee00090@10.0.1.159:39966;transport=TCP>
+Expires: 21600
+Max-Forwards: 70
+User-Agent: Moimstone
+Content-Type: application/sdp
+Content-Length:     0
+
+
+2018-04-27 12:51:00,675 INFO o.l.n.s.s.SIPSessionManagerImpl [nioEventLoopGroup-3-9] FromTag: 18395SIPpTag0090, ToTag: null
+2018-04-27 12:51:00,675 INFO o.l.n.s.s.SIPSessionManagerImpl [nioEventLoopGroup-3-9] Create SAS : 34adb8d9
+2018-04-27 12:51:00,686 INFO o.l.n.s.p.TCPStreamDecoder [nioEventLoopGroup-3-10] Parsed sip wrapper:
+REGISTER sip:siptest.com SIP/2.0
+Via: SIP/2.0/TCP 10.0.1.159:43056;branch=z9hG4bK-18395-91-0;rport
+From: sipcallee00091 <sip:sipcallee00091@siptest.com>;tag=18395SIPpTag0091
+To: sipcallee00091 <sip:sipcallee00091@siptest.com>
+Call-ID: register-sipcallee00091///91-18395@10.0.1.159
+CSeq: 1 REGISTER
+Contact: <sip:sipcallee00091@10.0.1.159:43056;transport=TCP>
+Expires: 21600
+Max-Forwards: 70
+User-Agent: Moimstone
+Content-Type: application/sdp
+Content-Length:     0
+
+
+2018-04-27 12:51:00,687 INFO o.l.n.s.s.SIPSessionManagerImpl [nioEventLoopGroup-3-10] FromTag: 18395SIPpTag0091, ToTag: null
+2018-04-27 12:51:00,687 INFO o.l.n.s.s.SIPSessionManagerImpl [nioEventLoopGroup-3-10] Create SAS : 64e63b15
+2018-04-27 12:51:00,694 INFO o.l.n.s.p.TCPStreamDecoder [nioEventLoopGroup-3-11] Parsed sip wrapper:
+REGISTER sip:siptest.com SIP/2.0
+Via: SIP/2.0/TCP 10.0.1.159:39400;branch=z9hG4bK-18395-92-0;rport
+From: sipcallee00092 <sip:sipcallee00092@siptest.com>;tag=18395SIPpTag0092
+To: sipcallee00092 <sip:sipcallee00092@siptest.com>
+Call-ID: register-sipcallee00092///92-18395@10.0.1.159
+CSeq: 1 REGISTER
+Contact: <sip:sipcallee00092@10.0.1.159:39400;transport=TCP>
+Expires: 21600
+Max-Forwards: 70
+User-Agent: Moimstone
+Content-Type: application/sdp
+Content-Length:     0
+
+
+2018-04-27 12:51:00,694 INFO o.l.n.s.s.SIPSessionManagerImpl [nioEventLoopGroup-3-11] FromTag: 18395SIPpTag0092, ToTag: null
+2018-04-27 12:51:00,695 INFO o.l.n.s.s.SIPSessionManagerImpl [nioEventLoopGroup-3-11] Create SAS : b9aa2e04
+2018-04-27 12:51:00,705 INFO o.l.n.s.p.TCPStreamDecoder [nioEventLoopGroup-3-12] Parsed sip wrapper:
+REGISTER sip:siptest.com SIP/2.0
+Via: SIP/2.0/TCP 10.0.1.159:44067;branch=z9hG4bK-18395-93-0;rport
+From: sipcallee00093 <sip:sipcallee00093@siptest.com>;tag=18395SIPpTag0093
+To: sipcallee00093 <sip:sipcallee00093@siptest.com>
+Call-ID: register-sipcallee00093///93-18395@10.0.1.159
+CSeq: 1 REGISTER
+Contact: <sip:sipcallee00093@10.0.1.159:44067;transport=TCP>
+Expires: 21600
+Max-Forwards: 70
+User-Agent: Moimstone
+Content-Type: application/sdp
+Content-Length:     0
+
+
+2018-04-27 12:51:00,706 INFO o.l.n.s.s.SIPSessionManagerImpl [nioEventLoopGroup-3-12] FromTag: 18395SIPpTag0093, ToTag: null
+2018-04-27 12:51:00,706 INFO o.l.n.s.s.SIPSessionManagerImpl [nioEventLoopGroup-3-12] Create SAS : debae2d3
+2018-04-27 12:51:00,714 INFO o.l.n.s.p.TCPStreamDecoder [nioEventLoopGroup-3-13] Parsed sip wrapper:
+REGISTER sip:siptest.com SIP/2.0
+Via: SIP/2.0/TCP 10.0.1.159:45386;branch=z9hG4bK-18395-94-0;rport
+From: sipcallee00094 <sip:sipcallee00094@siptest.com>;tag=18395SIPpTag0094
+To: sipcallee00094 <sip:sipcallee00094@siptest.com>
+Call-ID: register-sipcallee00094///94-18395@10.0.1.159
+CSeq: 1 REGISTER
+Contact: <sip:sipcallee00094@10.0.1.159:45386;transport=TCP>
+Expires: 21600
+Max-Forwards: 70
+User-Agent: Moimstone
+Content-Type: application/sdp
+Content-Length:     0
+
+
+2018-04-27 12:51:00,714 INFO o.l.n.s.s.SIPSessionManagerImpl [nioEventLoopGroup-3-13] FromTag: 18395SIPpTag0094, ToTag: null
+2018-04-27 12:51:00,714 INFO o.l.n.s.s.SIPSessionManagerImpl [nioEventLoopGroup-3-13] Create SAS : bb850150
+2018-04-27 12:51:00,726 INFO o.l.n.s.p.TCPStreamDecoder [nioEventLoopGroup-3-14] Parsed sip wrapper:
+REGISTER sip:siptest.com SIP/2.0
+Via: SIP/2.0/TCP 10.0.1.159:43051;branch=z9hG4bK-18395-95-0;rport
+From: sipcallee00095 <sip:sipcallee00095@siptest.com>;tag=18395SIPpTag0095
+To: sipcallee00095 <sip:sipcallee00095@siptest.com>
+Call-ID: register-sipcallee00095///95-18395@10.0.1.159
+CSeq: 1 REGISTER
+Contact: <sip:sipcallee00095@10.0.1.159:43051;transport=TCP>
+Expires: 21600
+Max-Forwards: 70
+User-Agent: Moimstone
+Content-Type: application/sdp
+Content-Length:     0
+
+
+2018-04-27 12:51:00,726 INFO o.l.n.s.s.SIPSessionManagerImpl [nioEventLoopGroup-3-14] FromTag: 18395SIPpTag0095, ToTag: null
+2018-04-27 12:51:00,726 INFO o.l.n.s.s.SIPSessionManagerImpl [nioEventLoopGroup-3-14] Create SAS : c12e970d
+2018-04-27 12:51:00,733 INFO o.l.n.s.p.TCPStreamDecoder [nioEventLoopGroup-3-15] Parsed sip wrapper:
+REGISTER sip:siptest.com SIP/2.0
+Via: SIP/2.0/TCP 10.0.1.159:34515;branch=z9hG4bK-18395-96-0;rport
+From: sipcallee00096 <sip:sipcallee00096@siptest.com>;tag=18395SIPpTag0096
+To: sipcallee00096 <sip:sipcallee00096@siptest.com>
+Call-ID: register-sipcallee00096///96-18395@10.0.1.159
+CSeq: 1 REGISTER
+Contact: <sip:sipcallee00096@10.0.1.159:34515;transport=TCP>
+Expires: 21600
+Max-Forwards: 70
+User-Agent: Moimstone
+Content-Type: application/sdp
+Content-Length:     0
+
+
+2018-04-27 12:51:00,734 INFO o.l.n.s.s.SIPSessionManagerImpl [nioEventLoopGroup-3-15] FromTag: 18395SIPpTag0096, ToTag: null
+2018-04-27 12:51:00,734 INFO o.l.n.s.s.SIPSessionManagerImpl [nioEventLoopGroup-3-15] Create SAS : 0f685712
+2018-04-27 12:51:00,745 INFO o.l.n.s.p.TCPStreamDecoder [nioEventLoopGroup-3-16] Parsed sip wrapper:
+REGISTER sip:siptest.com SIP/2.0
+Via: SIP/2.0/TCP 10.0.1.159:35189;branch=z9hG4bK-18395-97-0;rport
+From: sipcallee00097 <sip:sipcallee00097@siptest.com>;tag=18395SIPpTag0097
+To: sipcallee00097 <sip:sipcallee00097@siptest.com>
+Call-ID: register-sipcallee00097///97-18395@10.0.1.159
+CSeq: 1 REGISTER
+Contact: <sip:sipcallee00097@10.0.1.159:35189;transport=TCP>
+Expires: 21600
+Max-Forwards: 70
+User-Agent: Moimstone
+Content-Type: application/sdp
+Content-Length:     0
+
+
+2018-04-27 12:51:00,746 INFO o.l.n.s.s.SIPSessionManagerImpl [nioEventLoopGroup-3-16] FromTag: 18395SIPpTag0097, ToTag: null
+2018-04-27 12:51:00,746 INFO o.l.n.s.s.SIPSessionManagerImpl [nioEventLoopGroup-3-16] Create SAS : 4b064fc6
+2018-04-27 12:51:00,754 INFO o.l.n.s.p.TCPStreamDecoder [nioEventLoopGroup-3-1] Parsed sip wrapper:
+REGISTER sip:siptest.com SIP/2.0
+Via: SIP/2.0/TCP 10.0.1.159:39422;branch=z9hG4bK-18395-98-0;rport
+From: sipcallee00098 <sip:sipcallee00098@siptest.com>;tag=18395SIPpTag0098
+To: sipcallee00098 <sip:sipcallee00098@siptest.com>
+Call-ID: register-sipcallee00098///98-18395@10.0.1.159
+CSeq: 1 REGISTER
+Contact: <sip:sipcallee00098@10.0.1.159:39422;transport=TCP>
+Expires: 21600
+Max-Forwards: 70
+User-Agent: Moimstone
+Content-Type: application/sdp
+Content-Length:     0
+
+
+2018-04-27 12:51:00,755 INFO o.l.n.s.s.SIPSessionManagerImpl [nioEventLoopGroup-3-1] FromTag: 18395SIPpTag0098, ToTag: null
+2018-04-27 12:51:00,755 INFO o.l.n.s.s.SIPSessionManagerImpl [nioEventLoopGroup-3-1] Create SAS : e40afdb9
+2018-04-27 12:51:00,764 INFO o.l.n.s.p.TCPStreamDecoder [nioEventLoopGroup-3-1] Parsed sip wrapper:
+REGISTER sip:siptest.com SIP/2.0
+Via: SIP/2.0/TCP 10.0.1.159:0;branch=z9hG4bK-18395-99-0;rport
+From: sipcallee00099 <sip:sipcallee00099@siptest.com>;tag=18395SIPpTag0099
+To: sipcallee00099 <sip:sipcallee00099@siptest.com>
+Call-ID: register-sipcallee00099///99-18395@10.0.1.159
+CSeq: 1 REGISTER
+Contact: <sip:sipcallee00099@10.0.1.159:0;transport=TCP>
+Expires: 21600
+Max-Forwards: 70
+User-Agent: Moimstone
+Content-Type: application/sdp
+Content-Length:     0
+
+
+2018-04-27 12:51:00,765 INFO o.l.n.s.s.SIPSessionManagerImpl [nioEventLoopGroup-3-1] FromTag: 18395SIPpTag0099, ToTag: null
+2018-04-27 12:51:00,765 INFO o.l.n.s.s.SIPSessionManagerImpl [nioEventLoopGroup-3-1] Create SAS : 4bc1b8c0
+2018-04-27 12:51:00,772 INFO o.l.n.s.p.TCPStreamDecoder [nioEventLoopGroup-3-2] Parsed sip wrapper:
+REGISTER sip:siptest.com SIP/2.0
+Via: SIP/2.0/TCP 10.0.1.159:0;branch=z9hG4bK-18395-100-0;rport
+From: sipcallee00100 <sip:sipcallee00100@siptest.com>;tag=18395SIPpTag00100
+To: sipcallee00100 <sip:sipcallee00100@siptest.com>
+Call-ID: register-sipcallee00100///100-18395@10.0.1.159
+CSeq: 1 REGISTER
+Contact: <sip:sipcallee00100@10.0.1.159:0;transport=TCP>
+Expires: 21600
+Max-Forwards: 70
+User-Agent: Moimstone
+Content-Type: application/sdp
+Content-Length:     0
+
+
+2018-04-27 12:51:00,773 INFO o.l.n.s.s.SIPSessionManagerImpl [nioEventLoopGroup-3-2] FromTag: 18395SIPpTag00100, ToTag: null
+2018-04-27 12:51:00,773 INFO o.l.n.s.s.SIPSessionManagerImpl [nioEventLoopGroup-3-2] Create SAS : 3bb84c9b
+2018-04-27 12:51:00,784 INFO o.l.n.s.p.TCPStreamDecoder [nioEventLoopGroup-3-3] Parsed sip wrapper:
+REGISTER sip:siptest.com SIP/2.0
+Via: SIP/2.0/TCP 10.0.1.159:0;branch=z9hG4bK-18395-101-0;rport
+From: sipcallee00101 <sip:sipcallee00101@siptest.com>;tag=18395SIPpTag00101
+To: sipcallee00101 <sip:sipcallee00101@siptest.com>
+Call-ID: register-sipcallee00101///101-18395@10.0.1.159
+CSeq: 1 REGISTER
+Contact: <sip:sipcallee00101@10.0.1.159:0;transport=TCP>
+Expires: 21600
+Max-Forwards: 70
+User-Agent: Moimstone
+Content-Type: application/sdp
+Content-Length:     0
+
+
+2018-04-27 12:51:00,785 INFO o.l.n.s.s.SIPSessionManagerImpl [nioEventLoopGroup-3-3] FromTag: 18395SIPpTag00101, ToTag: null
+2018-04-27 12:51:00,785 INFO o.l.n.s.s.SIPSessionManagerImpl [nioEventLoopGroup-3-3] Create SAS : a4036fa0

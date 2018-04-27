@@ -1,14 +1,13 @@
-package org.lunker.new_proxy.sip.context;
+package org.lunker.new_proxy.core;
 
 import gov.nist.javax.sip.message.SIPMessage;
 import io.netty.channel.ChannelHandlerContext;
 import org.lunker.new_proxy.sip.session.SIPSessionManagerImpl;
 import org.lunker.new_proxy.sip.session.sas.SipApplicationSessionKey;
 import org.lunker.new_proxy.sip.session.ss.SipSessionKey;
-import org.lunker.new_proxy.sip.wrapper.message.GeneralSipMessage;
+import org.lunker.new_proxy.sip.wrapper.message.proxy.ProxySipMessage;
 import org.lunker.new_proxy.stub.session.sas.SipApplicationSession;
 import org.lunker.new_proxy.stub.session.ss.SipSession;
-import org.lunker.new_proxy.util.Registrar;
 
 /**
  * Created by dongqlee on 2018. 3. 20..
@@ -17,12 +16,12 @@ public class ProxyContext {
 
     private static ProxyContext instance=null;
     private SIPSessionManagerImpl sipSessionManager=null;
-    private Registrar registrar=null;
+//    private Registrar registrar=null;
 
 
     private ProxyContext() {
         this.sipSessionManager=new SIPSessionManagerImpl();
-        this.registrar=Registrar.getInstance();
+//        this.registrar=Registrar.getInstance();
     }
 
     public static ProxyContext getInstance() {
@@ -31,8 +30,8 @@ public class ProxyContext {
         return instance;
     }
 
-    public SipSession createOrGetSIPSession(ChannelHandlerContext ctx, GeneralSipMessage generalSipMessage){
-        return sipSessionManager.createOrGetSIPSession(ctx, generalSipMessage.getRawSipMessage());
+    public SipSession createOrGetSIPSession(ChannelHandlerContext ctx, ProxySipMessage proxySipMessage){
+        return sipSessionManager.createOrGetSIPSession(ctx, proxySipMessage.getRawSipMessage());
     }
 
     public SipSession createOrGetSIPSession(ChannelHandlerContext ctx, SIPMessage generalSipMessage){
@@ -50,10 +49,4 @@ public class ProxyContext {
     public SipApplicationSession getSipApplicationSession(SipSessionKey sipSessionKey){
         return sipSessionManager.findSipApplicationSession(sipSessionKey);
     }
-
-    public Registrar getRegistrar() {
-        return registrar;
-    }
-
-
 }

@@ -2,7 +2,7 @@ package org.lunker.new_proxy.stub.session.ss;
 
 import io.netty.channel.ChannelHandlerContext;
 import org.lunker.new_proxy.sip.session.ss.SipSessionKey;
-import org.lunker.new_proxy.sip.wrapper.message.GeneralSipRequest;
+import org.lunker.new_proxy.sip.wrapper.message.proxy.ProxySipRequest;
 import org.lunker.new_proxy.stub.session.sas.SipApplicationSession;
 
 /**
@@ -36,11 +36,11 @@ public interface SipSession {
      * @param method
      * @return
      */
-    GeneralSipRequest createRequest(String method);
+    ProxySipRequest createRequest(String method);
 
-    void setFirstRequest(GeneralSipRequest generalSipRequest);
+    void setFirstRequest(ProxySipRequest generalSipRequest);
 
-    GeneralSipRequest getFirstRequest();
+    ProxySipRequest getFirstRequest();
 
     void setCtx(ChannelHandlerContext ctx);
 

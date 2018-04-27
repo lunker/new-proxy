@@ -1,7 +1,7 @@
 package org.lunker.new_proxy.sip.session.ss;
 
 import gov.nist.javax.sip.message.SIPMessage;
-import org.lunker.new_proxy.sip.wrapper.message.GeneralSipMessage;
+import org.lunker.new_proxy.sip.wrapper.message.proxy.ProxySipMessage;
 
 import javax.sip.header.FromHeader;
 
@@ -28,7 +28,7 @@ public class SipSessionKey {
         generateKey();
     }
 
-    public SipSessionKey(GeneralSipMessage sipMessage, String sipApplicationSessionId) {
+    public SipSessionKey(ProxySipMessage sipMessage, String sipApplicationSessionId) {
         this.fromTag=sipMessage.getFrom().getTag();
         this.callId=sipMessage.getCallId();
         this.applicationSessionId=sipApplicationSessionId;
