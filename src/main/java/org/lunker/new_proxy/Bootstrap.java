@@ -2,6 +2,7 @@ package org.lunker.new_proxy;
 
 import org.lunker.new_proxy.config.Configuration;
 import org.lunker.new_proxy.core.constants.ServerType;
+import org.lunker.new_proxy.exception.InvalidConfiguratoinException;
 import org.lunker.new_proxy.server.tcp.TCPServer;
 import org.lunker.new_proxy.sip.processor.ServerProcessor;
 import org.lunker.new_proxy.sip.processor.proxy.ProxyPostProcessor;
@@ -21,7 +22,7 @@ public class Bootstrap {
 
     // ISSUE:
     // tcp, udp 등 여러 서버들간에 동일한 Handler 객체를 넘겨줘도 되는가? 아니면 각각 서버들마다 다른 객체를 넘겨줘야하나?
-    public static void start(String transport, SipMessageHandler sipMessageHandler){
+    public static void start(String transport, SipMessageHandler sipMessageHandler) throws InvalidConfiguratoinException{
         logger.debug(String.format("Server %s starting ...", transport));
 
         Optional<SipMessageHandler> optionalSipMessageHandler=Optional.ofNullable(sipMessageHandler);
@@ -48,7 +49,7 @@ public class Bootstrap {
         logger.debug(String.format("Server %s started", transport));
     }
 
-    private static ServerProcessor generateProcessor(ServerType serverType, Optional<SipMessageHandler> sipMessageHandler) throws RuntimeException{
+    private static ServerProcessor generateProcessor(ServerType serverType, Optional<SipMessageHandler> sipMessageHandler) throws InvalidConfiguratoinException{
         ServerProcessor serverProcessor=new ServerProcessor();
 
         switch (serverType){
@@ -61,7 +62,7 @@ public class Bootstrap {
                 serverProcessor.setPostProcessor(new ProxyPostProcessor());
                 break;
             case NONE:
-                throw new RuntimeException("ServerType is not valid");
+                throw new InvalidConfiguratoinException("ServerType is not valid");
         }
 
         return serverProcessor;

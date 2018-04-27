@@ -4,6 +4,7 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import org.lunker.new_proxy.core.constants.ServerType;
+import org.lunker.new_proxy.exception.InvalidConfiguratoinException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -92,10 +93,14 @@ public class Configuration {
         }
     }
 
-    public void deserialize(){
+    public void deserialize() throws InvalidConfiguratoinException{
         this.serverType=ServerType.convert(configurationJson.get("type").getAsString());
         if(this.serverType==ServerType.NONE)
             isValidServerType=false;
+
+        if(!isValidServerType)
+            throw new InvalidConfiguratoinException("Configuration 'ServerType' is not correct");
+
 
         JsonObject transportConfig=configurationJson.getAsJsonObject("transport");
 
@@ -108,6 +113,8 @@ public class Configuration {
                 setConfigMap(tcpConfigMap, tcpJsonConfig);
                 isValidTCP=true;
             }
+            else
+                throw new InvalidConfiguratoinException("Configuration 'TCP' options is not correct");
         }
 
         if(transportConfig.has(TRANSPORT_UDP)){

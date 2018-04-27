@@ -17,5 +17,6 @@ public class TestConfiguration {
     @Test
     public void testValidate(){
         Configuration.getInstance().deserialize();
+
     }
 }
