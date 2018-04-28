@@ -32,7 +32,7 @@ public interface SipSession {
     Object getAttribute(String key);
 
     /**
-     * Create SipRequest
+     * Create AbstractSipRequest
      * @param method
      * @return
      */
