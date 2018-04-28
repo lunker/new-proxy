@@ -2,6 +2,10 @@
 # 
 Modern Java SIP Framework based on Reactive 
 
+- Lightweight
+- Reactive 
+- Fast 
+- Intuitive
 
 
 ## Dependency 
@@ -10,6 +14,15 @@ Modern Java SIP Framework based on Reactive
 - Reactor Core
 
 ## How to test
+
+
+## Javadoc
+
+
+
+
+Licensed Under GNU Lesser General Public License v2.1
+
 
 
 

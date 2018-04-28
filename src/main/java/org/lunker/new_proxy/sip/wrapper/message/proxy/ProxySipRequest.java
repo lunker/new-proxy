@@ -4,6 +4,7 @@ import gov.nist.javax.sip.message.SIPMessage;
 import gov.nist.javax.sip.message.SIPRequest;
 import gov.nist.javax.sip.message.SIPResponse;
 import org.lunker.new_proxy.sip.session.ss.SipSessionKey;
+import org.lunker.new_proxy.sip.wrapper.message.SipRequest;
 
 import javax.sip.address.Address;
 import javax.sip.header.ContactHeader;
@@ -18,7 +19,7 @@ import java.util.ListIterator;
 /**
  * Created by dongqlee on 2018. 3. 19..
  */
-public class ProxySipRequest extends ProxySipMessage {
+public class ProxySipRequest extends ProxySipMessage implements SipRequest {
 
     private SIPRequest jainSipRequest=null;
 

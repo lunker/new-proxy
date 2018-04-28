@@ -31,8 +31,8 @@ public class ProxyPreProcessor extends PreProcessor {
 
     Optional<SipMessageHandler> optionalSipMessageHandler=null;
 
-    @Deprecated
-    public ProxyPreProcessor() {
+
+    private ProxyPreProcessor() {
 
     }
 
@@ -40,8 +40,6 @@ public class ProxyPreProcessor extends PreProcessor {
         this.stringMsgParser=new StringMsgParser();
         this.optionalSipMessageHandler=optionalSipMessageHandler;
     }
-
-
 
     @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {

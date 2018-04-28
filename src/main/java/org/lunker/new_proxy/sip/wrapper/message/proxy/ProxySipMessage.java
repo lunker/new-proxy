@@ -21,7 +21,7 @@ import java.util.Map;
 /**
  * Created by dongqlee on 2018. 3. 19..
  */
-public abstract class ProxySipMessage extends AbstractSipMessage{
+public abstract class ProxySipMessage extends AbstractSipMessage {
 
     protected Logger logger= LoggerFactory.getLogger(ProxySipMessage.class);
     protected SIPMessage message;
