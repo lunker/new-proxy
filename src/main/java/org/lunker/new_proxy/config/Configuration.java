@@ -97,6 +97,8 @@ public class Configuration {
         this.serverType=ServerType.convert(configurationJson.get("type").getAsString());
         if(this.serverType==ServerType.NONE)
             isValidServerType=false;
+        else
+            isValidServerType=true;
 
         if(!isValidServerType)
             throw new InvalidConfiguratoinException("Configuration 'ServerType' is not correct");

@@ -23,6 +23,7 @@ public class ProxySipRequest extends ProxySipMessage {
     private SIPRequest jainSipRequest=null;
 
     private ProxySipRequest() {
+
     }
 
     public ProxySipRequest(SIPMessage jainSipRequest, SipSessionKey sipSessionKey) {

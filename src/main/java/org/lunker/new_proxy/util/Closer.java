@@ -12,6 +12,5 @@ public class Closer {
     }
 
     public static void addGraceFullyShutdownHandler(){
-
     }
 }

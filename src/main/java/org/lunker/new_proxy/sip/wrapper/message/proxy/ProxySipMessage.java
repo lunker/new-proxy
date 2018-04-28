@@ -1,6 +1,9 @@
 package org.lunker.new_proxy.sip.wrapper.message.proxy;
 
+import gov.nist.javax.sip.address.SipUri;
 import gov.nist.javax.sip.message.SIPMessage;
+import gov.nist.javax.sip.message.SIPRequest;
+import gov.nist.javax.sip.message.SIPResponse;
 import org.lunker.new_proxy.core.ProxyContext;
 import org.lunker.new_proxy.sip.session.ss.SipSessionKey;
 import org.lunker.new_proxy.sip.util.SipMessageFactory;
@@ -108,11 +111,36 @@ public abstract class ProxySipMessage extends AbstractSipMessage{
         // TODO:: PostProcessor로 옮긴다.
         /**
          * Request:
-         *  - request uri 정보를 읽어와서 ctx를 뒤지고, 해당 socket에 전송한다
-         *  -> ctx manager가 필요함
+         *
+         * // Client -> proxy (Direct Connection)
+         *  1) - request uri 정보를 읽어와서 client connection을 뒤지고, 해당 socket에 전송한다
+         *
+         * // Client -> LB -> Proxy
+         *  2) - request uri의 정보를 읽어와서 client connection을 못찾으면,
+         *  top via의 정보를 읽어서 해당 노드의 정보가 LB인지 확인한다.
+         *  LB와 일치하면, 해당 LB에게 전송한다.
+         *
          * Response:
          *  -> Via를 뒤져서, 해당 connection을 직접 가지고 있으면 전송, 아니면 lb에게 전송
+         *  -> Via를 뒤져서,
          */
+        if(this.message instanceof SIPRequest){
+            // Request
+            SIPRequest sipRequest=(SIPRequest) this.message;
+            SipUri requestUri=(SipUri) sipRequest.getRequestURI();
+            String remoteHost=requestUri.getHost();
+            int remotePort=requestUri.getPort();
+
+
+            System.out.println("break");
+        }
+        else{
+            // Response
+            SIPResponse sipResponse=(SIPResponse) this.message;
+
+            sipResponse.getTopmostVia();
+        }
+
 
         /*
         if(this.getSipSession()!=null){

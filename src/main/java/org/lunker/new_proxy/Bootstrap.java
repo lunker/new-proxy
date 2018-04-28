@@ -33,7 +33,6 @@ public class Bootstrap {
                 ServerProcessor serverProcessor=generateProcessor(configuration.getServerType(), optionalSipMessageHandler);
                 TCPServer tcpServer=new TCPServer(serverProcessor, configuration.getTcpConfigMap());
 
-
                 try{
                     tcpServer.run();
                 }

@@ -14,7 +14,6 @@ import org.slf4j.LoggerFactory;
 public class TCPChannelInitializer extends TransportInitializer {
     private Logger logger= LoggerFactory.getLogger(TCPChannelInitializer.class);
 
-
     public TCPChannelInitializer(ServerProcessor serverProcessor) {
         this.postProcessor=serverProcessor.getPostProcessor();
         this.preProcessor=serverProcessor.getPreProcessor();
