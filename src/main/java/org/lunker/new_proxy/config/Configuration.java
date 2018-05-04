@@ -8,8 +8,10 @@ import org.lunker.new_proxy.exception.InvalidConfiguratoinException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.io.File;
-import java.nio.file.Files;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
@@ -61,7 +63,7 @@ public class Configuration {
     }
 
 
-    private Configuration() throws RuntimeException {
+    private Configuration() throws RuntimeException{
 
         // TCP Transport config
         tcpConfigMap=new HashMap<>();
@@ -71,26 +73,66 @@ public class Configuration {
 
         //Get file from resources folder
         ClassLoader classLoader = getClass().getClassLoader();
-        File file = new File(classLoader.getResource("application.json").getFile());
+
+        /*
+        File file = new File(getClass().getClassLoader().getResource("/application.json").getFile());
 
         if(!file.exists())
             throw new RuntimeException("Server configuration file is not exist. Put 'application.json' under resources dir");
         else
             logger.debug("Find server configuration");
 
+            try{
+                String content = new String(Files.readAllBytes(file.toPath()));
+                JsonParser jsonParser=new JsonParser();
+
+                configurationJson=jsonParser.parse(content).getAsJsonObject();
+
+                deserialize();
+            }
+            catch (Exception e){
+//            e.printStackTrace();
+                throw new RuntimeException(e);
+            }
+            */
+
 
         try{
-            String content = new String(Files.readAllBytes(file.toPath()));
-            JsonParser jsonParser=new JsonParser();
 
-            configurationJson=jsonParser.parse(content).getAsJsonObject();
+            InputStream in=getClass().getResourceAsStream("/application.json");
 
-            deserialize();
-        }
-        catch (Exception e){
+            if(in.available() != 0){
+                BufferedReader reader = new BufferedReader(new InputStreamReader(in));
+                StringBuilder stringBuilder=new StringBuilder();
+                reader.lines().forEach((line)->{
+                    stringBuilder.append(line);
+                });
+
+                try{
+                    String content = stringBuilder.toString();
+                    JsonParser jsonParser=new JsonParser();
+
+                    configurationJson=jsonParser.parse(content).getAsJsonObject();
+
+                    deserialize();
+                }
+                catch (Exception e){
 //            e.printStackTrace();
-            throw new RuntimeException(e);
+                    throw new RuntimeException(e);
+                }
+            }
+            else{
+                throw new RuntimeException("Server configuration file is not exist. Put 'application.json' under resources dir");
+            }
+
+
+
         }
+        catch (IOException ioe){
+            ioe.printStackTrace();
+        }
+
+
     }
 
     public void deserialize() throws InvalidConfiguratoinException{
@@ -102,7 +144,6 @@ public class Configuration {
 
         if(!isValidServerType)
             throw new InvalidConfiguratoinException("Configuration 'ServerType' is not correct");
-
 
         JsonObject transportConfig=configurationJson.getAsJsonObject("transport");
 
@@ -127,7 +168,6 @@ public class Configuration {
 
         }
 
-
         if(transportConfig.has(TRANSPORT_HTTP)){
 
         }
@@ -139,8 +179,6 @@ public class Configuration {
         if(transportConfig.has(TRANSPORT_WSS)){
 
         }
-
-
 
     }
 

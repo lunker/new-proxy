@@ -8,6 +8,11 @@ import gov.nist.javax.sip.message.SIPRequest;
  */
 public class B2BUAHelper {
 
+    public B2BUAHelper() {
+
+        // assert if application is stateful
+    }
+
     public SIPMessage createRequest(SIPMessage sipMessage){
         SIPRequest originalRequest=(SIPRequest) sipMessage;
         SIPRequest createdRequest=null;

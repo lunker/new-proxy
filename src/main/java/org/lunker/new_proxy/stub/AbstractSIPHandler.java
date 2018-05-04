@@ -1,15 +1,15 @@
 package org.lunker.new_proxy.stub;
 
-import org.lunker.new_proxy.sip.wrapper.message.proxy.ProxySipMessage;
+import org.lunker.new_proxy.sip.wrapper.message.DefaultSipMessage;
 
 /**
  * Created by dongqlee on 2018. 3. 16..
  */
 @Deprecated
 public interface AbstractSIPHandler {
-    ProxySipMessage handleRegister(ProxySipMessage registerRequest);
-    ProxySipMessage handleInvite(ProxySipMessage inviteRequest);
-    ProxySipMessage handleCancel(ProxySipMessage cancelRequest);
-    ProxySipMessage handleAck(ProxySipMessage ackRequest);
-    ProxySipMessage handleBye(ProxySipMessage byeRequest);
+    DefaultSipMessage handleRegister(DefaultSipMessage registerRequest);
+    DefaultSipMessage handleInvite(DefaultSipMessage inviteRequest);
+    DefaultSipMessage handleCancel(DefaultSipMessage cancelRequest);
+    DefaultSipMessage handleAck(DefaultSipMessage ackRequest);
+    DefaultSipMessage handleBye(DefaultSipMessage byeRequest);
 }

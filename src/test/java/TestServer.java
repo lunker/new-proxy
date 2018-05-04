@@ -1,10 +1,6 @@
 import org.junit.Test;
 import org.lunker.new_proxy.Bootstrap;
-import org.lunker.new_proxy.exception.InvalidConfiguratoinException;
-import org.lunker.new_proxy.sip.wrapper.message.proxy.ProxySipMessage;
-import org.lunker.new_proxy.stub.SipMessageHandler;
-
-import java.util.Optional;
+import proxy.core.SipServletImpl;
 
 /**
  * Created by dongqlee on 2018. 4. 26..
@@ -12,24 +8,19 @@ import java.util.Optional;
 public class TestServer {
 
     @Test
-    public void startServer() throws InvalidConfiguratoinException{
+    public void startServer() throws Exception{
         Bootstrap bootstrap=new Bootstrap();
-        bootstrap.start("tcp", new SipMessageHandlerImpl());
+
+        bootstrap.start("tcp", SipServletImpl.class);
     }
+
+    // message - > queue
+
+    /*
+    Queue -> SipMessageHandlerImpl 1
+           -> SipMessageHandlerImpl 2
+           -> SipMessageHandlerImpl3
+           -> SipMessageHandlerImpl 4
+     */
 }
 
-
-class SipMessageHandlerImpl implements SipMessageHandler {
-    @Override
-    public void handle(Optional<ProxySipMessage> optionalProxySipMessage) {
-        System.out.println("!@#");
-        optionalProxySipMessage.ifPresent((proxySipMessage)->{
-            try{
-                proxySipMessage.send();
-            }
-            catch (Exception e){
-                e.printStackTrace();
-            }
-        });
-    }
-}

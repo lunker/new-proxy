@@ -215,7 +215,7 @@ public class SipSessionImpl implements SipSession {
             createdRequest=new ProxySipRequest(newRequest, newSipSessionKey);
 
             ChannelHandlerContext targetCtx=findTarget(newToHeader.getAddress().getURI().toString().split(":")[1]);
-            newSipSession=proxyContext.createOrGetSIPSession(targetCtx, createdRequest); // 쌩뚱맞은 sasId를 가져온다 ㅡㅡ
+//            newSipSession=proxyContext.createOrGetSIPSession(targetCtx, createdRequest); // 쌩뚱맞은 sasId를 가져온다 ㅡㅡ
 
             System.out.println("debug breakpoint");
         }

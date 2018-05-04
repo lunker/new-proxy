@@ -6,16 +6,16 @@ import gov.nist.javax.sip.message.SIPMessage;
 import gov.nist.javax.sip.message.SIPRequest;
 import gov.nist.javax.sip.parser.StringMsgParser;
 import io.netty.channel.ChannelHandlerContext;
-import org.lunker.new_proxy.core.ProxyContext;
 import org.lunker.new_proxy.sip.processor.PreProcessor;
-import org.lunker.new_proxy.sip.wrapper.message.proxy.ProxySipMessage;
+import org.lunker.new_proxy.sip.wrapper.message.DefaultSipMessage;
 import org.lunker.new_proxy.sip.wrapper.message.proxy.ProxySipRequest;
 import org.lunker.new_proxy.sip.wrapper.message.proxy.ProxySipResponse;
 import org.lunker.new_proxy.stub.SipMessageHandler;
-import org.lunker.new_proxy.stub.session.ss.SipSession;
 import org.lunker.new_proxy.util.lambda.StreamHelper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import reactor.core.publisher.Mono;
+import reactor.core.scheduler.Schedulers;
 
 import java.net.InetSocketAddress;
 import java.text.ParseException;
@@ -27,10 +27,8 @@ import java.util.Optional;
 public class ProxyPreProcessor extends PreProcessor {
     private Logger logger= LoggerFactory.getLogger(ProxyPreProcessor.class);
     private StringMsgParser stringMsgParser=null;
-    private ProxyContext proxyContext=ProxyContext.getInstance();
 
     Optional<SipMessageHandler> optionalSipMessageHandler=null;
-
 
     private ProxyPreProcessor() {
 
@@ -44,10 +42,20 @@ public class ProxyPreProcessor extends PreProcessor {
     @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
         try{
-            Optional<String> maybeStrSipMessage=(Optional<String>) msg;
-            Optional<ProxySipMessage> maybeGeneralSipMessage=deserialize(ctx, maybeStrSipMessage);
+            Mono<String> wrapper=Mono.fromCallable(()->{
 
-            this.optionalSipMessageHandler.get().handle(maybeGeneralSipMessage);
+                Optional<String> maybeStrSipMessage=(Optional<String>) msg;
+
+                // 결국 이것만 다르다
+                Optional<DefaultSipMessage> maybeGeneralSipMessage=deserialize(ctx, maybeStrSipMessage);
+
+                this.optionalSipMessageHandler.get().handle(ctx, maybeGeneralSipMessage);
+
+                return "fromCallable return value";
+            });
+
+            wrapper=wrapper.subscribeOn(Schedulers.elastic());
+            wrapper.subscribe();
         }
         catch (Exception e){
             logger.warn("Error while encoding sip wrapper . . . :\n" + ((Optional<String>) msg).get());
@@ -59,6 +67,13 @@ public class ProxyPreProcessor extends PreProcessor {
         return stringMsgParser.parseSIPMessage(strSipMessage.getBytes(), true, false, null);
     }
 
+    /**
+     * Set ServerReflexive address to Via 'rport', 'received'
+     * @param ctx
+     * @param jainSipMessage
+     * @return
+     * @throws ParseException
+     */
     private SIPMessage updateMessage(ChannelHandlerContext ctx, SIPMessage jainSipMessage) throws ParseException {
         ViaList viaList=jainSipMessage.getViaHeaders();
 
@@ -81,26 +96,30 @@ public class ProxyPreProcessor extends PreProcessor {
         return jainSipMessage;
     }
 
-    private ProxySipMessage generateGeneralSipMessage(ChannelHandlerContext ctx, SIPMessage jainSipMessage){
-        ProxySipMessage proxySipMessage =null;
+    private DefaultSipMessage generateGeneralSipMessage(ChannelHandlerContext ctx, SIPMessage jainSipMessage){
+        DefaultSipMessage defaultSipMessage =null;
 
-        SipSession sipSession=proxyContext.createOrGetSIPSession(ctx, jainSipMessage);
+//        SipSession sipSession=proxyContext.createOrGetSIPSession(ctx, jainSipMessage);
 
         if(jainSipMessage instanceof SIPRequest){
-            proxySipMessage =new ProxySipRequest(jainSipMessage, sipSession.getSipSessionkey());
+            // TODO: create ProxySipMessage with SipSession
+            defaultSipMessage=new ProxySipRequest(jainSipMessage);
         }
         else{
-            proxySipMessage =new ProxySipResponse(jainSipMessage, sipSession.getSipSessionkey());
+            defaultSipMessage=new ProxySipResponse(jainSipMessage);
         }
 
+        /*
+        // TODO: next step on 'Stateful Proxy'
         if(jainSipMessage instanceof SIPRequest && sipSession.getFirstRequest()==null && ((SIPRequest) jainSipMessage).getMethod().equals("INVITE")){
             sipSession.setFirstRequest((ProxySipRequest) proxySipMessage);
         }
+        */
 
-        return proxySipMessage;
+        return defaultSipMessage;
     }
 
-    public Optional<ProxySipMessage> deserialize(ChannelHandlerContext ctx, Optional<String> maybeStrSipMessage) {
+    public Optional<DefaultSipMessage> deserialize(ChannelHandlerContext ctx, Optional<String> maybeStrSipMessage) {
         return maybeStrSipMessage
                 .map(StreamHelper.wrapper(strSipMessage -> generateJainSipMessage(strSipMessage)))
                 .map(StreamHelper.wrapper(jainSipMessage -> updateMessage(ctx, jainSipMessage)))

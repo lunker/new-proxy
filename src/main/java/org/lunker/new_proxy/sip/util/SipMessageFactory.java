@@ -68,7 +68,7 @@ public class SipMessageFactory {
     }
 
     /**
-     * Create Jain AbstractSipResponse
+     * Create Jain DefaultSipResponse
      * @param responseCode
      * @param request
      * @return

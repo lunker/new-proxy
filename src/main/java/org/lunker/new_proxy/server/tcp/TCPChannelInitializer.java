@@ -13,18 +13,22 @@ import org.slf4j.LoggerFactory;
  */
 public class TCPChannelInitializer extends TransportInitializer {
     private Logger logger= LoggerFactory.getLogger(TCPChannelInitializer.class);
+    private ServerProcessor serverProcessor=null;
 
     public TCPChannelInitializer(ServerProcessor serverProcessor) {
+        this.serverProcessor=serverProcessor;
         this.postProcessor=serverProcessor.getPostProcessor();
-        this.preProcessor=serverProcessor.getPreProcessor();
+//        this.preProcessor=serverProcessor.getPreProcessor();
     }
 
     @Override
     protected void initChannel(Channel ch) throws Exception {
+
         // TCP specific
         ch.pipeline().addLast("decoder", new TCPStreamDecoder());
 
-        ch.pipeline().addLast("preProcessor", this.preProcessor);
+        ch.pipeline().addLast("preProcessor", serverProcessor.newPreProcessorInstance());
+//        ch.pipeline().addLast("preProcessor", preProcessor);
 
         // TODO: postprocessor가 transport specific 한가 ?
         ch.pipeline().addLast("postProcessor", this.postProcessor);
@@ -34,4 +38,8 @@ public class TCPChannelInitializer extends TransportInitializer {
     public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) throws Exception {
         logger.error("ExceptionCaught:: " + cause.getMessage());
     }
+
+
+
+
 }

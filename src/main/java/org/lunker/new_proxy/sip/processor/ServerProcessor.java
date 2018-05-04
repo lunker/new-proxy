@@ -1,5 +1,6 @@
 package org.lunker.new_proxy.sip.processor;
 
+import org.lunker.new_proxy.sip.processor.proxy.ProxyPreProcessor;
 import org.lunker.new_proxy.stub.SipMessageHandler;
 
 import java.util.Optional;
@@ -12,11 +13,9 @@ public class ServerProcessor {
     private Optional<SipMessageHandler> sipMessageHandler=null;
     private PostProcessor postProcessor=null;
 
-    public ServerProcessor() {
-    }
+    private String sipMessageHandlerClassName="";
 
-    public PreProcessor getPreProcessor() {
-        return preProcessor;
+    public ServerProcessor() {
     }
 
     public void setPreProcessor(PreProcessor preProcessor) {
@@ -35,6 +34,12 @@ public class ServerProcessor {
         this.sipMessageHandler = sipMessageHandler;
     }
 
+    public void setSipMessageHandlerClassName(String sipMessageHandlerClassName) throws ClassNotFoundException, IllegalAccessException, InstantiationException{
+        this.sipMessageHandlerClassName = sipMessageHandlerClassName;
+
+        this.sipMessageHandler=Optional.ofNullable((SipMessageHandler) Class.forName(this.sipMessageHandlerClassName).newInstance());
+    }
+
     public PostProcessor getPostProcessor() {
         return postProcessor;
     }
@@ -42,4 +47,11 @@ public class ServerProcessor {
     public void setPostProcessor(PostProcessor postProcessor) {
         this.postProcessor = postProcessor;
     }
+
+    public PreProcessor newPreProcessorInstance() {
+        return new ProxyPreProcessor(this.sipMessageHandler);
+    }
+
+
+
 }

@@ -2,8 +2,7 @@ package org.lunker.new_proxy.sip.processor.proxy;
 
 import io.netty.channel.ChannelHandlerContext;
 import org.lunker.new_proxy.sip.processor.PostProcessor;
-import org.lunker.new_proxy.sip.wrapper.message.proxy.ProxySipMessage;
-import org.lunker.new_proxy.sip.wrapper.message.proxy.ProxySipRequest;
+import org.lunker.new_proxy.sip.wrapper.message.DefaultSipMessage;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -25,32 +24,27 @@ public class ProxyPostProcessor extends PostProcessor {
     }
 
     /**
-     * Send SipMessage
+     * - Send SipMessage
+     *
+     * (Stateful)
+     * - Destroy session
+     *
      * @param ctx
      * @param msg
      * @throws Exception
      */
     @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
-
         logger.info("POST-PROCESSOR");
+
         if(msg!=null){
-            Optional<ProxySipMessage> maybeProxySipMessage =(Optional<ProxySipMessage>) msg;
+            Optional<DefaultSipMessage> maybeProxySipMessage=(Optional<DefaultSipMessage>) msg;
 
-            maybeProxySipMessage.ifPresent((proxySipMessage)->{
-
-                // TODO: destory session
-                if(proxySipMessage instanceof ProxySipRequest){
-                    // Request
-                    String method= proxySipMessage.getMethod();
-                }
-                else {
-                    // Response
-                }
+            maybeProxySipMessage.ifPresent((defaultSipMessage)->{
 
                 // Send ProxyMessage
                 try{
-                    proxySipMessage.send();
+                    defaultSipMessage.send();
                 }
                 catch (Exception e){
                     e.printStackTrace();
@@ -63,5 +57,4 @@ public class ProxyPostProcessor extends PostProcessor {
     public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) throws Exception {
         cause.printStackTrace();
     }
-
 }

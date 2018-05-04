@@ -24,10 +24,10 @@ public class TCPServer extends AbstractServer {
     private EventLoopGroup workerGroup = new NioEventLoopGroup();
 
     public TCPServer(ServerProcessor serverProcessor, Map<String, Object> transportConfigMap) {
-
-        // Set Channel Initializer
+        // Set Netty channel initializer
         this.channelInitializer=new TCPChannelInitializer(serverProcessor);
-        // Set Transport Configs
+
+        // Set transport configs
         this.transportConfigMap=transportConfigMap;
     }
 
@@ -39,28 +39,33 @@ public class TCPServer extends AbstractServer {
     @Override
     public ChannelFuture run() throws Exception {
         ServerBootstrap b = new ServerBootstrap();
+
+        // TODO: set ChannelOption using transport properties
         b.group(bossGroup, workerGroup)
                 .channel(NioServerSocketChannel.class)
                 .childHandler(this.channelInitializer)
-                .option(ChannelOption.SO_BACKLOG, 20000)
-                .childOption(ChannelOption.SO_KEEPALIVE, true)
+                .option(ChannelOption.SO_BACKLOG, 2048)
+
+                .childOption(ChannelOption.SO_LINGER, 0)
                 .childOption(ChannelOption.TCP_NODELAY, true)
-                .childOption(ChannelOption.SO_RCVBUF, 20000);
+                .childOption(ChannelOption.SO_REUSEADDR, true)
+
+                .childOption(ChannelOption.SO_RCVBUF, 100 * 1024)
+                .childOption(ChannelOption.SO_SNDBUF,100 * 1024 ); // 5- > 10 cause 메세지 유실은 사라짐
+
 
         // Bind and start to accept incoming connections.
         ChannelFuture f = b.bind((int) transportConfigMap.get("port")).sync(); // (7)
 
-        logger.info("Run TCP Server Listening on " + (int) transportConfigMap.get("port"));
+        logger.info("Run TCP Server Listening on {}", transportConfigMap.get("port"));
 
-        // Wait until the server socket is closed.
-        // In this example, this does not happen, but you can do that to gracefully
-        // shut down your server.
         f.channel().closeFuture().sync();
         return f;
     }// end run
 
     public void shutdown(){
-        logger.debug("Shut down TCPServer gracefully...");
+        if(logger.isDebugEnabled())
+            logger.debug("Shut down TCPServer gracefully...");
 
         if(workerGroup!=null)
             workerGroup.shutdownGracefully();

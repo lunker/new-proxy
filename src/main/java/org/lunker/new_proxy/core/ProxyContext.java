@@ -11,26 +11,21 @@ import org.lunker.new_proxy.stub.session.ss.SipSession;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.util.Optional;
-import java.util.concurrent.ConcurrentHashMap;
-
 /**
  * Created by dongqlee on 2018. 3. 20..
  */
+@Deprecated
 public class ProxyContext {
 
     private Logger logger= LoggerFactory.getLogger(ProxyContext.class);
     private static ProxyContext instance=null;
     private SIPSessionManagerImpl sipSessionManager=null;
-    private ConcurrentHashMap<String, ChannelHandlerContext> clientMap=null;
+//    private ConcurrentHashMap<String, ChannelHandlerContext> clientMap=null;
 //    private Registrar registrar=null;
-
 
     private ProxyContext() {
         this.sipSessionManager=new SIPSessionManagerImpl();
 //        this.registrar=Registrar.getInstance();
-
-        this.clientMap=new ConcurrentHashMap<>();
     }
 
     public static ProxyContext getInstance() {
@@ -59,33 +54,5 @@ public class ProxyContext {
         return sipSessionManager.findSipApplicationSession(sipSessionKey);
     }
 
-    public void addClient(String host, int port, String transport, ChannelHandlerContext channelHandlerContext){
-        String key=createClientKey(host, port, transport);
-
-
-        this.clientMap.put(key, channelHandlerContext);
-        logger.info("Add Client :: " + key);
-    }
-
-    public Optional<ChannelHandlerContext> getClientConnection(String host, int port, String transport){
-        String key=createClientKey(host, port, transport);
-        Optional<ChannelHandlerContext> optionalChannelHandlerContext;
-        return optionalChannelHandlerContext=Optional.ofNullable(this.clientMap.get(key));
-    }
-
-    public void deleteClient(String host, int port, String transport){
-        String key=createClientKey(host, port, transport);
-
-        if(this.clientMap.containsKey(key)){
-            this.clientMap.remove(key);
-            logger.info("Delete Client success :: " + key);
-        }
-        else
-            logger.info("Delete Client fail :: " + key);
-    }
-
-    private String createClientKey(String host, int port, String transport){
-        return String.format("%s:%d:%s", host, port, transport);
-    }
 
 }

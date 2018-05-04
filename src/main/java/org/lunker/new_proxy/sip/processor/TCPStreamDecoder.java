@@ -74,7 +74,6 @@ public class TCPStreamDecoder extends ByteToMessageDecoder{
             large=targetBuf;
         }
 
-
         // TODO: Change to Stream API
         for(int idx=0; idx<small.length; idx++){
             if(small[idx] != large[idx])
@@ -154,12 +153,15 @@ public class TCPStreamDecoder extends ByteToMessageDecoder{
                     try{
 
                         String strSipMessage=headerBuffer.toString(0, headerBuffer.writerIndex(), CharsetUtil.UTF_8) + bodyBuffer.toString(0, bodyBuffer.writerIndex(), CharsetUtil.UTF_8);
-                        logger.info("Parsed sip wrapper:\n" + strSipMessage);
+
+                        if(logger.isDebugEnabled())
+                            logger.debug("Parsed sip wrapper:\n{}", strSipMessage);
 
                         // reset used buffer
                         headerBuffer.clear();
-                        bodyBuffer.clear();
                         headerLineBuffer.clear();
+                        bodyBuffer.clear();
+
 
                         // change state
                         this.isHeaderState=true;
@@ -167,12 +169,14 @@ public class TCPStreamDecoder extends ByteToMessageDecoder{
                         this.readBodyLength=0;
                         this.contentLength=0;
 
+                        /*
                         this.headerBuffer.release();
                         this.headerLineBuffer.release();
                         this.bodyBuffer.release();
 
                         this.headerBuffer=allocate(DEFAULT_HEADER_SIZE);
                         this.headerLineBuffer=allocate(DEFAULT_HEADER_LINE_SIZE);
+                        */
 
                         ctx.fireChannelRead(Optional.ofNullable(strSipMessage));
                     }
