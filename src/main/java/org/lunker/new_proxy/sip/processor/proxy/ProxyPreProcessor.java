@@ -54,7 +54,7 @@ public class ProxyPreProcessor extends PreProcessor {
                 return "fromCallable return value";
             });
 
-            wrapper=wrapper.subscribeOn(Schedulers.elastic());
+            wrapper=wrapper.subscribeOn(Schedulers.parallel());
             wrapper.subscribe();
         }
         catch (Exception e){
