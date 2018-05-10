@@ -22,7 +22,7 @@ import java.text.ParseException;
 /**
  *
  * jain sip message wrapper for general purpose
- * Base class for LB & Proxy SipMessage
+ * Base class for LB, Proxy SipMessage
  * Created by dongqlee on 2018. 4. 26..
  */
 public abstract class DefaultSipMessage {
