@@ -38,6 +38,7 @@ public class ServerProcessor {
         this.sipMessageHandlerClassName = sipMessageHandlerClassName;
 
         this.sipMessageHandler=Optional.ofNullable((SipMessageHandler) Class.forName(this.sipMessageHandlerClassName).newInstance());
+        this.preProcessor=new ProxyPreProcessor(this.sipMessageHandler);
     }
 
     public PostProcessor getPostProcessor() {
@@ -52,6 +53,7 @@ public class ServerProcessor {
         return new ProxyPreProcessor(this.sipMessageHandler);
     }
 
-
-
+    public PreProcessor getPreProcessor() {
+        return preProcessor;
+    }
 }

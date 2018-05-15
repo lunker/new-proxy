@@ -3,7 +3,7 @@ package org.lunker.new_proxy;
 import org.lunker.new_proxy.config.Configuration;
 import org.lunker.new_proxy.core.constants.ServerType;
 import org.lunker.new_proxy.exception.InvalidConfiguratoinException;
-import org.lunker.new_proxy.exception.ServerStartException;
+import org.lunker.new_proxy.exception.BootstrapException;
 import org.lunker.new_proxy.server.tcp.TCPServer;
 import org.lunker.new_proxy.sip.processor.ServerProcessor;
 import org.lunker.new_proxy.stub.SipMessageHandler;
@@ -17,12 +17,12 @@ public class Bootstrap {
     private static Logger logger=LoggerFactory.getLogger(Bootstrap.class);
     private static Configuration configuration=Configuration.getInstance();
 
-    public static void start(String transport, Class sipMessageHandlerImplClass) throws ServerStartException {
+    public static void start(String transport, Class sipMessageHandlerImplClass) throws BootstrapException {
         start(transport, sipMessageHandlerImplClass.getName());
     }
 
     // ISSUE:tcp, udp 등 여러 서버들간에 동일한 Handler 객체를 넘겨줘도 되는가? 아니면 각각 서버들마다 다른 객체를 넘겨줘야하나?
-    public static void start(String transport, String sipMessageHandlerImplClassName) throws ServerStartException {
+    public static void start(String transport, String sipMessageHandlerImplClassName) throws BootstrapException {
         if(logger.isDebugEnabled())
             logger.debug("[{}] Server starting ...", transport);
 
@@ -60,7 +60,7 @@ public class Bootstrap {
         }
         catch (Exception e){
             logger.error("[{}] Server started failed", transport);
-            throw new ServerStartException(e.getMessage());
+            throw new BootstrapException(e.getMessage());
         }
 
     }

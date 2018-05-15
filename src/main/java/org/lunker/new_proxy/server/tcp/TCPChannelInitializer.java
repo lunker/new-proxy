@@ -18,7 +18,7 @@ public class TCPChannelInitializer extends TransportInitializer {
     public TCPChannelInitializer(ServerProcessor serverProcessor) {
         this.serverProcessor=serverProcessor;
         this.postProcessor=serverProcessor.getPostProcessor();
-//        this.preProcessor=serverProcessor.getPreProcessor();
+        this.preProcessor=serverProcessor.getPreProcessor();
     }
 
     @Override
@@ -27,8 +27,8 @@ public class TCPChannelInitializer extends TransportInitializer {
         // TCP specific
         ch.pipeline().addLast("decoder", new TCPStreamDecoder());
 
-        ch.pipeline().addLast("preProcessor", serverProcessor.newPreProcessorInstance());
-//        ch.pipeline().addLast("preProcessor", preProcessor);
+//        ch.pipeline().addLast("preProcessor", serverProcessor.newPreProcessorInstance());
+        ch.pipeline().addLast("preProcessor", preProcessor);
 
         // TODO: postprocessor가 transport specific 한가 ?
         ch.pipeline().addLast("postProcessor", this.postProcessor);
