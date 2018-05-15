@@ -212,7 +212,7 @@ public class SipSessionImpl implements SipSession {
 
             // Create Content-Length:
             SipSessionKey newSipSessionKey=new SipSessionKey(newRequest, this.sipSessionKey.getApplicationSessionId());
-            createdRequest=new ProxySipRequest(newRequest, newSipSessionKey);
+//            createdRequest=new ProxySipRequest(newRequest, newSipSessionKey);
 
             ChannelHandlerContext targetCtx=findTarget(newToHeader.getAddress().getURI().toString().split(":")[1]);
 //            newSipSession=proxyContext.createOrGetSIPSession(targetCtx, createdRequest); // 쌩뚱맞은 sasId를 가져온다 ㅡㅡ

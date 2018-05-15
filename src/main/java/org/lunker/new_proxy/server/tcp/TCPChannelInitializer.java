@@ -23,12 +23,11 @@ public class TCPChannelInitializer extends TransportInitializer {
 
     @Override
     protected void initChannel(Channel ch) throws Exception {
-
         // TCP specific
         ch.pipeline().addLast("decoder", new TCPStreamDecoder());
 
-//        ch.pipeline().addLast("preProcessor", serverProcessor.newPreProcessorInstance());
-        ch.pipeline().addLast("preProcessor", preProcessor);
+        ch.pipeline().addLast("preProcessor", serverProcessor.newPreProcessorInstance());
+//        ch.pipeline().addLast("preProcessor", preProcessor);
 
         // TODO: postprocessor가 transport specific 한가 ?
         ch.pipeline().addLast("postProcessor", this.postProcessor);

@@ -1,5 +1,6 @@
 package org.lunker.new_proxy.sip.wrapper.message;
 
+import gov.nist.javax.sip.message.SIPMessage;
 import gov.nist.javax.sip.message.SIPRequest;
 
 import javax.sip.address.URI;
@@ -9,6 +10,10 @@ import javax.sip.header.ContentTypeHeader;
  * Created by dongqlee on 2018. 4. 28..
  */
 public class DefaultSipRequest extends DefaultSipMessage {
+
+    public DefaultSipRequest(SIPMessage sipMessage) {
+        super(sipMessage);
+    }
 
     public void setContent(Object content, String contentType) {
 //        this.checkContentType(contentType);

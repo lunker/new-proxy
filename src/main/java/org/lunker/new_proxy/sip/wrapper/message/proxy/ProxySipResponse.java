@@ -1,7 +1,6 @@
 package org.lunker.new_proxy.sip.wrapper.message.proxy;
 
 import gov.nist.javax.sip.message.SIPMessage;
-import org.lunker.new_proxy.sip.session.ss.SipSessionKey;
 import org.lunker.new_proxy.sip.wrapper.message.DefaultSipResponse;
 import org.lunker.new_proxy.sip.wrapper.message.Sessionable;
 import org.slf4j.Logger;
@@ -16,13 +15,7 @@ public class ProxySipResponse extends DefaultSipResponse implements Sessionable 
     private ProxySipMessage relatedRequest=null;
 
     public ProxySipResponse(SIPMessage jainSipResponse) {
-        super();
-        this.message=jainSipResponse;
-    }
-
-    @Deprecated
-    public ProxySipResponse(SIPMessage sipMessage, SipSessionKey sipSessionKey) {
-//        super(sipMessage, sipSessionKey);
+        super(jainSipResponse);
     }
 
     public ProxySipMessage createACK() {

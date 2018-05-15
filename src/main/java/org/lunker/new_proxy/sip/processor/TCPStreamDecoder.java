@@ -12,11 +12,14 @@ import org.slf4j.LoggerFactory;
 import javax.sip.header.ContentLengthHeader;
 import java.util.List;
 import java.util.Optional;
+import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * Created by dongqlee on 2018. 3. 22..
  */
 public class TCPStreamDecoder extends ByteToMessageDecoder{
+
+    private static AtomicInteger num=new AtomicInteger(0);
 
     private Logger logger= LoggerFactory.getLogger(TCPStreamDecoder.class);
 
@@ -42,7 +45,9 @@ public class TCPStreamDecoder extends ByteToMessageDecoder{
     private byte[] contentByte="Content-Length:".getBytes();
 
     public TCPStreamDecoder() {
-        pooledByteBufAllocator=new PooledByteBufAllocator();
+//        logger.info("%d",num.incrementAndGet());
+
+        pooledByteBufAllocator=new PooledByteBufAllocator(true);
         unpooledByteBufAllocator=new UnpooledByteBufAllocator(false);
 
         headerBuffer=allocate(DEFAULT_HEADER_SIZE);
@@ -116,7 +121,6 @@ public class TCPStreamDecoder extends ByteToMessageDecoder{
                         catch (Exception e){
                             e.printStackTrace();
                         }
-
                     }
                 }
                 else if(currentByte == LF){

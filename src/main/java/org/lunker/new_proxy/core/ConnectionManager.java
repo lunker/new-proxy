@@ -14,8 +14,9 @@ public class ConnectionManager {
     private Logger logger= LoggerFactory.getLogger(ConnectionManager.class);
     private Map<String, ChannelHandlerContext> clientMap=null;
 
+    private final int MAX_CONNECTION=10000;
     private ConnectionManager() {
-        this.clientMap=new ConcurrentHashMap<>();
+        this.clientMap=new ConcurrentHashMap<>(MAX_CONNECTION);
     }
 
     public static ConnectionManager getInstance() {
@@ -51,13 +52,10 @@ public class ConnectionManager {
             if(logger.isDebugEnabled())
                 logger.info("Delete Client fail :: {}", key);
         }
-
     }
 
-
-
-
     private String createClientKey(String host, int port, String transport){
+//        return new StringBuilder().append(host).append(":").append(port).toString();
         return String.format("%s:%d:%s", host, port, transport);
     }
 
