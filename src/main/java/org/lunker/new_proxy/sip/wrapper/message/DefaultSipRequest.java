@@ -1,5 +1,6 @@
 package org.lunker.new_proxy.sip.wrapper.message;
 
+import gov.nist.javax.sip.header.Via;
 import gov.nist.javax.sip.message.SIPMessage;
 import gov.nist.javax.sip.message.SIPRequest;
 
@@ -11,8 +12,12 @@ import javax.sip.header.ContentTypeHeader;
  */
 public class DefaultSipRequest extends DefaultSipMessage {
 
+    private SIPRequest sipResponse=null;
+
     public DefaultSipRequest(SIPMessage sipMessage) {
         super(sipMessage);
+
+        this.sipResponse=(SIPRequest) this.message;
     }
 
     public void setContent(Object content, String contentType) {
@@ -29,35 +34,6 @@ public class DefaultSipRequest extends DefaultSipMessage {
         catch (Exception e){
             e.printStackTrace();
         }
-
-//
-//
-//        if (contentType != null && contentType.length() > 0) {
-//            this.addHeader("Content-Type", contentType);
-//            ContentTypeHeader contentTypeHeader = (ContentTypeHeader)this.message.getHeader("Content-Type");
-//            String charset = this.getCharacterEncoding();
-//
-//            try {
-//                if (contentType.contains("multipart") && content instanceof Multipart) {
-//                    Multipart multipart = (Multipart)content;
-//                    OutputStream os = new ByteArrayOutputStream();
-//                    multipart.writeTo(os);
-//                    this.message.setContent(os.toString(), contentTypeHeader);
-//                } else {
-//                    if (content instanceof String && charset != null) {
-//                        new String("testEncoding".getBytes(charset));
-//                        new String(((String)content).getBytes());
-//                    }
-//
-//                    this.message.setContent(content, contentTypeHeader);
-//                }
-//            } catch (UnsupportedEncodingException var7) {
-//                throw var7;
-//            } catch (Exception var8) {
-//                throw new IllegalArgumentException("Parse error reading content " + content + " with content type " + contentType, var8);
-//            }
-//        }
-
     }
 
     private void checkContentType(String contentType) {
@@ -100,5 +76,9 @@ public class DefaultSipRequest extends DefaultSipMessage {
     public void setRequestURI(URI requestURI){
         SIPRequest sipRequest=(SIPRequest) this.message;
         sipRequest.setRequestURI(requestURI);
+    }
+
+    public void addVia(Via via){
+        this.sipResponse.getViaHeaders().add(via);
     }
 }
