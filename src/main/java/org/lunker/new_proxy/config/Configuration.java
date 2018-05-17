@@ -159,9 +159,17 @@ public class Configuration {
             else
                 throw new InvalidConfiguratoinException("Configuration 'TCP' options is not correct");
         }
-
+        // UDP Server
         if(transportConfig.has(TRANSPORT_UDP)){
+            JsonObject udpJsonConfig = null;
+            udpJsonConfig = transportConfig.getAsJsonObject(TRANSPORT_UDP);
 
+            if (validate(udpJsonConfig)) {
+                setConfigMap(udpConfigMap, udpJsonConfig);
+                isValidUDP = true;
+            }
+            else
+                throw new InvalidConfiguratoinException("Configuration 'UDP' options is not correct");
         }
 
         if(transportConfig.has(TRANSPORT_TLS)){

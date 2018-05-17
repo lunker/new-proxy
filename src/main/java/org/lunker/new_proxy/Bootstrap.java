@@ -5,6 +5,7 @@ import org.lunker.new_proxy.core.constants.ServerType;
 import org.lunker.new_proxy.exception.InvalidConfiguratoinException;
 import org.lunker.new_proxy.exception.ServerStartException;
 import org.lunker.new_proxy.server.tcp.TCPServer;
+import org.lunker.new_proxy.server.udp.UDPServer;
 import org.lunker.new_proxy.sip.processor.ServerProcessor;
 import org.lunker.new_proxy.stub.SipMessageHandler;
 import org.slf4j.Logger;
@@ -47,6 +48,17 @@ public class Bootstrap {
             }
             else if("udp".equalsIgnoreCase(transport)){
                 // TODO: configure UDP server
+                if (configuration.isValidUDP()) {
+                    UDPServer udpServer = new UDPServer(serverProcessor, configuration.getUdpConfigMap());
+
+                    try {
+                        udpServer.run();
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                        throw new RuntimeException(String.format("[%s] Server starting error.", transport));
+                    }
+                } else
+                    throw new RuntimeException(String.format("[%s] Server starting error. Configuration is not valid", transport));
             }
             else if("tls".equalsIgnoreCase(transport)){
                 // TODO: configure tls server
