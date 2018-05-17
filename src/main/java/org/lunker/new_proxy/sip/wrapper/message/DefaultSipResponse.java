@@ -1,15 +1,26 @@
 package org.lunker.new_proxy.sip.wrapper.message;
 
+import gov.nist.javax.sip.message.SIPMessage;
 import gov.nist.javax.sip.message.SIPResponse;
 
 /**
  * Created by dongqlee on 2018. 4. 28..
  */
-public abstract class DefaultSipResponse extends DefaultSipMessage {
+public class DefaultSipResponse extends DefaultSipMessage {
 
-    private SIPResponse response=(SIPResponse) this.message;
+    private SIPResponse sipResponse =null;
+
+    public DefaultSipResponse(SIPMessage sipMessage) {
+        super(sipMessage);
+
+        this.sipResponse =(SIPResponse) this.message;
+    }
 
     public int getStatusCode(){
-        return response.getStatusCode();
+        return sipResponse.getStatusCode();
+    }
+
+    public void removeTopVia(){
+        this.sipResponse.getViaHeaders().removeFirst();
     }
 }

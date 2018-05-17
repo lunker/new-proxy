@@ -50,8 +50,8 @@ public class TCPServer extends AbstractServer {
                 .childOption(ChannelOption.TCP_NODELAY, true)
                 .childOption(ChannelOption.SO_REUSEADDR, true)
 
-                .childOption(ChannelOption.SO_RCVBUF, 100 * 1024)
-                .childOption(ChannelOption.SO_SNDBUF,100 * 1024 ); // 5- > 10 cause 메세지 유실은 사라짐
+                .childOption(ChannelOption.SO_RCVBUF, 200 * 1024)
+                .childOption(ChannelOption.SO_SNDBUF, 200 * 1024); // 5- > 10 cause 메세지 유실은 사라짐
 
 
         // Bind and start to accept incoming connections.

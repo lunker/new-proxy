@@ -18,12 +18,11 @@ public class TCPChannelInitializer extends TransportInitializer {
     public TCPChannelInitializer(ServerProcessor serverProcessor) {
         this.serverProcessor=serverProcessor;
         this.postProcessor=serverProcessor.getPostProcessor();
-//        this.preProcessor=serverProcessor.getPreProcessor();
+        this.preProcessor=serverProcessor.getPreProcessor();
     }
 
     @Override
     protected void initChannel(Channel ch) throws Exception {
-
         // TCP specific
         ch.pipeline().addLast("decoder", new TCPStreamDecoder());
 

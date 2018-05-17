@@ -14,7 +14,6 @@ import org.slf4j.LoggerFactory;
  * Created by dongqlee on 2018. 3. 31..
  */
 public class WebsocketServer {
-
     private Logger logger= LoggerFactory.getLogger(WebsocketServer.class);
     private final int PORT = 5072;
 

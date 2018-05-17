@@ -12,17 +12,15 @@ import java.util.concurrent.ConcurrentHashMap;
  */
 public class ConnectionManager {
     private Logger logger= LoggerFactory.getLogger(ConnectionManager.class);
-    private static ConnectionManager instance=null;
     private Map<String, ChannelHandlerContext> clientMap=null;
 
+    private final int MAX_CONNECTION=10000;
     private ConnectionManager() {
-        this.clientMap=new ConcurrentHashMap<>();
+        this.clientMap=new ConcurrentHashMap<>(MAX_CONNECTION);
     }
 
     public static ConnectionManager getInstance() {
-        if(instance==null)
-            instance=new ConnectionManager();
-        return instance;
+        return SingletonHolder.INSTANCE;
     }
 
     public void addClient(String host, int port, String transport, ChannelHandlerContext channelHandlerContext){
@@ -33,14 +31,6 @@ public class ConnectionManager {
         if(logger.isDebugEnabled())
             logger.debug("Add Client :: " + key);
     }
-
-    /*
-    public Optional<ChannelHandlerContext> getClientConnection(String host, int port, String transport){
-        String key=createClientKey(host, port, transport);
-        Optional<ChannelHandlerContext> optionalChannelHandlerContext;
-        return optionalChannelHandlerContext=Optional.ofNullable(this.clientMap.get(key));
-    }
-    */
 
     public ChannelHandlerContext getClientConnection(String host, int port, String transport){
         String key=createClientKey(host, port, transport);
@@ -62,10 +52,15 @@ public class ConnectionManager {
             if(logger.isDebugEnabled())
                 logger.info("Delete Client fail :: {}", key);
         }
-
     }
 
     private String createClientKey(String host, int port, String transport){
+//        return new StringBuilder().append(host).append(":").append(port).toString();
         return String.format("%s:%d:%s", host, port, transport);
+    }
+
+
+    private static class SingletonHolder{
+        private static final ConnectionManager INSTANCE=new ConnectionManager();
     }
 }

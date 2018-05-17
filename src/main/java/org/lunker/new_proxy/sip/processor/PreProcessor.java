@@ -14,7 +14,6 @@ import java.net.InetSocketAddress;
  */
 //@ChannelHandler.Sharable
 public abstract class PreProcessor extends ChannelInboundHandlerAdapter {
-
     private Logger logger= LoggerFactory.getLogger(PreProcessor.class);
 
     // Deprecated
@@ -48,7 +47,4 @@ public abstract class PreProcessor extends ChannelInboundHandlerAdapter {
 
         this.connectionManager.deleteClient(remoteAddress.getHostString(), remoteAddress.getPort(),"");
     }
-
-//    @Deprecated
-//    protected abstract PreProcessor newInstance();
 }

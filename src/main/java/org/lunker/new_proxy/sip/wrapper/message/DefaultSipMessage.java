@@ -1,6 +1,7 @@
 package org.lunker.new_proxy.sip.wrapper.message;
 
 import gov.nist.javax.sip.address.SipUri;
+import gov.nist.javax.sip.header.Authorization;
 import gov.nist.javax.sip.header.Via;
 import gov.nist.javax.sip.header.ViaList;
 import gov.nist.javax.sip.message.SIPMessage;
@@ -33,8 +34,12 @@ public abstract class DefaultSipMessage {
     protected String method;
     protected ConnectionManager connectionManager=ConnectionManager.getInstance();
 
+    public DefaultSipMessage(){
 
-    public DefaultSipMessage() {
+    }
+
+    public DefaultSipMessage(SIPMessage sipMessage) {
+        this.message=sipMessage;
         this.sipMessageFactory=SipMessageFactory.getInstance();
     }
 
@@ -85,6 +90,10 @@ public abstract class DefaultSipMessage {
 
     public Via getTopmostVia(){
         return this.message.getTopmostVia();
+    }
+
+    public Authorization getAuthorization(){
+        return this.message.getAuthorization();
     }
 
     public SIPMessage getRawSipMessage(){
@@ -138,16 +147,28 @@ public abstract class DefaultSipMessage {
         // TODO: refactoring
         targetCtx=this.connectionManager.getClientConnection(remoteHost, remotePort, "");
 
+        /*
         try{
             ChannelFuture cf=targetCtx.writeAndFlush((Unpooled.copiedBuffer(this.message.toString(), CharsetUtil.UTF_8)));
             targetCtx.flush();
 
-            logger.info(String.format("[Success][%s] Send message %s\n", String.format("%s:%d", remoteHost, remotePort), this.message));
+            logger.info(String.format("[Success][%s] Send message\n%s\n", String.format("%s:%d", remoteHost, remotePort), this.message));
         }
         catch (Exception e){
             e.printStackTrace();
 
-            logger.info(String.format("[Fail][%s] Send message %s\n", String.format("%s:%d", remoteHost, remotePort), this.message));
+            logger.info(String.format("[Fail][%s] Send message\n%s\nfailed cause : {}", String.format("%s:%d", remoteHost, remotePort), this.message, e.getMessage()));
+        }
+        */
+
+        if(targetCtx!=null){
+            ChannelFuture cf=targetCtx.writeAndFlush((Unpooled.copiedBuffer(this.message.toString(), CharsetUtil.UTF_8)));
+            targetCtx.flush();
+
+            logger.info(String.format("[Success][%s] Send message\n%s\n", String.format("%s:%d", remoteHost, remotePort), this.message));
+        }
+        else {
+            logger.info(String.format("[Fail][%s] Send message\n%s\nfailed cause : %s", String.format("%s:%d", remoteHost, remotePort), this.message, "targetCtx is null"));
         }
 
         /*
@@ -194,6 +215,14 @@ public abstract class DefaultSipMessage {
             }
         }// end-if
         */
+    }
+
+    public MaxForwardsHeader getMaxForwards(){
+        return this.message.getMaxForwards();
+    }
+
+    public CSeqHeader getCSeq(){
+        return this.message.getCSeq();
     }
 
     @Override

@@ -3,7 +3,6 @@ package org.lunker.new_proxy.sip.wrapper.message.proxy;
 import gov.nist.javax.sip.message.SIPMessage;
 import gov.nist.javax.sip.message.SIPResponse;
 import org.lunker.new_proxy.sip.B2BUAHelper;
-import org.lunker.new_proxy.sip.session.ss.SipSessionKey;
 import org.lunker.new_proxy.sip.wrapper.message.DefaultSipRequest;
 import org.lunker.new_proxy.sip.wrapper.message.Sessionable;
 
@@ -22,18 +21,14 @@ import java.util.ListIterator;
 public class ProxySipRequest extends DefaultSipRequest implements Sessionable{
     private B2BUAHelper b2BUAHelper=null;
 
-    private ProxySipRequest() {
-    }
-
     public ProxySipRequest(SIPMessage jainSipRequest) {
-//        super();
-        this.message=jainSipRequest;
+        super(jainSipRequest);
     }
-
-    @Deprecated
-    public ProxySipRequest(SIPMessage jainSipRequest, SipSessionKey sipSessionKey) {
-//        super(jainSipRequest, sipSessionKey);
-    }
+//
+//    @Deprecated
+//    public ProxySipRequest(SIPMessage jainSipRequest, SipSessionKey sipSessionKey) {
+////        super(jainSipRequest, sipSessionKey);
+//    }
 
     public ProxySipResponse createResponse(int statusCode) {
         return this.createResponse(statusCode,"");

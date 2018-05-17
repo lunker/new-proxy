@@ -41,9 +41,9 @@ public class ProxyPreProcessor extends PreProcessor {
 
     @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
+
         try{
             Mono<String> wrapper=Mono.fromCallable(()->{
-
                 Optional<String> maybeStrSipMessage=(Optional<String>) msg;
 
                 // 결국 이것만 다르다
@@ -75,23 +75,27 @@ public class ProxyPreProcessor extends PreProcessor {
      * @throws ParseException
      */
     private SIPMessage updateMessage(ChannelHandlerContext ctx, SIPMessage jainSipMessage) throws ParseException {
-        ViaList viaList=jainSipMessage.getViaHeaders();
 
-        Via topViaHeader=(Via) viaList.getFirst();
+        if(jainSipMessage instanceof SIPRequest){
+            ViaList viaList=jainSipMessage.getViaHeaders();
 
-        if (topViaHeader.getReceived() == null) {
-            String received=((InetSocketAddress) ctx.channel().remoteAddress()).getHostString();
-            topViaHeader.setReceived(received);
+            Via topViaHeader=(Via) viaList.getFirst();
+
+            if (topViaHeader.getReceived() == null) {
+                String received=((InetSocketAddress) ctx.channel().remoteAddress()).getHostString();
+                topViaHeader.setReceived(received);
+            }
+
+            if(topViaHeader.getRPort() == 0 || topViaHeader.getRPort() == -1) {
+                int rport=((InetSocketAddress) ctx.channel().remoteAddress()).getPort();
+
+                topViaHeader.setParameter("rport", rport+"");
+            }
+
+            viaList.set(0, topViaHeader);
+            jainSipMessage.setHeader(viaList);
         }
 
-        if(topViaHeader.getRPort() == 0 || topViaHeader.getRPort() == -1) {
-            int rport=((InetSocketAddress) ctx.channel().remoteAddress()).getPort();
-
-            topViaHeader.setParameter("rport", rport+"");
-        }
-
-        viaList.set(0, topViaHeader);
-        jainSipMessage.setHeader(viaList);
 
         return jainSipMessage;
     }

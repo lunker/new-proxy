@@ -12,16 +12,20 @@ import org.slf4j.LoggerFactory;
 import javax.sip.header.ContentLengthHeader;
 import java.util.List;
 import java.util.Optional;
+import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * Created by dongqlee on 2018. 3. 22..
  */
 public class TCPStreamDecoder extends ByteToMessageDecoder{
 
+    private static AtomicInteger num=new AtomicInteger(0);
+
     private Logger logger= LoggerFactory.getLogger(TCPStreamDecoder.class);
 
     private final int DEFAULT_HEADER_SIZE=3000;
     private final int DEFAULT_HEADER_LINE_SIZE=512;
+    private final int DEFAULT_BODY_SIZE=6000;
 
     private ByteBuf headerBuffer=null;
     private ByteBuf headerLineBuffer=null;
@@ -37,15 +41,18 @@ public class TCPStreamDecoder extends ByteToMessageDecoder{
     private byte lastByte;
     private boolean hasCRLF=false;
     private int contentLength=-1;
-    private int readBodyLength=0;
+    private int readBodyLength=0; // TODO: change to Atomic
     private byte[] contentByte="Content-Length:".getBytes();
 
     public TCPStreamDecoder() {
-        pooledByteBufAllocator=new PooledByteBufAllocator();
+//        logger.info("%d",num.incrementAndGet());
+
+        pooledByteBufAllocator=new PooledByteBufAllocator(true);
         unpooledByteBufAllocator=new UnpooledByteBufAllocator(false);
 
         headerBuffer=allocate(DEFAULT_HEADER_SIZE);
         headerLineBuffer=allocate(DEFAULT_HEADER_LINE_SIZE);
+        bodyBuffer=allocate(DEFAULT_BODY_SIZE);
     }
 
     /**
@@ -105,13 +112,15 @@ public class TCPStreamDecoder extends ByteToMessageDecoder{
                             contentLength=Integer.parseInt(headerLineBuffer.toString(CharsetUtil.UTF_8).substring(
                                     ContentLengthHeader.NAME.length()+1).trim());
 
-//                            bodyBuffer=pooledByteBufAllocator.directBuffer(contentLength);
-                            bodyBuffer=allocate(contentLength);
+                            if(contentLength > DEFAULT_BODY_SIZE) {
+                                bodyBuffer.clear();
+                                bodyBuffer.release();
+                                bodyBuffer=allocate(contentLength);
+                            }
                         }
                         catch (Exception e){
                             e.printStackTrace();
                         }
-
                     }
                 }
                 else if(currentByte == LF){
@@ -151,7 +160,6 @@ public class TCPStreamDecoder extends ByteToMessageDecoder{
 
                     // create entire Sip wrapper
                     try{
-
                         String strSipMessage=headerBuffer.toString(0, headerBuffer.writerIndex(), CharsetUtil.UTF_8) + bodyBuffer.toString(0, bodyBuffer.writerIndex(), CharsetUtil.UTF_8);
 
                         if(logger.isDebugEnabled())
@@ -162,21 +170,11 @@ public class TCPStreamDecoder extends ByteToMessageDecoder{
                         headerLineBuffer.clear();
                         bodyBuffer.clear();
 
-
                         // change state
                         this.isHeaderState=true;
                         this.isBodyState=false;
                         this.readBodyLength=0;
                         this.contentLength=0;
-
-                        /*
-                        this.headerBuffer.release();
-                        this.headerLineBuffer.release();
-                        this.bodyBuffer.release();
-
-                        this.headerBuffer=allocate(DEFAULT_HEADER_SIZE);
-                        this.headerLineBuffer=allocate(DEFAULT_HEADER_LINE_SIZE);
-                        */
 
                         ctx.fireChannelRead(Optional.ofNullable(strSipMessage));
                     }
