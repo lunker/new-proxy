@@ -12,12 +12,12 @@ import javax.sip.header.ContentTypeHeader;
  */
 public class DefaultSipRequest extends DefaultSipMessage {
 
-    private SIPRequest sipResponse=null;
+    private SIPRequest sipReqeust =null;
 
     public DefaultSipRequest(SIPMessage sipMessage) {
         super(sipMessage);
 
-        this.sipResponse=(SIPRequest) this.message;
+        this.sipReqeust =(SIPRequest) this.message;
     }
 
     public void setContent(Object content, String contentType) {
@@ -79,6 +79,8 @@ public class DefaultSipRequest extends DefaultSipMessage {
     }
 
     public void addVia(Via via){
-        this.sipResponse.getViaHeaders().add(via);
+        this.sipReqeust.getViaHeaders().addFirst(via);
     }
+
+
 }

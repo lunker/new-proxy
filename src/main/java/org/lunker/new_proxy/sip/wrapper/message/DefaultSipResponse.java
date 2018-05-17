@@ -8,15 +8,19 @@ import gov.nist.javax.sip.message.SIPResponse;
  */
 public class DefaultSipResponse extends DefaultSipMessage {
 
-    private SIPResponse response=null;
+    private SIPResponse sipResponse =null;
 
     public DefaultSipResponse(SIPMessage sipMessage) {
         super(sipMessage);
 
-        this.response=(SIPResponse) this.message;
+        this.sipResponse =(SIPResponse) this.message;
     }
 
     public int getStatusCode(){
-        return response.getStatusCode();
+        return sipResponse.getStatusCode();
+    }
+
+    public void removeTopVia(){
+        this.sipResponse.getViaHeaders().removeFirst();
     }
 }

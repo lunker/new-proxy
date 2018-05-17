@@ -1,6 +1,7 @@
 package org.lunker.new_proxy.sip.wrapper.message;
 
 import gov.nist.javax.sip.address.SipUri;
+import gov.nist.javax.sip.header.Authorization;
 import gov.nist.javax.sip.header.Via;
 import gov.nist.javax.sip.header.ViaList;
 import gov.nist.javax.sip.message.SIPMessage;
@@ -89,6 +90,10 @@ public abstract class DefaultSipMessage {
 
     public Via getTopmostVia(){
         return this.message.getTopmostVia();
+    }
+
+    public Authorization getAuthorization(){
+        return this.message.getAuthorization();
     }
 
     public SIPMessage getRawSipMessage(){
@@ -210,6 +215,14 @@ public abstract class DefaultSipMessage {
             }
         }// end-if
         */
+    }
+
+    public MaxForwardsHeader getMaxForwards(){
+        return this.message.getMaxForwards();
+    }
+
+    public CSeqHeader getCSeq(){
+        return this.message.getCSeq();
     }
 
     @Override
