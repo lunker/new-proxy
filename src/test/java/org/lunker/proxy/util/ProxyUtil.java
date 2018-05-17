@@ -1,10 +1,10 @@
-package proxy.util;
+package org.lunker.proxy.util;
 
 import gov.nist.javax.sip.message.SIPMessage;
 import io.netty.channel.ChannelHandlerContext;
 import org.lunker.new_proxy.sip.wrapper.message.proxy.ProxySipMessage;
-import proxy.registrar.Registrar;
-import proxy.registrar.Registration;
+import org.lunker.proxy.registrar.Registrar;
+import org.lunker.proxy.registrar.Registration;
 
 import java.util.Random;
 
@@ -46,7 +46,7 @@ public class ProxyUtil {
 //        userAgent= SIPHeaderParser.getUserAent(sipMessage);
         userKey=targetAor;
 
-        targetCtx=registrar.getCtx(userKey);
+//        targetCtx=registrar.getCtx(userKey);
 
         return targetCtx;
     }

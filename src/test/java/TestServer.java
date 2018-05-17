@@ -1,6 +1,6 @@
 import org.junit.Test;
 import org.lunker.new_proxy.Bootstrap;
-import proxy.core.SipServletImpl;
+import org.lunker.proxy.sip.SipServletImpl;
 
 /**
  * Created by dongqlee on 2018. 4. 26..
@@ -11,8 +11,8 @@ public class TestServer {
     public void startServer() throws Exception{
         Bootstrap bootstrap=new Bootstrap();
 
-//        bootstrap.start("tcp", SipServletImpl.class);
-        bootstrap.start("udp", SipServletImpl.class);
+        bootstrap.start("tcp", SipServletImpl.class);
+//        bootstrap.start("udp", SipServletImpl.class);
     }
 
     // message - > queue
@@ -23,5 +23,7 @@ public class TestServer {
            -> SipMessageHandlerImpl3
            -> SipMessageHandlerImpl 4
      */
+
+
 }
 

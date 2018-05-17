@@ -1,4 +1,4 @@
-package proxy.util.api;
+package org.lunker.proxy.util.api;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
@@ -12,9 +12,9 @@ import org.apache.http.impl.nio.client.HttpAsyncClients;
 import org.apache.http.impl.nio.conn.PoolingNHttpClientConnectionManager;
 import org.apache.http.impl.nio.reactor.DefaultConnectingIOReactor;
 import org.apache.http.util.EntityUtils;
+import org.lunker.proxy.util.HttpEntityUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import proxy.util.HttpEntityUtils;
 
 import java.io.IOException;
 import java.util.concurrent.ExecutionException;

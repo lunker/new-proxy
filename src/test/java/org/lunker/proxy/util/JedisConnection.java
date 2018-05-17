@@ -1,4 +1,4 @@
-package proxy.util;
+package org.lunker.proxy.util;
 
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;
@@ -9,9 +9,6 @@ import redis.clients.jedis.Pipeline;
  * Created by dongqlee on 2018. 3. 19..
  */
 public class JedisConnection {
-
-    private static JedisConnection instance=null;
-
     private JedisPool jedisPool=null;
     private String redisHost="10.0.1.159";
     private int redisPort=6379;
@@ -28,11 +25,7 @@ public class JedisConnection {
     }
 
     public static JedisConnection getInstance(){
-        if (instance==null){
-            instance=new JedisConnection();
-        }
-
-        return instance;
+        return SingletonHolder.INSTANCE;
     }
 
     public void set(String key, String value){
@@ -70,4 +63,7 @@ public class JedisConnection {
         }
     }
 
+    private static class SingletonHolder{
+        private static JedisConnection INSTANCE=new JedisConnection();
+    }
 }

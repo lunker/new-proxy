@@ -224,6 +224,10 @@ public class Configuration {
                         value=((JsonElement) value).getAsString();
                         configMap.put(key, value);
                     }
+                    else if(((JsonPrimitive)value).isBoolean()){
+                        value=((JsonElement) value).getAsBoolean();
+                        configMap.put(key, value);
+                    }
                 }
             }
             catch (Exception e){

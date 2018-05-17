@@ -40,15 +40,17 @@ public class TCPServer extends AbstractServer {
     public ChannelFuture run() throws Exception {
         ServerBootstrap b = new ServerBootstrap();
 
+        Map<String, Object> tcpOptions=(Map<String, Object>)transportConfigMap.get("options");
+
         // TODO: set ChannelOption using transport properties
         b.group(bossGroup, workerGroup)
                 .channel(NioServerSocketChannel.class)
                 .childHandler(this.channelInitializer)
-                .option(ChannelOption.SO_BACKLOG, 2048)
+                .option(ChannelOption.SO_BACKLOG, (int) tcpOptions.get("so_backlog"))
 
-                .childOption(ChannelOption.SO_LINGER, 0)
-                .childOption(ChannelOption.TCP_NODELAY, true)
-                .childOption(ChannelOption.SO_REUSEADDR, true)
+                .childOption(ChannelOption.SO_LINGER, (int) tcpOptions.get("so_linger"))
+                .childOption(ChannelOption.TCP_NODELAY, (boolean) tcpOptions.get("tcp_nodelay"))
+                .childOption(ChannelOption.SO_REUSEADDR, (boolean) tcpOptions.get("so_reuseaddr"))
 
                 .childOption(ChannelOption.SO_RCVBUF, 200 * 1024)
                 .childOption(ChannelOption.SO_SNDBUF, 200 * 1024); // 5- > 10 cause 메세지 유실은 사라짐

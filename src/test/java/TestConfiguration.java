@@ -12,7 +12,7 @@ public class TestConfiguration {
     @Test
     public void loadConfig(){
         JsonObject config=Configuration.getInstance().get();
-        Assert.assertEquals("proxy", config.get("type").getAsString());
+        Assert.assertEquals("org/lunker/proxy", config.get("type").getAsString());
     }
 
     @Test

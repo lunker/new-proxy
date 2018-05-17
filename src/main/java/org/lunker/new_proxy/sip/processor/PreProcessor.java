@@ -30,9 +30,8 @@ public abstract class PreProcessor extends ChannelInboundHandlerAdapter {
     public void channelActive(ChannelHandlerContext ctx) throws Exception {
 //        logger.info("channelactive");
         InetSocketAddress remoteAddress=((InetSocketAddress)ctx.channel().remoteAddress());
-        String transport="";//TODO: transport까지 활용해서 connection 저장하기.
 
-        this.connectionManager.addClient(remoteAddress.getHostString(), remoteAddress.getPort(),"", ctx);
+        this.connectionManager.addClient(remoteAddress.getHostString(), remoteAddress.getPort(),"tcp", ctx);
     }
 
     @Override
@@ -45,6 +44,6 @@ public abstract class PreProcessor extends ChannelInboundHandlerAdapter {
 //        logger.info("channelUnregistered");
         InetSocketAddress remoteAddress=((InetSocketAddress)ctx.channel().remoteAddress());
 
-        this.connectionManager.deleteClient(remoteAddress.getHostString(), remoteAddress.getPort(),"");
+        this.connectionManager.deleteClient(remoteAddress.getHostString(), remoteAddress.getPort(),"tcp");
     }
 }

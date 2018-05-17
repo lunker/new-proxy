@@ -1,4 +1,4 @@
-package proxy.util;
+package org.lunker.proxy.util;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -9,8 +9,6 @@ import java.util.Map;
  * Created by dongqlee on 2018. 3. 16..
  */
 public class AuthUtil {
-
-    //private static final String REALM = "playlab.kr";
     private static final String ALGORITHM = "MD5";
 
     private String password = "";

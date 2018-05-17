@@ -1,4 +1,4 @@
-package proxy.registrar;
+package org.lunker.proxy.registrar;
 
 /**
  * Created by dongqlee on 2018. 3. 16..

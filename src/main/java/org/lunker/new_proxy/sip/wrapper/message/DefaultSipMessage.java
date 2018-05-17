@@ -133,6 +133,7 @@ public abstract class DefaultSipMessage {
             remoteHost=requestUri.getHost();
             remotePort=requestUri.getPort();
 
+            remoteTransport=requestUri.getTransportParam();
         }
         else{
             // Response
@@ -142,29 +143,13 @@ public abstract class DefaultSipMessage {
             remoteHost=topVia.getReceived();
             remotePort=topVia.getRPort();
 
-            //TODO: transport를 사용해서 connection을 찾는다
             remoteTransport=topVia.getTransport().toLowerCase();
         }
 
         // TODO: refactoring
         targetCtx=this.connectionManager.getClientConnection(remoteHost, remotePort, remoteTransport);
 
-        /*
-        try{
-            ChannelFuture cf=targetCtx.writeAndFlush((Unpooled.copiedBuffer(this.message.toString(), CharsetUtil.UTF_8)));
-            targetCtx.flush();
-
-            logger.info(String.format("[Success][%s] Send message\n%s\n", String.format("%s:%d", remoteHost, remotePort), this.message));
-        }
-        catch (Exception e){
-            e.printStackTrace();
-
-            logger.info(String.format("[Fail][%s] Send message\n%s\nfailed cause : {}", String.format("%s:%d", remoteHost, remotePort), this.message, e.getMessage()));
-        }
-        */
-
         if(targetCtx!=null){
-
             if("tcp".equals(remoteTransport)){
                 // tcp
                 ChannelFuture cf=targetCtx.writeAndFlush((Unpooled.copiedBuffer(this.message.toString(), CharsetUtil.UTF_8)));
@@ -172,63 +157,16 @@ public abstract class DefaultSipMessage {
             }
             else if("udp".equals(remoteTransport)){
                 // udp
-
                 targetCtx.writeAndFlush(new DatagramPacket(
                         Unpooled.copiedBuffer(this.message.toString(), CharsetUtil.UTF_8),
                         new InetSocketAddress(remoteHost, remotePort)));
             }
-
 
             logger.info(String.format("[Success][%s] Send message\n%s\n", String.format("%s:%d", remoteHost, remotePort), this.message));
         }
         else {
             logger.info(String.format("[Fail][%s] Send message\n%s\nfailed cause : %s", String.format("%s:%d", remoteHost, remotePort), this.message, "targetCtx is null"));
         }
-
-        /*
-        if(this.getSipSession()!=null){
-            if(this instanceof ProxySipRequest){
-                // send to other session's ctx
-                String toAor="";
-                ChannelHandlerContext targetCtx=null;
-
-                Registration targetRegistration=null; // .....? 이건 Proxy에서 Set어쩌고를 통해서 다 해줄거다. 나는 그냥
-
-                toAor=this.message.getToHeader().getAddress().getURI().toString().split(":")[1];
-                targetRegistration=proxyContext.getRegistrar().getRegistration(toAor);
-                targetCtx=proxyContext.getRegistrar().getCtx(toAor);
-
-                Request targetRequest=(Request) ((ProxySipRequest) this).message;
-                SipUri requestUri = new SipUri();
-
-                requestUri.setHost(targetRegistration.getRemoteAddress());
-                requestUri.setPort(targetRegistration.getRemotePort());
-
-                targetRequest.setRequestURI(((ProxySipRequest) this).message.getTo().getAddress().getURI());
-
-                ChannelFuture cf=targetCtx.writeAndFlush((Unpooled.copiedBuffer(((ProxySipRequest) this).message.toString(), CharsetUtil.UTF_8)));
-                targetCtx.flush();
-
-                if (!cf.isSuccess()) {
-                    logger.warn("Send failed: " + cf.cause());
-                }
-
-                logger.info("[SENT]:\n" + ((ProxySipRequest) this).message.toString());
-            }
-            else{
-                // send to this session's ctx
-                ChannelHandlerContext targetCtx=this.getSipSession().getCtx();
-                ChannelFuture cf=targetCtx.writeAndFlush(Unpooled.copiedBuffer(this.message.toString(), CharsetUtil.UTF_8));
-
-                targetCtx.flush();
-                if (!cf.isSuccess()) {
-                    logger.warn("Send failed: " + cf.cause());
-                }
-
-                logger.info("[SENT]:\n" + ((ProxySipResponse) this).message.toString());
-            }
-        }// end-if
-        */
     }
 
     public MaxForwardsHeader getMaxForwards(){
