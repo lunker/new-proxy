@@ -2,19 +2,10 @@ package org.lunker.new_proxy.server.udp;
 
 import io.netty.channel.Channel;
 import io.netty.channel.ChannelHandlerContext;
-import io.netty.channel.ChannelInboundHandlerAdapter;
-import io.netty.channel.ChannelInitializer;
 import org.lunker.new_proxy.server.TransportInitializer;
 import org.lunker.new_proxy.sip.processor.ServerProcessor;
-import org.lunker.new_proxy.sip.processor.TCPStreamDecoder;
-import org.lunker.new_proxy.sip.processor.UDPStreamDecoder;
-import org.lunker.new_proxy.stub.AbstractServer;
-import org.lunker.new_proxy.stub.SipMessageHandler;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import java.net.DatagramPacket;
-import java.util.Optional;
 
 /**
  * Created by hoh on 2018. 5. 15.

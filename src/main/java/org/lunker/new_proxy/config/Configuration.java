@@ -3,8 +3,9 @@ package org.lunker.new_proxy.config;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
+import com.google.gson.JsonPrimitive;
 import org.lunker.new_proxy.core.constants.ServerType;
-import org.lunker.new_proxy.exception.InvalidConfiguratoinException;
+import org.lunker.new_proxy.exception.InvalidConfigurationException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -28,7 +29,6 @@ public class Configuration {
     private ServerType serverType=ServerType.NONE;
     private Map<String, Object> tcpConfigMap=null;
     private Map<String, Object> udpConfigMap=null;
-
 
     private static final String TRANSPORT_HOST="host";
     private static final String TRANSPORT_PORT="port";
@@ -125,8 +125,6 @@ public class Configuration {
                 throw new RuntimeException("Server configuration file is not exist. Put 'application.json' under resources dir");
             }
 
-
-
         }
         catch (IOException ioe){
             ioe.printStackTrace();
@@ -135,7 +133,7 @@ public class Configuration {
 
     }
 
-    public void deserialize() throws InvalidConfiguratoinException{
+    public void deserialize() throws InvalidConfigurationException {
         this.serverType=ServerType.convert(configurationJson.get("type").getAsString());
         if(this.serverType==ServerType.NONE)
             isValidServerType=false;
@@ -143,7 +141,7 @@ public class Configuration {
             isValidServerType=true;
 
         if(!isValidServerType)
-            throw new InvalidConfiguratoinException("Configuration 'ServerType' is not correct");
+            throw new InvalidConfigurationException("Configuration 'ServerType' is not correct");
 
         JsonObject transportConfig=configurationJson.getAsJsonObject("transport");
 
@@ -157,7 +155,7 @@ public class Configuration {
                 isValidTCP=true;
             }
             else
-                throw new InvalidConfiguratoinException("Configuration 'TCP' options is not correct");
+                throw new InvalidConfigurationException("Configuration 'TCP' options is not correct");
         }
         // UDP Server
         if(transportConfig.has(TRANSPORT_UDP)){
@@ -169,7 +167,7 @@ public class Configuration {
                 isValidUDP = true;
             }
             else
-                throw new InvalidConfiguratoinException("Configuration 'UDP' options is not correct");
+                throw new InvalidConfigurationException("Configuration 'UDP' options is not correct");
         }
 
         if(transportConfig.has(TRANSPORT_TLS)){
@@ -212,12 +210,25 @@ public class Configuration {
                 key=entry.getKey();
                 value=entry.getValue();
 
-                value=((JsonElement) value).getAsInt();
-                configMap.put(key, value);
+                if(value instanceof JsonObject){
+                    Map<String, Object> childConfig=new HashMap<>();
+
+                    setConfigMap(childConfig, ((JsonObject) value).getAsJsonObject());
+                    configMap.put(key, childConfig);
+                }
+                else {
+                    if(((JsonPrimitive)value).isNumber()){
+                        value=((JsonElement) value).getAsInt();
+                        configMap.put(key, value);
+                    }
+                    else if(((JsonPrimitive)value).isString()){
+                        value=((JsonElement) value).getAsString();
+                        configMap.put(key, value);
+                    }
+                }
             }
             catch (Exception e){
-                value=((JsonElement) value).getAsString();
-                configMap.put(key, value);
+                e.printStackTrace();
             }
         }
     }

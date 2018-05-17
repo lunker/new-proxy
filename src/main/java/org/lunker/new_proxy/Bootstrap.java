@@ -2,7 +2,7 @@ package org.lunker.new_proxy;
 
 import org.lunker.new_proxy.config.Configuration;
 import org.lunker.new_proxy.core.constants.ServerType;
-import org.lunker.new_proxy.exception.InvalidConfiguratoinException;
+import org.lunker.new_proxy.exception.InvalidConfigurationException;
 import org.lunker.new_proxy.exception.BootstrapException;
 import org.lunker.new_proxy.server.tcp.TCPServer;
 import org.lunker.new_proxy.server.udp.UDPServer;
@@ -77,7 +77,7 @@ public class Bootstrap {
 
     }
 
-    private static ServerProcessor generateServerProcessor(ServerType serverType, String sipMessageHandlerClassName) throws InvalidConfiguratoinException,ClassNotFoundException, IllegalAccessException, InstantiationException {
+    private static ServerProcessor generateServerProcessor(ServerType serverType, String sipMessageHandlerClassName) throws InvalidConfigurationException,ClassNotFoundException, IllegalAccessException, InstantiationException {
         ServerProcessor serverProcessor=new ServerProcessor();
 
         switch (serverType){
@@ -92,7 +92,7 @@ public class Bootstrap {
 
                 break;
             case NONE:
-                throw new InvalidConfiguratoinException("ServerType is not valid");
+                throw new InvalidConfigurationException("ServerType is not valid");
         }
 
         return serverProcessor;

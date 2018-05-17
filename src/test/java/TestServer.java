@@ -11,7 +11,8 @@ public class TestServer {
     public void startServer() throws Exception{
         Bootstrap bootstrap=new Bootstrap();
 
-        bootstrap.start("tcp", SipServletImpl.class);
+//        bootstrap.start("tcp", SipServletImpl.class);
+        bootstrap.start("udp", SipServletImpl.class);
     }
 
     // message - > queue

@@ -37,19 +37,28 @@ public class UDPServerHandler extends ChannelInboundHandlerAdapter {
     }
 
     @Override
+    public void channelActive(ChannelHandlerContext ctx) throws Exception {
+
+    }
+
+    @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg) {
         try {
             this.receivedPacket = (DatagramPacket) msg;
+
             this.connectionManager.addClient(
                     this.receivedPacket.sender().getHostString(),
                     this.receivedPacket.sender().getPort(),
                     "",
                     ctx);
+
             Mono<String> wrapper = Mono.fromCallable(() -> {
                 Optional<String> maybeStrSipMessage = Optional.ofNullable(this.receivedPacket.content().toString(CharsetUtil.UTF_8));
                 Optional<DefaultSipMessage> maybeGeneralSipMessage = deserialize(ctx, maybeStrSipMessage);
 
                 this.optionalSipMessageHandler.get().handle(ctx, maybeGeneralSipMessage);
+
+
 //                ctx.writeAndFlush(new DatagramPacket(
 //                        Unpooled.copiedBuffer(maybeGeneralSipMessage.get().toString(), CharsetUtil.UTF_8),
 //                        this.receivedPacket.sender()));

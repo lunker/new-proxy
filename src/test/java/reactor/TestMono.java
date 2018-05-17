@@ -1,8 +1,6 @@
 package reactor;
 
 import org.junit.Test;
-import reactor.core.publisher.Flux;
-import reactor.core.publisher.Mono;
 
 /**
  * Created by dongqlee on 2018. 5. 17..
@@ -10,6 +8,7 @@ import reactor.core.publisher.Mono;
 public class TestMono {
     @Test
     public void testMono(){
+        /*
         int data=100;
         Mono<?> tmp=Mono.just(data)
                 .map((num)->{
@@ -39,6 +38,6 @@ public class TestMono {
         Flux.create(()->{
 
         })
-
+                */
     }
 }
