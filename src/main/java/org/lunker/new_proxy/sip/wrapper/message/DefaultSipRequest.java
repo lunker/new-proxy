@@ -3,9 +3,12 @@ package org.lunker.new_proxy.sip.wrapper.message;
 import gov.nist.javax.sip.header.Via;
 import gov.nist.javax.sip.message.SIPMessage;
 import gov.nist.javax.sip.message.SIPRequest;
+import gov.nist.javax.sip.message.SIPResponse;
 
 import javax.sip.address.URI;
 import javax.sip.header.ContentTypeHeader;
+import javax.sip.message.Response;
+import java.text.ParseException;
 
 /**
  * Created by dongqlee on 2018. 4. 28..
@@ -82,5 +85,13 @@ public class DefaultSipRequest extends DefaultSipMessage {
         this.sipReqeust.getViaHeaders().addFirst(via);
     }
 
+    public DefaultSipResponse createResponse(int responseCode) throws ParseException{
+        DefaultSipResponse defaultSipResponse=null;
+        Response response=null;
 
+        response=this.sipMessageFactory.createResponse(responseCode, this.sipReqeust);
+        defaultSipResponse=new DefaultSipResponse((SIPResponse) response);
+
+        return defaultSipResponse;
+    }
 }
