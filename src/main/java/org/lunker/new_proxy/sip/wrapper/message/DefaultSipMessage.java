@@ -10,6 +10,7 @@ import gov.nist.javax.sip.message.SIPResponse;
 import io.netty.buffer.Unpooled;
 import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelHandlerContext;
+import io.netty.channel.socket.DatagramPacket;
 import io.netty.util.CharsetUtil;
 import org.lunker.new_proxy.core.ConnectionManager;
 import org.lunker.new_proxy.sip.util.SipMessageFactory;
@@ -18,6 +19,7 @@ import org.slf4j.LoggerFactory;
 
 import javax.sip.header.*;
 import javax.sip.message.Request;
+import java.net.InetSocketAddress;
 import java.text.ParseException;
 
 /**
@@ -141,11 +143,11 @@ public abstract class DefaultSipMessage {
             remotePort=topVia.getRPort();
 
             //TODO: transport를 사용해서 connection을 찾는다
-            remoteTransport=topVia.getTransport();
+            remoteTransport=topVia.getTransport().toLowerCase();
         }
 
         // TODO: refactoring
-        targetCtx=this.connectionManager.getClientConnection(remoteHost, remotePort, "");
+        targetCtx=this.connectionManager.getClientConnection(remoteHost, remotePort, remoteTransport);
 
         /*
         try{
@@ -162,8 +164,20 @@ public abstract class DefaultSipMessage {
         */
 
         if(targetCtx!=null){
-            ChannelFuture cf=targetCtx.writeAndFlush((Unpooled.copiedBuffer(this.message.toString(), CharsetUtil.UTF_8)));
-            targetCtx.flush();
+
+            if("tcp".equals(remoteTransport)){
+                // tcp
+                ChannelFuture cf=targetCtx.writeAndFlush((Unpooled.copiedBuffer(this.message.toString(), CharsetUtil.UTF_8)));
+                targetCtx.flush();
+            }
+            else if("udp".equals(remoteTransport)){
+                // udp
+
+                targetCtx.writeAndFlush(new DatagramPacket(
+                        Unpooled.copiedBuffer(this.message.toString(), CharsetUtil.UTF_8),
+                        new InetSocketAddress(remoteHost, remotePort)));
+            }
+
 
             logger.info(String.format("[Success][%s] Send message\n%s\n", String.format("%s:%d", remoteHost, remotePort), this.message));
         }

@@ -49,7 +49,7 @@ public class UDPServerHandler extends ChannelInboundHandlerAdapter {
             this.connectionManager.addClient(
                     this.receivedPacket.sender().getHostString(),
                     this.receivedPacket.sender().getPort(),
-                    "",
+                    "udp",
                     ctx);
 
             Mono<String> wrapper = Mono.fromCallable(() -> {

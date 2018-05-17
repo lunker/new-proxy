@@ -62,7 +62,6 @@ public class Configuration {
         return instance;
     }
 
-
     private Configuration() throws RuntimeException{
 
         // TCP Transport config

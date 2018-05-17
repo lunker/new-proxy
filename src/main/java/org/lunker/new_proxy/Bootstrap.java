@@ -2,8 +2,8 @@ package org.lunker.new_proxy;
 
 import org.lunker.new_proxy.config.Configuration;
 import org.lunker.new_proxy.core.constants.ServerType;
-import org.lunker.new_proxy.exception.InvalidConfigurationException;
 import org.lunker.new_proxy.exception.BootstrapException;
+import org.lunker.new_proxy.exception.InvalidConfigurationException;
 import org.lunker.new_proxy.server.tcp.TCPServer;
 import org.lunker.new_proxy.server.udp.UDPServer;
 import org.lunker.new_proxy.sip.processor.ServerProcessor;
@@ -29,6 +29,7 @@ public class Bootstrap {
 
         try{
             ServerProcessor serverProcessor=generateServerProcessor(configuration.getServerType(), sipMessageHandlerImplClassName);
+
 
             //TODO: using constants
             if("tcp".equalsIgnoreCase(transport)){

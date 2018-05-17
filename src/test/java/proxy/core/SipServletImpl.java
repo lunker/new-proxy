@@ -89,7 +89,9 @@ public class SipServletImpl implements AbstractSIPHandler, SipMessageHandler {
             return targetMessage;
         }).ifPresent((targetMessage)->{
             try{
+
                 targetMessage.send();
+
             }
             catch (Exception e){
                 e.printStackTrace();
