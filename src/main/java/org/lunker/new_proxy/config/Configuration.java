@@ -134,7 +134,7 @@ public class Configuration {
     }
 
     public void deserialize() throws InvalidConfigurationException {
-        this.serverType=ServerType.convert(configurationJson.get("type").getAsString());
+        this.serverType=ServerType.valueOf(configurationJson.get("type").getAsString());
         if(this.serverType==ServerType.NONE)
             isValidServerType=false;
         else

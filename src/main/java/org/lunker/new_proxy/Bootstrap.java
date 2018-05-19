@@ -4,6 +4,7 @@ import org.lunker.new_proxy.config.Configuration;
 import org.lunker.new_proxy.core.constants.ServerType;
 import org.lunker.new_proxy.exception.BootstrapException;
 import org.lunker.new_proxy.exception.InvalidConfigurationException;
+import org.lunker.new_proxy.model.Transport;
 import org.lunker.new_proxy.server.tcp.TCPServer;
 import org.lunker.new_proxy.server.udp.UDPServer;
 import org.lunker.new_proxy.sip.processor.ServerProcessor;
@@ -28,8 +29,7 @@ public class Bootstrap {
             logger.debug("[{}] Server starting ...", transport);
 
         try{
-            ServerProcessor serverProcessor=generateServerProcessor(configuration.getServerType(), transport, sipMessageHandlerImplClassName);
-
+            ServerProcessor serverProcessor=generateServerProcessor(configuration.getServerType(), Transport.valueOf(transport), sipMessageHandlerImplClassName);
 
             //TODO: using constants
             if("tcp".equalsIgnoreCase(transport)){
@@ -75,11 +75,11 @@ public class Bootstrap {
             logger.error("[{}] Server started failed", transport);
             throw new BootstrapException(e.getMessage());
         }
-
     }
 
-    private static ServerProcessor generateServerProcessor(ServerType serverType, String transport, String sipMessageHandlerClassName) throws InvalidConfigurationException,ClassNotFoundException, IllegalAccessException, InstantiationException {
+    private static ServerProcessor generateServerProcessor(ServerType serverType, Transport transport, String sipMessageHandlerClassName) throws InvalidConfigurationException,ClassNotFoundException, IllegalAccessException, InstantiationException {
         ServerProcessor serverProcessor=new ServerProcessor();
+        serverProcessor.setTransport(transport);
 
         switch (serverType){
             case LB:
@@ -90,7 +90,6 @@ public class Bootstrap {
 
                 // TODO: postProcessor에서 공통로직 후처리
 //                serverProcessor.setPostProcessor(new ProxyPostProcessor());
-
                 break;
             case NONE:
                 throw new InvalidConfigurationException("ServerType is not valid");

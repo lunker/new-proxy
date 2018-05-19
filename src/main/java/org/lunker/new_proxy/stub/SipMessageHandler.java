@@ -13,7 +13,7 @@ public abstract class SipMessageHandler {
 
     public abstract void handle(Optional<DefaultSipMessage> maybeDefaultSipMessage);
 
-    public void setProperties(String transport){
+    public void setTransport(String transport){
         this.transport=transport;
 //        this.properties=properties;
     }

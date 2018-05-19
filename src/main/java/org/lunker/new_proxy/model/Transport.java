@@ -4,6 +4,7 @@ package org.lunker.new_proxy.model;
  * Created by dongqlee on 2018. 5. 20..
  */
 public enum Transport {
+    NONE("none"),
     TCP("tcp"),
     TLS("tls"),
     UDP("udp"),
