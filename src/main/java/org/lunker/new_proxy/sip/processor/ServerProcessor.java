@@ -9,6 +9,7 @@ import java.util.Optional;
  * Created by dongqlee on 2018. 4. 27..
  */
 public class ServerProcessor {
+    private String transport="";
     private PreProcessor preProcessor=null;
     private Optional<SipMessageHandler> sipMessageHandler=null;
     private PostProcessor postProcessor=null;
@@ -16,6 +17,14 @@ public class ServerProcessor {
     private String sipMessageHandlerClassName="";
 
     public ServerProcessor() {
+    }
+
+    public String getTransport() {
+        return transport;
+    }
+
+    public void setTransport(String transport) {
+        this.transport = transport;
     }
 
     public void setPreProcessor(PreProcessor preProcessor) {

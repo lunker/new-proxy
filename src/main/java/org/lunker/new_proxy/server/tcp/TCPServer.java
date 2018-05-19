@@ -52,9 +52,8 @@ public class TCPServer extends AbstractServer {
                 .childOption(ChannelOption.TCP_NODELAY, (boolean) tcpOptions.get("tcp_nodelay"))
                 .childOption(ChannelOption.SO_REUSEADDR, (boolean) tcpOptions.get("so_reuseaddr"))
 
-                .childOption(ChannelOption.SO_RCVBUF, 200 * 1024)
-                .childOption(ChannelOption.SO_SNDBUF, 200 * 1024); // 5- > 10 cause 메세지 유실은 사라짐
-
+                .childOption(ChannelOption.SO_RCVBUF, (int) tcpOptions.get("so_rcvbuf"))
+                .childOption(ChannelOption.SO_SNDBUF, (int) tcpOptions.get("so_sndbuf"));
 
         // Bind and start to accept incoming connections.
         ChannelFuture f = b.bind((int) transportConfigMap.get("port")).sync(); // (7)

@@ -1,6 +1,5 @@
 package org.lunker.proxy.sip;
 
-import io.netty.channel.ChannelHandlerContext;
 import org.lunker.new_proxy.sip.wrapper.message.DefaultSipMessage;
 import org.lunker.new_proxy.stub.SipMessageHandler;
 import org.lunker.proxy.Validation;
@@ -18,7 +17,7 @@ import java.util.Optional;
 /**
  * Created by dongqlee on 2018. 4. 25..
  */
-public class SipServletImpl implements SipMessageHandler {
+public class SipServletImpl extends SipMessageHandler {
     private Logger logger= LoggerFactory.getLogger(SipServletImpl.class);
 
     private ProxyPreHandler proxyPreHandler=null;
@@ -32,7 +31,7 @@ public class SipServletImpl implements SipMessageHandler {
     }
 
     @Override
-    public void handle(ChannelHandlerContext ctx, Optional<DefaultSipMessage> maybeDefaultSipMessage) {
+    public void handle(Optional<DefaultSipMessage> maybeDefaultSipMessage) {
         if(logger.isInfoEnabled())
             logger.info("[RECEIVED]:\n" + maybeDefaultSipMessage.get().toString());
 
@@ -48,4 +47,6 @@ public class SipServletImpl implements SipMessageHandler {
             proxyAsync.subscribe();
         });
     }
+
+
 }

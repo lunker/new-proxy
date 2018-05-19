@@ -28,7 +28,7 @@ public class Bootstrap {
             logger.debug("[{}] Server starting ...", transport);
 
         try{
-            ServerProcessor serverProcessor=generateServerProcessor(configuration.getServerType(), sipMessageHandlerImplClassName);
+            ServerProcessor serverProcessor=generateServerProcessor(configuration.getServerType(), transport, sipMessageHandlerImplClassName);
 
 
             //TODO: using constants
@@ -78,7 +78,7 @@ public class Bootstrap {
 
     }
 
-    private static ServerProcessor generateServerProcessor(ServerType serverType, String sipMessageHandlerClassName) throws InvalidConfigurationException,ClassNotFoundException, IllegalAccessException, InstantiationException {
+    private static ServerProcessor generateServerProcessor(ServerType serverType, String transport, String sipMessageHandlerClassName) throws InvalidConfigurationException,ClassNotFoundException, IllegalAccessException, InstantiationException {
         ServerProcessor serverProcessor=new ServerProcessor();
 
         switch (serverType){

@@ -6,6 +6,7 @@ import com.google.gson.JsonParser;
 import com.google.gson.JsonPrimitive;
 import org.lunker.new_proxy.core.constants.ServerType;
 import org.lunker.new_proxy.exception.InvalidConfigurationException;
+import org.lunker.new_proxy.model.Transport;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -194,7 +195,6 @@ public class Configuration {
             return false;
     }
 
-
     private void setConfigMap(Map<String, Object> configMap, JsonObject jsonConfig){
         Iterator<Map.Entry<String, JsonElement>> iterator=jsonConfig.entrySet().iterator();
         Map.Entry<String, JsonElement> entry=null;
@@ -267,6 +267,27 @@ public class Configuration {
 
     public ServerType getServerType() {
         return serverType;
+    }
+
+    public Map<String, Object> getConfigMap(String transport){
+        if(Transport.TCP.equals(transport)){
+            return this.tcpConfigMap;
+        }
+        else if(Transport.UDP.equals(transport)){
+            return this.udpConfigMap;
+        }
+        else {
+            return null;
+        }
+        /*
+        TODO:
+        else if(Transport.TLS.equals(transport)){
+
+        }
+        else if(Transport.WS.equals(transport)){
+
+        }
+        */
     }
 
     public Map<String, Object> getTcpConfigMap() {
