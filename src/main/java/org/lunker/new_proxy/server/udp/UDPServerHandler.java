@@ -56,7 +56,7 @@ public class UDPServerHandler extends ChannelInboundHandlerAdapter {
                 Optional<String> maybeStrSipMessage = Optional.ofNullable(this.receivedPacket.content().toString(CharsetUtil.UTF_8));
                 Optional<DefaultSipMessage> maybeGeneralSipMessage = deserialize(ctx, maybeStrSipMessage);
 
-                this.optionalSipMessageHandler.get().handle(ctx, maybeGeneralSipMessage);
+                this.optionalSipMessageHandler.get().handle(maybeGeneralSipMessage);
 
 
 //                ctx.writeAndFlush(new DatagramPacket(

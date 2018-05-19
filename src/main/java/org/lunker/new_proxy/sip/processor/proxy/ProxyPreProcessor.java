@@ -49,7 +49,7 @@ public class ProxyPreProcessor extends PreProcessor {
                 // 결국 이것만 다르다
                 Optional<DefaultSipMessage> maybeGeneralSipMessage=deserialize(ctx, maybeStrSipMessage);
 
-                this.optionalSipMessageHandler.get().handle(ctx, maybeGeneralSipMessage);
+                this.optionalSipMessageHandler.get().handle(maybeGeneralSipMessage);
 
                 return "fromCallable return value";
             });

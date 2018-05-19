@@ -4,6 +4,7 @@ import org.lunker.new_proxy.config.Configuration;
 import org.lunker.new_proxy.core.constants.ServerType;
 import org.lunker.new_proxy.exception.BootstrapException;
 import org.lunker.new_proxy.exception.InvalidConfigurationException;
+import org.lunker.new_proxy.model.ServerInfo;
 import org.lunker.new_proxy.model.Transport;
 import org.lunker.new_proxy.server.tcp.TCPServer;
 import org.lunker.new_proxy.server.udp.UDPServer;
@@ -29,7 +30,11 @@ public class Bootstrap {
             logger.debug("[{}] Server starting ...", transport);
 
         try{
-            ServerProcessor serverProcessor=generateServerProcessor(configuration.getServerType(), Transport.valueOf(transport), sipMessageHandlerImplClassName);
+            ServerInfo serverInfo=null;
+            ServerProcessor serverProcessor=null;
+
+            serverInfo=generateServerInfo(configuration.getServerType(),(String) configuration.getConfigMap(transport).get("host"), (int) configuration.getConfigMap(transport).get("port"), Transport.valueOf(transport));
+            serverProcessor=generateServerProcessor(serverInfo, sipMessageHandlerImplClassName);
 
             //TODO: using constants
             if("tcp".equalsIgnoreCase(transport)){
@@ -77,11 +82,14 @@ public class Bootstrap {
         }
     }
 
-    private static ServerProcessor generateServerProcessor(ServerType serverType, Transport transport, String sipMessageHandlerClassName) throws InvalidConfigurationException,ClassNotFoundException, IllegalAccessException, InstantiationException {
-        ServerProcessor serverProcessor=new ServerProcessor();
-        serverProcessor.setTransport(transport);
+    private static ServerInfo generateServerInfo(ServerType serverType, String host, int port, Transport transport){
+        return new ServerInfo(serverType, host, port, transport);
+    }
 
-        switch (serverType){
+    private static ServerProcessor generateServerProcessor(ServerInfo serverInfo, String sipMessageHandlerClassName) throws InvalidConfigurationException,ClassNotFoundException, IllegalAccessException, InstantiationException {
+        ServerProcessor serverProcessor=new ServerProcessor();
+
+        switch (serverInfo.getServerType()){
             case LB:
                 //TODO: Create LB Processor
                 break;

@@ -1,6 +1,6 @@
 package org.lunker.new_proxy.sip.processor;
 
-import org.lunker.new_proxy.model.Transport;
+import org.lunker.new_proxy.model.ServerInfo;
 import org.lunker.new_proxy.sip.processor.proxy.ProxyPreProcessor;
 import org.lunker.new_proxy.stub.SipMessageHandler;
 
@@ -10,7 +10,7 @@ import java.util.Optional;
  * Created by dongqlee on 2018. 4. 27..
  */
 public class ServerProcessor {
-    private Transport transport=Transport.NONE;
+    private ServerInfo serverInfo=null;
     private PreProcessor preProcessor=null;
     private Optional<SipMessageHandler> sipMessageHandler=null;
     private PostProcessor postProcessor=null;
@@ -20,12 +20,16 @@ public class ServerProcessor {
     public ServerProcessor() {
     }
 
-    public Transport getTransport() {
-        return transport;
+    public ServerInfo getServerInfo() {
+        return serverInfo;
     }
 
-    public void setTransport(Transport transport) {
-        this.transport = transport;
+    public void setServerInfo(ServerInfo serverInfo) {
+        this.serverInfo = serverInfo;
+    }
+
+    public String getSipMessageHandlerClassName() {
+        return sipMessageHandlerClassName;
     }
 
     public void setPreProcessor(PreProcessor preProcessor) {
