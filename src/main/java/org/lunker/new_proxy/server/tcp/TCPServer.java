@@ -55,13 +55,13 @@ public class TCPServer extends AbstractServer {
                 .childOption(ChannelOption.SO_RCVBUF, (int) tcpOptions.get("so_rcvbuf"))
                 .childOption(ChannelOption.SO_SNDBUF, (int) tcpOptions.get("so_sndbuf"));
 
-        // Bind and start to accept incoming connections.
-        ChannelFuture f = b.bind((int) transportConfigMap.get("port")).sync(); // (7)
+        // Bind and addHandler to accept incoming connections.
+        ChannelFuture channelFuture=b.bind((int) transportConfigMap.get("port")); // (7)
 
-        logger.info("Run TCP Server Listening on {}", transportConfigMap.get("port"));
+        if(logger.isInfoEnabled())
+            logger.info("Run TCP Server Listening on {}", transportConfigMap.get("port"));
 
-        f.channel().closeFuture().sync();
-        return f;
+        return channelFuture;
     }// end run
 
     public void shutdown(){

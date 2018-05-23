@@ -1,5 +1,6 @@
 package org.lunker.proxy.sip;
 
+import org.lunker.new_proxy.model.ServerInfo;
 import org.lunker.new_proxy.sip.wrapper.message.DefaultSipMessage;
 import org.lunker.new_proxy.stub.SipMessageHandler;
 import org.lunker.proxy.Validation;
@@ -24,7 +25,10 @@ public class SipServletImpl extends SipMessageHandler {
     private ProxyInHandler proxyInHandler=null;
     private ProxyPostHandler proxyProHandler=null;
 
-    public SipServletImpl() {
+
+    public SipServletImpl(ServerInfo serverInfo) {
+        super(serverInfo);
+
         proxyPreHandler=new ProxyPreHandler();
         proxyInHandler=new ProxyInHandler();
         proxyProHandler=new ProxyPostHandler();
@@ -47,6 +51,4 @@ public class SipServletImpl extends SipMessageHandler {
             proxyAsync.subscribe();
         });
     }
-
-
 }

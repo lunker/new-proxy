@@ -1,6 +1,7 @@
 package org.lunker.proxy;
 
 import org.lunker.new_proxy.Bootstrap;
+import org.lunker.new_proxy.model.Transport;
 import org.lunker.proxy.sip.SipServletImpl;
 
 /**
@@ -9,7 +10,8 @@ import org.lunker.proxy.sip.SipServletImpl;
 public class Application {
     public static void main(String[] args){
         try{
-            Bootstrap.start("tcp", SipServletImpl.class);
+            Bootstrap.addHandler(Transport.TCP, SipServletImpl.class);
+            Bootstrap.addHandler(Transport.UDP, SipServletImpl.class);
 
         }
         catch (Exception e ){

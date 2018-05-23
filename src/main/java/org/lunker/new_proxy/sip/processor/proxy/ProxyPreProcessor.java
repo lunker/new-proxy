@@ -67,6 +67,8 @@ public class ProxyPreProcessor extends PreProcessor {
         return stringMsgParser.parseSIPMessage(strSipMessage.getBytes(), true, false, null);
     }
 
+
+    // TODO: Refactoring -> 'proxy' app으로 이동
     /**
      * Set ServerReflexive address to Via 'rport', 'received'
      * @param ctx

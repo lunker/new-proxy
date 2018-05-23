@@ -48,12 +48,17 @@ public class ServerProcessor {
         this.sipMessageHandler = sipMessageHandler;
     }
 
-
     //TODO: Refactoring
     public void setSipMessageHandlerClassName(String sipMessageHandlerClassName) throws ClassNotFoundException, IllegalAccessException, InstantiationException{
         this.sipMessageHandlerClassName = sipMessageHandlerClassName;
 
-        this.sipMessageHandler=Optional.ofNullable((SipMessageHandler) Class.forName(this.sipMessageHandlerClassName).newInstance());
+        try{
+            this.sipMessageHandler=Optional.ofNullable((SipMessageHandler) Class.forName(this.sipMessageHandlerClassName).getConstructor(ServerInfo.class).newInstance(this.serverInfo));
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
+
         this.preProcessor=new ProxyPreProcessor(this.sipMessageHandler);
     }
 

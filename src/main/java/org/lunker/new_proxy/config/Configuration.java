@@ -134,7 +134,7 @@ public class Configuration {
     }
 
     public void deserialize() throws InvalidConfigurationException {
-        this.serverType=ServerType.valueOf(configurationJson.get("type").getAsString());
+        this.serverType=ServerType.convert(configurationJson.get("type").getAsString());
         if(this.serverType==ServerType.NONE)
             isValidServerType=false;
         else
@@ -217,8 +217,8 @@ public class Configuration {
                 }
                 else {
                     if(((JsonPrimitive)value).isNumber()){
-                        value=((JsonElement) value).getAsInt();
-                        configMap.put(key, value);
+//                        value=((JsonElement) value).getAsInt();
+                        configMap.put(key, ((JsonElement) value).getAsInt());
                     }
                     else if(((JsonPrimitive)value).isString()){
                         value=((JsonElement) value).getAsString();
@@ -269,7 +269,7 @@ public class Configuration {
         return serverType;
     }
 
-    public Map<String, Object> getConfigMap(String transport){
+    public Map<String, Object> getConfigMap(Transport transport){
         if(Transport.TCP.equals(transport)){
             return this.tcpConfigMap;
         }

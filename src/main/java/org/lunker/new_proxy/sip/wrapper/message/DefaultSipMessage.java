@@ -1,9 +1,7 @@
 package org.lunker.new_proxy.sip.wrapper.message;
 
 import gov.nist.javax.sip.address.SipUri;
-import gov.nist.javax.sip.header.Authorization;
-import gov.nist.javax.sip.header.Via;
-import gov.nist.javax.sip.header.ViaList;
+import gov.nist.javax.sip.header.*;
 import gov.nist.javax.sip.message.SIPMessage;
 import gov.nist.javax.sip.message.SIPRequest;
 import gov.nist.javax.sip.message.SIPResponse;
@@ -28,13 +26,16 @@ import java.text.ParseException;
  * Base class for LB, Proxy SipMessage
  * Created by dongqlee on 2018. 4. 26..
  */
-public abstract class DefaultSipMessage {
+public class DefaultSipMessage {
     private Logger logger= LoggerFactory.getLogger(DefaultSipMessage.class);
 
     protected SipMessageFactory sipMessageFactory;
     protected SIPMessage message;
     protected String method;
     protected ConnectionManager connectionManager=ConnectionManager.getInstance();
+
+
+    public static DefaultSipMessage DEFUALT_MESSAGE=new DefaultSipMessage();
 
     public DefaultSipMessage(){
 
@@ -175,6 +176,14 @@ public abstract class DefaultSipMessage {
 
     public CSeqHeader getCSeq(){
         return this.message.getCSeq();
+    }
+
+    public RouteList getRouteHeaders(){
+        return this.message.getRouteHeaders();
+    }
+
+    public RecordRouteList getRecordRouteHeaders(){
+        return this.message.getRecordRouteHeaders();
     }
 
     @Override

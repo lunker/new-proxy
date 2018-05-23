@@ -1,5 +1,6 @@
 package org.lunker.new_proxy.stub;
 
+import org.lunker.new_proxy.model.ServerInfo;
 import org.lunker.new_proxy.sip.wrapper.message.DefaultSipMessage;
 
 import java.util.Optional;
@@ -9,12 +10,24 @@ import java.util.Optional;
  */
 public abstract class SipMessageHandler {
     private String transport="";
+    private ServerInfo serverInfo=null;
 //    private Map<String, Object> properties=null;
+
+    public SipMessageHandler(ServerInfo serverInfo) {
+        this.serverInfo = serverInfo;
+    }
 
     public abstract void handle(Optional<DefaultSipMessage> maybeDefaultSipMessage);
 
     public void setTransport(String transport){
         this.transport=transport;
-//        this.properties=properties;
+    }
+
+    public void setServerInfo(ServerInfo serverInfo) {
+        this.serverInfo = serverInfo;
+    }
+
+    public ServerInfo getServerInfo() {
+        return serverInfo;
     }
 }

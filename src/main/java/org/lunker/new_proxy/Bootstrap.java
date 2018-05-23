@@ -1,17 +1,21 @@
 package org.lunker.new_proxy;
 
+import io.netty.channel.ChannelFuture;
 import org.lunker.new_proxy.config.Configuration;
 import org.lunker.new_proxy.core.constants.ServerType;
 import org.lunker.new_proxy.exception.BootstrapException;
 import org.lunker.new_proxy.exception.InvalidConfigurationException;
 import org.lunker.new_proxy.model.ServerInfo;
 import org.lunker.new_proxy.model.Transport;
-import org.lunker.new_proxy.server.tcp.TCPServer;
-import org.lunker.new_proxy.server.udp.UDPServer;
 import org.lunker.new_proxy.sip.processor.ServerProcessor;
-import org.lunker.new_proxy.stub.SipMessageHandler;
+import org.lunker.new_proxy.stub.AbstractServer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import reactor.core.publisher.Mono;
+import reactor.core.scheduler.Schedulers;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by dongqlee on 2018. 4. 26..
@@ -19,66 +23,62 @@ import org.slf4j.LoggerFactory;
 public class Bootstrap {
     private static Logger logger=LoggerFactory.getLogger(Bootstrap.class);
     private static Configuration configuration=Configuration.getInstance();
+    private static List<Mono<ChannelFuture>> serverList=new ArrayList<>();
 
-    public static void start(String transport, Class sipMessageHandlerImplClass) throws BootstrapException {
-        start(transport, sipMessageHandlerImplClass.getName());
+    public static void addHandler(Transport transport, Class sipMessageHandlerImplClass) throws BootstrapException {
+        addHandler(transport, sipMessageHandlerImplClass.getName());
     }
 
     // ISSUE:tcp, udp 등 여러 서버들간에 동일한 Handler 객체를 넘겨줘도 되는가? 아니면 각각 서버들마다 다른 객체를 넘겨줘야하나?
-    public static void start(String transport, String sipMessageHandlerImplClassName) throws BootstrapException {
-        if(logger.isDebugEnabled())
-            logger.debug("[{}] Server starting ...", transport);
-
+    public static void addHandler(Transport transport, String sipMessageHandlerImplClassName) throws BootstrapException {
         try{
+            Mono<ChannelFuture> serverThread=null;
             ServerInfo serverInfo=null;
             ServerProcessor serverProcessor=null;
 
-            serverInfo=generateServerInfo(configuration.getServerType(),(String) configuration.getConfigMap(transport).get("host"), (int) configuration.getConfigMap(transport).get("port"), Transport.valueOf(transport));
+            serverInfo=generateServerInfo(configuration.getServerType(), (String) configuration.getConfigMap(transport).get("host"), (int) configuration.getConfigMap(transport).get("port"), transport);
             serverProcessor=generateServerProcessor(serverInfo, sipMessageHandlerImplClassName);
+            serverThread=generateServerThread(serverInfo, serverProcessor);
 
-            //TODO: using constants
-            if("tcp".equalsIgnoreCase(transport)){
-                if(configuration.isValidTCP()){
-                    TCPServer tcpServer=new TCPServer(serverProcessor, configuration.getTcpConfigMap());
+            serverList.add(serverThread);
+        }
+        catch (Exception e){
+            e.printStackTrace();
+            logger.error("[{}] Server started failed", transport);
+            throw new BootstrapException(e.getMessage());
+        }
+    }
 
+    // TODO:
+    public static void addShutdownHandler(){
+        Runtime.getRuntime().addShutdownHook(new Thread()
+        {
+            @Override
+            public void run()
+            {
+                System.out.println("Shutdown hook ran!");
+            }
+        });
+    }
+
+    public static void run() throws Exception{
+        Mono<ChannelFuture> serverMono=null;
+        ChannelFuture result=null;
+
+        for(int idx=0; idx<serverList.size(); idx++){
+            final int cnt=idx;
+            serverMono=serverList.get(idx);
+
+            serverMono.subscribe((channelFuture)->{
+                if(cnt==serverList.size()-1){
                     try{
-                        tcpServer.run();
+                        channelFuture.channel().closeFuture().await();
                     }
                     catch (Exception e){
                         e.printStackTrace();
-                        throw new RuntimeException(String.format("[%s] Server starting error.", transport));
                     }
                 }
-                else
-                    throw new RuntimeException(String.format("[%s] Server starting error. Configuration is not valid", transport));
-            }
-            else if("udp".equalsIgnoreCase(transport)){
-                // TODO: configure UDP server
-                if (configuration.isValidUDP()) {
-                    UDPServer udpServer = new UDPServer(serverProcessor, configuration.getUdpConfigMap());
-
-                    try {
-                        udpServer.run();
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                        throw new RuntimeException(String.format("[%s] Server starting error.", transport));
-                    }
-                } else
-                    throw new RuntimeException(String.format("[%s] Server starting error. Configuration is not valid", transport));
-            }
-            else if("tls".equalsIgnoreCase(transport)){
-                // TODO: configure tls server
-            }
-            else if("ws".equalsIgnoreCase(transport)){
-                // TODO: configure websocket server
-            }
-
-            if(logger.isDebugEnabled())
-                logger.debug("[{}] Server started", transport);
-        }
-        catch (Exception e){
-            logger.error("[{}] Server started failed", transport);
-            throw new BootstrapException(e.getMessage());
+            });
         }
     }
 
@@ -94,6 +94,7 @@ public class Bootstrap {
                 //TODO: Create LB Processor
                 break;
             case PROXY:
+                serverProcessor.setServerInfo(serverInfo);
                 serverProcessor.setSipMessageHandlerClassName(sipMessageHandlerClassName);
 
                 // TODO: postProcessor에서 공통로직 후처리
@@ -106,18 +107,31 @@ public class Bootstrap {
         return serverProcessor;
     }
 
-    public static void startTCP(SipMessageHandler sipMessageHandler){
-//        Assert.that(sipMessageHandler==null, "Sip Handler is not implemented");
-//        assert sipMessageHandler ==null ?
+    // TODO: change mono->
+    private static Mono<ChannelFuture> generateServerThread(ServerInfo serverInfo, ServerProcessor serverProcessor){
+        Mono<ChannelFuture> serverThread=Mono.fromCallable(()->{
+            AbstractServer server=null;
+            ChannelFuture f=null;
+
+            if(logger.isDebugEnabled())
+                logger.debug("[{}] Server starting ...", serverInfo.getTransport().getValue());
+
+            server=AbstractServer.create(serverInfo, serverProcessor, configuration.getConfigMap(serverInfo.getTransport()));
+
+            try{
+                f=server.run();
+                if(logger.isDebugEnabled())
+                    logger.debug("[{}] Server started", serverInfo.getTransport().getValue());
+            }
+            catch (Exception e){
+                e.printStackTrace();
+                throw new RuntimeException(String.format("[%s] Server starting error.", serverInfo.getTransport()));
+            }
+
+            return f;
+        });
+
+        serverThread.subscribeOn(Schedulers.newElastic("elelel"));
+        return serverThread;
     }
-
-    public static void startUDP(){
-
-    }
-
-    public static void startAll(){
-
-    }
-
-
 }

@@ -21,6 +21,6 @@ public class DefaultSipResponse extends DefaultSipMessage {
     }
 
     public void removeTopVia(){
-        this.sipResponse.getViaHeaders().removeFirst();
+        this.sipResponse.getViaHeaders().removeLast();
     }
 }

@@ -17,6 +17,5 @@ public class TestConfiguration {
 
     @Test
     public void testValidate() throws InvalidConfigurationException {
-        Configuration.getInstance().deserialize();
     }
 }

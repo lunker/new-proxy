@@ -29,6 +29,7 @@ public class UDPServer extends AbstractServer {
 
     @Override
     public ChannelFuture run() throws Exception {
+        /*
         try {
             // TODO: change to own Bootstrap
             final Bootstrap b = new Bootstrap();
@@ -40,11 +41,15 @@ public class UDPServer extends AbstractServer {
                     .channel(NioDatagramChannel.class)
                     .handler(this.channelInitializer);
 
-            ChannelFuture f = b.bind((int) configMap.get("port")).sync();
+            ChannelFuture f = b.bind((int) configMap.get("port"));
 
             logger.info("Run UDP Server Listening on {}", configMap.get("port"));
 
-            f.channel().closeFuture().sync();
+//            f.channel().closeFuture();
+
+            f.await();
+
+
             return f;
         } finally {
             if (logger.isDebugEnabled())
@@ -54,5 +59,30 @@ public class UDPServer extends AbstractServer {
                 udpGroup.shutdownGracefully();
             }
         }
+
+        */
+
+        // TODO: change to own Bootstrap
+        final Bootstrap b = new Bootstrap();
+        // TODO: add something needeed server options
+//            b.group(udpGroup)
+//                    .channel(NioDatagramChannel.class)
+//                    .handler(this.channelInitializer);
+        b.group(udpGroup)
+                .channel(NioDatagramChannel.class)
+                .handler(this.channelInitializer);
+
+        ChannelFuture f = b.bind((int) configMap.get("port"));
+
+        logger.info("Run UDP Server Listening on {}", configMap.get("port"));
+
+        /*
+        f.channel().closeFuture().addListener((event)->{
+            System.out.println("event : ");
+        });
+        */
+
+//        f.channel().closeFuture().sync();
+        return f;
     }
 }
