@@ -8,6 +8,8 @@ import org.lunker.new_proxy.exception.InvalidConfigurationException;
 import org.lunker.new_proxy.model.ServerInfo;
 import org.lunker.new_proxy.model.Transport;
 import org.lunker.new_proxy.sip.processor.ServerProcessor;
+import org.lunker.new_proxy.sip.processor.lb.LoadBalancerPreProcessor;
+import org.lunker.new_proxy.sip.processor.proxy.ProxyPreProcessor;
 import org.lunker.new_proxy.stub.AbstractServer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -91,11 +93,15 @@ public class Bootstrap {
 
         switch (serverInfo.getServerType()){
             case LB:
-                //TODO: Create LB Processor
+                // TODO: Refactoring
+                serverProcessor.setServerInfo(serverInfo);
+                serverProcessor.setSipMessageHandlerClassName(sipMessageHandlerClassName);
+                serverProcessor.setPreProcessor(new LoadBalancerPreProcessor(serverProcessor.getSipMessageHandler()));
                 break;
             case PROXY:
                 serverProcessor.setServerInfo(serverInfo);
                 serverProcessor.setSipMessageHandlerClassName(sipMessageHandlerClassName);
+                serverProcessor.setPreProcessor(new ProxyPreProcessor(serverProcessor.getSipMessageHandler()));
 
                 // TODO: postProcessor에서 공통로직 후처리
 //                serverProcessor.setPostProcessor(new ProxyPostProcessor());

@@ -59,7 +59,7 @@ public class ServerProcessor {
             e.printStackTrace();
         }
 
-        this.preProcessor=new ProxyPreProcessor(this.sipMessageHandler);
+//        this.preProcessor=new ProxyPreProcessor(this.sipMessageHandler);
     }
 
     public PostProcessor getPostProcessor() {

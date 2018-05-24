@@ -9,8 +9,10 @@ import org.lunker.proxy.sip.SipServletImpl;
 public class TestServer {
     @Test
     public void startServer() throws Exception{
+
         Bootstrap.addHandler(Transport.TCP, SipServletImpl.class);
         Bootstrap.addHandler(Transport.UDP, SipServletImpl.class);
+
         Bootstrap.addShutdownHandler();
         Bootstrap.run();
     }

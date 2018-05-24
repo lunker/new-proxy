@@ -8,7 +8,14 @@ import org.lunker.new_proxy.sip.wrapper.message.DefaultSipRequest;
  */
 public class LoadBalancerRequest extends DefaultSipRequest {
 
+
+
     public LoadBalancerRequest(SIPMessage sipMessage) {
         super(sipMessage);
+    }
+
+
+    public void addHeader(){
+
     }
 }
