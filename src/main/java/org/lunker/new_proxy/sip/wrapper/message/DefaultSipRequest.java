@@ -107,5 +107,9 @@ public class DefaultSipRequest extends DefaultSipMessage {
         return defaultSipResponse;
     }
 
-
+    @Override
+    public Object clone() {
+        SIPRequest sipRequest=(SIPRequest) this.sipReqeust.clone();
+        return new DefaultSipRequest(sipRequest);
+    }
 }

@@ -1,6 +1,8 @@
 package org.lunker.new_proxy.sip.processor;
 
+import org.lunker.new_proxy.core.constants.ServerType;
 import org.lunker.new_proxy.model.ServerInfo;
+import org.lunker.new_proxy.sip.processor.lb.LoadBalancerPreProcessor;
 import org.lunker.new_proxy.sip.processor.proxy.ProxyPreProcessor;
 import org.lunker.new_proxy.stub.SipMessageHandler;
 
@@ -71,7 +73,12 @@ public class ServerProcessor {
     }
 
     public PreProcessor newPreProcessorInstance() {
-        return new ProxyPreProcessor(this.sipMessageHandler);
+        if(serverInfo.getServerType() == ServerType.LB){
+            return new LoadBalancerPreProcessor(this.sipMessageHandler);
+        }
+        else{
+            return new ProxyPreProcessor(this.sipMessageHandler);
+        }
     }
 
     public PreProcessor getPreProcessor() {

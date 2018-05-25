@@ -195,5 +195,4 @@ public class DefaultSipMessage {
 
         return new DefaultSipMessage(clonedSipMessage);
     }
-
 }

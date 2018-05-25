@@ -1,5 +1,5 @@
 {
-  "type": "proxy",
+  "type": "lb",
 
   "transport": {
     "tcp":{

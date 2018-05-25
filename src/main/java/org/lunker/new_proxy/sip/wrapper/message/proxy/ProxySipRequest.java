@@ -1,6 +1,7 @@
 package org.lunker.new_proxy.sip.wrapper.message.proxy;
 
 import gov.nist.javax.sip.message.SIPMessage;
+import gov.nist.javax.sip.message.SIPRequest;
 import gov.nist.javax.sip.message.SIPResponse;
 import org.lunker.new_proxy.sip.B2BUAHelper;
 import org.lunker.new_proxy.sip.wrapper.message.DefaultSipRequest;
@@ -97,4 +98,10 @@ public class ProxySipRequest extends DefaultSipRequest implements Sessionable{
             throw new IllegalArgumentException("Bad status code " + statusCode, var19);
         }
     }// end method
+
+    @Override
+    public ProxySipRequest clone() {
+        SIPRequest sipRequest=(SIPRequest) this.message.clone();
+        return new ProxySipRequest(sipRequest);
+    }
 }
