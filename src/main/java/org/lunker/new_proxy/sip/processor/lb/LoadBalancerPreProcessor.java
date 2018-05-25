@@ -42,7 +42,6 @@ public class LoadBalancerPreProcessor extends PreProcessor {
 
     @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
-
         try{
             Mono<String> wrapper=Mono.fromCallable(()->{
                 Optional<String> maybeStrSipMessage=(Optional<String>) msg;

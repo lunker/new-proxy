@@ -34,7 +34,6 @@ public class DefaultSipMessage {
     protected String method;
     protected ConnectionManager connectionManager=ConnectionManager.getInstance();
 
-
     public static DefaultSipMessage DEFUALT_MESSAGE=new DefaultSipMessage();
 
     public DefaultSipMessage(){
@@ -190,4 +189,11 @@ public class DefaultSipMessage {
     public String toString() {
         return this.message.toString();
     }
+
+    public Object clone() {
+        SIPMessage clonedSipMessage=(SIPMessage) this.message.clone();
+
+        return new DefaultSipMessage(clonedSipMessage);
+    }
+
 }

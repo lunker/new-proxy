@@ -7,7 +7,6 @@ import gov.nist.javax.sip.message.SIPResponse;
  * Created by dongqlee on 2018. 4. 28..
  */
 public class DefaultSipResponse extends DefaultSipMessage {
-
     private SIPResponse sipResponse =null;
 
     public DefaultSipResponse(SIPMessage sipMessage) {

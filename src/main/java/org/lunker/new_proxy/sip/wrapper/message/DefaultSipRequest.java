@@ -14,7 +14,6 @@ import java.text.ParseException;
  * Created by dongqlee on 2018. 4. 28..
  */
 public class DefaultSipRequest extends DefaultSipMessage {
-
     private SIPRequest sipReqeust =null;
 
     public DefaultSipRequest(SIPMessage sipMessage) {
@@ -85,6 +84,19 @@ public class DefaultSipRequest extends DefaultSipMessage {
         this.sipReqeust.getViaHeaders().addFirst(via);
     }
 
+    public void removeTopVia(){
+
+    }
+
+    public void decrementMaxForwards(){
+        try{
+            this.message.getMaxForwards().decrementMaxForwards();
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
     public DefaultSipResponse createResponse(int responseCode) throws ParseException{
         DefaultSipResponse defaultSipResponse=null;
         Response response=null;
@@ -94,5 +106,6 @@ public class DefaultSipRequest extends DefaultSipMessage {
 
         return defaultSipResponse;
     }
+
 
 }
