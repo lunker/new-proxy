@@ -12,7 +12,8 @@ public class Application {
         try{
             Bootstrap.addHandler(Transport.TCP, SipServletImpl.class);
             Bootstrap.addHandler(Transport.UDP, SipServletImpl.class);
-
+            Bootstrap.addHandler(Transport.WS, SipServletImpl.class);
+            Bootstrap.run();
         }
         catch (Exception e ){
             e.printStackTrace();

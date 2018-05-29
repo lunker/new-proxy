@@ -1,7 +1,8 @@
 package org.lunker.proxy.core;
 
 import org.lunker.new_proxy.sip.wrapper.message.DefaultSipMessage;
-import org.lunker.proxy.Validation;
+import org.lunker.new_proxy.sip.wrapper.message.DefaultSipResponse;
+import org.lunker.proxy.sip.pre_process.Validation;
 
 /**
  * Created by dongqlee on 2018. 5. 17..
@@ -15,19 +16,18 @@ public class Message {
     public Message() {
     }
 
+    public Message(DefaultSipMessage originalMessage) {
+        this.processState = ProcessState.PRE;
+        this.originalMessage = originalMessage;
+        this.newMessage = originalMessage;
+        this.validation = new Validation();
+    }
+
     public Message(DefaultSipMessage originalMessage, Validation validation) {
         this.processState= ProcessState.PRE;
         this.originalMessage = originalMessage;
         this.newMessage = null;
-        this.validation = validation;
-    }
-
-    public Validation getValidation() {
-        return validation;
-    }
-
-    public void setValidation(Validation validation) {
-        this.validation = validation;
+//        this.validation = validation;
     }
 
     public ProcessState getProcessState() {
@@ -54,13 +54,22 @@ public class Message {
         this.newMessage = newMessage;
     }
 
-    @Override
-    public String toString() {
-        return "Message{" +
-                "processState=" + processState +
-                ", originalMessage=" + originalMessage +
-                ", newMessage=" + newMessage +
-                ", validation=" + validation +
-                '}';
+    public Validation getValidation() {
+        return validation;
+    }
+
+    public void setValidation(Validation validation) {
+        this.validation = validation;
+    }
+
+    public void validate(int responseCode, String reason, DefaultSipResponse newMessage){
+
+    }
+
+    public void invalidate(int responseCode, String reason, DefaultSipResponse newMessage){
+        this.validation.setValidate(false);
+        this.validation.setResponseCode(responseCode);
+        this.validation.setReason(reason);
+        this.setNewMessage(newMessage);
     }
 }

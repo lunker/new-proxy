@@ -1,6 +1,7 @@
 package org.lunker.new_proxy.sip.wrapper.message.proxy;
 
 import gov.nist.javax.sip.message.SIPMessage;
+import gov.nist.javax.sip.message.SIPResponse;
 import org.lunker.new_proxy.sip.wrapper.message.DefaultSipResponse;
 import org.lunker.new_proxy.sip.wrapper.message.Sessionable;
 import org.slf4j.Logger;
@@ -187,4 +188,11 @@ public class ProxySipResponse extends DefaultSipResponse implements Sessionable 
         */
         return null;
     }// end method
+
+
+    @Override
+    public Object clone() {
+        SIPResponse sipResponse=(SIPResponse) this.message.clone();
+        return new ProxySipResponse(sipResponse);
+    }
 }

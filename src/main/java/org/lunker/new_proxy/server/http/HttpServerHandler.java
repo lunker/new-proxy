@@ -9,6 +9,8 @@ import io.netty.handler.codec.http.HttpRequest;
 import io.netty.handler.codec.http.websocketx.WebSocketServerHandshaker;
 import io.netty.handler.codec.http.websocketx.WebSocketServerHandshakerFactory;
 import org.lunker.new_proxy.server.websocket.WebsocketHandler;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.net.URISyntaxException;
 
@@ -16,6 +18,7 @@ import java.net.URISyntaxException;
  * Created by dongqlee on 2018. 3. 31..
  */
 public class HttpServerHandler extends ChannelInboundHandlerAdapter {
+    private Logger logger=LoggerFactory.getLogger(HttpServerHandler.class);
 
     WebSocketServerHandshaker handshaker;
 
@@ -58,6 +61,8 @@ public class HttpServerHandler extends ChannelInboundHandlerAdapter {
             }
         } else {
             System.out.println("Incoming request is unknown");
+
+            ctx.pipeline().replace(this, "weboscketHandler", new WebsocketHandler());
         }
 
     }

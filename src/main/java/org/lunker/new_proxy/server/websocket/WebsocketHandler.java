@@ -3,11 +3,14 @@ package org.lunker.new_proxy.server.websocket;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
 import io.netty.handler.codec.http.websocketx.*;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Created by dongqlee on 2018. 3. 31..
  */
 public class WebsocketHandler extends ChannelInboundHandlerAdapter {
+    private Logger logger= LoggerFactory.getLogger(WebsocketHandler.class);
 
     @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {

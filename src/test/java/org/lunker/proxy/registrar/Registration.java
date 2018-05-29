@@ -1,10 +1,11 @@
 package org.lunker.proxy.registrar;
 
+import org.lunker.new_proxy.model.Transport;
+
 /**
  * Created by dongqlee on 2018. 3. 16..
  */
 public class Registration {
-
     private String userKey;
     private String aor;
     private String account;
@@ -12,6 +13,7 @@ public class Registration {
 
     private String remoteAddress;
     private int remotePort;
+    private Transport remoteTransport;
 
     private Registration() {
     }
@@ -78,5 +80,13 @@ public class Registration {
 
     public void setRemotePort(int remotePort) {
         this.remotePort = remotePort;
+    }
+
+    public Transport getRemoteTransport() {
+        return remoteTransport;
+    }
+
+    public void setRemoteTransport(Transport remoteTransport) {
+        this.remoteTransport = remoteTransport;
     }
 }

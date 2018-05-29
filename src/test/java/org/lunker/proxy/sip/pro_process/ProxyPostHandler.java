@@ -1,5 +1,8 @@
 package org.lunker.proxy.sip.pro_process;
 
+import gov.nist.javax.sip.header.Via;
+import org.lunker.new_proxy.model.ServerInfo;
+import org.lunker.new_proxy.sip.wrapper.message.DefaultSipRequest;
 import org.lunker.proxy.core.Message;
 import org.lunker.proxy.core.ProcessState;
 import org.lunker.proxy.core.ProxyHandler;
@@ -12,14 +15,48 @@ import org.slf4j.LoggerFactory;
 public class ProxyPostHandler implements ProxyHandler {
     private Logger logger= LoggerFactory.getLogger(ProxyPostHandler.class);
 
+    private String host="";
+    private int port=0;
+    private String transport="";
+    private Via proxyVia=null;
+
+    public ProxyPostHandler(ServerInfo serverInfo) {
+        this.host=serverInfo.getHost();
+        this.port=serverInfo.getPort();
+        this.transport=serverInfo.getTransport().getValue();
+
+        generateProxyVia();
+    }
+
+    public void setup(ServerInfo serverInfo){
+
+    }
+
+    private void generateProxyVia(){
+        try{
+            proxyVia=new Via();
+            proxyVia.setPort(port);
+            proxyVia.setHost(host);
+            proxyVia.setReceived(host);
+            proxyVia.setTransport(transport);
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
     @Override
     public Message handle(Message message) {
-
         // TODO:
         if(message.getProcessState() != ProcessState.POST)
             return message;
 
         try{
+            if(message.getNewMessage() instanceof DefaultSipRequest){
+                // add via header, proxy address
+                ((DefaultSipRequest)message.getNewMessage()).addVia(proxyVia);
+            }
+
             message.getNewMessage().send();
 
             if(logger.isInfoEnabled())

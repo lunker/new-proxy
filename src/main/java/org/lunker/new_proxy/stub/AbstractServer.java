@@ -7,6 +7,7 @@ import org.lunker.new_proxy.model.Transport;
 import org.lunker.new_proxy.server.TransportInitializer;
 import org.lunker.new_proxy.server.tcp.TCPServer;
 import org.lunker.new_proxy.server.udp.UDPServer;
+import org.lunker.new_proxy.server.websocket.WebsocketServer;
 import org.lunker.new_proxy.sip.processor.ServerProcessor;
 
 import java.util.Map;
@@ -38,6 +39,7 @@ public abstract class AbstractServer extends ChannelInboundHandlerAdapter{
         }
         else if(Transport.WS.equals(serverInfo.getTransport())){
             // TODO: configure websocket server
+            server=new WebsocketServer(serverProcessor, transportConfigMap);
         }
         else if(Transport.WSS.equals(serverInfo.getTransport())){
             // TODO: configure websocket server

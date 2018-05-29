@@ -11,8 +11,4 @@ public abstract class TransportInitializer extends ChannelInitializer{
 //    protected ServerProcessor serverProcessor=null;
     protected PreProcessor preProcessor=null;
     protected PostProcessor postProcessor=null;
-
-
-
-
 }

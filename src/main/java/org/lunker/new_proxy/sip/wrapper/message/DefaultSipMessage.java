@@ -32,6 +32,9 @@ public class DefaultSipMessage {
     protected SipMessageFactory sipMessageFactory;
     protected SIPMessage message;
     protected String method;
+
+    // TODO: Refactoring.
+    // 모든 DefaultSipMessage에서 connectionManager를 참조해야 하는가?
     protected ConnectionManager connectionManager=ConnectionManager.getInstance();
 
     public static DefaultSipMessage DEFUALT_MESSAGE=new DefaultSipMessage();
@@ -109,7 +112,6 @@ public class DefaultSipMessage {
         ChannelHandlerContext targetCtx=null;
 
         // 연결된 LB가 없으면, SIPMessage에 있는 정보로 전송한다
-
         // TODO:: PostProcessor로 옮긴다.
         /**
          * Request:
@@ -128,15 +130,33 @@ public class DefaultSipMessage {
          */
         if(this.message instanceof SIPRequest){
             // Request
-            SIPRequest sipRequest=(SIPRequest) this.message;
-            SipUri requestUri=(SipUri) sipRequest.getRequestURI();
-            remoteHost=requestUri.getHost();
-            remotePort=requestUri.getPort();
 
-            remoteTransport=requestUri.getTransportParam();
+            RouteList routeList=this.message.getRouteHeaders();
+
+            if(routeList != null && routeList.size() !=0){
+                // Contains Route header
+                // TODO: Find connection using 'Route' Header
+                RouteHeader routeHeader=(RouteHeader) this.message.getRouteHeaders().getFirst();
+                SipUri routeUri=(SipUri) routeHeader.getAddress().getURI();
+
+                remoteHost=routeUri.getHost();
+                remotePort=routeUri.getPort();
+                remoteTransport=routeUri.getTransportParam();
+            }
+            else{
+                // No Route header
+                // Using request-uri to find target connection
+                SIPRequest sipRequest=(SIPRequest) this.message;
+                SipUri requestUri=(SipUri) sipRequest.getRequestURI();
+
+                remoteHost=requestUri.getHost();
+                remotePort=requestUri.getPort();
+                remoteTransport=requestUri.getTransportParam();
+            }
         }
         else{
             // Response
+
             SIPResponse sipResponse=(SIPResponse) this.message;
 
             Via topVia=sipResponse.getTopmostVia();
@@ -146,14 +166,25 @@ public class DefaultSipMessage {
             remoteTransport=topVia.getTransport().toLowerCase();
         }
 
+        String remoteInfo=String.format("%s:%d", remoteHost, remotePort);
+
         // TODO: refactoring
         targetCtx=this.connectionManager.getClientConnection(remoteHost, remotePort, remoteTransport);
 
+        // TODO: Find target connection from Server Connector
         if(targetCtx!=null){
             if("tcp".equals(remoteTransport)){
                 // tcp
                 ChannelFuture cf=targetCtx.writeAndFlush((Unpooled.copiedBuffer(this.message.toString(), CharsetUtil.UTF_8)));
-                targetCtx.flush();
+//                ChannelFuture cf=targetCtx.writeAndFlush(thi);
+                cf.addListener((future)->{
+                    if(future.isSuccess()){
+                        logger.info(String.format("[Success][%s] Send message\n%s\n", remoteInfo, this.message));
+                    }
+                    else{
+                        logger.info(String.format("[Fail][%s] Send message\n%s\nfailed cause : %s", remoteInfo, this.message, future.cause().getMessage()));
+                    }
+                });
             }
             else if("udp".equals(remoteTransport)){
                 // udp
@@ -161,11 +192,9 @@ public class DefaultSipMessage {
                         Unpooled.copiedBuffer(this.message.toString(), CharsetUtil.UTF_8),
                         new InetSocketAddress(remoteHost, remotePort)));
             }
-
-            logger.info(String.format("[Success][%s] Send message\n%s\n", String.format("%s:%d", remoteHost, remotePort), this.message));
         }
         else {
-            logger.info(String.format("[Fail][%s] Send message\n%s\nfailed cause : %s", String.format("%s:%d", remoteHost, remotePort), this.message, "targetCtx is null"));
+            logger.info(String.format("[Fail][%s] Send message\n%s\nfailed cause : %s", remoteInfo, this.message, "targetCtx is null"));
         }
     }
 

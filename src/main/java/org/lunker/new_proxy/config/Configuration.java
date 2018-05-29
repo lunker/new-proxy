@@ -30,6 +30,8 @@ public class Configuration {
     private ServerType serverType=ServerType.NONE;
     private Map<String, Object> tcpConfigMap=null;
     private Map<String, Object> udpConfigMap=null;
+    private Map<String, Object> wsConfigMap=null;
+    private Map<String, Object> wssConfigMap=null;
 
     private static final String TRANSPORT_HOST="host";
     private static final String TRANSPORT_PORT="port";
@@ -70,6 +72,12 @@ public class Configuration {
 
         // UDP Transport config
         udpConfigMap=new HashMap<>();
+
+        // WS Transport config
+        wsConfigMap=new HashMap<>();
+
+        // WSS Transport config
+        wssConfigMap=new HashMap<>();
 
         //Get file from resources folder
         ClassLoader classLoader = getClass().getClassLoader();
@@ -179,7 +187,15 @@ public class Configuration {
         }
 
         if(transportConfig.has(TRANSPORT_WS)){
+            JsonObject wsJsonConfig= null;
+            wsJsonConfig = transportConfig.getAsJsonObject(TRANSPORT_WS);
 
+            if (validate(wsJsonConfig)) {
+                setConfigMap(wsConfigMap, wsJsonConfig);
+                isValidWS = true;
+            }
+            else
+                throw new InvalidConfigurationException("Configuration 'WS' options is not correct");
         }
 
         if(transportConfig.has(TRANSPORT_WSS)){
@@ -274,6 +290,12 @@ public class Configuration {
             return this.tcpConfigMap;
         }
         else if(Transport.UDP.equals(transport)){
+            return this.udpConfigMap;
+        }
+        else if(Transport.WS.equals(transport)){
+            return this.udpConfigMap;
+        }
+        else if(Transport.WSS.equals(transport)){
             return this.udpConfigMap;
         }
         else {
