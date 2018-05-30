@@ -131,7 +131,7 @@ public class Bootstrap {
             }
             catch (Exception e){
                 e.printStackTrace();
-                throw new RuntimeException(String.format("[%s] Server starting error.", serverInfo.getTransport()));
+                throw new RuntimeException(String.format("[%s] Server starting error. cause, %s", serverInfo.getTransport(), e.getMessage()));
             }
 
             return f;

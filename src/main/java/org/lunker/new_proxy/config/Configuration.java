@@ -199,7 +199,15 @@ public class Configuration {
         }
 
         if(transportConfig.has(TRANSPORT_WSS)){
+            JsonObject wssJsonConfig= null;
+            wssJsonConfig = transportConfig.getAsJsonObject(TRANSPORT_WSS);
 
+            if (validate(wssJsonConfig)) {
+                setConfigMap(wsConfigMap, wssJsonConfig);
+                isValidWS = true;
+            }
+            else
+                throw new InvalidConfigurationException("Configuration 'WS' options is not correct");
         }
 
     }
@@ -293,10 +301,10 @@ public class Configuration {
             return this.udpConfigMap;
         }
         else if(Transport.WS.equals(transport)){
-            return this.udpConfigMap;
+            return this.wsConfigMap;
         }
         else if(Transport.WSS.equals(transport)){
-            return this.udpConfigMap;
+            return this.wssConfigMap;
         }
         else {
             return null;

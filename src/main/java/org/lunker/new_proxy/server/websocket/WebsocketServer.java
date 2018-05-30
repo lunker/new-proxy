@@ -9,13 +9,13 @@ import io.netty.channel.socket.nio.NioServerSocketChannel;
 import io.netty.handler.ssl.SslContext;
 import io.netty.handler.ssl.SslContextBuilder;
 import io.netty.handler.ssl.util.SelfSignedCertificate;
-import org.lunker.new_proxy.server.http.HttpChannelInitializer;
 import org.lunker.new_proxy.server.tcp.TCPChannelInitializer;
 import org.lunker.new_proxy.sip.processor.ServerProcessor;
 import org.lunker.new_proxy.stub.AbstractServer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.File;
 import java.util.Map;
 
 /**
@@ -41,7 +41,7 @@ public class WebsocketServer extends AbstractServer{
         if (true) {
             try{
                 SelfSignedCertificate ssc = new SelfSignedCertificate();
-                sslCtx = SslContextBuilder.forServer(ssc.certificate(), ssc.privateKey()).build();
+                sslCtx = SslContextBuilder.forServer(new File("/Users/voiceloco/work/sslkey/_wildcard_voiceloco_com.crt"), new File("/Users/voiceloco/work/sslkey/voiceloco.com.key")).build();
             }
             catch (Exception e){
                 e.printStackTrace();
@@ -60,7 +60,8 @@ public class WebsocketServer extends AbstractServer{
         b.option(ChannelOption.SO_BACKLOG, 1024);
         b.group(bossGroup, workerGroup)
                 .channel(NioServerSocketChannel.class)
-                .childHandler(new HttpChannelInitializer(sslCtx));
+//                .childHandler(new HttpChannelInitializer(sslCtx));
+                .childHandler(new WebsocketChannelInitializer(sslCtx));
 
         ChannelFuture channelFuture=b.bind((int) transportConfigMap.get("port")).sync(); // (7)
 
