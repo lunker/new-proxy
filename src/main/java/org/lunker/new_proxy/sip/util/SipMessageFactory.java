@@ -1,12 +1,16 @@
 package org.lunker.new_proxy.sip.util;
 
 import gov.nist.javax.sip.parser.StringMsgParser;
+import org.lunker.new_proxy.model.Transport;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import javax.sip.SipFactory;
+import javax.sip.address.Address;
 import javax.sip.address.AddressFactory;
+import javax.sip.address.SipURI;
 import javax.sip.header.HeaderFactory;
+import javax.sip.header.RecordRouteHeader;
 import javax.sip.message.MessageFactory;
 import javax.sip.message.Request;
 import javax.sip.message.Response;
@@ -122,6 +126,16 @@ public class SipMessageFactory {
                 stringBuilder.append('_');
         }
         return stringBuilder.toString();
+    }
+
+    public RecordRouteHeader generateRecordRouteHeader(String user, String host, int port, String protocol) throws ParseException {
+        SipURI uri = addressFactory.createSipURI(user, host);
+        uri.setPort(port);
+        uri.setTransportParam(protocol);
+        uri.setLrParam(); // RFC 3261 19.1.1
+        Address address = addressFactory.createAddress(uri);
+        address.setURI(uri);
+        return headerFactory.createRecordRouteHeader(address);
     }
 
     private String hash(String value){
