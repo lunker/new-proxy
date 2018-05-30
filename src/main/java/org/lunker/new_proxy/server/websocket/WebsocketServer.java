@@ -6,6 +6,9 @@ import io.netty.channel.ChannelOption;
 import io.netty.channel.EventLoopGroup;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
+import io.netty.handler.ssl.SslContext;
+import io.netty.handler.ssl.SslContextBuilder;
+import io.netty.handler.ssl.util.SelfSignedCertificate;
 import org.lunker.new_proxy.server.http.HttpChannelInitializer;
 import org.lunker.new_proxy.server.tcp.TCPChannelInitializer;
 import org.lunker.new_proxy.sip.processor.ServerProcessor;
@@ -20,8 +23,6 @@ import java.util.Map;
  */
 public class WebsocketServer extends AbstractServer{
     private Logger logger= LoggerFactory.getLogger(WebsocketServer.class);
-    private final int PORT = 5072;
-
     private EventLoopGroup bossGroup=null;
     private EventLoopGroup workerGroup=null;
 
@@ -35,6 +36,21 @@ public class WebsocketServer extends AbstractServer{
 
     @Override
     public ChannelFuture run() throws InterruptedException {
+        SslContext sslCtx=null;
+
+        if (true) {
+            try{
+                SelfSignedCertificate ssc = new SelfSignedCertificate();
+                sslCtx = SslContextBuilder.forServer(ssc.certificate(), ssc.privateKey()).build();
+            }
+            catch (Exception e){
+                e.printStackTrace();
+            }
+
+        } else {
+            sslCtx = null;
+        }
+
         // Configure the server.
         bossGroup = new NioEventLoopGroup();
         workerGroup = new NioEventLoopGroup();
@@ -44,15 +60,16 @@ public class WebsocketServer extends AbstractServer{
         b.option(ChannelOption.SO_BACKLOG, 1024);
         b.group(bossGroup, workerGroup)
                 .channel(NioServerSocketChannel.class)
-                .childHandler(new HttpChannelInitializer());
+                .childHandler(new HttpChannelInitializer(sslCtx));
 
-        ChannelFuture channelFuture=b.bind(PORT).sync(); // (7)
+        ChannelFuture channelFuture=b.bind((int) transportConfigMap.get("port")).sync(); // (7)
 
-        logger.info("Run Websocket Server Listening on " + PORT);
+        logger.info("Run Websocket Server Listening on " + (int) transportConfigMap.get("port"));
 
         return channelFuture;
     }
 
+    // TODO:
     public void shutdown(){
         logger.info("Shut down Websocket Server gracefully...");
         if(bossGroup!=null)

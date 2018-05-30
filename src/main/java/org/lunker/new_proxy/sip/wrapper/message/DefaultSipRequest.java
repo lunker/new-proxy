@@ -85,7 +85,7 @@ public class DefaultSipRequest extends DefaultSipMessage {
     }
 
     public void removeTopVia(){
-
+        
     }
 
     public void decrementMaxForwards(){

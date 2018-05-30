@@ -20,7 +20,6 @@ import java.util.concurrent.ThreadLocalRandom;
  * Created by dongqlee on 2018. 3. 27..
  */
 public class SipMessageFactory {
-    private static SipMessageFactory instance=null;
     private Logger logger= LoggerFactory.getLogger(SipMessageFactory.class);
 
     private SipFactory sipFactory=null;
@@ -55,13 +54,9 @@ public class SipMessageFactory {
         }
     }
 
-    // TODO: singleton vs instance 성능 차이 비교필요함
     public static SipMessageFactory getInstance() {
-        if(instance==null)
-            instance=new SipMessageFactory();
-        return instance;
+        return SingletonHolder.INSTANCE;
     }
-
 
     public MessageFactory getMessageFactory() {
         return messageFactory;
@@ -143,5 +138,9 @@ public class SipMessageFactory {
             e.printStackTrace();
         }
         return hashed;
+    }
+
+    private static class SingletonHolder{
+        private static SipMessageFactory INSTANCE=new SipMessageFactory();
     }
 }
