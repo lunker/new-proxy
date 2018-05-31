@@ -11,7 +11,6 @@ import java.util.Optional;
 public abstract class SipMessageHandler {
     private String transport="";
     private ServerInfo serverInfo=null;
-//    private Map<String, Object> properties=null;
 
     public SipMessageHandler(ServerInfo serverInfo) {
         this.serverInfo = serverInfo;

@@ -183,7 +183,7 @@ public class ProxyStatelessRequestHandler implements ProxyHandler {
         RouteList routeList=proxySipRequest.getRouteHeaders();
 
         // Contains Route header
-        if(routeList.size() != 0){
+        if(routeList !=null && routeList.size() != 0){
             Route firstRouteHeader=(Route) routeList.getLast();
 
             if(!firstRouteHeader.hasParameter("lr")){
@@ -248,9 +248,9 @@ public class ProxyStatelessRequestHandler implements ProxyHandler {
         SipUri targetRequestURI=new SipUri();
 
         try{
-            targetRequestURI.setHost(targetRegistration.getRemoteAddress());
-            targetRequestURI.setPort(targetRegistration.getRemotePort());
-            targetRequestURI.setTransportParam(targetRegistration.getRemoteTransport().getValue());
+            targetRequestURI.setHost(targetRegistration.getRemoteAddress().getHost());
+            targetRequestURI.setPort(targetRegistration.getRemoteAddress().getPort());
+            targetRequestURI.setTransportParam(targetRegistration.getRemoteAddress().getTransport().getValue());
 
             proxySipRequest.setRequestURI(targetRequestURI);
         }
@@ -314,17 +314,24 @@ public class ProxyStatelessRequestHandler implements ProxyHandler {
 
         if(authHeader==null){
             // non-auth
-            registerResponse=((ProxySipRequest) registerRequest).createResponse(SIPResponse.UNAUTHORIZED);
-            String domain=registerRequest.getFrom().getAddress().getURI().toString().split("@")[1];
+            registerResponse=((ProxySipRequest) registerRequest).createResponse(SIPResponse.UNAUTHORIZED, SIPResponse.getReasonPhrase(SIPResponse.UNAUTHORIZED));
+//            String domain=registerRequest.getFrom().getAddress().getURI().toString().split("@")[1];
+
+            String domainName		= registerRequest.getFrom().getAddress().getURI().toString().split("@")[1];
+            if (domainName.contains(":")) {
+                domainName = domainName.split(":")[0];
+            }
 
             try{
                 WWWAuthenticateHeader wwwAuthenticateHeader=this.headerFactory.createWWWAuthenticateHeader("Digest");
                 wwwAuthenticateHeader.setAlgorithm("MD5");
                 wwwAuthenticateHeader.setQop("auth");
                 wwwAuthenticateHeader.setNonce(AuthUtil.getNonce());
-                wwwAuthenticateHeader.setRealm(domain);
+                wwwAuthenticateHeader.setRealm(domainName);
 
-                registerResponse.addHeader(wwwAuthenticateHeader);
+                Header tmpHeader=this.headerFactory.createHeader("WWW-Authenticate", AuthUtil.getAuthorization(domainName));
+
+                registerResponse.addHeader(tmpHeader);
             }
             catch (Exception e) {
                 e.printStackTrace();
@@ -336,11 +343,14 @@ public class ProxyStatelessRequestHandler implements ProxyHandler {
             String account="";
             String domain="";
             String userKey="";
-            String ipPhonePassword="aaaaaa";
+//            String ipPhonePassword="aaaaaa";
+            String ipPhonePassword="4372d100b37c6375426df97ff42375e6aeb4b1a8162d4bf6fc6522815d884a60";
+            //4372d100b37c6375426df97ff42375e6aeb4b1a8162d4bf6fc6522815d884a60
 
             aor=registerRequest.getFrom().getAddress().getURI().toString().split(":")[1];
             account=aor.split("@")[0];
             domain=aor.split("@")[1];
+
 
             userKey=aor;// 1단계에서는 OPMD 지원 고려 안하는걸로.
 
@@ -365,18 +375,18 @@ public class ProxyStatelessRequestHandler implements ProxyHandler {
 
             AuthUtil authUtil=new AuthUtil(authorization);
             authUtil.setPassword(ipPhonePassword);
+            authUtil.isValid();
 
             if(authUtil.isEqualHA()){
                 // Auth success
                 registerResponse=((ProxySipRequest) registerRequest).createResponse(SIPResponse.OK);
 
                 //TODO: get first via received & rport
-                RemoteAddress clientRemoteAddress= ProxyHelper.getClientRemoteAddress(registerRequest);
+                RemoteAddress clientRemoteAddress=ProxyHelper.getClientRemoteAddress(registerRequest);
 
-                Registration registration=new Registration(userKey, aor,account, domain, clientRemoteAddress.getHost(), clientRemoteAddress.getPort());
+                Registration registration=new Registration(userKey, aor,account, domain, clientRemoteAddress);
 
                 registrar.register(userKey, registration);
-//                registrar.register(userKey, registration, ctx);
 //                jedisConnection.set(userKey, gson.toJson(registration));
             }
             else{

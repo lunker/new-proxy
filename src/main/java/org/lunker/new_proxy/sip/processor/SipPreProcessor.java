@@ -1,4 +1,4 @@
-package org.lunker.new_proxy.sip.processor.lb;
+package org.lunker.new_proxy.sip.processor;
 
 import gov.nist.javax.sip.header.Via;
 import gov.nist.javax.sip.header.ViaList;
@@ -6,11 +6,12 @@ import gov.nist.javax.sip.message.SIPMessage;
 import gov.nist.javax.sip.message.SIPRequest;
 import gov.nist.javax.sip.parser.StringMsgParser;
 import io.netty.channel.ChannelHandlerContext;
-import org.lunker.new_proxy.sip.processor.PreProcessor;
-import org.lunker.new_proxy.sip.processor.proxy.ProxyPreProcessor;
+import io.netty.channel.ChannelInboundHandlerAdapter;
+import org.lunker.new_proxy.core.ConnectionManager;
+import org.lunker.new_proxy.model.ServerInfo;
 import org.lunker.new_proxy.sip.wrapper.message.DefaultSipMessage;
-import org.lunker.new_proxy.sip.wrapper.message.lb.LoadBalancerRequest;
-import org.lunker.new_proxy.sip.wrapper.message.lb.LoadBalancerResponse;
+import org.lunker.new_proxy.sip.wrapper.message.proxy.ProxySipRequest;
+import org.lunker.new_proxy.sip.wrapper.message.proxy.ProxySipResponse;
 import org.lunker.new_proxy.stub.SipMessageHandler;
 import org.lunker.new_proxy.util.lambda.StreamHelper;
 import org.slf4j.Logger;
@@ -23,18 +24,29 @@ import java.text.ParseException;
 import java.util.Optional;
 
 /**
- * Created by dongqlee on 2018. 4. 26..
+ * Created by dongqlee on 2018. 5. 30..
  */
-public class LoadBalancerPreProcessor extends PreProcessor {
-    private Logger logger= LoggerFactory.getLogger(ProxyPreProcessor.class);
-    private StringMsgParser stringMsgParser=null;
-    private SipMessageHandler sipApplicationHandler =null;
+public class SipPreProcessor extends ChannelInboundHandlerAdapter {
+    private Logger logger= LoggerFactory.getLogger(SipPreProcessor.class);
+    private ConnectionManager connectionManager=ConnectionManager.getInstance();
+    protected ServerInfo serverInfo=null;
 
-    public LoadBalancerPreProcessor(SipMessageHandler sipApplicationHandler) {
-        this.stringMsgParser=new StringMsgParser();
-        this.sipApplicationHandler = sipApplicationHandler;
+    private StringMsgParser stringMsgParser=null;
+    Optional<SipMessageHandler> optionalSipMessageHandler=null;
+
+    @Override
+    public void channelRegistered(ChannelHandlerContext ctx) throws Exception {
     }
 
+    // TODO: save user connection using ip, port, transport
+    @Override
+    public void channelActive(ChannelHandlerContext ctx) throws Exception {
+        InetSocketAddress remoteAddress=((InetSocketAddress)ctx.channel().remoteAddress());
+
+        this.connectionManager.addClient(remoteAddress.getHostString(), remoteAddress.getPort(),"tcp", ctx);
+    }
+
+    // TODO: Refactoring. Proxy, LB preprocessor를 분리 및 상속 받을 필요가 없다
     @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
         try{
@@ -44,7 +56,7 @@ public class LoadBalancerPreProcessor extends PreProcessor {
                 // 결국 이것만 다르다
                 Optional<DefaultSipMessage> maybeGeneralSipMessage=deserialize(ctx, maybeStrSipMessage);
 
-                this.sipApplicationHandler.handle(maybeGeneralSipMessage);
+                this.optionalSipMessageHandler.get().handle(maybeGeneralSipMessage);
 
                 return "fromCallable return value";
             });
@@ -93,20 +105,28 @@ public class LoadBalancerPreProcessor extends PreProcessor {
             jainSipMessage.setHeader(viaList);
         }
 
-
         return jainSipMessage;
     }
 
     private DefaultSipMessage generateGeneralSipMessage(ChannelHandlerContext ctx, SIPMessage jainSipMessage){
         DefaultSipMessage defaultSipMessage =null;
 
+//        SipSession sipSession=proxyContext.createOrGetSIPSession(ctx, jainSipMessage);
+
         if(jainSipMessage instanceof SIPRequest){
             // TODO: create ProxySipMessage with SipSession
-            defaultSipMessage=new LoadBalancerRequest(jainSipMessage);
+            defaultSipMessage=new ProxySipRequest(jainSipMessage);
         }
         else{
-            defaultSipMessage=new LoadBalancerResponse(jainSipMessage);
+            defaultSipMessage=new ProxySipResponse(jainSipMessage);
         }
+
+        /*
+        // TODO: next step on 'Stateful Proxy'
+        if(jainSipMessage instanceof SIPRequest && sipSession.getFirstRequest()==null && ((SIPRequest) jainSipMessage).getMethod().equals("INVITE")){
+            sipSession.setFirstRequest((ProxySipRequest) proxySipMessage);
+        }
+        */
 
         return defaultSipMessage;
     }
@@ -119,4 +139,16 @@ public class LoadBalancerPreProcessor extends PreProcessor {
     }
 
 
+    @Override
+    public void channelInactive(ChannelHandlerContext ctx) throws Exception {
+//        logger.info("channelInactive");
+    }
+
+    @Override
+    public void channelUnregistered(ChannelHandlerContext ctx) throws Exception {
+//        logger.info("channelUnregistered");
+        InetSocketAddress remoteAddress=((InetSocketAddress)ctx.channel().remoteAddress());
+
+        this.connectionManager.deleteClient(remoteAddress.getHostString(), remoteAddress.getPort(),"tcp");
+    }
 }

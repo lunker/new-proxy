@@ -2,7 +2,6 @@ package org.lunker.proxy.sip.pro_process;
 
 import gov.nist.javax.sip.header.Via;
 import org.lunker.new_proxy.model.ServerInfo;
-import org.lunker.new_proxy.sip.wrapper.message.DefaultSipRequest;
 import org.lunker.proxy.core.Message;
 import org.lunker.proxy.core.ProcessState;
 import org.lunker.proxy.core.ProxyHandler;
@@ -52,12 +51,15 @@ public class ProxyPostHandler implements ProxyHandler {
             return message;
 
         try{
-            if(message.getNewMessage() instanceof DefaultSipRequest){
-                // add via header, proxy address
-                ((DefaultSipRequest)message.getNewMessage()).addVia(proxyVia);
+            if(message.getValidation().isValidate()){
+                message.getNewMessage().send();
+            }
+            else{
+                // generate SipResponse using validation reason
+                logger.error("Invalid message\n{}", message.getNewMessage());
             }
 
-            message.getNewMessage().send();
+
 
             if(logger.isInfoEnabled())
                 logger.info("[SENT]\n{}", message.getNewMessage());

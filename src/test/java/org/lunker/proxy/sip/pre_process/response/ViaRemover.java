@@ -31,6 +31,7 @@ public class ViaRemover implements ProxyHandler{
         Via via=defaultSipResponse.getTopmostVia();
 
         if(via.getHost().equalsIgnoreCase(serverInfo.getHost())){
+            logger.info("Remove TopVia");
             defaultSipResponse.removeTopVia();
         }
         else{

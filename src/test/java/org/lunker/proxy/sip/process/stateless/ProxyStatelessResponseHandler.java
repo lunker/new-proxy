@@ -1,5 +1,6 @@
 package org.lunker.proxy.sip.process.stateless;
 
+import org.lunker.new_proxy.sip.wrapper.message.proxy.ProxySipResponse;
 import org.lunker.proxy.core.Message;
 import org.lunker.proxy.core.ProxyHandler;
 import org.slf4j.Logger;
@@ -13,7 +14,10 @@ public class ProxyStatelessResponseHandler implements ProxyHandler {
 
     @Override
     public Message handle(Message message) {
+        message.setNewMessage(  (ProxySipResponse) ((ProxySipResponse) message.getOriginalMessage()).clone());
 
         return message;
     }
+
+
 }

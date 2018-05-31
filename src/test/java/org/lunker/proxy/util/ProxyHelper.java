@@ -1,6 +1,7 @@
 package org.lunker.proxy.util;
 
 import gov.nist.javax.sip.header.Via;
+import org.lunker.new_proxy.model.Transport;
 import org.lunker.new_proxy.sip.wrapper.message.DefaultSipMessage;
 import org.lunker.new_proxy.sip.wrapper.message.DefaultSipRequest;
 import org.lunker.proxy.model.RemoteAddress;
@@ -76,7 +77,7 @@ public class ProxyHelper {
     public static RemoteAddress getClientRemoteAddress(DefaultSipMessage defaultSipMessage){
         Via firstVia=(Via) defaultSipMessage.getViaHeaders().getFirst();
 
-        return new RemoteAddress(firstVia.getReceived(), firstVia.getRPort());
+        return new RemoteAddress(Transport.valueOf(firstVia.getTransport().toUpperCase()), firstVia.getReceived(), firstVia.getRPort());
     }
 
     public static String extractFromUserKey(DefaultSipRequest defaultSipRequest){

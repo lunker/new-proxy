@@ -9,8 +9,10 @@ import io.netty.buffer.Unpooled;
 import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.socket.DatagramPacket;
+import io.netty.handler.codec.http.websocketx.TextWebSocketFrame;
 import io.netty.util.CharsetUtil;
 import org.lunker.new_proxy.core.ConnectionManager;
+import org.lunker.new_proxy.model.Transport;
 import org.lunker.new_proxy.sip.util.SipMessageFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -191,6 +193,9 @@ public class DefaultSipMessage {
                 targetCtx.writeAndFlush(new DatagramPacket(
                         Unpooled.copiedBuffer(this.message.toString(), CharsetUtil.UTF_8),
                         new InetSocketAddress(remoteHost, remotePort)));
+            }
+            else if(Transport.WSS.getValue().equals(remoteTransport)){
+                targetCtx.writeAndFlush(new TextWebSocketFrame(this.message.toString()));
             }
         }
         else {

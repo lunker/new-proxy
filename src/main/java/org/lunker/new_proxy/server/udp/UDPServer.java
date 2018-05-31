@@ -21,7 +21,7 @@ public class UDPServer extends AbstractServer {
 
     public UDPServer(ServerProcessor serverProcessor, Map<String, Object> configMap) {
         // Set Netty channel initializer
-        this.channelInitializer = new UDPChannelInitializer(serverProcessor);
+        this.channelInitializer = new UDPChannelChannelInitializer(serverProcessor);
 
         // Set transport configs
         this.configMap = configMap;

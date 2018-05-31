@@ -7,7 +7,7 @@ import io.netty.handler.codec.http.websocketx.WebSocketFrame;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.util.Locale;
+import java.util.Optional;
 
 /**
  * Created by dongqlee on 2018. 5. 30..
@@ -17,13 +17,14 @@ public class WebSocketFrameHandler extends SimpleChannelInboundHandler<WebSocket
 
     @Override
     protected void channelRead0(ChannelHandlerContext ctx, WebSocketFrame msg) throws Exception {
-        // ping and pong frames already handled
-
         if (msg instanceof TextWebSocketFrame) {
             // Send the uppercase string back.
             String request = ((TextWebSocketFrame) msg).text();
             logger.info("{} received\n{}", ctx.channel(), request);
-            ctx.channel().writeAndFlush(new TextWebSocketFrame(request.toUpperCase(Locale.US)));
+
+//            ctx.channel().writeAndFlush(new TextWebSocketFrame(request.toUpperCase(Locale.US)));
+            ctx.fireChannelRead(Optional.ofNullable(request));
+
         } else {
             String message = "unsupported frame type: " + msg.getClass().getName();
             throw new UnsupportedOperationException(message);

@@ -99,7 +99,13 @@ public class AuthUtil {
                 {
                     if(key.indexOf(k.toString()) != -1)
                     {
-                        itemMaps.put(k, value);
+                        if(k.equals(KEY.NC)){
+                            itemMaps.put(k, value.trim());
+                        }
+                        else{
+                            itemMaps.put(k, value);
+                        }
+
                         break;
                     }
                 }
@@ -193,6 +199,31 @@ public class AuthUtil {
 
         String serverHA = encryptString(sb.toString());
         return serverHA;
+    }
+
+    public String createServerHa(String nonce, String nc, String cnonce, String qop, String digest, String userName, String realm, String password){
+
+        // get ha1
+        StringBuilder stringBuilder=new StringBuilder();
+        String ha1="";
+        String ha2="";
+
+
+        // generate ha1
+        ha1=encryptString(userName + ":" + realm+ ":"   + password);
+
+        stringBuilder.append(ha1+":");
+
+        stringBuilder.append(nonce+":");
+        stringBuilder.append(nc+":");
+        stringBuilder.append(cnonce+":");
+        stringBuilder.append(qop+":");
+
+        // get ha2
+        ha2=encryptString("REGISTER:" + itemMaps.get(KEY.DIGEST));;
+        stringBuilder.append(ha2);
+
+        return encryptString(stringBuilder.toString());
     }
 
     public static String getNonce()

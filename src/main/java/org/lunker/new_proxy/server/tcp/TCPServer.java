@@ -25,7 +25,7 @@ public class TCPServer extends AbstractServer {
 
     public TCPServer(ServerProcessor serverProcessor, Map<String, Object> transportConfigMap) {
         // Set Netty channel initializer
-        this.channelInitializer=new TCPChannelInitializer(serverProcessor);
+        this.channelInitializer=new TCPChannelChannelInitializer(serverProcessor);
 
         // Set transport configs
         this.transportConfigMap=transportConfigMap;

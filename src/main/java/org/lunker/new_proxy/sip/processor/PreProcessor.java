@@ -3,7 +3,7 @@ package org.lunker.new_proxy.sip.processor;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
 import org.lunker.new_proxy.core.ConnectionManager;
-import org.lunker.new_proxy.core.ProxyContext;
+import org.lunker.new_proxy.model.ServerInfo;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -15,10 +15,8 @@ import java.net.InetSocketAddress;
 //@ChannelHandler.Sharable
 public abstract class PreProcessor extends ChannelInboundHandlerAdapter {
     private Logger logger= LoggerFactory.getLogger(PreProcessor.class);
-
-    // Deprecated
-    private ProxyContext proxyContext=ProxyContext.getInstance();
     private ConnectionManager connectionManager=ConnectionManager.getInstance();
+    protected ServerInfo serverInfo=null;
 
     @Override
     public void channelRegistered(ChannelHandlerContext ctx) throws Exception {
@@ -31,7 +29,7 @@ public abstract class PreProcessor extends ChannelInboundHandlerAdapter {
 //        logger.info("channelactive");
         InetSocketAddress remoteAddress=((InetSocketAddress)ctx.channel().remoteAddress());
 
-        this.connectionManager.addClient(remoteAddress.getHostString(), remoteAddress.getPort(),"tcp", ctx);
+        this.connectionManager.addClient(remoteAddress.getHostString(), remoteAddress.getPort(),this.serverInfo.getTransport().getValue(), ctx);
     }
 
     @Override

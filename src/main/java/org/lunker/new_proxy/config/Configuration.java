@@ -203,7 +203,7 @@ public class Configuration {
             wssJsonConfig = transportConfig.getAsJsonObject(TRANSPORT_WSS);
 
             if (validate(wssJsonConfig)) {
-                setConfigMap(wsConfigMap, wssJsonConfig);
+                setConfigMap(wssConfigMap, wssJsonConfig);
                 isValidWS = true;
             }
             else

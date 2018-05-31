@@ -6,15 +6,13 @@ import org.lunker.new_proxy.sip.processor.lb.LoadBalancerPreProcessor;
 import org.lunker.new_proxy.sip.processor.proxy.ProxyPreProcessor;
 import org.lunker.new_proxy.stub.SipMessageHandler;
 
-import java.util.Optional;
-
 /**
  * Created by dongqlee on 2018. 4. 27..
  */
 public class ServerProcessor {
     private ServerInfo serverInfo=null;
     private PreProcessor preProcessor=null;
-    private Optional<SipMessageHandler> sipMessageHandler=null;
+    private SipMessageHandler sipMessageHandler=null;
     private PostProcessor postProcessor=null;
 
     private String sipMessageHandlerClassName="";
@@ -38,15 +36,15 @@ public class ServerProcessor {
         this.preProcessor = preProcessor;
     }
 
-    public Optional<SipMessageHandler> getSipMessageHandler() {
+    public PostProcessor getPostProcessor() {
+        return postProcessor;
+    }
+
+    public SipMessageHandler getSipMessageHandler() {
         return sipMessageHandler;
     }
 
     public void setSipMessageHandler(SipMessageHandler sipMessageHandler) {
-        this.sipMessageHandler = Optional.ofNullable(sipMessageHandler);
-    }
-
-    public void setSipMessageHandler(Optional<SipMessageHandler> sipMessageHandler) {
         this.sipMessageHandler = sipMessageHandler;
     }
 
@@ -55,23 +53,20 @@ public class ServerProcessor {
         this.sipMessageHandlerClassName = sipMessageHandlerClassName;
 
         try{
-            this.sipMessageHandler=Optional.ofNullable((SipMessageHandler) Class.forName(this.sipMessageHandlerClassName).getConstructor(ServerInfo.class).newInstance(this.serverInfo));
+            this.sipMessageHandler=(SipMessageHandler) Class.forName(this.sipMessageHandlerClassName).getConstructor(ServerInfo.class).newInstance(this.serverInfo);
         }
         catch (Exception e){
             e.printStackTrace();
         }
-
-//        this.preProcessor=new ProxyPreProcessor(this.sipMessageHandler);
     }
 
-    public PostProcessor getPostProcessor() {
-        return postProcessor;
-    }
+
 
     public void setPostProcessor(PostProcessor postProcessor) {
         this.postProcessor = postProcessor;
     }
 
+    // TODO: Refactoring
     public PreProcessor newPreProcessorInstance() {
         if(serverInfo.getServerType() == ServerType.LB){
             return new LoadBalancerPreProcessor(this.sipMessageHandler);

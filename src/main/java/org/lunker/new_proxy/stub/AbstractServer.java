@@ -4,7 +4,7 @@ import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelInboundHandlerAdapter;
 import org.lunker.new_proxy.model.ServerInfo;
 import org.lunker.new_proxy.model.Transport;
-import org.lunker.new_proxy.server.TransportInitializer;
+import org.lunker.new_proxy.server.TransportChannelInitializer;
 import org.lunker.new_proxy.server.tcp.TCPServer;
 import org.lunker.new_proxy.server.udp.UDPServer;
 import org.lunker.new_proxy.server.websocket.WebsocketServer;
@@ -17,7 +17,7 @@ import java.util.Map;
  */
 public abstract class AbstractServer extends ChannelInboundHandlerAdapter{
 
-    protected TransportInitializer channelInitializer=null;
+    protected TransportChannelInitializer channelInitializer=null;
     protected Map<String, Object> transportConfigMap=null;
 
     abstract public ChannelFuture run() throws Exception;
@@ -39,10 +39,11 @@ public abstract class AbstractServer extends ChannelInboundHandlerAdapter{
         }
         else if(Transport.WS.equals(serverInfo.getTransport())){
             // TODO: configure websocket server
-            server=new WebsocketServer(serverProcessor, transportConfigMap);
+            server=new WebsocketServer(false, serverProcessor, transportConfigMap);
         }
         else if(Transport.WSS.equals(serverInfo.getTransport())){
             // TODO: configure websocket server
+            server=new WebsocketServer(true, serverProcessor, transportConfigMap);
         }
 
         return server;

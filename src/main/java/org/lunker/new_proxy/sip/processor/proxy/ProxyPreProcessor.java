@@ -27,21 +27,21 @@ import java.util.Optional;
 public class ProxyPreProcessor extends PreProcessor {
     private Logger logger= LoggerFactory.getLogger(ProxyPreProcessor.class);
     private StringMsgParser stringMsgParser=null;
+    private SipMessageHandler siApplicationHandler =null;
+    private String transport="";
 
-    Optional<SipMessageHandler> optionalSipMessageHandler=null;
-
-    private ProxyPreProcessor() {
-
-    }
-
-    public ProxyPreProcessor(Optional<SipMessageHandler> optionalSipMessageHandler) {
+    public ProxyPreProcessor(SipMessageHandler siApplicationHandler) {
         this.stringMsgParser=new StringMsgParser();
-        this.optionalSipMessageHandler=optionalSipMessageHandler;
+        this.siApplicationHandler = siApplicationHandler;
+
+        // TODO:Refactoring
+        this.serverInfo=siApplicationHandler.getServerInfo();
+        this.transport=this.serverInfo.getTransport().getValue();
     }
 
+    // TODO: Refactoring. Proxy, LB preprocessor를 분리 및 상속 받을 필요가 없다
     @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
-
         try{
             Mono<String> wrapper=Mono.fromCallable(()->{
                 Optional<String> maybeStrSipMessage=(Optional<String>) msg;
@@ -49,7 +49,7 @@ public class ProxyPreProcessor extends PreProcessor {
                 // 결국 이것만 다르다
                 Optional<DefaultSipMessage> maybeGeneralSipMessage=deserialize(ctx, maybeStrSipMessage);
 
-                this.optionalSipMessageHandler.get().handle(maybeGeneralSipMessage);
+                this.siApplicationHandler.handle(maybeGeneralSipMessage);
 
                 return "fromCallable return value";
             });
@@ -97,7 +97,6 @@ public class ProxyPreProcessor extends PreProcessor {
             viaList.set(0, topViaHeader);
             jainSipMessage.setHeader(viaList);
         }
-
 
         return jainSipMessage;
     }

@@ -34,10 +34,6 @@ public class ProxyPreHandler implements ProxyHandler {
     }
 
     public ProxyPreHandler(ServerInfo serverInfo) {
-//        this.host=serverInfo.getHost();
-//        this.port=serverInfo.getPort();
-//        this.transport=serverInfo.getTransport().getValue();
-
         // pre-handler
         this.requestValidator=new RequestValidator();
         this.routePreprocessor=new RoutePreprocessor();

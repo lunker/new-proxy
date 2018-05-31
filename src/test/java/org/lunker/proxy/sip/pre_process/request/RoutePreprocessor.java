@@ -17,6 +17,7 @@ public class RoutePreprocessor implements ProxyHandler{
     @Override
     public Message handle(Message message) {
         logger.info("In RoutePreprocessor");
+        removeRouteHeader(message);
 
         return message;
     }
@@ -29,8 +30,10 @@ public class RoutePreprocessor implements ProxyHandler{
 
         RouteList routeHeader=defaultSipRequest.getRouteHeaders();
 
-        Route lastRouteHeader=(Route) routeHeader.getLast();
+        if(routeHeader!=null){
+            Route lastRouteHeader=(Route) routeHeader.getLast();
+        }
 
-        return null;
+        return this;
     }
 }

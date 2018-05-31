@@ -66,10 +66,10 @@ public class Message {
 
     }
 
-    public void invalidate(int responseCode, String reason, DefaultSipResponse newMessage){
+    public void invalidate(int responseCode, String reason, DefaultSipResponse errorResponse){
         this.validation.setValidate(false);
         this.validation.setResponseCode(responseCode);
         this.validation.setReason(reason);
-        this.setNewMessage(newMessage);
+        this.setNewMessage(errorResponse);
     }
 }

@@ -13,6 +13,7 @@ public class Application {
             Bootstrap.addHandler(Transport.TCP, SipServletImpl.class);
             Bootstrap.addHandler(Transport.UDP, SipServletImpl.class);
             Bootstrap.addHandler(Transport.WS, SipServletImpl.class);
+            Bootstrap.addHandler(Transport.WSS, SipServletImpl.class);
             Bootstrap.run();
         }
         catch (Exception e ){

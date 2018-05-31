@@ -97,6 +97,9 @@ public class Bootstrap {
                 serverProcessor.setServerInfo(serverInfo);
                 serverProcessor.setSipMessageHandlerClassName(sipMessageHandlerClassName);
                 serverProcessor.setPreProcessor(new LoadBalancerPreProcessor(serverProcessor.getSipMessageHandler()));
+
+
+
                 break;
             case PROXY:
                 serverProcessor.setServerInfo(serverInfo);
@@ -140,4 +143,6 @@ public class Bootstrap {
         serverThread.subscribeOn(Schedulers.newElastic("elelel"));
         return serverThread;
     }
+
+
 }

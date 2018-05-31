@@ -8,8 +8,6 @@ import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
 import io.netty.handler.ssl.SslContext;
 import io.netty.handler.ssl.SslContextBuilder;
-import io.netty.handler.ssl.util.SelfSignedCertificate;
-import org.lunker.new_proxy.server.tcp.TCPChannelInitializer;
 import org.lunker.new_proxy.sip.processor.ServerProcessor;
 import org.lunker.new_proxy.stub.AbstractServer;
 import org.slf4j.Logger;
@@ -26,9 +24,21 @@ public class WebsocketServer extends AbstractServer{
     private EventLoopGroup bossGroup=null;
     private EventLoopGroup workerGroup=null;
 
-    public WebsocketServer(ServerProcessor serverProcessor, Map<String, Object> transportConfigMap) {
+    private SslContext sslContext=null;
+
+    public WebsocketServer(boolean ssl, ServerProcessor serverProcessor, Map<String, Object> transportConfigMap) {
         // Set Netty channel initializer
-        this.channelInitializer=new TCPChannelInitializer(serverProcessor);
+
+        if(ssl){
+            try{
+                sslContext = SslContextBuilder.forServer(new File("/Users/voiceloco/work/sslkey/_wildcard_voiceloco_com.crt"), new File("/Users/voiceloco/work/sslkey/voiceloco.com.key")).build();
+            }
+            catch (Exception e){
+                e.printStackTrace();
+            }
+        }
+
+        this.channelInitializer=new WebsocketChannelChannelInitializer(sslContext, serverProcessor);
 
         // Set transport configs
         this.transportConfigMap=transportConfigMap;
@@ -36,21 +46,6 @@ public class WebsocketServer extends AbstractServer{
 
     @Override
     public ChannelFuture run() throws InterruptedException {
-        SslContext sslCtx=null;
-
-        if (true) {
-            try{
-                SelfSignedCertificate ssc = new SelfSignedCertificate();
-                sslCtx = SslContextBuilder.forServer(new File("/Users/voiceloco/work/sslkey/_wildcard_voiceloco_com.crt"), new File("/Users/voiceloco/work/sslkey/voiceloco.com.key")).build();
-            }
-            catch (Exception e){
-                e.printStackTrace();
-            }
-
-        } else {
-            sslCtx = null;
-        }
-
         // Configure the server.
         bossGroup = new NioEventLoopGroup();
         workerGroup = new NioEventLoopGroup();
@@ -60,8 +55,7 @@ public class WebsocketServer extends AbstractServer{
         b.option(ChannelOption.SO_BACKLOG, 1024);
         b.group(bossGroup, workerGroup)
                 .channel(NioServerSocketChannel.class)
-//                .childHandler(new HttpChannelInitializer(sslCtx));
-                .childHandler(new WebsocketChannelInitializer(sslCtx));
+                .childHandler(this.channelInitializer);
 
         ChannelFuture channelFuture=b.bind((int) transportConfigMap.get("port")).sync(); // (7)
 
