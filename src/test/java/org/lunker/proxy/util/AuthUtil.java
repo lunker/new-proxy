@@ -99,6 +99,7 @@ public class AuthUtil {
                 {
                     if(key.indexOf(k.toString()) != -1)
                     {
+                        // lunker: Trim value for containg CRLF in NC (Webphone)
                         if(k.equals(KEY.NC)){
                             itemMaps.put(k, value.trim());
                         }

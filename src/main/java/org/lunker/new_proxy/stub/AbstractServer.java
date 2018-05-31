@@ -22,11 +22,9 @@ public abstract class AbstractServer extends ChannelInboundHandlerAdapter{
 
     abstract public ChannelFuture run() throws Exception;
 
-    //TODO: Server Factory
     public static AbstractServer create(ServerInfo serverInfo, ServerProcessor serverProcessor, Map<String, Object> transportConfigMap){
         AbstractServer server=null;
 
-        //TODO: using constants
         if(Transport.TCP.equals(serverInfo.getTransport())){
             server=new TCPServer(serverProcessor, transportConfigMap);
         }

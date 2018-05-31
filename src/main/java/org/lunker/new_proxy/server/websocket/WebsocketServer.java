@@ -8,6 +8,7 @@ import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
 import io.netty.handler.ssl.SslContext;
 import io.netty.handler.ssl.SslContextBuilder;
+import org.lunker.new_proxy.model.Constants;
 import org.lunker.new_proxy.sip.processor.ServerProcessor;
 import org.lunker.new_proxy.stub.AbstractServer;
 import org.slf4j.Logger;
@@ -28,10 +29,13 @@ public class WebsocketServer extends AbstractServer{
 
     public WebsocketServer(boolean ssl, ServerProcessor serverProcessor, Map<String, Object> transportConfigMap) {
         // Set Netty channel initializer
-
         if(ssl){
             try{
-                sslContext = SslContextBuilder.forServer(new File("/Users/voiceloco/work/sslkey/_wildcard_voiceloco_com.crt"), new File("/Users/voiceloco/work/sslkey/voiceloco.com.key")).build();
+                sslContext = SslContextBuilder
+                        .forServer(
+                                new File((String) transportConfigMap.get(Constants.Options.WSS.SSL_CERT)),
+                                new File((String) transportConfigMap.get(Constants.Options.WSS.SSL_KEY)))
+                        .build();
             }
             catch (Exception e){
                 e.printStackTrace();

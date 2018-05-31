@@ -22,9 +22,8 @@ import java.util.Map;
  * Created by dongqlee on 2018. 3. 16..
  */
 public class Configuration {
-
     private Logger logger= LoggerFactory.getLogger(Configuration.class);
-    private static Configuration instance=null;
+
     private static JsonObject configurationJson=null;
 
     private ServerType serverType=ServerType.NONE;
@@ -38,7 +37,7 @@ public class Configuration {
 
     private static final String TRANSPORT_TCP="tcp";
     private static final String TRANSPORT_UDP="udp";
-    private static final String TRANSPORT_TLS="tls";
+    private static final String TRANSPORT_TLS="tls";{}
     private static final String TRANSPORT_HTTP="http";
     private static final String TRANSPORT_WS="ws";
     private static final String TRANSPORT_WSS="wss";
@@ -52,21 +51,11 @@ public class Configuration {
     boolean isValidWSS=false;
 
 
-    /**
-     * Initialize default transport options based on netty {@link io.netty.channel.ChannelOption} parameters
-     */
-    static {
-
-    }
-
     public static Configuration getInstance() {
-        if (instance==null)
-            instance=new Configuration();
-        return instance;
+        return SingletonHolder.INSTANCE;
     }
 
     private Configuration() throws RuntimeException{
-
         // TCP Transport config
         tcpConfigMap=new HashMap<>();
 
@@ -78,32 +67,6 @@ public class Configuration {
 
         // WSS Transport config
         wssConfigMap=new HashMap<>();
-
-        //Get file from resources folder
-        ClassLoader classLoader = getClass().getClassLoader();
-
-        /*
-        File file = new File(getClass().getClassLoader().getResource("/application.json").getFile());
-
-        if(!file.exists())
-            throw new RuntimeException("Server configuration file is not exist. Put 'application.json' under resources dir");
-        else
-            logger.debug("Find server configuration");
-
-            try{
-                String content = new String(Files.readAllBytes(file.toPath()));
-                JsonParser jsonParser=new JsonParser();
-
-                configurationJson=jsonParser.parse(content).getAsJsonObject();
-
-                deserialize();
-            }
-            catch (Exception e){
-//            e.printStackTrace();
-                throw new RuntimeException(e);
-            }
-            */
-
 
         try{
 
@@ -137,8 +100,6 @@ public class Configuration {
         catch (IOException ioe){
             ioe.printStackTrace();
         }
-
-
     }
 
     public void deserialize() throws InvalidConfigurationException {
@@ -326,5 +287,10 @@ public class Configuration {
 
     public Map<String, Object> getUdpConfigMap() {
         return udpConfigMap;
+    }
+
+
+    private static class SingletonHolder{
+        private static Configuration INSTANCE=new Configuration();
     }
 }

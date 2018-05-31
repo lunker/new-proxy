@@ -51,7 +51,7 @@ public class Bootstrap {
         }
     }
 
-    // TODO:
+    // TODO
     public static void addShutdownHandler(){
         Runtime.getRuntime().addShutdownHook(new Thread()
         {
@@ -98,8 +98,6 @@ public class Bootstrap {
                 serverProcessor.setSipMessageHandlerClassName(sipMessageHandlerClassName);
                 serverProcessor.setPreProcessor(new LoadBalancerPreProcessor(serverProcessor.getSipMessageHandler()));
 
-
-
                 break;
             case PROXY:
                 serverProcessor.setServerInfo(serverInfo);
@@ -125,9 +123,11 @@ public class Bootstrap {
             if(logger.isDebugEnabled())
                 logger.debug("[{}] Server starting ...", serverInfo.getTransport().getValue());
 
+            // Create Server instance
             server=AbstractServer.create(serverInfo, serverProcessor, configuration.getConfigMap(serverInfo.getTransport()));
 
             try{
+                // Run server
                 f=server.run();
                 if(logger.isDebugEnabled())
                     logger.debug("[{}] Server started", serverInfo.getTransport().getValue());
@@ -140,9 +140,7 @@ public class Bootstrap {
             return f;
         });
 
-        serverThread.subscribeOn(Schedulers.newElastic("elelel"));
+        serverThread.subscribeOn(Schedulers.newElastic("elastic-server-"+serverInfo.getTransport()));
         return serverThread;
     }
-
-
 }
