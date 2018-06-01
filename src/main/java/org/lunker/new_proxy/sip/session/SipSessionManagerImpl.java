@@ -8,7 +8,7 @@ import org.lunker.new_proxy.sip.session.sas.SipApplicationSessionKey;
 import org.lunker.new_proxy.sip.session.ss.SipSessionImpl;
 import org.lunker.new_proxy.sip.session.ss.SipSessionKey;
 import org.lunker.new_proxy.sip.wrapper.message.proxy.ProxySipMessage;
-import org.lunker.new_proxy.stub.session.SIPSessionManager;
+import org.lunker.new_proxy.stub.session.SipSessionManager;
 import org.lunker.new_proxy.stub.session.sas.SipApplicationSession;
 import org.lunker.new_proxy.stub.session.ss.SipSession;
 import org.slf4j.Logger;
@@ -19,14 +19,14 @@ import java.util.concurrent.ConcurrentHashMap;
 /**
  * Created by dongqlee on 2018. 3. 20..
  */
-public class SIPSessionManagerImpl implements SIPSessionManager{
+public class SipSessionManagerImpl implements SipSessionManager {
 
-    private Logger logger= LoggerFactory.getLogger(SIPSessionManagerImpl.class);
+    private Logger logger= LoggerFactory.getLogger(SipSessionManagerImpl.class);
     private int INITIAL_CAPACITY=1024;
     private ConcurrentHashMap<SipSessionKey, SipSession> sipSessionConcurrentHashMap;
     private ConcurrentHashMap<SipApplicationSessionKey, SipApplicationSession> sipApplicationSessionConcurrentHashMap;
 
-    public SIPSessionManagerImpl() {
+    public SipSessionManagerImpl() {
         this.sipApplicationSessionConcurrentHashMap=new ConcurrentHashMap<>(INITIAL_CAPACITY * 2);
         this.sipSessionConcurrentHashMap=new ConcurrentHashMap<>(INITIAL_CAPACITY);
     }
