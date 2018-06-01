@@ -25,14 +25,9 @@ public class ProxySipRequest extends DefaultSipRequest implements Sessionable{
     public ProxySipRequest(SIPMessage jainSipRequest) {
         super(jainSipRequest);
     }
-//
-//    @Deprecated
-//    public ProxySipRequest(SIPMessage jainSipRequest, SipSessionKey sipSessionKey) {
-////        super(jainSipRequest, sipSessionKey);
-//    }
 
     public ProxySipResponse createResponse(int statusCode) {
-        return this.createResponse(statusCode,"");
+        return this.createResponse(statusCode,SIPResponse.getReasonPhrase(statusCode));
     }
 
     public ProxySipResponse createResponse(int statusCode, String reasonPhrase) {
