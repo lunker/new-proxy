@@ -23,8 +23,8 @@ public class ConnectionManager {
         return SingletonHolder.INSTANCE;
     }
 
-    public void addClient(String host, int port, String transport, ChannelHandlerContext channelHandlerContext){
-        String key=createClientKey(host, port, transport);
+    public void addConnection(String host, int port, String transport, ChannelHandlerContext channelHandlerContext){
+        String key= createConnectionKey(host, port, transport);
 
         this.clientMap.put(key, channelHandlerContext);
 
@@ -32,14 +32,14 @@ public class ConnectionManager {
             logger.debug("Add Client :: " + key);
     }
 
-    public ChannelHandlerContext getClientConnection(String host, int port, String transport){
-        String key=createClientKey(host, port, transport);
+    public ChannelHandlerContext getConnection(String host, int port, String transport){
+        String key= createConnectionKey(host, port, transport);
 
         return this.clientMap.get(key);
     }
 
-    public void deleteClient(String host, int port, String transport){
-        String key=createClientKey(host, port, transport);
+    public void deleteConnection(String host, int port, String transport){
+        String key= createConnectionKey(host, port, transport);
 
         if(this.clientMap.containsKey(key)){
             logger.info("Current Clients:: {}", this.clientMap.size());
@@ -54,7 +54,7 @@ public class ConnectionManager {
         }
     }
 
-    private String createClientKey(String host, int port, String transport){
+    private String createConnectionKey(String host, int port, String transport){
 //        return new StringBuilder().append(host).append(":").append(port).toString();
         return String.format("%s:%d:%s", host, port, transport);
     }

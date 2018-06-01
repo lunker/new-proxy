@@ -43,7 +43,7 @@ public class SipPreProcessor extends ChannelInboundHandlerAdapter {
     public void channelActive(ChannelHandlerContext ctx) throws Exception {
         InetSocketAddress remoteAddress=((InetSocketAddress)ctx.channel().remoteAddress());
 
-        this.connectionManager.addClient(remoteAddress.getHostString(), remoteAddress.getPort(),"tcp", ctx);
+        this.connectionManager.addConnection(remoteAddress.getHostString(), remoteAddress.getPort(),"tcp", ctx);
     }
 
     // TODO: Refactoring. Proxy, LB preprocessor를 분리 및 상속 받을 필요가 없다
@@ -149,6 +149,6 @@ public class SipPreProcessor extends ChannelInboundHandlerAdapter {
 //        logger.info("channelUnregistered");
         InetSocketAddress remoteAddress=((InetSocketAddress)ctx.channel().remoteAddress());
 
-        this.connectionManager.deleteClient(remoteAddress.getHostString(), remoteAddress.getPort(),"tcp");
+        this.connectionManager.deleteConnection(remoteAddress.getHostString(), remoteAddress.getPort(),"tcp");
     }
 }

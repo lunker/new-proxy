@@ -5,8 +5,8 @@ import io.netty.channel.ChannelInboundHandlerAdapter;
 import org.lunker.new_proxy.model.ServerInfo;
 import org.lunker.new_proxy.model.Transport;
 import org.lunker.new_proxy.server.TransportChannelInitializer;
-import org.lunker.new_proxy.server.tcp.TCPServer;
-import org.lunker.new_proxy.server.udp.UDPServer;
+import org.lunker.new_proxy.server.tcp.TcpServer;
+import org.lunker.new_proxy.server.udp.UdpServer;
 import org.lunker.new_proxy.server.websocket.WebsocketServer;
 import org.lunker.new_proxy.sip.processor.ServerProcessor;
 
@@ -26,11 +26,11 @@ public abstract class AbstractServer extends ChannelInboundHandlerAdapter{
         AbstractServer server=null;
 
         if(Transport.TCP.equals(serverInfo.getTransport())){
-            server=new TCPServer(serverProcessor, transportConfigMap);
+            server=new TcpServer(serverProcessor, transportConfigMap);
         }
         else if(Transport.UDP.equals(serverInfo.getTransport())){
             // TODO: configure UDP server
-            server=new UDPServer(serverProcessor, transportConfigMap);
+            server=new UdpServer(serverProcessor, transportConfigMap);
         }
         else if(Transport.TLS.equals(serverInfo.getTransport())){
             // TODO: configure tls server

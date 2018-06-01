@@ -12,16 +12,16 @@ import org.slf4j.LoggerFactory;
 
 import java.util.Map;
 
-public class UDPServer extends AbstractServer {
-    private Logger logger = LoggerFactory.getLogger(UDPServer.class);
+public class UdpServer extends AbstractServer {
+    private Logger logger = LoggerFactory.getLogger(UdpServer.class);
 
     private final EventLoopGroup udpGroup = new NioEventLoopGroup();
 
     private Map<String, Object> configMap;
 
-    public UDPServer(ServerProcessor serverProcessor, Map<String, Object> configMap) {
+    public UdpServer(ServerProcessor serverProcessor, Map<String, Object> configMap) {
         // Set Netty channel initializer
-        this.channelInitializer = new UDPChannelChannelInitializer(serverProcessor);
+        this.channelInitializer = new UdpChannelChannelInitializer(serverProcessor);
 
         // Set transport configs
         this.configMap = configMap;
@@ -53,7 +53,7 @@ public class UDPServer extends AbstractServer {
             return f;
         } finally {
             if (logger.isDebugEnabled())
-                logger.debug("Shut down UDPServer gracefully...");
+                logger.debug("Shut down UdpServer gracefully...");
 
             if (udpGroup != null) {
                 udpGroup.shutdownGracefully();
