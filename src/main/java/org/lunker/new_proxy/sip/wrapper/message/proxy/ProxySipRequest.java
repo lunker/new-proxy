@@ -3,7 +3,9 @@ package org.lunker.new_proxy.sip.wrapper.message.proxy;
 import gov.nist.javax.sip.message.SIPMessage;
 import gov.nist.javax.sip.message.SIPRequest;
 import gov.nist.javax.sip.message.SIPResponse;
+import org.lunker.new_proxy.model.ServerInfo;
 import org.lunker.new_proxy.sip.B2BUAHelper;
+import org.lunker.new_proxy.sip.util.SipMessageFactory;
 import org.lunker.new_proxy.sip.wrapper.message.DefaultSipRequest;
 import org.lunker.new_proxy.sip.wrapper.message.Sessionable;
 
@@ -21,6 +23,8 @@ import java.util.ListIterator;
  */
 public class ProxySipRequest extends DefaultSipRequest implements Sessionable{
     private B2BUAHelper b2BUAHelper=null;
+    private ServerInfo serverInfo=null;
+    private SipMessageFactory sipMessageFactory=null;
 
     public ProxySipRequest(SIPMessage jainSipRequest) {
         super(jainSipRequest);
@@ -50,6 +54,9 @@ public class ProxySipRequest extends DefaultSipRequest implements Sessionable{
                     //  TODO(lunker): using SipSession
 //                    String applicatoinSessionId=this.sipSessionKey.getApplicationSessionId();
 //                    toHeader.setTag(applicatoinSessionId);
+
+                    // Generate ToTag
+                    this.sipMessageFactory.generateTag(getCallId(), "");
                 }
                 // end set to-tag
 
@@ -68,6 +75,8 @@ public class ProxySipRequest extends DefaultSipRequest implements Sessionable{
                     }
                     */
 
+
+                    // Proxy ServerInfo..
                     Address address=this.sipMessageFactory.getAddressFactory().createAddress("10.0.1.202:10010");
                     ContactHeader contactHeader=this.sipMessageFactory.getHeaderFactory().createContactHeader(address);
                     contactHeader.setParameter("transport", "tcp");

@@ -5,6 +5,9 @@ package org.lunker.new_proxy.model;
  */
 public class Constants {
     public static class Options{
+        public static class UDP{
+
+        }
 
         /**
          * Constants for TCP Server
@@ -15,6 +18,10 @@ public class Constants {
             public static final String TCP_NODELAY="tcp_nodelay";
             public static final String SO_RCVBUF="so_rcvbuf";
             public static final String SO_SNDBUF="so_sndbuf";
+        }
+
+        public static class WS{
+
         }
 
         /**

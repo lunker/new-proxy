@@ -104,8 +104,6 @@ public class ProxyPreProcessor extends PreProcessor {
     private DefaultSipMessage generateGeneralSipMessage(ChannelHandlerContext ctx, SIPMessage jainSipMessage){
         DefaultSipMessage defaultSipMessage =null;
 
-//        SipSession sipSession=proxyContext.createOrGetSIPSession(ctx, jainSipMessage);
-
         if(jainSipMessage instanceof SIPRequest){
             // TODO: create ProxySipMessage with SipSession
             defaultSipMessage=new ProxySipRequest(jainSipMessage);
