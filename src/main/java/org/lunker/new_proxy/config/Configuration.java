@@ -69,7 +69,6 @@ public class Configuration {
         wssConfigMap=new HashMap<>();
 
         try{
-
             InputStream in=getClass().getResourceAsStream("/application.json");
 
             if(in.available() != 0){

@@ -20,11 +20,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * Server Application Bootstrap
  * Created by dongqlee on 2018. 4. 26..
  */
 public class Bootstrap {
     private static Logger logger=LoggerFactory.getLogger(Bootstrap.class);
     private static Configuration configuration=Configuration.getInstance();
+    // Store server threads for multiple instance
     private static List<Mono<ChannelFuture>> serverList=new ArrayList<>();
 
     public static void addHandler(Transport transport, Class sipMessageHandlerImplClass) throws BootstrapException {
@@ -71,6 +73,7 @@ public class Bootstrap {
             final int cnt=idx;
             serverMono=serverList.get(idx);
 
+            // make last server sync for block main thread
             serverMono.subscribe((channelFuture)->{
                 if(cnt==serverList.size()-1){
                     try{
