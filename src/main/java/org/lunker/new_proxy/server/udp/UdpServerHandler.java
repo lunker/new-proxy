@@ -24,14 +24,14 @@ import java.text.ParseException;
 import java.util.Optional;
 
 
-public class UDPServerHandler extends ChannelInboundHandlerAdapter {
-    private Logger logger = LoggerFactory.getLogger(UDPServerHandler.class);
+public class UdpServerHandler extends ChannelInboundHandlerAdapter {
+    private Logger logger = LoggerFactory.getLogger(UdpServerHandler.class);
     private StringMsgParser stringMsgParser = null;
     private DatagramPacket receivedPacket = null;
     Optional<SipMessageHandler> optionalSipMessageHandler = null;
     private ConnectionManager connectionManager = ConnectionManager.getInstance();
 
-    public UDPServerHandler(Optional<SipMessageHandler> optionalSipMessageHandler) {
+    public UdpServerHandler(Optional<SipMessageHandler> optionalSipMessageHandler) {
         this.stringMsgParser = new StringMsgParser();
         this.optionalSipMessageHandler = optionalSipMessageHandler;
     }
@@ -46,7 +46,7 @@ public class UDPServerHandler extends ChannelInboundHandlerAdapter {
         try {
             this.receivedPacket = (DatagramPacket) msg;
 
-            this.connectionManager.addClient(
+            this.connectionManager.addConnection(
                     this.receivedPacket.sender().getHostString(),
                     this.receivedPacket.sender().getPort(),
                     "udp",

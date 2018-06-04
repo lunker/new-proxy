@@ -10,10 +10,10 @@ import org.slf4j.LoggerFactory;
 /**
  * Created by dongqlee on 2018. 3. 16..
  */
-public class TCPChannelChannelInitializer extends TransportChannelInitializer {
-    private Logger logger= LoggerFactory.getLogger(TCPChannelChannelInitializer.class);
+public class TcpChannelChannelInitializer extends TransportChannelInitializer {
+    private Logger logger= LoggerFactory.getLogger(TcpChannelChannelInitializer.class);
 
-    public TCPChannelChannelInitializer(ServerProcessor serverProcessor) {
+    public TcpChannelChannelInitializer(ServerProcessor serverProcessor) {
         this.serverProcessor=serverProcessor;
 
 //        this.postProcessor=serverProcessor.getPostProcessor();
@@ -25,7 +25,7 @@ public class TCPChannelChannelInitializer extends TransportChannelInitializer {
     protected void initChannel(Channel ch) throws Exception {
         // Create handlers per Client connection
         // TCP specific
-        ch.pipeline().addLast("decoder", new TCPStreamDecoder());
+        ch.pipeline().addLast("decoder", new TcpStreamDecoder());
 
         ch.pipeline().addLast("preProcessor", serverProcessor.newPreProcessorInstance());
 //        ch.pipeline().addLast("preProcessor", preProcessor);

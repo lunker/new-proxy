@@ -2,7 +2,7 @@ package org.lunker.new_proxy.core;
 
 import gov.nist.javax.sip.message.SIPMessage;
 import io.netty.channel.ChannelHandlerContext;
-import org.lunker.new_proxy.sip.session.SIPSessionManagerImpl;
+import org.lunker.new_proxy.sip.session.SipSessionManagerImpl;
 import org.lunker.new_proxy.sip.session.sas.SipApplicationSessionKey;
 import org.lunker.new_proxy.sip.session.ss.SipSessionKey;
 import org.lunker.new_proxy.sip.wrapper.message.proxy.ProxySipMessage;
@@ -19,12 +19,12 @@ public class ProxyContext {
 
     private Logger logger= LoggerFactory.getLogger(ProxyContext.class);
     private static ProxyContext instance=null;
-    private SIPSessionManagerImpl sipSessionManager=null;
+    private SipSessionManagerImpl sipSessionManager=null;
 //    private ConcurrentHashMap<String, ChannelHandlerContext> clientMap=null;
 //    private Registrar registrar=null;
 
     private ProxyContext() {
-        this.sipSessionManager=new SIPSessionManagerImpl();
+        this.sipSessionManager=new SipSessionManagerImpl();
 //        this.registrar=Registrar.getInstance();
     }
 

@@ -171,7 +171,7 @@ public class DefaultSipMessage {
         String remoteInfo=String.format("%s:%d", remoteHost, remotePort);
 
         // TODO: refactoring
-        targetCtx=this.connectionManager.getClientConnection(remoteHost, remotePort, remoteTransport);
+        targetCtx=this.connectionManager.getConnection(remoteHost, remotePort, remoteTransport);
 
         // TODO: Find target connection from Server Connector
         if(targetCtx!=null){
@@ -200,6 +200,55 @@ public class DefaultSipMessage {
         }
         else {
             logger.info(String.format("[Fail][%s] Send message\n%s\nfailed cause : %s", remoteInfo, this.message, "targetCtx is null"));
+        }
+    }
+
+    /**
+     * send msg to specific node.
+     * if connection manager has channel already, use it.
+     * if not create new channel and add to channel to connection manager for the future use.
+     * @param remoteHost
+     * @param remotePort
+     * @param remoteTransport
+     */
+    public void send(String remoteHost, int remotePort, String remoteTransport) {
+        ChannelHandlerContext targetCtx = null;
+        // find channel
+        // TODO: change name client to something like node?
+        targetCtx = this.connectionManager.getConnection(remoteHost, remotePort, remoteTransport);
+
+        if (targetCtx == null) { // not found channel. create new one.
+            // TODO: create new channel and send message by using it.
+            switch (remoteTransport.toLowerCase()) {
+                case "udp":
+                    break;
+                case "tcp":
+                    break;
+                case "tls":
+                    break;
+                case "ws":
+                    break;
+                case "wss":
+                    break;
+            }
+        } else { // found channel
+            switch (remoteTransport.toLowerCase()) {
+                case "udp":
+                    targetCtx.writeAndFlush(new DatagramPacket(
+                            Unpooled.copiedBuffer(this.message.toString(), CharsetUtil.UTF_8),
+                            new InetSocketAddress(remoteHost, remotePort)
+                    ));
+                    break;
+                default:
+                    ChannelFuture cf = targetCtx.writeAndFlush((Unpooled.copiedBuffer(this.message.toString(), CharsetUtil.UTF_8)));
+                    cf.addListener((future) -> {
+                        if (future.isSuccess())
+                            logger.info(String.format("[Success][%s:%s] Send message\n%s\n", remoteHost, remotePort, this.message));
+                        else
+                            logger.info(String.format("[Fail][%s:%s] Send message\n%s\nfailed cause : %s", remoteHost, remotePort, this.message, future.cause()));
+                    });
+                    break;
+            }
         }
     }
 

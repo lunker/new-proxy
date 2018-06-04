@@ -17,11 +17,11 @@ import java.util.concurrent.atomic.AtomicInteger;
 /**
  * Created by dongqlee on 2018. 3. 22..
  */
-public class TCPStreamDecoder extends ByteToMessageDecoder{
+public class TcpStreamDecoder extends ByteToMessageDecoder{
 
     private static AtomicInteger num=new AtomicInteger(0);
 
-    private Logger logger= LoggerFactory.getLogger(TCPStreamDecoder.class);
+    private Logger logger= LoggerFactory.getLogger(TcpStreamDecoder.class);
 
     private final int DEFAULT_HEADER_SIZE=3000;
     private final int DEFAULT_HEADER_LINE_SIZE=512;
@@ -44,7 +44,7 @@ public class TCPStreamDecoder extends ByteToMessageDecoder{
     private int readBodyLength=0; // TODO: change to Atomic
     private byte[] contentByte="Content-Length:".getBytes();
 
-    public TCPStreamDecoder() {
+    public TcpStreamDecoder() {
 //        logger.info("%d",num.incrementAndGet());
 
         pooledByteBufAllocator=new PooledByteBufAllocator(true);

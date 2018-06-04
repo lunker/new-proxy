@@ -16,23 +16,23 @@ import java.util.Map;
 /**
  * Created by dongqlee on 2018. 3. 15..
  */
-public class TCPServer extends AbstractServer {
-    private Logger logger= LoggerFactory.getLogger(TCPServer.class);
+public class TcpServer extends AbstractServer {
+    private Logger logger= LoggerFactory.getLogger(TcpServer.class);
 
     //TODO: refactoring
     private EventLoopGroup bossGroup = new NioEventLoopGroup();
     private EventLoopGroup workerGroup = new NioEventLoopGroup();
 
-    public TCPServer(ServerProcessor serverProcessor, Map<String, Object> transportConfigMap) {
+    public TcpServer(ServerProcessor serverProcessor, Map<String, Object> transportConfigMap) {
         // Set Netty channel initializer
-        this.channelInitializer=new TCPChannelChannelInitializer(serverProcessor);
+        this.channelInitializer=new TcpChannelChannelInitializer(serverProcessor);
 
         // Set transport configs
         this.transportConfigMap=transportConfigMap;
     }
 
     /**
-     * Run TCPServer
+     * Run TcpServer
      * @return
      * @throws Exception
      */
@@ -66,7 +66,7 @@ public class TCPServer extends AbstractServer {
 
     public void shutdown(){
         if(logger.isDebugEnabled())
-            logger.debug("Shut down TCPServer gracefully...");
+            logger.debug("Shut down TcpServer gracefully...");
 
         if(workerGroup!=null)
             workerGroup.shutdownGracefully();
