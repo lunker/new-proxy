@@ -30,10 +30,8 @@ public class TcpServer extends AbstractServer {
 
     public TcpServer(TransportChannelInitializer transportChannelInitializer) {
         // Set Netty channel initializer
-//        this.channelInitializer=new TcpChannelChannelInitializer(serverProcessor);
         this.channelInitializer=transportChannelInitializer;
     }
-
 
     /**
      * Run TcpServer
