@@ -42,6 +42,6 @@ public abstract class PreProcessor extends ChannelInboundHandlerAdapter {
 //        logger.info("channelUnregistered");
         InetSocketAddress remoteAddress=((InetSocketAddress)ctx.channel().remoteAddress());
 
-        this.connectionManager.deleteConnection(remoteAddress.getHostString(), remoteAddress.getPort(),"tcp");
+        this.connectionManager.deleteConnection(remoteAddress.getHostString(), remoteAddress.getPort(),this.serverInfo.getTransport().getValue());
     }
 }

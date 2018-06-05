@@ -12,6 +12,8 @@ public abstract class SipMessageHandler {
     private String transport="";
     private ServerInfo serverInfo=null;
 
+    public SipMessageHandler() {}
+
     public SipMessageHandler(ServerInfo serverInfo) {
         this.serverInfo = serverInfo;
     }

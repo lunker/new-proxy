@@ -41,7 +41,6 @@ public class TcpServer extends AbstractServer {
         ServerBootstrap b = new ServerBootstrap();
 
         Map<String, Object> tcpOptions=(Map<String, Object>)transportConfigMap.get("options");
-
         // TODO: set ChannelOption using transport properties
         b.group(bossGroup, workerGroup)
                 .channel(NioServerSocketChannel.class)
