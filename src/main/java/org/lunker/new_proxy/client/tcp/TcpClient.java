@@ -58,7 +58,7 @@ public class TcpClient {
                 .option(ChannelOption.SO_RCVBUF, (int) tcpOptions.get("so_rcvbuf"))
                 .option(ChannelOption.SO_SNDBUF, (int) tcpOptions.get("so_sndbuf"));
 
-        ChannelFuture channelFuture = bootstrap.connect();
+        ChannelFuture channelFuture = bootstrap.connect(host, port);
         logger.info("connect to {}:{} using TCP", host, port);
         return channelFuture;
     }

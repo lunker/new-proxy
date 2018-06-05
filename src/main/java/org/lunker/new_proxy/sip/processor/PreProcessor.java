@@ -28,7 +28,6 @@ public abstract class PreProcessor extends ChannelInboundHandlerAdapter {
     public void channelActive(ChannelHandlerContext ctx) throws Exception {
 //        logger.info("channelactive");
         InetSocketAddress remoteAddress=((InetSocketAddress)ctx.channel().remoteAddress());
-
         this.connectionManager.addConnection(remoteAddress.getHostString(), remoteAddress.getPort(),this.serverInfo.getTransport().getValue(), ctx);
     }
 

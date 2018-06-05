@@ -36,7 +36,15 @@ public class TcpConnectionGenerator implements ConnectionGenerator {
             return channelFuture;
         });
         clientThread.subscribeOn(Schedulers.newElastic("elastic-tcp-client-"+host+":"+port));
-        clientThread.subscribe();
+        clientThread.subscribe((channelFuture)->{
+            try {
+                channelFuture.channel().closeFuture().await();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            logger.info("local address: {}, remote address: {}", channelFuture.channel().localAddress(), channelFuture.channel().remoteAddress());
+        });
+        System.out.println("asfdasdf");
 //        ChannelFuture channelFuture = tcpClient.connect(host, port);
 //        channelFuture.channel().localAddress();
 //        channelFuture.channel().remoteAddress();

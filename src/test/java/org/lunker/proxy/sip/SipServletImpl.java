@@ -24,6 +24,10 @@ public class SipServletImpl extends SipMessageHandler {
     private ProxyInHandler proxyInHandler=null;
     private ProxyPostHandler proxyProHandler=null;
 
+    public SipServletImpl() {
+        super();
+    }
+
     public SipServletImpl(ServerInfo serverInfo) {
         super(serverInfo);
 
