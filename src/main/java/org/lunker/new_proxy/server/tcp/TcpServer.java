@@ -6,7 +6,9 @@ import io.netty.channel.ChannelOption;
 import io.netty.channel.EventLoopGroup;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
-import org.lunker.new_proxy.sip.processor.ServerProcessor;
+import org.lunker.new_proxy.config.Configuration;
+import org.lunker.new_proxy.model.Transport;
+import org.lunker.new_proxy.server.TransportChannelInitializer;
 import org.lunker.new_proxy.stub.AbstractServer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -23,13 +25,15 @@ public class TcpServer extends AbstractServer {
     private EventLoopGroup bossGroup = new NioEventLoopGroup();
     private EventLoopGroup workerGroup = new NioEventLoopGroup();
 
-    public TcpServer(ServerProcessor serverProcessor, Map<String, Object> transportConfigMap) {
-        // Set Netty channel initializer
-        this.channelInitializer=new TcpChannelChannelInitializer(serverProcessor);
+    private Transport transport=Transport.TCP;
+    private Configuration configuration=Configuration.getInstance();
 
-        // Set transport configs
-        this.transportConfigMap=transportConfigMap;
+    public TcpServer(TransportChannelInitializer transportChannelInitializer) {
+        // Set Netty channel initializer
+//        this.channelInitializer=new TcpChannelChannelInitializer(serverProcessor);
+        this.channelInitializer=transportChannelInitializer;
     }
+
 
     /**
      * Run TcpServer
@@ -38,6 +42,9 @@ public class TcpServer extends AbstractServer {
      */
     @Override
     public ChannelFuture run() throws Exception {
+
+        //
+        configuration.getConfigMap(transport);
         ServerBootstrap b = new ServerBootstrap();
 
         Map<String, Object> tcpOptions=(Map<String, Object>)transportConfigMap.get("options");
@@ -73,3 +80,4 @@ public class TcpServer extends AbstractServer {
             bossGroup.shutdownGracefully();
     }
 }
+

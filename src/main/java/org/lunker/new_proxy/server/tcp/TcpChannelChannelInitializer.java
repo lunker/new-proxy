@@ -4,6 +4,9 @@ import io.netty.channel.Channel;
 import io.netty.channel.ChannelHandlerContext;
 import org.lunker.new_proxy.server.TransportChannelInitializer;
 import org.lunker.new_proxy.sip.processor.ServerProcessor;
+import org.lunker.new_proxy.sip.processor.SipPreProcessor;
+import org.lunker.new_proxy.sip.processor.proxy.ProxyPreProcessor;
+import org.lunker.new_proxy.stub.SipMessageHandler;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -13,30 +16,37 @@ import org.slf4j.LoggerFactory;
 public class TcpChannelChannelInitializer extends TransportChannelInitializer {
     private Logger logger= LoggerFactory.getLogger(TcpChannelChannelInitializer.class);
 
-    public TcpChannelChannelInitializer(ServerProcessor serverProcessor) {
-        this.serverProcessor=serverProcessor;
-
-//        this.postProcessor=serverProcessor.getPostProcessor();
-//        this.preProcessor=serverProcessor.getPreProcessor();
-
+    public TcpChannelChannelInitializer() {
+        //
     }
 
     @Override
     protected void initChannel(Channel ch) throws Exception {
-        // Create handlers per Client connection
-        // TCP specific
+        // byte -> str
         ch.pipeline().addLast("decoder", new TcpStreamDecoder());
 
-        ch.pipeline().addLast("preProcessor", serverProcessor.newPreProcessorInstance());
-//        ch.pipeline().addLast("preProcessor", preProcessor);
 
-        // TODO: postprocessor가 transport specific 한가 ?
-        // TODO: PostProcessor의 역할
-//        ch.pipeline().addLast("postProcessor", this.postProcessor);
+        // PreProcessor도 생성해서 받아옴
+        // str -> lb or proxy message
+        // PreProcessor는 ServerInfo를 알아야함. .  . .
+        ch.pipeline().addLast("preProcessor", new SipPreProcessor()); // Lb, Proxy
+
+
+        //org.lunker.proxy.sip.SipServletImpl.class;
+        // SipMessageHandlerImpl 객체는 받아오고
+        ch.pipeline().addLast("asdf", SipmessageHandlerImpl);
+
+        tcpManager.send(sipMessage)' '
     }
 
     @Override
     public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) throws Exception {
         logger.error("ExceptionCaught:: " + cause.getMessage());
+    }
+
+
+    public static TcpChannelChannelInitializer create(SipMessageHandler sipMessageHandler){
+        return new
+
     }
 }

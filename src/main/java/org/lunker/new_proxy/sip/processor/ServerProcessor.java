@@ -11,6 +11,7 @@ import org.lunker.new_proxy.stub.SipMessageHandler;
  */
 public class ServerProcessor {
     private ServerInfo serverInfo=null;
+
     private PreProcessor preProcessor=null;
     private SipMessageHandler sipMessageHandler=null;
     private PostProcessor postProcessor=null;
@@ -59,8 +60,6 @@ public class ServerProcessor {
             e.printStackTrace();
         }
     }
-
-
 
     public void setPostProcessor(PostProcessor postProcessor) {
         this.postProcessor = postProcessor;

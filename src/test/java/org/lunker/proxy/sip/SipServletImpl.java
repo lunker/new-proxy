@@ -38,6 +38,14 @@ public class SipServletImpl extends SipMessageHandler {
 
     @Override
     public void handle(Optional<DefaultSipMessage> maybeDefaultSipMessage) {
+
+        // ChannelHandlerContext ;; // remote address
+
+        // remoteAddresss -> rport, received에 넣음
+
+
+
+
         if(logger.isInfoEnabled())
             logger.info("[RECEIVED]:\n" + maybeDefaultSipMessage.get().toString());
 

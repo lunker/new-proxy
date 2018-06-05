@@ -20,7 +20,6 @@ public abstract class PreProcessor extends ChannelInboundHandlerAdapter {
 
     @Override
     public void channelRegistered(ChannelHandlerContext ctx) throws Exception {
-//        logger.info("channelRegistered");
     }
 
     // TODO: save user connection using ip, port, transport
@@ -28,8 +27,9 @@ public abstract class PreProcessor extends ChannelInboundHandlerAdapter {
     public void channelActive(ChannelHandlerContext ctx) throws Exception {
 //        logger.info("channelactive");
         InetSocketAddress remoteAddress=((InetSocketAddress)ctx.channel().remoteAddress());
-        this.connectionManager.addConnection(remoteAddress.getHostString(), remoteAddress.getPort(),this.serverInfo.getTransport().getValue(), ctx);
+        this.connectionManager.addConnection(remoteAddress.getHostString(), remoteAddress.getPort(),"tcp", ctx);
     }
+
 
     @Override
     public void channelInactive(ChannelHandlerContext ctx) throws Exception {
@@ -41,6 +41,6 @@ public abstract class PreProcessor extends ChannelInboundHandlerAdapter {
 //        logger.info("channelUnregistered");
         InetSocketAddress remoteAddress=((InetSocketAddress)ctx.channel().remoteAddress());
 
-        this.connectionManager.deleteConnection(remoteAddress.getHostString(), remoteAddress.getPort(),this.serverInfo.getTransport().getValue());
+        this.connectionManager.deleteConnection(remoteAddress.getHostString(), remoteAddress.getPort(),"tcp");
     }
 }

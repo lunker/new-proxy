@@ -43,7 +43,7 @@ public class SipPreProcessor extends ChannelInboundHandlerAdapter {
     public void channelActive(ChannelHandlerContext ctx) throws Exception {
         InetSocketAddress remoteAddress=((InetSocketAddress)ctx.channel().remoteAddress());
 
-        this.connectionManager.addConnection(remoteAddress.getHostString(), remoteAddress.getPort(),"tcp", ctx);
+        this.connectionManager.addConnection(remoteAddress.getHostString(), remoteAddress.getPort(),"", ctx);
     }
 
     // TODO: Refactoring. Proxy, LB preprocessor를 분리 및 상속 받을 필요가 없다
@@ -56,7 +56,9 @@ public class SipPreProcessor extends ChannelInboundHandlerAdapter {
                 // 결국 이것만 다르다
                 Optional<DefaultSipMessage> maybeGeneralSipMessage=deserialize(ctx, maybeStrSipMessage);
 
-                this.optionalSipMessageHandler.get().handle(maybeGeneralSipMessage);
+//                this.optionalSipMessageHandler.get().handle(maybeGeneralSipMessage);
+
+                ctx.fireChannelRead(maybeGeneralSipMessage);
 
                 return "fromCallable return value";
             });
@@ -115,6 +117,8 @@ public class SipPreProcessor extends ChannelInboundHandlerAdapter {
 
         if(jainSipMessage instanceof SIPRequest){
             // TODO: create ProxySipMessage with SipSession
+
+
             defaultSipMessage=new ProxySipRequest(jainSipMessage);
         }
         else{

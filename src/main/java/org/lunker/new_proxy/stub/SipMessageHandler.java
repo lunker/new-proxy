@@ -1,5 +1,6 @@
 package org.lunker.new_proxy.stub;
 
+import io.netty.channel.ChannelInboundHandlerAdapter;
 import org.lunker.new_proxy.model.ServerInfo;
 import org.lunker.new_proxy.sip.wrapper.message.DefaultSipMessage;
 
@@ -8,7 +9,7 @@ import java.util.Optional;
 /**
  * Created by dongqlee on 2018. 4. 25..
  */
-public abstract class SipMessageHandler {
+public abstract class SipMessageHandler extends ChannelInboundHandlerAdapter {
     private String transport="";
     private ServerInfo serverInfo=null;
 
