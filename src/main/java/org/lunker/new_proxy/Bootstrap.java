@@ -9,6 +9,7 @@ import org.lunker.new_proxy.model.ServerInfo;
 import org.lunker.new_proxy.model.Transport;
 import org.lunker.new_proxy.sip.processor.ServerProcessor;
 import org.lunker.new_proxy.stub.AbstractServer;
+import org.lunker.new_proxy.stub.SipMessageHandler;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import reactor.core.publisher.Mono;
@@ -38,7 +39,7 @@ public class Bootstrap {
             ServerInfo serverInfo=null;
             ServerProcessor serverProcessor=null;
 
-            serverThread=generateServerThread(transport);
+            serverThread=generateServerThread(transport, (SipMessageHandler) Class.forName(sipMessageHandlerImplClassName).getConstructor().newInstance());
 
             serverList.add(serverThread);
         }
@@ -85,7 +86,7 @@ public class Bootstrap {
 
 
     // TODO: change mono->
-    private static Mono<ChannelFuture> generateServerThread(Transport transport){
+    private static Mono<ChannelFuture> generateServerThread(Transport transport, SipMessageHandler sipMessageHandler){
         Mono<ChannelFuture> serverThread=Mono.fromCallable(()->{
             AbstractServer server=null;
             ChannelFuture f=null;
@@ -94,7 +95,7 @@ public class Bootstrap {
                 logger.debug("[{}] Server starting ...", transport);
 
             // Create Server instance
-            server=AbstractServer.create(transport, ~~);
+            server=AbstractServer.create(transport, sipMessageHandler);
 
             try{
                 // Run server

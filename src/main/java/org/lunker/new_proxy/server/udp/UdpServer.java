@@ -5,8 +5,11 @@ import io.netty.channel.ChannelFuture;
 import io.netty.channel.EventLoopGroup;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.nio.NioDatagramChannel;
+import org.lunker.new_proxy.config.Configuration;
+import org.lunker.new_proxy.model.Transport;
 import org.lunker.new_proxy.sip.processor.ServerProcessor;
 import org.lunker.new_proxy.stub.AbstractServer;
+import org.lunker.new_proxy.stub.SipMessageHandler;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -19,12 +22,16 @@ public class UdpServer extends AbstractServer {
 
     private Map<String, Object> configMap;
 
-    public UdpServer(ServerProcessor serverProcessor, Map<String, Object> configMap) {
+    private SipMessageHandler sipMessageHandler;
+    private Transport transport = Transport.UDP;
+
+    public UdpServer(SipMessageHandler sipMessageHandler) {
+        this.sipMessageHandler = sipMessageHandler;
         // Set Netty channel initializer
-        this.channelInitializer = new UdpChannelChannelInitializer(serverProcessor);
+        this.channelInitializer = new UdpChannelInitializer(this.sipMessageHandler);
 
         // Set transport configs
-        this.configMap = configMap;
+        this.configMap = Configuration.getInstance().getConfigMap(this.transport);
     }
 
     @Override

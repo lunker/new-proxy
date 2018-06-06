@@ -8,9 +8,12 @@ import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
 import io.netty.handler.ssl.SslContext;
 import io.netty.handler.ssl.SslContextBuilder;
+import org.lunker.new_proxy.config.Configuration;
 import org.lunker.new_proxy.model.Constants;
+import org.lunker.new_proxy.model.Transport;
 import org.lunker.new_proxy.sip.processor.ServerProcessor;
 import org.lunker.new_proxy.stub.AbstractServer;
+import org.lunker.new_proxy.stub.SipMessageHandler;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -24,28 +27,37 @@ public class WebsocketServer extends AbstractServer{
     private Logger logger= LoggerFactory.getLogger(WebsocketServer.class);
     private EventLoopGroup bossGroup=null;
     private EventLoopGroup workerGroup=null;
-
+    private SipMessageHandler sipMessageHandler;
     private SslContext sslContext=null;
+    private Transport transport = null;
 
-    public WebsocketServer(boolean ssl, ServerProcessor serverProcessor, Map<String, Object> transportConfigMap) {
+    public WebsocketServer(SipMessageHandler sipMessageHandler, boolean ssl) {
+        this.sipMessageHandler = sipMessageHandler;
         // Set Netty channel initializer
         if(ssl){
             try{
+                this.transport = Transport.WSS;
+                // Set transport configs
+                this.transportConfigMap = Configuration.getInstance().getConfigMap(this.transport);
                 sslContext = SslContextBuilder
                         .forServer(
                                 new File((String) transportConfigMap.get(Constants.Options.WSS.SSL_CERT)),
                                 new File((String) transportConfigMap.get(Constants.Options.WSS.SSL_KEY)))
                         .build();
+                this.channelInitializer = new WebsocketChannelInitializer(this.sipMessageHandler, sslContext);
             }
             catch (Exception e){
                 e.printStackTrace();
             }
+        } else {
+            this.transport = Transport.WS;
+            this.transportConfigMap = Configuration.getInstance().getConfigMap(this.transport);
+            this.channelInitializer = new WebsocketChannelInitializer(this.sipMessageHandler);
         }
 
-        this.channelInitializer=new WebsocketChannelChannelInitializer(sslContext, serverProcessor);
+        this.channelInitializer=new WebsocketChannelInitializer(this.sipMessageHandler, sslContext);
 
-        // Set transport configs
-        this.transportConfigMap=transportConfigMap;
+
     }
 
     @Override

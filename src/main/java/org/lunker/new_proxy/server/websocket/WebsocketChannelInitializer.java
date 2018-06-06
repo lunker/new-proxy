@@ -9,19 +9,26 @@ import io.netty.handler.codec.http.websocketx.extensions.compression.WebSocketSe
 import io.netty.handler.ssl.SslContext;
 import org.lunker.new_proxy.server.TransportChannelInitializer;
 import org.lunker.new_proxy.sip.processor.ServerProcessor;
+import org.lunker.new_proxy.stub.SipMessageHandler;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
  * Created by dongqlee on 2018. 5. 29..
  */
-public class WebsocketChannelChannelInitializer extends TransportChannelInitializer {
-    private Logger logger= LoggerFactory.getLogger(WebsocketChannelChannelInitializer.class);
+public class WebsocketChannelInitializer extends TransportChannelInitializer {
+    private Logger logger= LoggerFactory.getLogger(WebsocketChannelInitializer.class);
     private static final String WEBSOCKET_PATH="/";
     private final SslContext sslCtx;
+    private SipMessageHandler sipMessageHandler;
 
-    public WebsocketChannelChannelInitializer(SslContext sslCtx, ServerProcessor serverProcessor) {
-        this.serverProcessor=serverProcessor;
+    public WebsocketChannelInitializer(SipMessageHandler sipMessageHandler) {
+        this.sipMessageHandler = sipMessageHandler;
+        this.sslCtx = null;
+    }
+
+    public WebsocketChannelInitializer(SipMessageHandler sipMessageHandler, SslContext sslCtx) {
+        this.sipMessageHandler = sipMessageHandler;
         this.sslCtx=sslCtx;
     }
 
@@ -42,6 +49,6 @@ public class WebsocketChannelChannelInitializer extends TransportChannelInitiali
         // Websocket decoder
         pipeline.addLast(new WebSocketFrameHandler());
 
-        pipeline.addLast("preProcessor", serverProcessor.newPreProcessorInstance());
+        pipeline.addLast("preProcessor", sipMessageHandler);
     }
 }

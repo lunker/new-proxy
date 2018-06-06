@@ -2,8 +2,9 @@ package org.lunker.new_proxy.server.udp;
 
 import io.netty.channel.Channel;
 import io.netty.channel.ChannelHandlerContext;
+import org.lunker.new_proxy.model.Transport;
 import org.lunker.new_proxy.server.TransportChannelInitializer;
-import org.lunker.new_proxy.sip.processor.ServerProcessor;
+import org.lunker.new_proxy.stub.SipMessageHandler;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -12,12 +13,13 @@ import java.util.Optional;
 /**
  * Created by hoh on 2018. 5. 15.
  */
-public class UdpChannelChannelInitializer extends TransportChannelInitializer {
-    private Logger logger = LoggerFactory.getLogger(UdpChannelChannelInitializer.class);
-    private ServerProcessor serverProcessor = null;
+public class UdpChannelInitializer extends TransportChannelInitializer {
+    private Logger logger = LoggerFactory.getLogger(UdpChannelInitializer.class);
+    private Transport transport = Transport.UDP;
+    private SipMessageHandler sipMessageHandler;
 
-    public UdpChannelChannelInitializer(ServerProcessor serverProcessor) {
-        this.serverProcessor = serverProcessor;
+    public UdpChannelInitializer(SipMessageHandler sipMessageHandler) {
+        this.sipMessageHandler = sipMessageHandler;
     }
 
     @Override
@@ -29,7 +31,7 @@ public class UdpChannelChannelInitializer extends TransportChannelInitializer {
 //        ch.pipeline().addLast("postProcessor", new UDPPostProcessor());
 //        ch.pipeline().addLast("preProcessor", this.serverProcessor.newPreProcessorInstance());
 
-        ch.pipeline().addLast("handler", new UdpServerHandler(Optional.ofNullable(this.serverProcessor.getSipMessageHandler())));
+        ch.pipeline().addLast("handler", new UdpServerHandler(Optional.ofNullable(sipMessageHandler)));
 
 //
 //        ch.pipeline().addLast("postProcessor", this.serverProcessor.getPostProcessor());

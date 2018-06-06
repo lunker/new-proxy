@@ -6,13 +6,19 @@ import io.netty.channel.ChannelOption;
 import io.netty.channel.EventLoopGroup;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
+import io.netty.handler.ssl.SslContext;
+import io.netty.handler.ssl.SslContextBuilder;
 import org.lunker.new_proxy.config.Configuration;
+import org.lunker.new_proxy.model.Constants;
 import org.lunker.new_proxy.model.Transport;
 import org.lunker.new_proxy.server.TransportChannelInitializer;
 import org.lunker.new_proxy.stub.AbstractServer;
+import org.lunker.new_proxy.stub.SipMessageHandler;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import javax.net.ssl.SSLException;
+import java.io.File;
 import java.util.Map;
 
 /**
@@ -25,12 +31,34 @@ public class TcpServer extends AbstractServer {
     private EventLoopGroup bossGroup = new NioEventLoopGroup();
     private EventLoopGroup workerGroup = new NioEventLoopGroup();
 
-    private Transport transport=Transport.TCP;
+    private Transport transport=null;
     private Configuration configuration=Configuration.getInstance();
+    private SipMessageHandler sipMessageHandler = null;
+    private SslContext sslContext = null;
 
-    public TcpServer(TransportChannelInitializer transportChannelInitializer) {
+    public TcpServer(SipMessageHandler sipMessageHandler, boolean ssl) {
         // Set Netty channel initializer
-        this.channelInitializer=transportChannelInitializer;
+        this.sipMessageHandler = sipMessageHandler;
+        if (ssl) {
+            this.transport = Transport.TLS;
+            this.transportConfigMap = Configuration.getInstance().getConfigMap(this.transport);
+            try {
+                sslContext = SslContextBuilder
+                        .forServer(
+                        new File((String) transportConfigMap.get(Constants.Options.TLS.SSL_CERT)),
+                        new File((String) transportConfigMap.get(Constants.Options.TLS.SSL_KEY)))
+                        .build();
+            } catch (SSLException e) {
+                e.printStackTrace();
+            }
+            // create channel initializer
+            this.channelInitializer = new TcpChannelInitializer(this.sipMessageHandler, sslContext);
+        } else {
+            this.transport = Transport.TCP;
+            this.transportConfigMap = Configuration.getInstance().getConfigMap(this.transport);
+            // create channel initializer
+            this.channelInitializer = new TcpChannelInitializer(this.sipMessageHandler);
+        }
     }
 
     /**

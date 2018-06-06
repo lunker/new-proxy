@@ -1,6 +1,9 @@
 package org.lunker.new_proxy.client;
 
 import io.netty.channel.ChannelFuture;
+import io.netty.channel.ChannelFutureListener;
+import io.netty.util.concurrent.Future;
+import io.netty.util.concurrent.GenericFutureListener;
 import org.lunker.new_proxy.client.tcp.TcpClient;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -32,16 +35,19 @@ public class TcpConnectionGenerator implements ConnectionGenerator {
             TcpClient tcpClient = new TcpClient(SipMessageHandlerImpl);
             logger.debug("creating tcp connection to {}:{}", host, port);
             ChannelFuture channelFuture = tcpClient.connect(host, port);
+
             logger.debug("connected to {}:{}", host, port);
             return channelFuture;
         });
         clientThread.subscribeOn(Schedulers.newElastic("elastic-tcp-client-"+host+":"+port));
         clientThread.subscribe((channelFuture)->{
-            try {
-                channelFuture.channel().closeFuture().await();
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
+            channelFuture.addListener(new ChannelFutureListener() {
+                @Override
+                public void operationComplete(ChannelFuture future) throws Exception {
+
+                }
+            });
+//                channelFuture.channel().closeFuture().await();
             logger.info("local address: {}, remote address: {}", channelFuture.channel().localAddress(), channelFuture.channel().remoteAddress());
         });
         System.out.println("asfdasdf");

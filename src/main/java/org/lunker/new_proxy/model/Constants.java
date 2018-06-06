@@ -20,6 +20,14 @@ public class Constants {
             public static final String SO_SNDBUF="so_sndbuf";
         }
 
+        /**
+         * Constants for TLS Server
+         */
+        public static class TLS {
+            public static final String SSL_CERT = "ssl_cert";
+            public static final String SSL_KEY = "ssl_key";
+        }
+
         public static class WS{
 
         }
