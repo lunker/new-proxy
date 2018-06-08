@@ -36,10 +36,14 @@ public class Bootstrap {
     public static void addHandler(Transport transport, String sipMessageHandlerImplClassName) throws BootstrapException {
         try{
             Mono<ChannelFuture> serverThread=null;
-            ServerInfo serverInfo=null;
+            ServerInfo serverInfo = new ServerInfo(
+                    configuration.getServerType(), // server type
+                    (String)configuration.getConfigMap(transport).get("host"), // host
+                    (int)configuration.getConfigMap(transport).get("port"), // port
+                    transport); // transport
             ServerProcessor serverProcessor=null;
 
-            serverThread=generateServerThread(transport, (SipMessageHandler) Class.forName(sipMessageHandlerImplClassName).getConstructor().newInstance());
+            serverThread=generateServerThread(transport, (SipMessageHandler) Class.forName(sipMessageHandlerImplClassName).getConstructor(ServerInfo.class).newInstance(serverInfo));
 
             serverList.add(serverThread);
         }

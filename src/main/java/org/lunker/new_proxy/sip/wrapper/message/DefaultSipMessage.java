@@ -237,23 +237,26 @@ public class DefaultSipMessage {
         }
 
         if (targetCtx != null) { // found channel
+            ChannelFuture cf;
             switch (remoteTransport.toLowerCase()) {
                 case "udp":
-                    targetCtx.writeAndFlush(new DatagramPacket(
+                    cf = targetCtx.writeAndFlush(new DatagramPacket(
                             Unpooled.copiedBuffer(this.message.toString(), CharsetUtil.UTF_8),
                             new InetSocketAddress(remoteHost, remotePort)
                     ));
                     break;
                 default:
-                    ChannelFuture cf = targetCtx.writeAndFlush((Unpooled.copiedBuffer(this.message.toString(), CharsetUtil.UTF_8)));
-                    cf.addListener((future) -> {
-                        if (future.isSuccess())
-                            logger.info(String.format("[Success][%s:%s] Send message\n%s\n", remoteHost, remotePort, this.message));
-                        else
-                            logger.info(String.format("[Fail][%s:%s] Send message\n%s\nfailed cause : %s", remoteHost, remotePort, this.message, future.cause()));
-                    });
+                    cf = targetCtx.writeAndFlush((Unpooled.copiedBuffer(this.message.toString(), CharsetUtil.UTF_8))).sync();
                     break;
             }
+            // logging
+            ChannelHandlerContext finalTargetCtx = targetCtx;
+            cf.addListener((future) -> {
+                if (future.isSuccess())
+                    logger.info(String.format("[Success] Send message from %s to %s\n%s\n", finalTargetCtx.channel().localAddress(), finalTargetCtx.channel().remoteAddress(), this.message));
+                else
+                    logger.info(String.format("[Fail] Send message from %s to %s\n%s\nfailed cause : %s", finalTargetCtx.channel().localAddress(), finalTargetCtx.channel().remoteAddress(), this.message, future.cause()));
+            });
         }
     }
 
