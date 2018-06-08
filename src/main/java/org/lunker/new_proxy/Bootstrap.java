@@ -45,7 +45,7 @@ public class Bootstrap {
         }
         catch (Exception e){
             e.printStackTrace();
-            logger.error("[{}] Server started failed", transport);
+            logger.error("Failed to start [{}] server.", transport);
             throw new BootstrapException(e.getMessage());
         }
     }

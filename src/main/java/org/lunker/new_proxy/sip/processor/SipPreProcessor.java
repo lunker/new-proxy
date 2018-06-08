@@ -7,11 +7,15 @@ import gov.nist.javax.sip.message.SIPRequest;
 import gov.nist.javax.sip.parser.StringMsgParser;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
+import io.netty.channel.socket.DatagramPacket;
+import io.netty.util.CharsetUtil;
 import org.lunker.new_proxy.config.Configuration;
 import org.lunker.new_proxy.core.ConnectionManager;
 import org.lunker.new_proxy.core.constants.ServerType;
 import org.lunker.new_proxy.model.Transport;
 import org.lunker.new_proxy.sip.wrapper.message.DefaultSipMessage;
+import org.lunker.new_proxy.sip.wrapper.message.lb.LoadBalancerRequest;
+import org.lunker.new_proxy.sip.wrapper.message.lb.LoadBalancerResponse;
 import org.lunker.new_proxy.sip.wrapper.message.proxy.ProxySipRequest;
 import org.lunker.new_proxy.sip.wrapper.message.proxy.ProxySipResponse;
 import org.lunker.new_proxy.util.lambda.StreamHelper;
@@ -29,16 +33,18 @@ import java.util.Optional;
  */
 public class SipPreProcessor extends ChannelInboundHandlerAdapter {
     private Logger logger= LoggerFactory.getLogger(SipPreProcessor.class);
-    private ConnectionManager connectionManager=ConnectionManager.getInstance();
+    private ConnectionManager connectionManager;
 
-    private StringMsgParser stringMsgParser=null;
+    private StringMsgParser stringMsgParser;
 
-    private Transport transport=Transport.NONE;
-    private ServerType serverType=ServerType.NONE;
+    private Transport transport;
+    private ServerType serverType;
 
     public SipPreProcessor(Transport transport) {
         this.transport = transport;
         this.serverType= Configuration.getInstance().getServerType();
+        this.stringMsgParser = new StringMsgParser();
+        this.connectionManager = ConnectionManager.getInstance();
     }
 
     @Override
@@ -48,9 +54,9 @@ public class SipPreProcessor extends ChannelInboundHandlerAdapter {
     // TODO: save user connection using ip, port, transport
     @Override
     public void channelActive(ChannelHandlerContext ctx) throws Exception {
+        // saving connection process moved to channelRegistered.
         InetSocketAddress remoteAddress=((InetSocketAddress)ctx.channel().remoteAddress());
-
-        this.connectionManager.addConnection(remoteAddress.getHostString(), remoteAddress.getPort(),"", ctx);
+        this.connectionManager.addConnection(remoteAddress.getHostString(), remoteAddress.getPort(), this.transport.getValue(), ctx);
     }
 
     // TODO: Refactoring. Proxy, LB preprocessor를 분리 및 상속 받을 필요가 없다
@@ -119,11 +125,24 @@ public class SipPreProcessor extends ChannelInboundHandlerAdapter {
         DefaultSipMessage defaultSipMessage =null;
 
         if(jainSipMessage instanceof SIPRequest){
-            // TODO: ServerType에 맞게
-            defaultSipMessage=new ProxySipRequest(jainSipMessage);
+            switch (this.serverType) {
+                case PROXY:
+                    defaultSipMessage = new ProxySipRequest(jainSipMessage);
+                    break;
+                case LB:
+                    defaultSipMessage = new LoadBalancerRequest(jainSipMessage);
+                    break;
+            }
         }
-        else{
-            defaultSipMessage=new ProxySipResponse(jainSipMessage);
+        else{ // jainSipMessage instanceof SIPResponse
+            switch (this.serverType) {
+                case PROXY:
+                    defaultSipMessage = new ProxySipResponse(jainSipMessage);
+                    break;
+                case LB:
+                    defaultSipMessage = new LoadBalancerResponse(jainSipMessage);
+                    break;
+            }
         }
 
         /*

@@ -1,5 +1,6 @@
 package org.lunker.new_proxy.client;
 
+import io.netty.channel.Channel;
 import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelFutureListener;
 import io.netty.util.concurrent.Future;
@@ -30,9 +31,10 @@ public class TcpConnectionGenerator implements ConnectionGenerator {
 
     @Override
     public void generate(String host, int port, Class SipMessageHandlerImpl) throws Exception {
+        Channel channel;
         // TODO: use reactor (MONO)
         Mono<ChannelFuture> clientThread = Mono.fromCallable(()->{
-            TcpClient tcpClient = new TcpClient(SipMessageHandlerImpl);
+            TcpClient tcpClient = new TcpClient(SipMessageHandlerImpl, false);
             logger.debug("creating tcp connection to {}:{}", host, port);
             ChannelFuture channelFuture = tcpClient.connect(host, port);
 
@@ -41,19 +43,7 @@ public class TcpConnectionGenerator implements ConnectionGenerator {
         });
         clientThread.subscribeOn(Schedulers.newElastic("elastic-tcp-client-"+host+":"+port));
         clientThread.subscribe((channelFuture)->{
-            channelFuture.addListener(new ChannelFutureListener() {
-                @Override
-                public void operationComplete(ChannelFuture future) throws Exception {
-
-                }
-            });
-//                channelFuture.channel().closeFuture().await();
             logger.info("local address: {}, remote address: {}", channelFuture.channel().localAddress(), channelFuture.channel().remoteAddress());
         });
-        System.out.println("asfdasdf");
-//        ChannelFuture channelFuture = tcpClient.connect(host, port);
-//        channelFuture.channel().localAddress();
-//        channelFuture.channel().remoteAddress();
-//        channelFuture.channel().closeFuture().await();
     }
 }

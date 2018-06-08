@@ -11,6 +11,7 @@ import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.socket.DatagramPacket;
 import io.netty.handler.codec.http.websocketx.TextWebSocketFrame;
 import io.netty.util.CharsetUtil;
+import org.lunker.new_proxy.client.TcpConnectionGenerator;
 import org.lunker.new_proxy.core.ConnectionManager;
 import org.lunker.new_proxy.model.Transport;
 import org.lunker.new_proxy.sip.util.SipMessageFactory;
@@ -211,7 +212,7 @@ public class DefaultSipMessage {
      * @param remotePort
      * @param remoteTransport
      */
-    public void send(String remoteHost, int remotePort, String remoteTransport) {
+    public void send(String remoteHost, int remotePort, String remoteTransport, Class SipMessageHandlerImpl) throws Exception {
         ChannelHandlerContext targetCtx = null;
         // find channel
         // TODO: change name client to something like node?
@@ -223,6 +224,8 @@ public class DefaultSipMessage {
                 case "udp":
                     break;
                 case "tcp":
+                    TcpConnectionGenerator.getInstance().generate(remoteHost, remotePort, SipMessageHandlerImpl);
+                    targetCtx = this.connectionManager.getConnection(remoteHost, remotePort, "tcp");
                     break;
                 case "tls":
                     break;
@@ -231,7 +234,9 @@ public class DefaultSipMessage {
                 case "wss":
                     break;
             }
-        } else { // found channel
+        }
+
+        if (targetCtx != null) { // found channel
             switch (remoteTransport.toLowerCase()) {
                 case "udp":
                     targetCtx.writeAndFlush(new DatagramPacket(
