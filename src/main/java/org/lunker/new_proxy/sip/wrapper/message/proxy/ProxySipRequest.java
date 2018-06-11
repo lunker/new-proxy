@@ -5,7 +5,6 @@ import gov.nist.javax.sip.message.SIPRequest;
 import gov.nist.javax.sip.message.SIPResponse;
 import org.lunker.new_proxy.model.ServerInfo;
 import org.lunker.new_proxy.sip.B2BUAHelper;
-import org.lunker.new_proxy.sip.util.SipMessageFactory;
 import org.lunker.new_proxy.sip.wrapper.message.DefaultSipRequest;
 import org.lunker.new_proxy.sip.wrapper.message.Sessionable;
 
@@ -24,7 +23,6 @@ import java.util.ListIterator;
 public class ProxySipRequest extends DefaultSipRequest implements Sessionable{
     private B2BUAHelper b2BUAHelper=null;
     private ServerInfo serverInfo=null;
-    private SipMessageFactory sipMessageFactory=null;
 
     public ProxySipRequest(SIPMessage jainSipRequest) {
         super(jainSipRequest);
