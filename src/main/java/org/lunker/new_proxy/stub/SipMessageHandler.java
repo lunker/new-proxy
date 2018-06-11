@@ -1,5 +1,6 @@
 package org.lunker.new_proxy.stub;
 
+import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
 import org.lunker.new_proxy.model.ServerInfo;
 import org.lunker.new_proxy.sip.wrapper.message.DefaultSipMessage;
@@ -31,5 +32,10 @@ public abstract class SipMessageHandler extends ChannelInboundHandlerAdapter {
 
     public ServerInfo getServerInfo() {
         return serverInfo;
+    }
+
+    @Override
+    public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
+        handle((Optional<DefaultSipMessage>) msg);
     }
 }
