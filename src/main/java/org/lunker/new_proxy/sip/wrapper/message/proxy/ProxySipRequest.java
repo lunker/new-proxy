@@ -1,8 +1,11 @@
 package org.lunker.new_proxy.sip.wrapper.message.proxy;
 
+import gov.nist.javax.sip.address.SipUri;
 import gov.nist.javax.sip.message.SIPMessage;
 import gov.nist.javax.sip.message.SIPRequest;
 import gov.nist.javax.sip.message.SIPResponse;
+import org.lunker.new_proxy.config.Configuration;
+import org.lunker.new_proxy.model.Constants;
 import org.lunker.new_proxy.model.ServerInfo;
 import org.lunker.new_proxy.sip.B2BUAHelper;
 import org.lunker.new_proxy.sip.wrapper.message.DefaultSipRequest;
@@ -16,6 +19,7 @@ import javax.sip.message.Request;
 import javax.sip.message.Response;
 import java.text.ParseException;
 import java.util.ListIterator;
+import java.util.Map;
 
 /**
  * Created by dongqlee on 2018. 3. 19..
@@ -34,8 +38,18 @@ public class ProxySipRequest extends DefaultSipRequest implements Sessionable{
 
     public ProxySipResponse createResponse(int statusCode, String reasonPhrase) {
         try {
+            Configuration configuration=Configuration.getInstance();
             Request request = (Request)this.message;
             Response response = this.sipMessageFactory.createResponse(statusCode, request);
+            String transport=((SipUri)((SIPRequest) request).getContactHeader().getAddress().getURI()).getTransportParam();
+            Map<String, Object> serverConfigMap=configuration.getConfigMap(transport);
+
+            String serverHost="";
+            int serverPort=0;
+
+            serverHost=(String) serverConfigMap.get(Constants.HOST);
+            serverPort=(int) serverConfigMap.get(Constants.PORT);
+
             if (reasonPhrase != null) {
                 response.setReasonPhrase(reasonPhrase);
             }
@@ -76,9 +90,9 @@ public class ProxySipRequest extends DefaultSipRequest implements Sessionable{
 
                     // Proxy ServerInfo..
                     // TODO: change hard coded address
-                    Address address=this.sipMessageFactory.getAddressFactory().createAddress("10.0.1.202:10010");
+                    Address address=this.sipMessageFactory.getAddressFactory().createAddress(String.format("%s:%d", serverHost, serverPort));
                     ContactHeader contactHeader=this.sipMessageFactory.getHeaderFactory().createContactHeader(address);
-                    contactHeader.setParameter("transport", "tcp");
+                    contactHeader.setParameter("transport", transport);
 
                     response.setHeader(contactHeader);
                 }

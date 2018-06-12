@@ -253,6 +253,10 @@ public class Configuration {
         return serverType;
     }
 
+    public Map<String, Object> getConfigMap(String transport){
+        return getConfigMap(Transport.valueOf(transport));
+    }
+
     public Map<String, Object> getConfigMap(Transport transport){
         if(Transport.TCP.equals(transport)){
             return this.tcpConfigMap;

@@ -4,6 +4,11 @@ package org.lunker.new_proxy.model;
  * Created by dongqlee on 2018. 5. 31..
  */
 public class Constants {
+
+    public static final String HOST="host";
+    public static final String PORT="port";
+
+
     public static class Options{
         public static class UDP{
 
