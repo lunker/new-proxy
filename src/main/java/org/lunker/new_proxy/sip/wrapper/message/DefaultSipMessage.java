@@ -260,6 +260,38 @@ public class DefaultSipMessage {
         }
     }
 
+
+    public void send(String remoteHost, int remotePort, String remoteTransport) throws Exception {
+        ChannelHandlerContext targetCtx = null;
+        // find channel
+        // TODO: change name client to something like node?
+        targetCtx = this.connectionManager.getConnection(remoteHost, remotePort, remoteTransport);
+
+        if (targetCtx != null) { // found channel
+            ChannelFuture cf;
+
+            switch (remoteTransport.toLowerCase()) {
+                case "udp":
+                    cf = targetCtx.writeAndFlush(new DatagramPacket(
+                            Unpooled.copiedBuffer(this.message.toString(), CharsetUtil.UTF_8),
+                            new InetSocketAddress(remoteHost, remotePort)
+                    ));
+                    break;
+                default:
+                    cf = targetCtx.writeAndFlush((Unpooled.copiedBuffer(this.message.toString(), CharsetUtil.UTF_8))).sync();
+                    break;
+            }
+            // logging
+            ChannelHandlerContext finalTargetCtx = targetCtx;
+            cf.addListener((future) -> {
+                if (future.isSuccess())
+                    logger.info(String.format("[Success] Send message from %s to %s\n%s\n", finalTargetCtx.channel().localAddress(), finalTargetCtx.channel().remoteAddress(), this.message));
+                else
+                    logger.info(String.format("[Fail] Send message from %s to %s\n%s\nfailed cause : %s", finalTargetCtx.channel().localAddress(), finalTargetCtx.channel().remoteAddress(), this.message, future.cause()));
+            });
+        }
+    }
+
     public MaxForwardsHeader getMaxForwards(){
         return this.message.getMaxForwards();
     }
