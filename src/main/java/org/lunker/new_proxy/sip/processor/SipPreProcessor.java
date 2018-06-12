@@ -97,7 +97,7 @@ public class SipPreProcessor extends ChannelInboundHandlerAdapter {
      * @throws ParseException
      */
     private SIPMessage updateMessage(ChannelHandlerContext ctx, SIPMessage jainSipMessage) throws ParseException {
-
+        // TODO: UDP case
         if(jainSipMessage instanceof SIPRequest){
             ViaList viaList=jainSipMessage.getViaHeaders();
 

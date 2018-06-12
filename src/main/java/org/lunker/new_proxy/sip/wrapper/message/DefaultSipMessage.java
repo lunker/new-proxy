@@ -86,9 +86,6 @@ public class DefaultSipMessage {
     }
 
     public Header getHeader(String headerName) throws NullPointerException{
-        if(this.message==null)
-            throw new NullPointerException("");
-
         return this.message.getHeader(headerName);
     }
 

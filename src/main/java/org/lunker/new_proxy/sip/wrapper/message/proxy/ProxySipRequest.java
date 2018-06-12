@@ -75,6 +75,7 @@ public class ProxySipRequest extends DefaultSipRequest implements Sessionable{
 
 
                     // Proxy ServerInfo..
+                    // TODO: change hard coded address
                     Address address=this.sipMessageFactory.getAddressFactory().createAddress("10.0.1.202:10010");
                     ContactHeader contactHeader=this.sipMessageFactory.getHeaderFactory().createContactHeader(address);
                     contactHeader.setParameter("transport", "tcp");
