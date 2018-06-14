@@ -54,7 +54,6 @@ public class SipPreProcessor extends ChannelInboundHandlerAdapter {
     // TODO: save user connection using ip, port, transport
     @Override
     public void channelActive(ChannelHandlerContext ctx) throws Exception {
-        // saving connection process moved to channelRegistered.
         InetSocketAddress remoteAddress=((InetSocketAddress)ctx.channel().remoteAddress());
         this.connectionManager.addConnection(remoteAddress.getHostString(), remoteAddress.getPort(), this.transport.getValue(), ctx);
     }

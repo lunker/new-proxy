@@ -1,22 +1,15 @@
 package org.lunker.new_proxy.sip.wrapper.message.lb;
 
-import gov.nist.javax.sip.message.SIPMessage;
 import gov.nist.javax.sip.message.SIPRequest;
 import org.junit.Test;
-import org.lunker.new_proxy.sip.util.SipMessageFactory;
 
 import javax.sip.PeerUnavailableException;
 import javax.sip.SipFactory;
-import javax.sip.address.AddressFactory;
-import javax.sip.address.URI;
-import javax.sip.header.HeaderFactory;
 import javax.sip.message.MessageFactory;
-import javax.sip.message.Request;
+
 import javax.sip.message.Response;
 
 import java.text.ParseException;
-
-import static org.junit.Assert.*;
 
 public class LoadBalancerRequestTest {
 

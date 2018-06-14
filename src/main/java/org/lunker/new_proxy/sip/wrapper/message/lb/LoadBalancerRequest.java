@@ -20,7 +20,6 @@ public class LoadBalancerRequest extends DefaultSipRequest {
     }
 
     public LoadBalancerResponse createResponse(int statusCode) throws ParseException {
-        Configuration configuration = Configuration.getInstance();
         Request request = (Request) this.message;
         Response response = this.sipMessageFactory.createResponse(statusCode, request); // could throw ParseException
         return new LoadBalancerResponse((SIPResponse) response);
