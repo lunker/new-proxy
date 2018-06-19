@@ -1,5 +1,7 @@
 package org.lunker.new_proxy.heartbeat;
 
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
 import io.netty.buffer.Unpooled;
 import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelHandler;
@@ -45,6 +47,11 @@ public class HeartbeatServerTest {
         public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
             Request request =  messageFactory.createRequest( ((Optional<String>)msg).get());
             System.out.println("Ping~\n"+request.toString());
+            String content = new String(request.getRawContent());
+            System.out.println("content:\n"+content.replaceAll("(\\r|\\n)", ""));
+            JsonParser jsonParser = new JsonParser();
+            JsonObject jsonObject = jsonParser.parse(content).getAsJsonObject();
+            System.out.println("json:\n" + jsonObject);
             pong(ctx, request);
         }
     }

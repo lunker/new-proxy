@@ -1,5 +1,8 @@
 package org.lunker.new_proxy.heartbeat;
 
+import com.google.gson.Gson;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
 import io.netty.buffer.Unpooled;
 import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelHandler;
@@ -61,9 +64,17 @@ public class HeartbeatClientTest {
                     "Info-Package: foo\n" +
                     "Content-type: application/foo\n" +
                     "Content-Disposition: Info-Package\n" +
-                    "Content-length: 23\n" +
+                    "Content-length: 93\n" +
                     "\n" +
-                    "I am a foo message type"
+                    "{" +
+                            "\"host\": \"127.0.0.1\"," +
+                            "\"port\": {" +
+                            "\"udp\": 10020," +
+                            "\"tcp\": 10020," +
+                            "\"tls\": null," +
+                            "\"ws\": null," +
+                            "\"wss\": null" +
+                            "}}\n"
             );
             ctx.channel().writeAndFlush(Unpooled.copiedBuffer(request.toString(), CharsetUtil.UTF_8));
         }
@@ -78,6 +89,7 @@ public class HeartbeatClientTest {
             Response response = (Response) messageFactory.createResponse(((Optional<String>)msg).get());
 //            super.channelRead(ctx, );
             System.out.println("Pong~\n"+response.toString());
+
         }
 
         @Override
