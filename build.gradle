@@ -4,6 +4,9 @@ version '1.0.1'
 apply plugin: 'java'
 apply plugin: 'idea'
 apply plugin: 'maven-publish'
+compileJava {options.encoding = "UTF-8"}
+compileTestJava {options.encoding = "UTF-8"}
+javadoc {options.encoding = "UTF-8"}
 
 sourceCompatibility = 1.8
 
@@ -97,6 +100,9 @@ task javadocJar (type: Jar, dependsOn: javadoc) {
 task sourceJar (type : Jar) {
     classifier = 'sources'
     from sourceSets.main.java
+}
+tasks.withType(JavaCompile) {
+    options.encoding = "UTF-8"
 }
 
 artifacts {

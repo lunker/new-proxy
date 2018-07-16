@@ -41,11 +41,11 @@ public class ProxySipRequest extends DefaultSipRequest implements Sessionable{
             Configuration configuration=Configuration.getInstance();
             Request request = (Request)this.message;
             Response response = this.sipMessageFactory.createResponse(statusCode, request);
-            String transport=((SipUri)((SIPRequest) request).getContactHeader().getAddress().getURI()).getTransportParam();
+            String transport=((SipUri)((SIPRequest) request).getContactHeader().getAddress().getURI()).getTransportParam().toUpperCase();
             Map<String, Object> serverConfigMap=configuration.getConfigMap(transport);
 
-            String serverHost="";
-            int serverPort=0;
+            String serverHost;
+            int serverPort;
 
             serverHost=(String) serverConfigMap.get(Constants.HOST);
             serverPort=(int) serverConfigMap.get(Constants.PORT);
@@ -108,8 +108,9 @@ public class ProxySipRequest extends DefaultSipRequest implements Sessionable{
             }
 
 //            ProxySipResponse generalSipResponse=new ProxySipResponse((SIPResponse) response, this.sipSessionKey);
-            ProxySipResponse generalSipResponse=new ProxySipResponse((SIPResponse) response);
-            return generalSipResponse;
+//            ProxySipResponse generalSipResponse=new ProxySipResponse((SIPResponse) response);
+//            return generalSipResponse;
+            return new ProxySipResponse((SIPResponse) response);
         } catch (ParseException var19) {
             throw new IllegalArgumentException("Bad status code " + statusCode, var19);
         }

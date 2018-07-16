@@ -61,7 +61,7 @@ public class DefaultSipMessage {
 
     /**
      * Get 'From' Header
-     * @return
+     * @return FromHeader
      * @throws NullPointerException
      */
     public FromHeader getFrom() throws NullPointerException{
@@ -105,11 +105,11 @@ public class DefaultSipMessage {
         return this.message;
     }
 
-    public void send() throws ParseException {
-        String remoteHost="";
-        int remotePort=0;
-        String remoteTransport="";
-        ChannelHandlerContext targetCtx=null;
+    public void send() {
+        String remoteHost;
+        int remotePort;
+        String remoteTransport;
+        ChannelHandlerContext targetCtx;
 
         // 연결된 LB가 없으면, SIPMessage에 있는 정보로 전송한다
         // TODO:: PostProcessor로 옮긴다.
@@ -210,7 +210,7 @@ public class DefaultSipMessage {
      * @param remoteTransport
      */
     public void send(String remoteHost, int remotePort, String remoteTransport, Class SipMessageHandlerImpl) throws Exception {
-        ChannelHandlerContext targetCtx = null;
+        ChannelHandlerContext targetCtx;
         // find channel
         // TODO: change name client to something like node?
         targetCtx = this.connectionManager.getConnection(remoteHost, remotePort, remoteTransport);
@@ -259,7 +259,7 @@ public class DefaultSipMessage {
 
 
     public void send(String remoteHost, int remotePort, String remoteTransport) throws Exception {
-        ChannelHandlerContext targetCtx = null;
+        ChannelHandlerContext targetCtx;
         // find channel
         // TODO: change name client to something like node?
         targetCtx = this.connectionManager.getConnection(remoteHost, remotePort, remoteTransport);
@@ -303,6 +303,14 @@ public class DefaultSipMessage {
 
     public RecordRouteList getRecordRouteHeaders(){
         return this.message.getRecordRouteHeaders();
+    }
+
+    public String getFromTag() {
+        return this.message.getFromTag();
+    }
+
+    public String getToTag() {
+        return this.message.getToTag();
     }
 
     @Override
